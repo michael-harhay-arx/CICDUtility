@@ -1,0 +1,1150 @@
+[TSUISUPP_MRUFilesGetItem]
+Class="Function"
+Prototype="long TSUISUPP_MRUFilesGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, char **val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:2497:1"
+
+[TSUISUPP_MRUFilesGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_MRUFilesGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:2538:1"
+
+[TSUISUPP_MRUFilesGetCount]
+Class="Function"
+Prototype="long TSUISUPP_MRUFilesGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:2584:1"
+
+[TSUISUPP_MRUFilesGetMax]
+Class="Function"
+Prototype="long TSUISUPP_MRUFilesGetMax(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:2613:1"
+
+[TSUISUPP_MRUFilesSetMax]
+Class="Function"
+Prototype="long TSUISUPP_MRUFilesSetMax(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:2642:1"
+
+[TSUISUPP_MRUFilesClear]
+Class="Function"
+Prototype="long TSUISUPP_MRUFilesClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:2665:1"
+
+[TSUISUPP_MRUFilesRemove]
+Class="Function"
+Prototype="long TSUISUPP_MRUFilesRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, const char *fileNameVal, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:2688:1"
+
+[TSUISUPP_MRUFilesGetDisplayName]
+Class="Function"
+Prototype="long TSUISUPP_MRUFilesGetDisplayName(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, long maxWidth, char **val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:2724:1"
+
+[TSUISUPP_MRUFilesAdd]
+Class="Function"
+Prototype="long TSUISUPP_MRUFilesAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, const char *fileNameVal);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:2767:1"
+
+[TSUISUPP_SelectedStepsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_SelectedStepsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:2796:1"
+
+[TSUISUPP_SelectedStepsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_SelectedStepsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:2852:1"
+
+[TSUISUPP_SelectedStepsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_SelectedStepsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:2898:1"
+
+[TSUISUPP_SelectedStepsClear]
+Class="Function"
+Prototype="long TSUISUPP_SelectedStepsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:2927:1"
+
+[TSUISUPP_SelectedStepsAddStepIndex]
+Class="Function"
+Prototype="long TSUISUPP_SelectedStepsAddStepIndex(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long stepIndex);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:2950:1"
+
+[TSUISUPP_SelectedStepsGetEndSelected]
+Class="Function"
+Prototype="long TSUISUPP_SelectedStepsGetEndSelected(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:2975:1"
+
+[TSUISUPP_SelectedStepsSetEndSelected]
+Class="Function"
+Prototype="long TSUISUPP_SelectedStepsSetEndSelected(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, short val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3006:1"
+
+[TSUISUPP_SelectedStepsGetStepIndex]
+Class="Function"
+Prototype="long TSUISUPP_SelectedStepsGetStepIndex(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long nthSelectedStep, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3030:1"
+
+[TSUISUPP_SelectedStepsGetStepGroup]
+Class="Function"
+Prototype="long TSUISUPP_SelectedStepsGetStepGroup(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long nthSelectedStep, enum TSUISUPPEnum_StepGroups *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3063:1"
+
+[TSUISUPP_SelectedStepsAddStep]
+Class="Function"
+Prototype="long TSUISUPP_SelectedStepsAddStep(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3096:1"
+
+[TSUISUPP_SelectedStepsAddSteps]
+Class="Function"
+Prototype="long TSUISUPP_SelectedStepsAddSteps(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct tagSAFEARRAY *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3130:1"
+
+[TSUISUPP_SelectedStepsGetSelectionFlags]
+Class="Function"
+Prototype="long TSUISUPP_SelectedStepsGetSelectionFlags(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3154:1"
+
+[TSUISUPP_SelectedStepsSetSelectionFlags]
+Class="Function"
+Prototype="long TSUISUPP_SelectedStepsSetSelectionFlags(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3185:1"
+
+[TSUISUPP_SelectedStepsBeginUpdate]
+Class="Function"
+Prototype="long TSUISUPP_SelectedStepsBeginUpdate(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3210:1"
+
+[TSUISUPP_SelectedStepsEndUpdate]
+Class="Function"
+Prototype="long TSUISUPP_SelectedStepsEndUpdate(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3233:1"
+
+[TSUISUPP_StringsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_StringsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, char **val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3256:1"
+
+[TSUISUPP_StringsSetItem]
+Class="Function"
+Prototype="long TSUISUPP_StringsSetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, const char *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3297:1"
+
+[TSUISUPP_StringsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_StringsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3326:1"
+
+[TSUISUPP_StringsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_StringsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3372:1"
+
+[TSUISUPP_StringsClear]
+Class="Function"
+Prototype="long TSUISUPP_StringsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3401:1"
+
+[TSUISUPP_StringsAdd]
+Class="Function"
+Prototype="long TSUISUPP_StringsAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, const char *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3424:1"
+
+[TSUISUPP_StringsInsert]
+Class="Function"
+Prototype="long TSUISUPP_StringsInsert(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, const char *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3451:1"
+
+[TSUISUPP_StringsRemove]
+Class="Function"
+Prototype="long TSUISUPP_StringsRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3480:1"
+
+[TSUISUPP_NumericConnectionGetSource]
+Class="Function"
+Prototype="long TSUISUPP_NumericConnectionGetSource(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, enum TSUISUPPEnum_NumericSources *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3503:1"
+
+[TSUISUPP_NumericConnectionSetSource]
+Class="Function"
+Prototype="long TSUISUPP_NumericConnectionSetSource(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, enum TSUISUPPEnum_NumericSources val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3534:1"
+
+[TSUISUPP_NumericConnectionRefresh]
+Class="Function"
+Prototype="long TSUISUPP_NumericConnectionRefresh(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3558:1"
+
+[TSUISUPP_NumericConnectionsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_NumericConnectionsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3581:1"
+
+[TSUISUPP_NumericConnectionsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_NumericConnectionsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3637:1"
+
+[TSUISUPP_NumericConnectionsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_NumericConnectionsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3683:1"
+
+[TSUISUPP_NumericConnectionsAdd]
+Class="Function"
+Prototype="long TSUISUPP_NumericConnectionsAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3713:1"
+
+[TSUISUPP_NumericConnectionsRemove]
+Class="Function"
+Prototype="long TSUISUPP_NumericConnectionsRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3777:1"
+
+[TSUISUPP_NumericConnectionsClear]
+Class="Function"
+Prototype="long TSUISUPP_NumericConnectionsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3817:1"
+
+[TSUISUPP_NumericConnectionsFromControl]
+Class="Function"
+Prototype="long TSUISUPP_NumericConnectionsFromControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3840:1"
+
+[TSUISUPP_ImageConnectionGetSource]
+Class="Function"
+Prototype="long TSUISUPP_ImageConnectionGetSource(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, enum TSUISUPPEnum_ImageSources *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3905:1"
+
+[TSUISUPP_ImageConnectionSetSource]
+Class="Function"
+Prototype="long TSUISUPP_ImageConnectionSetSource(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, enum TSUISUPPEnum_ImageSources val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3936:1"
+
+[TSUISUPP_ImageConnectionsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_ImageConnectionsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:3960:1"
+
+[TSUISUPP_ImageConnectionsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_ImageConnectionsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4016:1"
+
+[TSUISUPP_ImageConnectionsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_ImageConnectionsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4062:1"
+
+[TSUISUPP_ImageConnectionsAdd]
+Class="Function"
+Prototype="long TSUISUPP_ImageConnectionsAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4092:1"
+
+[TSUISUPP_ImageConnectionsRemove]
+Class="Function"
+Prototype="long TSUISUPP_ImageConnectionsRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4156:1"
+
+[TSUISUPP_ImageConnectionsClear]
+Class="Function"
+Prototype="long TSUISUPP_ImageConnectionsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4196:1"
+
+[TSUISUPP_ImageConnectionsFromControl]
+Class="Function"
+Prototype="long TSUISUPP_ImageConnectionsFromControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4219:1"
+
+[TSUISUPP_CaptionConnectionGetSource]
+Class="Function"
+Prototype="long TSUISUPP_CaptionConnectionGetSource(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, enum TSUISUPPEnum_CaptionSources *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4284:1"
+
+[TSUISUPP_CaptionConnectionSetSource]
+Class="Function"
+Prototype="long TSUISUPP_CaptionConnectionSetSource(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, enum TSUISUPPEnum_CaptionSources val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4315:1"
+
+[TSUISUPP_CaptionConnectionGetLongName]
+Class="Function"
+Prototype="long TSUISUPP_CaptionConnectionGetLongName(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4339:1"
+
+[TSUISUPP_CaptionConnectionSetLongName]
+Class="Function"
+Prototype="long TSUISUPP_CaptionConnectionSetLongName(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, short val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4370:1"
+
+[TSUISUPP_CaptionConnectionSetFormatExpression]
+Class="Function"
+Prototype="long TSUISUPP_CaptionConnectionSetFormatExpression(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, const char *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4394:1"
+
+[TSUISUPP_CaptionConnectionGetFormatExpression]
+Class="Function"
+Prototype="long TSUISUPP_CaptionConnectionGetFormatExpression(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, char **val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4423:1"
+
+[TSUISUPP_CaptionConnectionRefresh]
+Class="Function"
+Prototype="long TSUISUPP_CaptionConnectionRefresh(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4464:1"
+
+[TSUISUPP_CaptionConnectionsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_CaptionConnectionsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4487:1"
+
+[TSUISUPP_CaptionConnectionsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_CaptionConnectionsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4543:1"
+
+[TSUISUPP_CaptionConnectionsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_CaptionConnectionsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4589:1"
+
+[TSUISUPP_CaptionConnectionsAdd]
+Class="Function"
+Prototype="long TSUISUPP_CaptionConnectionsAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4619:1"
+
+[TSUISUPP_CaptionConnectionsRemove]
+Class="Function"
+Prototype="long TSUISUPP_CaptionConnectionsRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4683:1"
+
+[TSUISUPP_CaptionConnectionsClear]
+Class="Function"
+Prototype="long TSUISUPP_CaptionConnectionsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4723:1"
+
+[TSUISUPP_CaptionConnectionsFromControl]
+Class="Function"
+Prototype="long TSUISUPP_CaptionConnectionsFromControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4746:1"
+
+[TSUISUPP_CommandConnectionGetKind]
+Class="Function"
+Prototype="long TSUISUPP_CommandConnectionGetKind(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, enum TSUISUPPEnum_CommandKinds *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4811:1"
+
+[TSUISUPP_CommandConnectionSetKind]
+Class="Function"
+Prototype="long TSUISUPP_CommandConnectionSetKind(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, enum TSUISUPPEnum_CommandKinds val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4842:1"
+
+[TSUISUPP_CommandConnectionGetIndex]
+Class="Function"
+Prototype="long TSUISUPP_CommandConnectionGetIndex(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4866:1"
+
+[TSUISUPP_CommandConnectionSetIndex]
+Class="Function"
+Prototype="long TSUISUPP_CommandConnectionSetIndex(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4896:1"
+
+[TSUISUPP_CommandConnectionGetOptions]
+Class="Function"
+Prototype="long TSUISUPP_CommandConnectionGetOptions(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4920:1"
+
+[TSUISUPP_CommandConnectionSetOptions]
+Class="Function"
+Prototype="long TSUISUPP_CommandConnectionSetOptions(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4951:1"
+
+[TSUISUPP_CommandConnectionRefresh]
+Class="Function"
+Prototype="long TSUISUPP_CommandConnectionRefresh(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4975:1"
+
+[TSUISUPP_CommandConnectionFreezeRefresh]
+Class="Function"
+Prototype="long TSUISUPP_CommandConnectionFreezeRefresh(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, short frz);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:4998:1"
+
+[TSUISUPP_CommandConnectionsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_CommandConnectionsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5022:1"
+
+[TSUISUPP_CommandConnectionsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_CommandConnectionsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5078:1"
+
+[TSUISUPP_CommandConnectionsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_CommandConnectionsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5124:1"
+
+[TSUISUPP_CommandConnectionsAdd]
+Class="Function"
+Prototype="long TSUISUPP_CommandConnectionsAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5154:1"
+
+[TSUISUPP_CommandConnectionsRemove]
+Class="Function"
+Prototype="long TSUISUPP_CommandConnectionsRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5218:1"
+
+[TSUISUPP_CommandConnectionsClear]
+Class="Function"
+Prototype="long TSUISUPP_CommandConnectionsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5258:1"
+
+[TSUISUPP_CommandConnectionsFromControl]
+Class="Function"
+Prototype="long TSUISUPP_CommandConnectionsFromControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5281:1"
+
+[TSUISUPP_SequenceViewConnectionGetUIControl]
+Class="Function"
+Prototype="long TSUISUPP_SequenceViewConnectionGetUIControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5346:1"
+
+[TSUISUPP_SequenceViewConnectionGetDoubleClickEditsStepProperties]
+Class="Function"
+Prototype="long TSUISUPP_SequenceViewConnectionGetDoubleClickEditsStepProperties(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5400:1"
+
+[TSUISUPP_SequenceViewConnectionSetDoubleClickEditsStepProperties]
+Class="Function"
+Prototype="long TSUISUPP_SequenceViewConnectionSetDoubleClickEditsStepProperties(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, short val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5431:1"
+
+[TSUISUPP_SequenceViewConnectionsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_SequenceViewConnectionsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5456:1"
+
+[TSUISUPP_SequenceViewConnectionsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_SequenceViewConnectionsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5512:1"
+
+[TSUISUPP_SequenceViewConnectionsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_SequenceViewConnectionsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5558:1"
+
+[TSUISUPP_SequenceViewConnectionsAdd]
+Class="Function"
+Prototype="long TSUISUPP_SequenceViewConnectionsAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5588:1"
+
+[TSUISUPP_SequenceViewConnectionsRemove]
+Class="Function"
+Prototype="long TSUISUPP_SequenceViewConnectionsRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5652:1"
+
+[TSUISUPP_SequenceViewConnectionsClear]
+Class="Function"
+Prototype="long TSUISUPP_SequenceViewConnectionsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5693:1"
+
+[TSUISUPP_SequenceViewConnectionsFromControl]
+Class="Function"
+Prototype="long TSUISUPP_SequenceViewConnectionsFromControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5716:1"
+
+[TSUISUPP_SequenceFileListConnectionGetShowFullPath]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileListConnectionGetShowFullPath(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5781:1"
+
+[TSUISUPP_SequenceFileListConnectionSetShowFullPath]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileListConnectionSetShowFullPath(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, short val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5812:1"
+
+[TSUISUPP_SequenceFileListConnectionGetShowCommentInTip]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileListConnectionGetShowCommentInTip(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5836:1"
+
+[TSUISUPP_SequenceFileListConnectionSetShowCommentInTip]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileListConnectionSetShowCommentInTip(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, short val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5867:1"
+
+[TSUISUPP_SequenceFileListConnectionsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileListConnectionsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5892:1"
+
+[TSUISUPP_SequenceFileListConnectionsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileListConnectionsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5949:1"
+
+[TSUISUPP_SequenceFileListConnectionsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileListConnectionsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:5996:1"
+
+[TSUISUPP_SequenceFileListConnectionsAdd]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileListConnectionsAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6027:1"
+
+[TSUISUPP_SequenceFileListConnectionsRemove]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileListConnectionsRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6092:1"
+
+[TSUISUPP_SequenceFileListConnectionsClear]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileListConnectionsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6134:1"
+
+[TSUISUPP_SequenceFileListConnectionsFromControl]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileListConnectionsFromControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6158:1"
+
+[TSUISUPP_SequenceListConnectionGetUIControl]
+Class="Function"
+Prototype="long TSUISUPP_SequenceListConnectionGetUIControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6224:1"
+
+[TSUISUPP_SequenceListConnectionGetColumnVisible]
+Class="Function"
+Prototype="long TSUISUPP_SequenceListConnectionGetColumnVisible(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, enum TSUISUPPEnum_SeqListConnectionColumns column, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6278:1"
+
+[TSUISUPP_SequenceListConnectionSetColumnVisible]
+Class="Function"
+Prototype="long TSUISUPP_SequenceListConnectionSetColumnVisible(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, enum TSUISUPPEnum_SeqListConnectionColumns column, short val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6310:1"
+
+[TSUISUPP_SequenceListConnectionGetColumnIndex]
+Class="Function"
+Prototype="long TSUISUPP_SequenceListConnectionGetColumnIndex(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, enum TSUISUPPEnum_SeqListConnectionColumns column, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6336:1"
+
+[TSUISUPP_SequenceListConnectionsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_SequenceListConnectionsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6368:1"
+
+[TSUISUPP_SequenceListConnectionsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_SequenceListConnectionsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6424:1"
+
+[TSUISUPP_SequenceListConnectionsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_SequenceListConnectionsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6470:1"
+
+[TSUISUPP_SequenceListConnectionsAdd]
+Class="Function"
+Prototype="long TSUISUPP_SequenceListConnectionsAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6500:1"
+
+[TSUISUPP_SequenceListConnectionsRemove]
+Class="Function"
+Prototype="long TSUISUPP_SequenceListConnectionsRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6564:1"
+
+[TSUISUPP_SequenceListConnectionsClear]
+Class="Function"
+Prototype="long TSUISUPP_SequenceListConnectionsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6605:1"
+
+[TSUISUPP_SequenceListConnectionsFromControl]
+Class="Function"
+Prototype="long TSUISUPP_SequenceListConnectionsFromControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6628:1"
+
+[TSUISUPP_StepGroupListConnectionsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_StepGroupListConnectionsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6693:1"
+
+[TSUISUPP_StepGroupListConnectionsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_StepGroupListConnectionsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6749:1"
+
+[TSUISUPP_StepGroupListConnectionsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_StepGroupListConnectionsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6795:1"
+
+[TSUISUPP_StepGroupListConnectionsAdd]
+Class="Function"
+Prototype="long TSUISUPP_StepGroupListConnectionsAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6825:1"
+
+[TSUISUPP_StepGroupListConnectionsRemove]
+Class="Function"
+Prototype="long TSUISUPP_StepGroupListConnectionsRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6889:1"
+
+[TSUISUPP_StepGroupListConnectionsClear]
+Class="Function"
+Prototype="long TSUISUPP_StepGroupListConnectionsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6930:1"
+
+[TSUISUPP_StepGroupListConnectionsFromControl]
+Class="Function"
+Prototype="long TSUISUPP_StepGroupListConnectionsFromControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:6953:1"
+
+[TSUISUPP_SequenceFileViewMgrConnectionsGetSequenceFileList]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileViewMgrConnectionsGetSequenceFileList(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7018:1"
+
+[TSUISUPP_SequenceFileViewMgrConnectionsGetSequenceList]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileViewMgrConnectionsGetSequenceList(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7074:1"
+
+[TSUISUPP_SequenceFileViewMgrConnectionsGetStepGroupList]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileViewMgrConnectionsGetStepGroupList(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7130:1"
+
+[TSUISUPP_SequenceFileViewMgrConnectionsGetSequenceView]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileViewMgrConnectionsGetSequenceView(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7186:1"
+
+[TSUISUPP_SequenceFileViewMgrConnectionsGetCommand]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileViewMgrConnectionsGetCommand(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7242:1"
+
+[TSUISUPP_SequenceFileViewMgrConnectionsGetCaption]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileViewMgrConnectionsGetCaption(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7298:1"
+
+[TSUISUPP_SequenceFileViewMgrConnectionsGetImage]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileViewMgrConnectionsGetImage(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7354:1"
+
+[TSUISUPP_SequenceFileViewMgrConnectionsGetVariables]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileViewMgrConnectionsGetVariables(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7410:1"
+
+[TSUISUPP_SequenceFileViewMgrConnectionsGetInsertionPalettes]
+Class="Function"
+Prototype="long TSUISUPP_SequenceFileViewMgrConnectionsGetInsertionPalettes(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7466:1"
+
+[TSUISUPP_VariablesConnectionsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_VariablesConnectionsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7522:1"
+
+[TSUISUPP_VariablesConnectionsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_VariablesConnectionsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7578:1"
+
+[TSUISUPP_VariablesConnectionsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_VariablesConnectionsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7624:1"
+
+[TSUISUPP_VariablesConnectionsAdd]
+Class="Function"
+Prototype="long TSUISUPP_VariablesConnectionsAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7654:1"
+
+[TSUISUPP_VariablesConnectionsRemove]
+Class="Function"
+Prototype="long TSUISUPP_VariablesConnectionsRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7718:1"
+
+[TSUISUPP_VariablesConnectionsClear]
+Class="Function"
+Prototype="long TSUISUPP_VariablesConnectionsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7759:1"
+
+[TSUISUPP_VariablesConnectionsFromControl]
+Class="Function"
+Prototype="long TSUISUPP_VariablesConnectionsFromControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7782:1"
+
+[TSUISUPP_VariablesConnectionGetUIControl]
+Class="Function"
+Prototype="long TSUISUPP_VariablesConnectionGetUIControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7847:1"
+
+[TSUISUPP_InsertionPaletteConnectionsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_InsertionPaletteConnectionsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7901:1"
+
+[TSUISUPP_InsertionPaletteConnectionsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_InsertionPaletteConnectionsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:7958:1"
+
+[TSUISUPP_InsertionPaletteConnectionsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_InsertionPaletteConnectionsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8005:1"
+
+[TSUISUPP_InsertionPaletteConnectionsAdd]
+Class="Function"
+Prototype="long TSUISUPP_InsertionPaletteConnectionsAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8036:1"
+
+[TSUISUPP_InsertionPaletteConnectionsRemove]
+Class="Function"
+Prototype="long TSUISUPP_InsertionPaletteConnectionsRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8101:1"
+
+[TSUISUPP_InsertionPaletteConnectionsClear]
+Class="Function"
+Prototype="long TSUISUPP_InsertionPaletteConnectionsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8143:1"
+
+[TSUISUPP_InsertionPaletteConnectionsFromControl]
+Class="Function"
+Prototype="long TSUISUPP_InsertionPaletteConnectionsFromControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8167:1"
+
+[TSUISUPP_InsertionPaletteConnectionGetUIControl]
+Class="Function"
+Prototype="long TSUISUPP_InsertionPaletteConnectionGetUIControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8233:1"
+
+[TSUISUPP_InsertionPaletteConnectionGetStepTypesPage]
+Class="Function"
+Prototype="long TSUISUPP_InsertionPaletteConnectionGetStepTypesPage(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8287:1"
+
+[TSUISUPP_InsertionPaletteConnectionGetTemplatesPage]
+Class="Function"
+Prototype="long TSUISUPP_InsertionPaletteConnectionGetTemplatesPage(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8318:1"
+
+[TSUISUPP_ExecutionViewConnectionGetColorRunning]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewConnectionGetColorRunning(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, unsigned long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8349:1"
+
+[TSUISUPP_ExecutionViewConnectionSetColorRunning]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewConnectionSetColorRunning(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, unsigned long val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8380:1"
+
+[TSUISUPP_ExecutionViewConnectionGetColorPaused]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewConnectionGetColorPaused(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, unsigned long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8404:1"
+
+[TSUISUPP_ExecutionViewConnectionSetColorPaused]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewConnectionSetColorPaused(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, unsigned long val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8435:1"
+
+[TSUISUPP_ExecutionViewConnectionGetColorStopped]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewConnectionGetColorStopped(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, unsigned long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8459:1"
+
+[TSUISUPP_ExecutionViewConnectionSetColorStopped]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewConnectionSetColorStopped(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, unsigned long val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8490:1"
+
+[TSUISUPP_ExecutionViewConnectionGetOptions]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewConnectionGetOptions(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8514:1"
+
+[TSUISUPP_ExecutionViewConnectionSetOptions]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewConnectionSetOptions(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8545:1"
+
+[TSUISUPP_ExecutionViewConnectionGetUIControl]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewConnectionGetUIControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8569:1"
+
+[TSUISUPP_ExecutionViewConnectionsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewConnectionsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8623:1"
+
+[TSUISUPP_ExecutionViewConnectionsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewConnectionsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8679:1"
+
+[TSUISUPP_ExecutionViewConnectionsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewConnectionsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8725:1"
+
+[TSUISUPP_ExecutionViewConnectionsAdd]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewConnectionsAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8755:1"
+
+[TSUISUPP_ExecutionViewConnectionsRemove]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewConnectionsRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8819:1"
+
+[TSUISUPP_ExecutionViewConnectionsClear]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewConnectionsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8860:1"
+
+[TSUISUPP_ExecutionViewConnectionsFromControl]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewConnectionsFromControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8883:1"
+
+[TSUISUPP_CallStackConnectionsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_CallStackConnectionsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:8948:1"
+
+[TSUISUPP_CallStackConnectionsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_CallStackConnectionsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9004:1"
+
+[TSUISUPP_CallStackConnectionsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_CallStackConnectionsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9050:1"
+
+[TSUISUPP_CallStackConnectionsAdd]
+Class="Function"
+Prototype="long TSUISUPP_CallStackConnectionsAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9080:1"
+
+[TSUISUPP_CallStackConnectionsRemove]
+Class="Function"
+Prototype="long TSUISUPP_CallStackConnectionsRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9144:1"
+
+[TSUISUPP_CallStackConnectionsClear]
+Class="Function"
+Prototype="long TSUISUPP_CallStackConnectionsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9185:1"
+
+[TSUISUPP_CallStackConnectionsFromControl]
+Class="Function"
+Prototype="long TSUISUPP_CallStackConnectionsFromControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9208:1"
+
+[TSUISUPP_ThreadListConnectionsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_ThreadListConnectionsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9273:1"
+
+[TSUISUPP_ThreadListConnectionsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_ThreadListConnectionsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9329:1"
+
+[TSUISUPP_ThreadListConnectionsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_ThreadListConnectionsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9375:1"
+
+[TSUISUPP_ThreadListConnectionsAdd]
+Class="Function"
+Prototype="long TSUISUPP_ThreadListConnectionsAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9405:1"
+
+[TSUISUPP_ThreadListConnectionsRemove]
+Class="Function"
+Prototype="long TSUISUPP_ThreadListConnectionsRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9469:1"
+
+[TSUISUPP_ThreadListConnectionsClear]
+Class="Function"
+Prototype="long TSUISUPP_ThreadListConnectionsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9510:1"
+
+[TSUISUPP_ThreadListConnectionsFromControl]
+Class="Function"
+Prototype="long TSUISUPP_ThreadListConnectionsFromControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9533:1"
+
+[TSUISUPP_ExecutionListConnectionSetShowHiddenExecutions]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionListConnectionSetShowHiddenExecutions(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, short val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9598:1"
+
+[TSUISUPP_ExecutionListConnectionGetShowHiddenExecutions]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionListConnectionGetShowHiddenExecutions(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9623:1"
+
+[TSUISUPP_ExecutionListConnectionSetDisplayExpression]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionListConnectionSetDisplayExpression(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, const char *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9654:1"
+
+[TSUISUPP_ExecutionListConnectionGetDisplayExpression]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionListConnectionGetDisplayExpression(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, char **val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9683:1"
+
+[TSUISUPP_ExecutionListConnectionsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionListConnectionsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9724:1"
+
+[TSUISUPP_ExecutionListConnectionsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionListConnectionsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9780:1"
+
+[TSUISUPP_ExecutionListConnectionsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionListConnectionsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9826:1"
+
+[TSUISUPP_ExecutionListConnectionsAdd]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionListConnectionsAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9856:1"
+
+[TSUISUPP_ExecutionListConnectionsRemove]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionListConnectionsRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9920:1"
+
+[TSUISUPP_ExecutionListConnectionsClear]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionListConnectionsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9961:1"
+
+[TSUISUPP_ExecutionListConnectionsFromControl]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionListConnectionsFromControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:9984:1"
+
+[TSUISUPP_ReportViewConnectionsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_ReportViewConnectionsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10049:1"
+
+[TSUISUPP_ReportViewConnectionsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_ReportViewConnectionsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10105:1"
+
+[TSUISUPP_ReportViewConnectionsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_ReportViewConnectionsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10151:1"
+
+[TSUISUPP_ReportViewConnectionsAdd]
+Class="Function"
+Prototype="long TSUISUPP_ReportViewConnectionsAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10181:1"
+
+[TSUISUPP_ReportViewConnectionsRemove]
+Class="Function"
+Prototype="long TSUISUPP_ReportViewConnectionsRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10245:1"
+
+[TSUISUPP_ReportViewConnectionsClear]
+Class="Function"
+Prototype="long TSUISUPP_ReportViewConnectionsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10286:1"
+
+[TSUISUPP_ReportViewConnectionsFromControl]
+Class="Function"
+Prototype="long TSUISUPP_ReportViewConnectionsFromControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10309:1"
+
+[TSUISUPP_ExecutionViewMgrConnectionsGetExecutionView]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewMgrConnectionsGetExecutionView(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10374:1"
+
+[TSUISUPP_ExecutionViewMgrConnectionsGetReportView]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewMgrConnectionsGetReportView(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10430:1"
+
+[TSUISUPP_ExecutionViewMgrConnectionsGetExecutionList]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewMgrConnectionsGetExecutionList(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10486:1"
+
+[TSUISUPP_ExecutionViewMgrConnectionsGetCommand]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewMgrConnectionsGetCommand(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10542:1"
+
+[TSUISUPP_ExecutionViewMgrConnectionsGetCaption]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewMgrConnectionsGetCaption(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10598:1"
+
+[TSUISUPP_ExecutionViewMgrConnectionsGetCallStack]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewMgrConnectionsGetCallStack(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10654:1"
+
+[TSUISUPP_ExecutionViewMgrConnectionsGetThreadList]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewMgrConnectionsGetThreadList(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10710:1"
+
+[TSUISUPP_ExecutionViewMgrConnectionsGetImage]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewMgrConnectionsGetImage(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10766:1"
+
+[TSUISUPP_ExecutionViewMgrConnectionsGetNumeric]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewMgrConnectionsGetNumeric(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10822:1"
+
+[TSUISUPP_ExecutionViewMgrConnectionsGetVariables]
+Class="Function"
+Prototype="long TSUISUPP_ExecutionViewMgrConnectionsGetVariables(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10878:1"
+
+[TSUISUPP_ApplicationMgrConnectionsGetCommand]
+Class="Function"
+Prototype="long TSUISUPP_ApplicationMgrConnectionsGetCommand(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10934:1"
+
+[TSUISUPP_ApplicationMgrConnectionsGetCaption]
+Class="Function"
+Prototype="long TSUISUPP_ApplicationMgrConnectionsGetCaption(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:10989:1"
+
+[TSUISUPP_ApplicationMgrConnectionsGetAdapterList]
+Class="Function"
+Prototype="long TSUISUPP_ApplicationMgrConnectionsGetAdapterList(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11044:1"
+
+[TSUISUPP_AdapterListConnectionsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_AdapterListConnectionsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11099:1"
+
+[TSUISUPP_AdapterListConnectionsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_AdapterListConnectionsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11155:1"
+
+[TSUISUPP_AdapterListConnectionsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_AdapterListConnectionsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11201:1"
+
+[TSUISUPP_AdapterListConnectionsAdd]
+Class="Function"
+Prototype="long TSUISUPP_AdapterListConnectionsAdd(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11231:1"
+
+[TSUISUPP_AdapterListConnectionsRemove]
+Class="Function"
+Prototype="long TSUISUPP_AdapterListConnectionsRemove(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, short *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11295:1"
+
+[TSUISUPP_AdapterListConnectionsClear]
+Class="Function"
+Prototype="long TSUISUPP_AdapterListConnectionsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11336:1"
+
+[TSUISUPP_AdapterListConnectionsFromControl]
+Class="Function"
+Prototype="long TSUISUPP_AdapterListConnectionsFromControl(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle uiObj, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11359:1"
+
+[TSUISUPP_SelectedSequencesGetItem]
+Class="Function"
+Prototype="long TSUISUPP_SelectedSequencesGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11424:1"
+
+[TSUISUPP_SelectedSequencesGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_SelectedSequencesGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11480:1"
+
+[TSUISUPP_SelectedSequencesGetCount]
+Class="Function"
+Prototype="long TSUISUPP_SelectedSequencesGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11526:1"
+
+[TSUISUPP_SelectedSequencesClear]
+Class="Function"
+Prototype="long TSUISUPP_SelectedSequencesClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11556:1"
+
+[TSUISUPP_SelectedSequencesAddSequence]
+Class="Function"
+Prototype="long TSUISUPP_SelectedSequencesAddSequence(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11579:1"
+
+[TSUISUPP_SelectedSequencesAddSequences]
+Class="Function"
+Prototype="long TSUISUPP_SelectedSequencesAddSequences(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct tagSAFEARRAY *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11613:1"
+
+[TSUISUPP_SelectedSequencesBeginUpdate]
+Class="Function"
+Prototype="long TSUISUPP_SelectedSequencesBeginUpdate(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11637:1"
+
+[TSUISUPP_SelectedSequencesEndUpdate]
+Class="Function"
+Prototype="long TSUISUPP_SelectedSequencesEndUpdate(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11660:1"
+
+[TSUISUPP_SelectedPropertyObjectsGetItem]
+Class="Function"
+Prototype="long TSUISUPP_SelectedPropertyObjectsGetItem(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long itemIndex, CAObjHandle *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11683:1"
+
+[TSUISUPP_SelectedPropertyObjectsGet_NewEnum]
+Class="Function"
+Prototype="long TSUISUPP_SelectedPropertyObjectsGet_NewEnum(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct IUnknown **enumerator);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11739:1"
+
+[TSUISUPP_SelectedPropertyObjectsGetCount]
+Class="Function"
+Prototype="long TSUISUPP_SelectedPropertyObjectsGetCount(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, long *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11785:1"
+
+[TSUISUPP_SelectedPropertyObjectsClear]
+Class="Function"
+Prototype="long TSUISUPP_SelectedPropertyObjectsClear(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11815:1"
+
+[TSUISUPP_SelectedPropertyObjectsAddPropertyObject]
+Class="Function"
+Prototype="long TSUISUPP_SelectedPropertyObjectsAddPropertyObject(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, CAObjHandle val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11838:1"
+
+[TSUISUPP_SelectedPropertyObjectsAddPropertyObjects]
+Class="Function"
+Prototype="long TSUISUPP_SelectedPropertyObjectsAddPropertyObjects(CAObjHandle objectHandle, struct ERRORINFO *errorInfo, struct tagSAFEARRAY *val);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11873:1"
+
+[TSUISUPP_SelectedPropertyObjectsBeginUpdate]
+Class="Function"
+Prototype="long TSUISUPP_SelectedPropertyObjectsBeginUpdate(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11898:1"
+
+[TSUISUPP_SelectedPropertyObjectsEndUpdate]
+Class="Function"
+Prototype="long TSUISUPP_SelectedPropertyObjectsEndUpdate(CAObjHandle objectHandle, struct ERRORINFO *errorInfo);"
+SourceLocation="c:\Program Files (x86)\National Instruments\Shared\CVI\instr\TestStand\API\tsuisupp.c:11921:1"
+

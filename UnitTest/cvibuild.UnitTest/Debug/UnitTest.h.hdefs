@@ -1,0 +1,7 @@
+[error]
+Class="Var"
+
+[UnitTest_FormMIS]
+Class="Function"
+Prototype="int UnitTest_FormMIS(struct tsErrorDataType *ErrInfo);"
+

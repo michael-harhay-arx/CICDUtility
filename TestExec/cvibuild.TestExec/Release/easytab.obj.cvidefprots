@@ -1,0 +1,95 @@
+[EasyTab_RevertToCanvas]
+Class="Function"
+Prototype="int EasyTab_RevertToCanvas(int panel, int easyTab) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:1804:1"
+
+[EasyTab_ConvertFromCanvas]
+Class="Function"
+Prototype="int EasyTab_ConvertFromCanvas(int panel, int canvas) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:1829:1"
+
+[EasyTab_Create]
+Class="Function"
+Prototype="int EasyTab_Create(int panel, int top, int left, int (*callback)(int, int, int, void *, int, int), void *callbackData) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:1849:1"
+
+[EasyTab_AddSheet]
+Class="Function"
+Prototype="int EasyTab_AddSheet(int panel, int easyTabCtrl, const char *sheetName, void *module, int row, int numCtrls, ...) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:2000:1"
+
+[EasyTab_AutoSize]
+Class="Function"
+Prototype="int EasyTab_AutoSize(int panel, int easyTabCtrl) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:2983:1"
+
+[EasyTab_LoadPanels]
+Class="Function"
+Prototype="int EasyTab_LoadPanels(int panel, int easyTabCtrl, int row, const char *fileName, void *module, ...) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:3486:1"
+
+[EasyTab_LoadPanelsFromParmInfo]
+Class="Function"
+Prototype="int EasyTab_LoadPanelsFromParmInfo(int panel, int easyTabCtrl, int row, const char *fileName, void *module, char *parmInfo) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:3499:1"
+
+[EasyTab_AddPanels]
+Class="Function"
+Prototype="int EasyTab_AddPanels(int panel, int easyTabCtrl, int row, ...) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:3543:1"
+
+[EasyTab_AddPanelsFromParmInfo]
+Class="Function"
+Prototype="int EasyTab_AddPanelsFromParmInfo(int panel, int easyTabCtrl, int row, char *parmInfo) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:3556:1"
+
+[EasyTab_RemovePanel]
+Class="Function"
+Prototype="int EasyTab_RemovePanel(int panel, int tabControl, int tabPanelHandle) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:3580:1"
+
+[EasyTab_SetAttribute]
+Class="Function"
+Prototype="int EasyTab_SetAttribute(int panel, int easyTabCtrl, int attribute, ...) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:3680:1"
+
+[EasyTab_SetAttributeFromParmInfo]
+Class="Function"
+Prototype="int EasyTab_SetAttributeFromParmInfo(int panel, int easyTabCtrl, int attribute, char *parmInfo) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:3698:1"
+
+[EasyTab_GetAttribute]
+Class="Function"
+Prototype="int EasyTab_GetAttribute(int panel, int easyTabCtrl, int attribute, void *value) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:3827:1"
+
+[EasyTab_SetBounds]
+Class="Function"
+Prototype="int EasyTab_SetBounds(int panel, int easyTabCtrl, int whichBounds, struct Rect bounds) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:3895:1"
+
+[EasyTab_GetBounds]
+Class="Function"
+Prototype="int EasyTab_GetBounds(int panel, int easyTabCtrl, int whichBounds, struct Rect *bounds) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:3935:1"
+
+[EasyTab_GetPanelList]
+Class="Function"
+Prototype="int EasyTab_GetPanelList(int panel, int easyTabCtrl, struct ListStructTag **list) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:3977:1"
+
+[EasyTab_SetTabAttribute]
+Class="Function"
+Prototype="int EasyTab_SetTabAttribute(int panel, int easyTabCtrl, int tabPanelHandle, int attribute, ...) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:4014:1"
+
+[EasyTab_SetTabAttributeFromParmInfo]
+Class="Function"
+Prototype="int EasyTab_SetTabAttributeFromParmInfo(int panel, int easyTabCtrl, int tabPanelHandle, int attribute, char *parmInfo) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:4032:1"
+
+[EasyTab_GetTabAttribute]
+Class="Function"
+Prototype="int EasyTab_GetTabAttribute(int panel, int easyTabCtrl, int tabPanelHandle, int attribute, void *value) __attribute__((run_time_checking));"
+SourceLocation="c:\Program Files (x86)\National Instruments\CVI2019\toolslib\custctrl\easytab.c:4114:1"
+
