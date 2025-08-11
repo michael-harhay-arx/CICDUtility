@@ -1,6 +1,6 @@
 /***************************************************************************//*!
 * \file UnitTest.c
-* \author 
+* \author Michael Harhay
 * \copyright . All Rights Reserved.
 * \date 2025-08-08 3:39:49 PM
 * \brief A short description.

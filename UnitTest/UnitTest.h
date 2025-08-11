@@ -1,6 +1,6 @@
 /***************************************************************************//*!
 * \file UnitTest.h
-* \author 
+* \author Michael Harhay
 * \copyright . All Rights Reserved.
 * \date 2025-08-08 3:39:49 PM
 *******************************************************************************/
@@ -16,10 +16,11 @@
 // Include files
 
 #include "tsutil.h"
+#include "cvidef.h"
 #include <ansi_c.h>
 #include <utility.h>
 #include <assert.h>
-#include "cvidef.h"
+		
 #include "ArxtronToolslib.h"
 #include "TestSteps.h"
 
