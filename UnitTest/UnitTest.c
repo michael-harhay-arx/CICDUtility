@@ -75,11 +75,8 @@ int UnitTest_FormMIS (tsErrorDataType *ErrInfo)
 	UTInit;
 	char msgLog[4096] = {0};
 	
-	// Set test params and expected outputs 
-	numTests = 2;
-	numTestParams = 4;
-	
-	char testVals[numTests][numTestParams][32] = 
+	// Set test params and expected outputs
+	char testVals[2][4][32] = // numTests = 2, numParams = 4, string size = 32
 	{
 		{"123456", "777777", "123456", "456777771234"}, // format: data1574, data1575, data1576, expected value
         {"123456", "777777", "123456", "000000000000"}
@@ -89,10 +86,11 @@ int UnitTest_FormMIS (tsErrorDataType *ErrInfo)
 	strcpy (mis, "446777771234");
 		
 	// Run tests
+	int numTests = 2;
 	for (int testIdx = 0; testIdx < numTests; testIdx++)
 	{
 		//TestStep_FormMIS (0, testVals[testIdx][0], testVals[testIdx][1], testVals[testIdx][2], mis, ReportText, ErrInfo);
-		ASSERT_EQ_STR (expectedMIS, mis);
+		ASSERT_EQ_STR (testVals[testIdx][3], mis);
 	}
 	
 	// Log results	
