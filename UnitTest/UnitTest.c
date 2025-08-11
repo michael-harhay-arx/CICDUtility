@@ -71,33 +71,31 @@ int UnitTest_CVIVersion (tsErrorDataType *ErrInfo)
 *******************************************************************************/
 int UnitTest_FormMIS (tsErrorDataType *ErrInfo)
 {
+	// Initialize unit test
 	UTInit;
 	char msgLog[4096] = {0};
 	
-	char data1574[32] = {0};
-	char data1575[32] = {0};
-	char data1576[32] = {0};
-	char expectedMIS[32] = {0};
-	char mis[32] = {0};
+	// Set test params and expected outputs 
+	numTests = 2;
+	numTestParams = 4;
 	
-	// Test 1
-	strcpy (data1574, "123456");
-	strcpy (data1575, "777777");
-	strcpy (data1576, "123456");
-	strcpy (expectedMIS, "456777771234");
-	strcpy (mis, "456777771234");
-	//TestStep_FormMIS (0, data1574, data1575, data1576, mis, ReportText, ErrInfo);
-	ASSERT_EQ_STR (expectedMIS, mis);
+	char testVals[numTests][numTestParams][32] = 
+	{
+		{"123456", "777777", "123456", "456777771234"}, // format: data1574, data1575, data1576, expected value
+        {"123456", "777777", "123456", "000000000000"}
+	};
 	
-	// Test 2
-	strcpy (data1574, "123456");
-	strcpy (data1575, "777777");
-	strcpy (data1576, "123456");
-	strcpy (expectedMIS, "456777771234");
-	strcpy (mis, "000777771234");
-	//TestStep_FormMIS (0, data1574, data1575, data1576, mis, ReportText, ErrInfo);
-	ASSERT_EQ_STR (expectedMIS, mis);
+	char mis[32] = {0}; // for now, remove later
+	strcpy (mis, "446777771234");
+		
+	// Run tests
+	for (int testIdx = 0; testIdx < numTests; testIdx++)
+	{
+		//TestStep_FormMIS (0, testVals[testIdx][0], testVals[testIdx][1], testVals[testIdx][2], mis, ReportText, ErrInfo);
+		ASSERT_EQ_STR (expectedMIS, mis);
+	}
 	
+	// Log results	
 	strcpy (ErrInfo->msg, msgLog);
 	return (ErrInfo->code = error);
 }
