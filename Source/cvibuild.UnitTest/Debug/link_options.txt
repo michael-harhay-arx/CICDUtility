@@ -1,28 +1,28 @@
 -nologo
--out:c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\UnitTest.dll
--def:c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\UnitTest.dll.defs
--implib:c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\UnitTest.lib
+-out:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\UnitTest.dll
+-def:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\UnitTest.dll.defs
+-implib:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\UnitTest.lib
 -ignoreexports
--dependenciesMapFile:c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\dependencies.lnk.in
+-dependenciesMapFile:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\dependencies.lnk.in
 -embedSourceInfo
--indefprot:c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\dllmain.obj.cvidefprots
--indefprot:c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\UnitTest.obj.cvidefprots
+-indefprot:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\dllmain.obj.cvidefprots
+-indefprot:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\UnitTest.obj.cvidefprots
 -arch:x86
 -timestamp
 -debug:2
 -loadextmod
--project:c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\UnitTest.prj
--res:c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\resources.res
+-project:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\UnitTest.prj
+-res:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\resources.res
 -entry:_CVIDllMainStartupCodeForDebugging@12
 -base:0x400000
--linked:c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\linkersummary.txt
--dlldeps:c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\dlldependencies.txt
--licensing:c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\linkerlicensing.txt
--browsedeps:c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\moduledependencies.txt
+-linked:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\linkersummary.txt
+-dlldeps:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\dlldependencies.txt
+-licensing:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\linkerlicensing.txt
+-browsedeps:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\moduledependencies.txt
 -stackreserve:1048576
 -stackcommit:4096
--in:c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\dllmain.obj
--in:c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\UnitTest.obj
+-in:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\dllmain.obj
+-in:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\UnitTest.obj
 -more:c:\program files (x86)\national instruments\cvi2019\bin\msvc\cvistart.lib
 -more:c:\program files (x86)\national instruments\cvi2019\bin\msvc\cvi.lib
 -more:c:\Program Files (x86)\National Instruments\CVI2019\bin\msvc\advanlys.lib

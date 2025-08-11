@@ -17,9 +17,12 @@
 
 #include "tsutil.h"
 #include "cvidef.h"
+
+#include <windows.h>
 #include <ansi_c.h>
 #include <utility.h>
 #include <assert.h>
+#include <stdio.h>
 		
 #include "ArxtronToolslib.h"
 #include "TestSteps.h"
@@ -55,6 +58,26 @@
     } while (0)
 
 /***************************************************************************//*!
+* Assert whether LHS integer value is greater than or equal to (>=) RHS integer value
+*******************************************************************************/
+#define ASSERT_GTE_INT(LHS, RHS) \
+	memset (msg, 0, 256); \
+    do \
+	{ \
+        if ((LHS) < (RHS)) \
+		{ \
+            sprintf (msg, "FAIL: %s (line %d): LHS (%d) < RHS (%d)\n", __func__, __LINE__, (LHS), (RHS)); \
+			strcat (msgLog, msg); \
+            error = 1; \
+        } \
+		else \
+		{ \
+			sprintf (msg, "PASS: %s (line %d): LHS (%d) >= RHS (%d)\n", __func__, __LINE__, (LHS), (RHS)); \
+			strcat (msgLog, msg); \
+		} \
+    } while (0)
+
+/***************************************************************************//*!
 * Assert equality of strings
 *******************************************************************************/
 #define ASSERT_EQ_STR(expected, actual) \
@@ -84,7 +107,9 @@
 // Global functions
 
 // General unit tests
+int UnitTest_WindowsVersion (tsErrorDataType *ErrInfo);
 int UnitTest_CVIVersion (tsErrorDataType *ErrInfo);
+int UnitTest_TestStandVersion (tsErrorDataType *ErrInfo);
 
 // Project specific unit tests
 int UnitTest_FormMIS (tsErrorDataType *ErrInfo);

@@ -1,8 +1,8 @@
--inrc c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\resources.in.rc
--outrc c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\resources.out.rc
--inhdef c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\UnitTest.h.hdefs
--outdef c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\UnitTest.dll.defs
--indefprot c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\dllmain.obj.cvidefprots
--indefprot c:\Users\Michael_Harhay\Documents\CICDUtility\UnitTest\cvibuild.UnitTest\Debug\UnitTest.obj.cvidefprots
+-inrc c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\resources.in.rc
+-outrc c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\resources.out.rc
+-inhdef c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\UnitTest.h.hdefs
+-outdef c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\UnitTest.dll.defs
+-indefprot c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\dllmain.obj.cvidefprots
+-indefprot c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\UnitTest.obj.cvidefprots
 -dllName UnitTest.dll
 -addNITypeInfo 

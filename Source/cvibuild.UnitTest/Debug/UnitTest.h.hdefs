@@ -1,9 +1,17 @@
 [error]
 Class="Var"
 
+[UnitTest_WindowsVersion]
+Class="Function"
+Prototype="int UnitTest_WindowsVersion(struct tsErrorDataType *ErrInfo);"
+
 [UnitTest_CVIVersion]
 Class="Function"
 Prototype="int UnitTest_CVIVersion(struct tsErrorDataType *ErrInfo);"
+
+[UnitTest_TestStandVersion]
+Class="Function"
+Prototype="int UnitTest_TestStandVersion(struct tsErrorDataType *ErrInfo);"
 
 [UnitTest_FormMIS]
 Class="Function"

@@ -49,6 +49,40 @@
 /***************************************************************************//*!
 * Unit test CVI version
 *******************************************************************************/
+int UnitTest_WindowsVersion (tsErrorDataType *ErrInfo)
+{
+	UTInit;
+	char msgLog[4096] = {0};
+	
+	// Set up Windows API
+	typedef LONG (WINAPI* RtlGetVersionPtr)(PRTL_OSVERSIONINFOW);
+	
+	// Check Windows version by build number
+	HMODULE hMod = GetModuleHandleW(L"ntdll.dll");
+    if (!hMod) return 0;
+    RtlGetVersionPtr fxPtr = (RtlGetVersionPtr) GetProcAddress (hMod, "RtlGetVersion");
+    if (!fxPtr) return 0;
+
+    RTL_OSVERSIONINFOW rovi = {0};
+    rovi.dwOSVersionInfoSize = sizeof (rovi);
+    if (fxPtr (&rovi) != 0) return 0;
+	
+	ASSERT_EQ_INT (10, rovi.dwMajorVersion); // Check that major version is 10
+	ASSERT_GTE_INT (rovi.dwBuildNumber, 22000); // Check that build number is at least 22000 (denoting windows 11)
+	
+	// Check Windows edition
+	DWORD productType = 0;
+    if (!GetProductInfo (rovi.dwMajorVersion, rovi.dwMinorVersion, rovi.dwBuildNumber, 0, &productType)) return 0;
+
+    ASSERT_EQ_INT (PRODUCT_PROFESSIONAL, productType); // Check that Windows Pro is running
+	
+	strcpy (ErrInfo->msg, msgLog);
+	return (ErrInfo->code = error);
+}
+
+/***************************************************************************//*!
+* Unit test CVI version
+*******************************************************************************/
 int UnitTest_CVIVersion (tsErrorDataType *ErrInfo)
 {
 	UTInit;
@@ -58,6 +92,20 @@ int UnitTest_CVIVersion (tsErrorDataType *ErrInfo)
 	GetCVIVersionYear (version);
 	ASSERT_EQ_STR ("2019", version);
 	
+	strcpy (ErrInfo->msg, msgLog);
+	return (ErrInfo->code = error);
+}
+
+/***************************************************************************//*!
+* Unit test TestStand version
+*******************************************************************************/
+int UnitTest_TestStandVersion (tsErrorDataType *ErrInfo)
+{
+	UTInit;
+	char msgLog[4096] = {0};
+	
+	// Check that TestStand version is 2017
+		
 	strcpy (ErrInfo->msg, msgLog);
 	return (ErrInfo->code = error);
 }
