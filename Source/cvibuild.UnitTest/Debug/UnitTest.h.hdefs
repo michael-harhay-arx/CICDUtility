@@ -1,0 +1,11 @@
+[error]
+Class="Var"
+
+[UnitTest_CVIVersion]
+Class="Function"
+Prototype="int UnitTest_CVIVersion(struct tsErrorDataType *ErrInfo);"
+
+[UnitTest_FormMIS]
+Class="Function"
+Prototype="int UnitTest_FormMIS(struct tsErrorDataType *ErrInfo);"
+

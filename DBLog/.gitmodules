@@ -1,0 +1,3 @@
+[submodule "SQLiteInstallers"]
+	path = SQLiteInstallers
+	url = git@github.com:ArxtronTech/SQLiteInstallers.git

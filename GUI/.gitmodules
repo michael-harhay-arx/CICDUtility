@@ -1,0 +1,6 @@
+[submodule "Project Specific"]
+	path = Project Specific
+	url = git@github.com:ArxtronTech/ArxtronTestStandSequencerGUI_Project.git
+[submodule "UserManagement_LIB"]
+	path = User Management
+	url = git@github.com:ArxtronTech/UserManagement_LIB.git

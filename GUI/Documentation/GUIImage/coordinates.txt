@@ -1,0 +1,24 @@
+100,110		Info Block
+660,90		Global Short/Long Term Counters
+990,160		LEDs
+170,230		Nest LEDs
+120,270		Serial Number
+390,230		Nest Counters/Timers
+20,320		Test Result Display
+20,580		Additional Result Display
+20,770		Status Display
+20,830		Instruction Display
+exit
+
+
+All Component Legend
+100,110		Info Block
+660,90		Global Short/Long Term Counters
+990,160		LEDs
+170,230		Nest LEDs
+120,270		Serial Number
+390,230		Nest Counters/Timers
+20,320		Test Result Display
+20,580		Additional Result Display
+20,770		Status Display
+20,830		Instruction Display

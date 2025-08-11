@@ -1,0 +1,12 @@
+[submodule "GUI"]
+	path = GUI
+	url = git@github.com:ArxtronTech/ArxtronTestStandSequencerGUI.git
+[submodule "DBLog"]
+	path = DBLog
+	url = git@github.com:ArxtronTech/ArxtronTestStandDBLog.git
+[submodule "Source/Utilities_LIB"]
+	path = Source/Utilities_LIB
+	url = git@github.com:ArxtronTech/Utilities_LIB.git
+[submodule "Source/CombinedDebugPanel"]
+	path = Source/CombinedDebugPanel
+	url = git@github.com:ArxtronTech/CombinedDebugPanel.git
