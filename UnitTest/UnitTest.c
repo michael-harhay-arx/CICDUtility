@@ -44,7 +44,27 @@
 //! \cond
 /// REGION END
 
-/// REGION START Code Body
+/// REGION START General Unit Tests
+//! \endcond
+/***************************************************************************//*!
+* Unit test CVI version
+*******************************************************************************/
+int UnitTest_CVIVersion (tsErrorDataType *ErrInfo)
+{
+	UTInit;
+	char msgLog[4096] = {0};
+	
+	char version[16] = {0};
+	GetCVIVersionYear (version);
+	ASSERT_EQ_STR ("2019", version);
+	
+	strcpy (ErrInfo->msg, msgLog);
+	return (ErrInfo->code = error);
+}
+//! \cond
+/// REGION END
+
+/// REGION START Project Specific Unit Tests
 //! \endcond
 /***************************************************************************//*!
 * Unit test for TestStep_FormMIS()

@@ -44,6 +44,8 @@ CVIDLLexports CVIDLLprototypes
    "\n",
    "int DllMain(struct HINSTANCE__ *hinstDLL, unsigned long fdwReason, void *lpvReserved);"
    "\n",
+   "int UnitTest_CVIVersion(struct tsErrorDataType *ErrInfo);"
+   "\n",
    "int UnitTest_FormMIS(struct tsErrorDataType *ErrInfo);"
    "\n",
    "\0"

@@ -2,4 +2,5 @@ LIBRARY UnitTest
 
 EXPORTS
 UnitTest_FormMIS
+UnitTest_CVIVersion
 error

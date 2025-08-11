@@ -82,6 +82,10 @@
 //==============================================================================
 // Global functions
 
+// General unit tests
+int UnitTest_CVIVersion (tsErrorDataType *ErrInfo);
+
+// Project specific unit tests
 int UnitTest_FormMIS (tsErrorDataType *ErrInfo);
 
 #ifdef __cplusplus

@@ -32,10 +32,6 @@ FCParameter = FCParameter
 FlexCStepAdditions = FCModule
 NoneStepAdditions = NoneModule
 Label = StepType
-PostSubstep = StepType
-NI_MsgBoxFontData = Obj
-NI_MsgBoxFileData = Obj
-MessagePopup = StepType
 
 [DEF, SF]
 Seq = Objs
@@ -52,7 +48,7 @@ Requirements = Obj
 %NAME = "Data"
 
 [SF]
-%HI: Seq = [11]
+%HI: Seq = [12]
 %FLG: Seq = 4194304
 %FLG: FileGlobalDefaults = 4194304
 %FLG: ModelFile = 4194312
@@ -83,6 +79,7 @@ BatchSync = 1
 %[9] = Sequence
 %[10] = Sequence
 %[11] = Sequence
+%[12] = Sequence
 
 [DEF, SF.Seq[0]]
 Parameters = Obj
@@ -125,11 +122,11 @@ TestString = "test"
 %[0] = Step
 %TYPE: %[0] = "Label"
 %[1] = Step
-%TYPE: %[1] = "Label"
+%TYPE: %[1] = "SequenceCall"
 %[2] = Step
-%TYPE: %[2] = "SequenceCall"
+%TYPE: %[2] = "Label"
 %[3] = Step
-%TYPE: %[3] = "MessagePopup"
+%TYPE: %[3] = "SequenceCall"
 
 [SF.Seq[0].Main[0].TS]
 Id = "ID#:W+haj8F28BGjG7jKOqmvpD"
@@ -138,29 +135,36 @@ Id = "ID#:W+haj8F28BGjG7jKOqmvpD"
 %NAME = "============== General Unit Tests ============== "
 
 [SF.Seq[0].Main[1].TS]
-Id = "ID#:RNvcqMF28BGjG7jKOqmvpD"
+Id = "ID#:eZtTAcx28BGjG7jKOqmvpD"
 
-[DEF, SF.Seq[0].Main[1]]
-%NAME = "=========== Project Specific Unit Tests =========== "
-
-[SF.Seq[0].Main[2].TS]
-Id = "ID#:KWSPr5B08BGjG7jKOqmvpD"
-
-[DEF, SF.Seq[0].Main[2].TS]
+[DEF, SF.Seq[0].Main[1].TS]
 SData = "TYPE, SeqCallStepAdditions"
 
-[SF.Seq[0].Main[2].TS.SData]
+[SF.Seq[0].Main[1].TS.SData]
+SFPath = "TestSeq.seq"
+SeqName = "UnitTest_CVIVersion"
+
+[DEF, SF.Seq[0].Main[1]]
+%NAME = "UnitTest_CVIVersion"
+
+[SF.Seq[0].Main[2].TS]
+Id = "ID#:RNvcqMF28BGjG7jKOqmvpD"
+
+[DEF, SF.Seq[0].Main[2]]
+%NAME = "=========== Project Specific Unit Tests =========== "
+
+[SF.Seq[0].Main[3].TS]
+Id = "ID#:KWSPr5B08BGjG7jKOqmvpD"
+
+[DEF, SF.Seq[0].Main[3].TS]
+SData = "TYPE, SeqCallStepAdditions"
+
+[SF.Seq[0].Main[3].TS.SData]
 SFPath = "TestSeq.seq"
 SeqName = "UnitTest_FormMIS"
 
-[DEF, SF.Seq[0].Main[2]]
-%NAME = "UnitTest_FormMIS"
-
-[SF.Seq[0].Main[3].TS]
-Id = "ID#:7M3Z3MV28BGjG7jKOqmvpD"
-
 [DEF, SF.Seq[0].Main[3]]
-%NAME = "Message Popup"
+%NAME = "UnitTest_FormMIS"
 
 [DEF, SF.Seq[0].RTS]
 Type = Num
@@ -219,11 +223,12 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "UnitTest_InitXNET"
+%NAME = "UnitTest_CVIVersion"
 
 [SF.Seq[1]]
 %FLG: Parameters = 4456448
 %FLG: Locals = 4194304
+%HI: Main = [0]
 %FLG: Main = 4194304
 %FLG: Setup = 4194304
 %FLG: Cleanup = 4194304
@@ -236,12 +241,53 @@ FailureAction = 2
 
 [DEF, SF.Seq[1].Locals]
 ResultList = Objs
+ErrorCode = Num
 
 [DEF, SF.Seq[1].Locals.ResultList]
 %EPTYPE = TEResult
 
 [SF.Seq[1].Locals]
 %FLG: ResultList = 4194304
+
+[DEF, SF.Seq[1].Main]
+%[0] = Step
+%TYPE: %[0] = "Action"
+
+[SF.Seq[1].Main[0].TS]
+Id = "ID#:2OdLuct28BGjG7jKOqmvpD"
+StatusExpr = "Step.Result.Error.Code == 0 ? \"Passed\" : \"Failed\" "
+
+[DEF, SF.Seq[1].Main[0].TS]
+SData = "TYPE, FlexCVIStepAdditions"
+
+[SF.Seq[1].Main[0].TS.SData.Call]
+LibPath = "UnitTest.dll"
+Func = "UnitTest_CVIVersion"
+%HI: Parms = [1]
+
+[DEF, SF.Seq[1].Main[0].TS.SData.Call.Parms]
+%[0] = "TYPE, FCVIParameter"
+%[1] = "TYPE, FCVIParameter"
+
+[SF.Seq[1].Main[0].TS.SData.Call.Parms[0]]
+Name = "Return Value"
+ArgVal = "Locals.ErrorCode"
+Flags = 264
+
+[SF.Seq[1].Main[0].TS.SData.Call.Parms[1]]
+Name = "ErrInfo"
+Type = 5
+StructType = "Error"
+NumPass = 1
+ArgVal = "Step.Result.Error"
+Flags = 256
+
+[SF.Seq[1].Main[0].TS.SData]
+ModuleSrcPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\UnitTest\\UnitTest.c"
+ModulePrjPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\UnitTest\\UnitTest.prj"
+
+[DEF, SF.Seq[1].Main[0]]
+%NAME = "Action"
 
 [DEF, SF.Seq[1].RTS]
 Type = Num
@@ -300,7 +346,7 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "UnitTest_ReadXNETStatus"
+%NAME = "UnitTest_InitXNET"
 
 [SF.Seq[2]]
 %FLG: Parameters = 4456448
@@ -381,7 +427,7 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "UnitTest_CloseXNET"
+%NAME = "UnitTest_ReadXNETStatus"
 
 [SF.Seq[3]]
 %FLG: Parameters = 4456448
@@ -462,7 +508,7 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "UnitTest_ReadPoint"
+%NAME = "UnitTest_CloseXNET"
 
 [SF.Seq[4]]
 %FLG: Parameters = 4456448
@@ -543,12 +589,11 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "UnitTest_FormMIS"
+%NAME = "UnitTest_ReadPoint"
 
 [SF.Seq[5]]
 %FLG: Parameters = 4456448
 %FLG: Locals = 4194304
-%HI: Main = [0]
 %FLG: Main = 4194304
 %FLG: Setup = 4194304
 %FLG: Cleanup = 4194304
@@ -561,52 +606,12 @@ FailureAction = 2
 
 [DEF, SF.Seq[5].Locals]
 ResultList = Objs
-ErrorCode = Num
 
 [DEF, SF.Seq[5].Locals.ResultList]
 %EPTYPE = TEResult
 
 [SF.Seq[5].Locals]
 %FLG: ResultList = 4194304
-
-[DEF, SF.Seq[5].Main]
-%[0] = Step
-%TYPE: %[0] = "Action"
-
-[SF.Seq[5].Main[0].TS]
-Id = "ID#:XFr0MrZ28BGjG7jKOqmvpD"
-
-[DEF, SF.Seq[5].Main[0].TS]
-SData = "TYPE, FlexCVIStepAdditions"
-
-[SF.Seq[5].Main[0].TS.SData.Call]
-LibPath = "UnitTest.dll"
-Func = "UnitTest_FormMIS"
-%HI: Parms = [1]
-
-[DEF, SF.Seq[5].Main[0].TS.SData.Call.Parms]
-%[0] = "TYPE, FCVIParameter"
-%[1] = "TYPE, FCVIParameter"
-
-[SF.Seq[5].Main[0].TS.SData.Call.Parms[0]]
-Name = "Return Value"
-ArgVal = "Locals.ErrorCode"
-Flags = 264
-
-[SF.Seq[5].Main[0].TS.SData.Call.Parms[1]]
-Name = "ErrInfo"
-Type = 5
-StructType = "Error"
-NumPass = 1
-ArgVal = "Step.Result.Error"
-Flags = 256
-
-[SF.Seq[5].Main[0].TS.SData]
-ModuleSrcPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\UnitTest\\UnitTest.c"
-ModulePrjPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\UnitTest\\UnitTest.prj"
-
-[DEF, SF.Seq[5].Main[0]]
-%NAME = "Test"
 
 [DEF, SF.Seq[5].RTS]
 Type = Num
@@ -665,11 +670,12 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "UnitTest_SendCANIOSignal"
+%NAME = "UnitTest_FormMIS"
 
 [SF.Seq[6]]
 %FLG: Parameters = 4456448
 %FLG: Locals = 4194304
+%HI: Main = [0]
 %FLG: Main = 4194304
 %FLG: Setup = 4194304
 %FLG: Cleanup = 4194304
@@ -682,12 +688,53 @@ FailureAction = 2
 
 [DEF, SF.Seq[6].Locals]
 ResultList = Objs
+ErrorCode = Num
 
 [DEF, SF.Seq[6].Locals.ResultList]
 %EPTYPE = TEResult
 
 [SF.Seq[6].Locals]
 %FLG: ResultList = 4194304
+
+[DEF, SF.Seq[6].Main]
+%[0] = Step
+%TYPE: %[0] = "Action"
+
+[SF.Seq[6].Main[0].TS]
+Id = "ID#:XFr0MrZ28BGjG7jKOqmvpD"
+StatusExpr = "Step.Result.Error.Code == 0 ? \"Passed\" : \"Failed\" "
+
+[DEF, SF.Seq[6].Main[0].TS]
+SData = "TYPE, FlexCVIStepAdditions"
+
+[SF.Seq[6].Main[0].TS.SData.Call]
+LibPath = "UnitTest.dll"
+Func = "UnitTest_FormMIS"
+%HI: Parms = [1]
+
+[DEF, SF.Seq[6].Main[0].TS.SData.Call.Parms]
+%[0] = "TYPE, FCVIParameter"
+%[1] = "TYPE, FCVIParameter"
+
+[SF.Seq[6].Main[0].TS.SData.Call.Parms[0]]
+Name = "Return Value"
+ArgVal = "Locals.ErrorCode"
+Flags = 264
+
+[SF.Seq[6].Main[0].TS.SData.Call.Parms[1]]
+Name = "ErrInfo"
+Type = 5
+StructType = "Error"
+NumPass = 1
+ArgVal = "Step.Result.Error"
+Flags = 256
+
+[SF.Seq[6].Main[0].TS.SData]
+ModuleSrcPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\UnitTest\\UnitTest.c"
+ModulePrjPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\UnitTest\\UnitTest.prj"
+
+[DEF, SF.Seq[6].Main[0]]
+%NAME = "Test"
 
 [DEF, SF.Seq[6].RTS]
 Type = Num
@@ -746,7 +793,7 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "UnitTest_EnableVBATT"
+%NAME = "UnitTest_SendCANIOSignal"
 
 [SF.Seq[7]]
 %FLG: Parameters = 4456448
@@ -827,7 +874,7 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "UnitTest_EnableCANChannels"
+%NAME = "UnitTest_EnableVBATT"
 
 [SF.Seq[8]]
 %FLG: Parameters = 4456448
@@ -908,7 +955,7 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "UnitTest_SetPowerSupply"
+%NAME = "UnitTest_EnableCANChannels"
 
 [SF.Seq[9]]
 %FLG: Parameters = 4456448
@@ -989,7 +1036,7 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "UnitTest_ReadBarcode"
+%NAME = "UnitTest_SetPowerSupply"
 
 [SF.Seq[10]]
 %FLG: Parameters = 4456448
@@ -1070,7 +1117,7 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "UnitTest_ReadCurrent"
+%NAME = "UnitTest_ReadBarcode"
 
 [SF.Seq[11]]
 %FLG: Parameters = 4456448
@@ -1141,6 +1188,87 @@ Links = Strs
 [SF.Seq[11].Requirements]
 %FLG: Links = 71303168
 
+[DEF, SF.Seq[12]]
+Parameters = Obj
+Locals = Obj
+Main = Objs
+Setup = Objs
+Cleanup = Objs
+RecordResults = Bool
+RTS = Obj
+Requirements = Obj
+FailureAction = Num
+%NAME = "UnitTest_ReadCurrent"
+
+[SF.Seq[12]]
+%FLG: Parameters = 4456448
+%FLG: Locals = 4194304
+%FLG: Main = 4194304
+%FLG: Setup = 4194304
+%FLG: Cleanup = 4194304
+RecordResults = True
+%FLG: RecordResults = 4194312
+%FLG: RTS = 4456456
+%FLG: Requirements = 4456456
+FailureAction = 2
+%FLG: FailureAction = 4194312
+
+[DEF, SF.Seq[12].Locals]
+ResultList = Objs
+
+[DEF, SF.Seq[12].Locals.ResultList]
+%EPTYPE = TEResult
+
+[SF.Seq[12].Locals]
+%FLG: ResultList = 4194304
+
+[DEF, SF.Seq[12].RTS]
+Type = Num
+OptimizeNonReentrantCalls = Bool
+EPNameExpr = Str
+EPEnabledExpr = Str
+EPMenuHint = Str
+EPIgnoreClient = Bool
+EPInitiallyHidden = Bool
+EPCheckToSaveTitledFile = Bool
+ShowEPAlways = Bool
+ShowEPForFileWin = Bool
+ShowEPForExeWin = Bool
+ShowEPForEditorOnly = Bool
+AllowIntExeOfEP = Bool
+CopyStepsOnOverriding = Bool
+Priority = Num
+
+[SF.Seq[12].RTS]
+%FLG: Type = 4194304
+OptimizeNonReentrantCalls = True
+%FLG: OptimizeNonReentrantCalls = 4194304
+EPNameExpr = "\"Unnamed Entry Point\""
+%FLG: EPNameExpr = 4194304
+EPEnabledExpr = "True"
+%FLG: EPEnabledExpr = 4194304
+%FLG: EPMenuHint = 4194304
+%FLG: EPIgnoreClient = 4194304
+%FLG: EPInitiallyHidden = 4194304
+EPCheckToSaveTitledFile = True
+%FLG: EPCheckToSaveTitledFile = 4194304
+%FLG: ShowEPAlways = 4194304
+ShowEPForFileWin = True
+%FLG: ShowEPForFileWin = 4194304
+%FLG: ShowEPForExeWin = 4194304
+%FLG: ShowEPForEditorOnly = 4194304
+%FLG: AllowIntExeOfEP = 4194304
+CopyStepsOnOverriding = True
+%FLG: CopyStepsOnOverriding = 4194304
+Priority = 2953567917
+%FLG: Priority = 4194304
+
+[DEF, SF.Seq[12].Requirements]
+Links = Strs
+
+[SF.Seq[12].Requirements]
+%FLG: Links = 71303168
+
 [DEF, SF.Requirements]
 Links = Strs
 
@@ -1170,10 +1298,6 @@ FCParameter = "FCParameter"
 FlexCStepAdditions = "FlexCStepAdditions"
 NoneStepAdditions = "NoneStepAdditions"
 Label = "Label"
-PostSubstep = "PostSubstep"
-NI_MsgBoxFontData = "NI_MsgBoxFontData"
-NI_MsgBoxFileData = "NI_MsgBoxFileData"
-MessagePopup = "MessagePopup"
 
 [DEF, Path]
 %LOCATION = "StdTypes"
@@ -2319,454 +2443,4 @@ Common = "TYPE, CommonResults"
 %FLG: ReportText = 4194304
 %INSTFLG: ReportText = 4194304
 %INSTOVRD: Common = 4194304
-
-[DEF, PostSubstep]
-%LOCATION = "StepTypes"
-DescriptionFormat = "TYPE, Expression"
-%FLG: DescriptionFormat = 524288
-DefaultNameFormat = "TYPE, Expression"
-%FLG: DefaultNameFormat = 524288
-BlockStartTypes = Str
-%FLG: BlockStartTypes = 524288
-BlockEndTypes = Str
-%FLG: BlockEndTypes = 524288
-AppliesToBlockStructure = Bool
-%FLG: AppliesToBlockStructure = 524288
-Menu = "TYPE, StepTypeMenu"
-Substeps = "TYPE, StepTypeSubstepsArray"
-CodeTemplates = Str
-%FLG: CodeTemplates = 524288
-AdditionalResultsHints = Objs
-%FLG: AdditionalResultsHints = 524288
-TS = "TYPE, TEInf"
-NI_Data = "TYPE, StepTypeNIData"
-Result = Obj
-CanEncapsulate = Bool
-%FLG: CanEncapsulate = 524288
-%ROOT_TYPE = True
-
-[PostSubstep]
-DescriptionFormat = "\"%ModuleDescription\""
-%FLG: DescriptionFormat = 4194328
-%INSTFLG: DescriptionFormat = 4718616
-%INSTOVRD: DescriptionFormat = 4718616
-DefaultNameFormat = "ResStr(\"NI_STEPTYPES\", \"POST_DEF_SUBSTEP_NAME\")"
-%FLG: DefaultNameFormat = 4194328
-%INSTFLG: DefaultNameFormat = 4718616
-%INSTOVRD: DefaultNameFormat = 4718616
-%FLG: BlockStartTypes = 4194328
-%FLG: BlockEndTypes = 4194328
-%FLG: AppliesToBlockStructure = 4194328
-CodeTemplates Line0001 = "DefaultLabVIEWNXG|DefaultLabVIEW|DefaultCVI|DefaultVB.NET|DefaultCSharp.NET|DefaultC++.NET|DefaultVC++_Template|DefaultH"
-CodeTemplates Line0002 = "TB72_Template|DefaultHTB80_Template|Default_Template"
-%FLG: CodeTemplates = 4194328
-%FLG: AdditionalResultsHints = 4194328
-%INSTFLG: TS = 4456472
-%FLG: Result = 4194304
-%INSTFLG: Result = 4194304
-%FLG: CanEncapsulate = 4194328
-%TIMESTAMP = 1510782311
-%VERSION = "17.0.0.184"
-%TYPELASTMOD = "17.0.0.184"
-%MINPRODVER = "17.0.0.0"
-%TYPE_FLG = 33554438
-%INSTFLG = 4194304
-%INSTOVRD = 4194304
-
-[PostSubstep.Menu]
-CanBeSubstepType = True
-CanOnlyBeSubstepType = True
-ItemName = "ResStr(\"NI_STEPTYPES\", \"POST_SUBSTEP_MENU_ITEM_NAME\")"
-Group = "ExecSubsteps"
-
-[DEF, PostSubstep.AdditionalResultsHints]
-%EPTYPE = "TYPE, NI_CustomResult"
-
-[DEF, PostSubstep.TS]
-SData = Obj
-%FLG: SData = 2097152
-Requirements = Obj
-%FLG: Requirements = 2097152
-
-[PostSubstep.TS]
-%INSTFLG: SData = 2097152
-%INSTOVRD: SData = 7274521
-%FLG: Requirements = 1
-%INSTFLG: Requirements = 1
-
-[DEF, PostSubstep.TS.Requirements]
-Links = Strs
-
-[PostSubstep.TS.Requirements]
-%FLG: Links = 71303168
-%INSTFLG: Links = 71303168
-%INSTOVRD: Links = 72286233
-
-[DEF, PostSubstep.Result]
-Error = "TYPE, Error"
-Status = Str
-ReportText = Str
-Common = "TYPE, CommonResults"
-
-[PostSubstep.Result]
-%FLG: Error = 4194304
-%INSTFLG: Error = 4194304
-%FLG: Status = 4194304
-%INSTFLG: Status = 4194304
-%FLG: ReportText = 4194304
-%INSTFLG: ReportText = 4194304
-
-[DEF, NI_MsgBoxFontData]
-%LOCATION = "StdTypes"
-Size = Num
-FontColor = Num
-BackColor = Num
-Bold = Bool
-Underline = Bool
-Strikethru = Bool
-Italics = Bool
-Name = Str
-Conform = Bool
-%ROOT_TYPE = True
-
-[NI_MsgBoxFontData]
-FontColor = -1
-BackColor = -1
-Conform = True
-%TIMESTAMP = 1507240255
-%VERSION = "17.0.0.0"
-%TYPELASTMOD = "17.0.0.132"
-%MINPRODVER = "17.0.0.0"
-%FLG = 8
-%TYPE_FLG = 33554436
-
-[DEF, NI_MsgBoxFileData]
-%LOCATION = "StdTypes"
-Path = Str
-ShowFile = Bool
-Data = Str
-Source = Num
-Name = Str
-%ROOT_TYPE = True
-
-[NI_MsgBoxFileData]
-%TIMESTAMP = 1507240263
-%VERSION = "17.0.0.0"
-%TYPELASTMOD = "17.0.0.132"
-%MINPRODVER = "17.0.0.0"
-%FLG = 8
-%TYPE_FLG = 33554436
-
-[DEF, MessagePopup]
-%LOCATION = "StepTypes"
-Substeps = "TYPE, StepTypeSubstepsArray"
-DescriptionFormat = "TYPE, Expression"
-%FLG: DescriptionFormat = 524288
-DefaultNameFormat = "TYPE, Expression"
-%FLG: DefaultNameFormat = 524288
-Menu = "TYPE, StepTypeMenu"
-AdditionalResultsHints = Objs
-%FLG: AdditionalResultsHints = 524288
-TS = "TYPE, TEInf"
-NI_Data = "TYPE, StepTypeNIData"
-Result = Obj
-TitleExpr = "TYPE, Expression"
-MessageExpr = "TYPE, Expression"
-MsgFontData = "TYPE, NI_MsgBoxFontData"
-Button1Label = "TYPE, Expression"
-Button2Label = "TYPE, Expression"
-Button3Label = "TYPE, Expression"
-Button4Label = "TYPE, Expression"
-Button5Label = "TYPE, Expression"
-Button6Label = "TYPE, Expression"
-ButtonFontData = Objs
-ShowResponse = Bool
-NumberLines = Num
-MaxResponseLength = Num
-RespFontData = "TYPE, NI_MsgBoxFontData"
-DefaultResponse = Str
-DefaultResponseExpr = "TYPE, Expression"
-FileData = "TYPE, NI_MsgBoxFileData"
-ActiveCtrl = Num
-DefaultButton = Num
-CancelButton = Num
-TimerButton = Num
-TimeToWait = Num
-Position = Obj
-CenterDialog = Bool
-Modal = Bool
-Floating = Bool
-CtrlArrangement = Num
-ButtonLocation = Num
-ButtonAlignment = Num
-ResizeDialog = Num
-CodeTemplates = Str
-%FLG: CodeTemplates = 524288
-BlockStartTypes = Str
-%FLG: BlockStartTypes = 524288
-BlockEndTypes = Str
-%FLG: BlockEndTypes = 524288
-AppliesToBlockStructure = Bool
-%FLG: AppliesToBlockStructure = 524288
-CanEncapsulate = Bool
-%FLG: CanEncapsulate = 524288
-%ROOT_TYPE = True
-
-[MessagePopup]
-%HI: Substeps = [1]
-%INSTFLG: Substeps = 524312
-%INSTOVRD: Substeps = 655384
-DescriptionFormat = "LocalizeExpression(Step.TitleExpr)"
-%FLG: DescriptionFormat = 4194328
-%INSTFLG: DescriptionFormat = 4718616
-%INSTOVRD: DescriptionFormat = 4718616
-DefaultNameFormat = "ResStr(\"MSG_BOX_STEP_TYPE\", \"DEF_STEP_NAME\")"
-%FLG: DefaultNameFormat = 4194328
-%INSTFLG: DefaultNameFormat = 4718616
-%INSTOVRD: DefaultNameFormat = 4718616
-%INSTFLG: Menu = 524312
-%INSTOVRD: Menu = 524312
-%HI: AdditionalResultsHints = [1]
-%FLG: AdditionalResultsHints = 4194328
-%INSTFLG: TS = 262168
-%INSTOVRD: TS = 4456472
-%FLG: Result = 4194304
-%INSTFLG: Result = 4194304
-TitleExpr = "NameOf(Step)"
-%FLG: TitleExpr = 262144
-MessageExpr = "\"Your message here\""
-Button1Label = "\"OK\""
-Button2Label = "\"\""
-Button3Label = "\"\""
-Button4Label = "\"\""
-Button5Label = "\"\""
-Button6Label = "\"\""
-%HI: ButtonFontData = [5]
-NumberLines = 1
-MaxResponseLength = 4096
-%FLG: DefaultResponse = 24
-%INSTFLG: DefaultResponse = 8
-ActiveCtrl = 1
-DefaultButton = 1
-CancelButton = 1
-CenterDialog = True
-%FLG: CodeTemplates = 4194328
-%FLG: BlockStartTypes = 4194328
-%FLG: BlockEndTypes = 4194328
-%FLG: AppliesToBlockStructure = 4194328
-%FLG: CanEncapsulate = 4194328
-%TIMESTAMP = 1507240263
-%VERSION = "17.0.0.0"
-%TYPELASTMOD = "17.0.0.132"
-%MINPRODVER = "17.0.0.0"
-%TYPE_FLG = 33554446
-
-[DEF, MessagePopup.Substeps]
-%[0] = Step
-%TYPE: %[0] = "PostSubstep"
-%[1] = Step
-%TYPE: %[1] = "EditSubstep"
-
-[DEF, MessagePopup.Substeps[0].TS]
-SData = "TYPE, FlexCStepAdditions"
-%FLG: SData = 2097152
-
-[MessagePopup.Substeps[0].TS.SData.Call]
-LibPath = "msgbox.dll"
-Func = "DisplayTimerMsgImgPopup"
-%HI: Parms = [2]
-
-[DEF, MessagePopup.Substeps[0].TS.SData.Call.Parms]
-%[0] = "TYPE, FCParameter"
-%[1] = "TYPE, FCParameter"
-%[2] = "TYPE, FCParameter"
-
-[MessagePopup.Substeps[0].TS.SData.Call.Parms[0]]
-Name = "Return Value"
-%INSTOVRD: ResultAct = 5177369
-%INSTOVRD: Flags = 5177369
-
-[MessagePopup.Substeps[0].TS.SData.Call.Parms[1]]
-Name = "context"
-Type = 4
-ObjType = 1
-%INSTOVRD: ResultAct = 5177369
-ArgVal = "ThisContext"
-%INSTOVRD: Flags = 5177369
-
-[MessagePopup.Substeps[0].TS.SData.Call.Parms[2]]
-Name = "buttonArraySize"
-%INSTOVRD: ResultAct = 5177369
-ArgVal = "6"
-%INSTOVRD: Flags = 5177369
-
-[MessagePopup.Substeps[0].TS]
-%INSTFLG: SData = 2097152
-%INSTOVRD: SData = 2097152
-ConnectionLifetime = 0
-
-[MessagePopup.Substeps[0]]
-%INSTFLG: TS = 262168
-%INSTOVRD: TS = 262168
-
-[MessagePopup.Substeps[0].Result]
-%INSTOVRD: Error = 4194304
-%INSTFLG: ReportText = 0
-%INSTOVRD: Common = 4194304
-
-[DEF, MessagePopup.Substeps[0]]
-%NAME = "Post"
-
-[DEF, MessagePopup.Substeps[1].TS]
-SData = "TYPE, FlexCStepAdditions"
-%FLG: SData = 2097152
-
-[MessagePopup.Substeps[1].TS.SData.Call]
-LibPath = "msgbox.dll"
-Func = "EditMessageBoxStep"
-%HI: Parms = [4]
-
-[DEF, MessagePopup.Substeps[1].TS.SData.Call.Parms]
-%[0] = "TYPE, FCParameter"
-%[1] = "TYPE, FCParameter"
-%[2] = "TYPE, FCParameter"
-%[3] = "TYPE, FCParameter"
-%[4] = "TYPE, FCParameter"
-
-[MessagePopup.Substeps[1].TS.SData.Call.Parms[0]]
-Name = "Return Value"
-ResultAct = 1
-%INSTOVRD: ResultAct = 5177369
-Flags = 2
-%INSTOVRD: Flags = 5177369
-
-[MessagePopup.Substeps[1].TS.SData.Call.Parms[1]]
-Name = "context"
-Type = 4
-ObjType = 1
-%INSTOVRD: ResultAct = 5177369
-ArgVal = "ThisContext"
-%INSTOVRD: Flags = 5177369
-
-[MessagePopup.Substeps[1].TS.SData.Call.Parms[2]]
-Name = "engine"
-Type = 4
-ObjType = 1
-%INSTOVRD: ResultAct = 5177369
-ArgVal = "RunState.Engine"
-ArgDisplayVal = "RunState.Engine"
-%INSTOVRD: Flags = 5177369
-
-[MessagePopup.Substeps[1].TS.SData.Call.Parms[3]]
-Name = "reserved"
-%INSTOVRD: ResultAct = 5177369
-ArgVal = "0"
-%INSTOVRD: Flags = 5177369
-
-[MessagePopup.Substeps[1].TS.SData.Call.Parms[4]]
-Name = "changed"
-NumPass = 1
-%INSTOVRD: ResultAct = 5177369
-ArgVal = "RunState.InitialSelection.SelectedFile.ChangeCount"
-ArgDisplayVal = "RunState.InitialSelection.SelectedFile.ChangeCount"
-%INSTOVRD: Flags = 5177369
-
-[MessagePopup.Substeps[1].TS]
-%INSTFLG: SData = 2097152
-%INSTOVRD: SData = 2097152
-ConnectionLifetime = 0
-
-[MessagePopup.Substeps[1]]
-%INSTFLG: TS = 262168
-%INSTOVRD: TS = 262168
-MenuName = "ResStr(\"MSG_BOX_STEP_TYPE\", \"EDIT_STEP_NAME\")"
-SupportsReadOnly = True
-HasEditPanel = True
-
-[MessagePopup.Substeps[1].Result]
-%INSTOVRD: Error = 4194304
-%INSTFLG: ReportText = 0
-%INSTOVRD: Common = 4194304
-
-[DEF, MessagePopup.Substeps[1]]
-%NAME = "Edit"
-
-[MessagePopup.Menu]
-ItemName = "ResStr(\"MSG_BOX_STEP_TYPE\", \"MENU_ITEM_NAME\")"
-Group = "NI_Miscellaneous"
-
-[DEF, MessagePopup.AdditionalResultsHints]
-%EPTYPE = "TYPE, NI_CustomResult"
-%[0] = "TYPE, NI_CustomResult"
-%[1] = "TYPE, NI_CustomResult"
-
-[MessagePopup.AdditionalResultsHints[0]]
-Name = "ResStr(\"MSG_BOX_STEP_TYPE\", \"TITLE\")"
-ValueToLog = "Evaluate(Step.TitleExpr)"
-
-[MessagePopup.AdditionalResultsHints[1]]
-Name = "ResStr(\"MSG_BOX_STEP_TYPE\", \"MESSAGE\")"
-ValueToLog = "Evaluate(Step.MessageExpr)"
-
-[MessagePopup.TS]
-Icon = "MsgBox.ico"
-%INSTFLG: SData = 2097152
-%INSTOVRD: SData = 7143448
-ConnectionLifetime = 0
-LoopIncrement = ""
-LoopInitialize = ""
-CanSpecifyModule = False
-%FLG: Requirements = 1
-%INSTFLG: Requirements = 1
-
-[DEF, MessagePopup.TS]
-SData = "TYPE, NoneStepAdditions"
-%FLG: SData = 2097152
-Requirements = Obj
-%FLG: Requirements = 2097152
-
-[DEF, MessagePopup.TS.Requirements]
-Links = Strs
-
-[MessagePopup.TS.Requirements]
-%FLG: Links = 71303168
-%INSTFLG: Links = 71303168
-%INSTOVRD: Links = 72286233
-
-[MessagePopup.NI_Data]
-%HI: EditPanels = [2]
-
-[MessagePopup.NI_Data.EditPanels]
-%[0] = "NIStepTypeControls.dll|NationalInstruments.TestStand.StepTypeControls.MessagePopupTabInfo"
-%[1] = "NIStepTypeControls.dll|NationalInstruments.TestStand.StepTypeControls.MessagePopupOptionsTabInfo"
-%[2] = "NIStepTypeControls.dll|NationalInstruments.TestStand.StepTypeControls.MessagePopupLayoutTabInfo"
-
-[DEF, MessagePopup.Result]
-Error = "TYPE, Error"
-Status = Str
-ButtonHit = Num
-Response = Str
-ReportText = Str
-Common = "TYPE, CommonResults"
-
-[MessagePopup.Result]
-%FLG: Error = 4194304
-%INSTFLG: Error = 4194304
-%INSTOVRD: Error = 4194304
-%FLG: Status = 4194304
-%INSTFLG: Status = 4194304
-%FLG: ButtonHit = 8192
-%INSTFLG: ButtonHit = 8192
-%FLG: Response = 10240
-%INSTFLG: Response = 10240
-%FLG: ReportText = 4194304
-%INSTFLG: ReportText = 4194304
-%INSTOVRD: Common = 4194304
-
-[DEF, MessagePopup.ButtonFontData]
-%EPTYPE = "TYPE, NI_MsgBoxFontData"
-
-[DEF, MessagePopup.Position]
-Top = "TYPE, Expression"
-Left = "TYPE, Expression"
 
