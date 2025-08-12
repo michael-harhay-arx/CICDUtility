@@ -133,7 +133,7 @@ int main(int argc, char *argv[])
 	errChk( GetActiveXControlHandles());
 	
 	/**************** MY CODE *******************/
-	char newPath[256] = "C:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source Code\\UserInterface.xml";
+	char newPath[256] = "C:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\UserInterface.xml";
 	tsErrChk(TSUI_ApplicationMgrSetConfigFilePath(gMainWindow.applicationMgr, &errorInfo, newPath));
 	
 	//char *path = NULL;

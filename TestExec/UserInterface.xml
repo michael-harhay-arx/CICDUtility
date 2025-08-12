@@ -2695,9 +2695,7 @@ tsDefaultColor:
 						<value>8</value>
 					</MaxMRUFiles>
 					<MostRecentlyUsedList classname='Strs'>
-						<value lbound='[0]' ubound='[0]'>
-							<value arrayindex='[0]'>C:\Users\Michael_Harhay\Documents\CICDUtility\TestSeq.seq</value>
-						</value>
+						<value lbound='[0]' ubound='[]'/>
 					</MostRecentlyUsedList>
 					<SequenceListSortSettings classname='Obj'>
 						<subprops>
@@ -2710,14 +2708,10 @@ tsDefaultColor:
 						</subprops>
 					</SequenceListSortSettings>
 					<ReloadArray classname='Strs'>
-						<value lbound='[0]' ubound='[0]'>
-							<value arrayindex='[0]'>C:\Users\Michael_Harhay\Documents\CICDUtility\TestSeq.seq</value>
-						</value>
+						<value lbound='[0]' ubound='[]'/>
 					</ReloadArray>
 					<SelectedArray classname='Strs'>
-						<value lbound='[0]' ubound='[0]'>
-							<value arrayindex='[0]'>C:\Users\Michael_Harhay\Documents\CICDUtility\TestSeq.seq</value>
-						</value>
+						<value lbound='[0]' ubound='[]'/>
 					</SelectedArray>
 				</subprops>
 			</TSUIConfig>

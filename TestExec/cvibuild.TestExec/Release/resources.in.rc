@@ -1,7 +1,7 @@
 #include "C:\Program Files (x86)\National Instruments\Shared\MSDTRedistributables\SDKHeaderFiles\8.1\winver.h"
 
-2 ICON "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source Code\\testexec.ico"
-1 24 "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source Code\\cvibuild.TestExec\\Release\\manifest.xml"
+2 ICON "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\testexec.ico"
+1 24 "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\manifest.xml"
 
 
 STRINGTABLE DISCARDABLE
@@ -38,4 +38,4 @@ BEGIN
     END
 END
 
-TestExec.uir UIRFileType "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source Code\\TestExec.uir"
+TestExec.uir UIRFileType "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\TestExec.uir"
