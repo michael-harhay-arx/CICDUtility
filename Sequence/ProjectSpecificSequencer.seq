@@ -4485,6 +4485,7 @@ Id = "ID#:hKvsGihl7BGdpdz7SDZo3B"
 
 [SF.Seq[8].Main[5].TS]
 Id = "ID#:hFftQhCa7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[8].Main[5].TS]
 SData = "TYPE, SeqCallStepAdditions"
@@ -4639,6 +4640,7 @@ TextPointSize = 30
 
 [SF.Seq[8].Main[6].TS]
 Id = "ID#:1AtWMxCa7hGeXgTPSx+6LD"
+Mode = "Skip"
 PostExpr = "FileGlobals.DBRefs[0] = 0"
 
 [SF.Seq[8].Main[6]]
@@ -4649,6 +4651,7 @@ DatabaseHandle = "FileGlobals.DBRefs[0]"
 
 [SF.Seq[8].Main[7].TS]
 Id = "ID#:1QtWMxCa7hGeXgTPSx+6LD"
+Mode = "Skip"
 PostExpr = "FileGlobals.DBRefs[30] = 0"
 
 [SF.Seq[8].Main[7]]
@@ -6897,6 +6900,7 @@ FAIL_CHUTE_ENTRY = Bool
 
 [SF.Seq[18].Main[0].TS]
 Id = "ID#:aQs5lR6a7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[18].Main[0].TS]
 SData = "TYPE, SeqCallStepAdditions"
@@ -7051,6 +7055,7 @@ TextPointSize = 30
 
 [SF.Seq[18].Main[1].TS]
 Id = "ID#:YAs5lR6a7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [SF.Seq[18].Main[1]]
 ConditionExpr = "!Locals.FAIL_PRESSED"
@@ -7060,18 +7065,21 @@ ConditionExpr = "!Locals.FAIL_PRESSED"
 
 [SF.Seq[18].Main[2].TS]
 Id = "ID#:cbnSuR6a7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[18].Main[2]]
 %NAME = "Update local"
 
 [SF.Seq[18].Main[3].TS]
 Id = "ID#:YQs5lR6a7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[18].Main[3]]
 %NAME = "Break On Terminate"
 
 [SF.Seq[18].Main[4].TS]
 Id = "ID#:Ygs5lR6a7hGeXgTPSx+6LD"
+Mode = "Skip"
 %HI: AdditionalResultsHints = [0]
 
 [DEF, SF.Seq[18].Main[4].TS.AdditionalResultsHints]
@@ -7090,6 +7098,7 @@ TimeExpr = "0.1"
 
 [SF.Seq[18].Main[5].TS]
 Id = "ID#:Yws5lR6a7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[18].Main[5]]
 %NAME = "End"
@@ -7159,6 +7168,7 @@ Flags = 0
 
 [SF.Seq[18].Main[8].TS]
 Id = "ID#:p4dtyh6a7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[18].Main[8].TS]
 SData = "TYPE, SeqCallStepAdditions"
@@ -7313,6 +7323,7 @@ TextPointSize = 30
 
 [SF.Seq[18].Main[9].TS]
 Id = "ID#:Pi5k1h6a7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [SF.Seq[18].Main[9]]
 ConditionExpr = "StationGlobals.NEST_PRESENCE[RunState.TestSockets.MyIndex]"
@@ -7322,12 +7333,14 @@ ConditionExpr = "StationGlobals.NEST_PRESENCE[RunState.TestSockets.MyIndex]"
 
 [SF.Seq[18].Main[10].TS]
 Id = "ID#:Py5k1h6a7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[18].Main[10]]
 %NAME = "Break On Terminate"
 
 [SF.Seq[18].Main[11].TS]
 Id = "ID#:QC5k1h6a7hGeXgTPSx+6LD"
+Mode = "Skip"
 %HI: AdditionalResultsHints = [0]
 
 [DEF, SF.Seq[18].Main[11].TS.AdditionalResultsHints]
@@ -7346,12 +7359,14 @@ TimeExpr = "0.01"
 
 [SF.Seq[18].Main[12].TS]
 Id = "ID#:QS5k1h6a7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[18].Main[12]]
 %NAME = "End"
 
 [SF.Seq[18].Main[13].TS]
 Id = "ID#:PKie3B6a7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[18].Main[13].TS]
 SData = "TYPE, SeqCallStepAdditions"
@@ -7506,6 +7521,7 @@ TextPointSize = 30
 
 [SF.Seq[18].Main[14].TS]
 Id = "ID#:6iPB5B6a7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [SF.Seq[18].Main[14]]
 ConditionExpr = "!Locals.FAIL_CHUTE_ENTRY"
@@ -7515,18 +7531,21 @@ ConditionExpr = "!Locals.FAIL_CHUTE_ENTRY"
 
 [SF.Seq[18].Main[15].TS]
 Id = "ID#:8yPB5B6a7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[18].Main[15]]
 %NAME = "Update local"
 
 [SF.Seq[18].Main[16].TS]
 Id = "ID#:6yPB5B6a7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[18].Main[16]]
 %NAME = "Break On Terminate"
 
 [SF.Seq[18].Main[17].TS]
 Id = "ID#:7CPB5B6a7hGeXgTPSx+6LD"
+Mode = "Skip"
 %HI: AdditionalResultsHints = [0]
 
 [DEF, SF.Seq[18].Main[17].TS.AdditionalResultsHints]
@@ -7545,6 +7564,7 @@ TimeExpr = "0.02"
 
 [SF.Seq[18].Main[18].TS]
 Id = "ID#:7SPB5B6a7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[18].Main[18]]
 %NAME = "End"
@@ -13805,6 +13825,7 @@ Units = Strs
 
 [SF.Seq[38].Main[3].TS]
 Id = "ID#:kD1thiKa7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[38].Main[3].TS]
 SData = "TYPE, SeqCallStepAdditions"
@@ -13904,6 +13925,7 @@ TableName = "SWLLog"
 [SF.Seq[38].Main[4].TS]
 Id = "ID#:kT1thiKa7hGeXgTPSx+6LD"
 PreCond = "!Locals.TestPassed && !FileGlobals.CapabilityMode"
+Mode = "Skip"
 
 [DEF, SF.Seq[38].Main[4].TS]
 SData = "TYPE, SeqCallStepAdditions"
@@ -13917,6 +13939,7 @@ UseCurFile = True
 
 [SF.Seq[38].Main[5].TS]
 Id = "ID#:kj1thiKa7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[38].Main[5].TS]
 SData = "TYPE, SeqCallStepAdditions"
@@ -13949,6 +13972,7 @@ Flags = 0
 
 [SF.Seq[38].Main[6].TS]
 Id = "ID#:kz1thiKa7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[38].Main[6].TS]
 SData = "TYPE, SeqCallStepAdditions"
@@ -13980,6 +14004,7 @@ Flags = 0
 
 [SF.Seq[38].Main[7].TS]
 Id = "ID#:lD1thiKa7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [SF.Seq[38].Main[7]]
 ConditionExpr = "FileGlobals.ShortTermGlobalCounters.Count!=0 && FileGlobals.ShortTermGlobalCounters.Count%500==0"
@@ -13990,6 +14015,7 @@ ConditionExpr = "FileGlobals.ShortTermGlobalCounters.Count!=0 && FileGlobals.Sho
 
 [SF.Seq[38].Main[8].TS]
 Id = "ID#:lT1thiKa7hGeXgTPSx+6LD"
+Mode = "Skip"
 PostExpr = "FileGlobals.DBRefs[0] = 0"
 
 [SF.Seq[38].Main[8]]
@@ -14000,6 +14026,7 @@ DatabaseHandle = "FileGlobals.DBRefs[0]"
 
 [SF.Seq[38].Main[9].TS]
 Id = "ID#:lj1thiKa7hGeXgTPSx+6LD"
+Mode = "Skip"
 %HI: AdditionalResultsHints = [0]
 
 [DEF, SF.Seq[38].Main[9].TS.AdditionalResultsHints]
@@ -14018,6 +14045,7 @@ TimeExpr = "1"
 
 [SF.Seq[38].Main[10].TS]
 Id = "ID#:YI3dQyOa7hGeXgTPSx+6LD"
+Mode = "Skip"
 PreExpr = "FindFile(\"TestSequence.seq\", True, Step.AsPropertyObject.Attributes.TestSeqPath)"
 
 [DEF, SF.Seq[38].Main[10].TS]
@@ -14104,6 +14132,7 @@ TestSeqPath = Str
 
 [SF.Seq[38].Main[11].TS]
 Id = "ID#:mD1thiKa7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[38].Main[11]]
 %NAME = "End"

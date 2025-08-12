@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="iso-8859-1" ?><?xml-stylesheet type="text/xsl" href="C:\Program Files (x86)\National Instruments\TestStand 2017\Components\Models\TestStandModels\ATML\StyleSheets\tr5_horizontal.xsl"?>
+
+<trc:TestResultsCollection xmlns:trc="urn:IEEE-1636.1:2011:01:TestResultsCollection" xmlns:tr="urn:IEEE-1636.1:2011:01:TestResults" xmlns:c="urn:IEEE-1671:2010:Common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ts="www.ni.com/TestStand/ATMLTestResults/2.0">
+</trc:TestResultsCollection>

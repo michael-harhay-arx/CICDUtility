@@ -2,7 +2,7 @@ LIBRARY UnitTest
 
 EXPORTS
 UnitTest_FormMIS
-UnitTest_TestStandVersion
-UnitTest_CVIVersion
-UnitTest_WindowsVersion
+Test_TestStandVersion
+Test_CVIVersion
+Test_WindowsVersion
 error

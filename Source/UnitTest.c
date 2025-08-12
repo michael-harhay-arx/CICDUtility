@@ -44,12 +44,12 @@
 //! \cond
 /// REGION END
 
-/// REGION START General Unit Tests
+/// REGION START General Tests
 //! \endcond
 /***************************************************************************//*!
-* Unit test CVI version
+* Test CVI version
 *******************************************************************************/
-int UnitTest_WindowsVersion (tsErrorDataType *ErrInfo)
+int Test_WindowsVersion (tsErrorDataType *ErrInfo)
 {
 	UTInit;
 	char msgLog[4096] = {0};
@@ -81,9 +81,9 @@ int UnitTest_WindowsVersion (tsErrorDataType *ErrInfo)
 }
 
 /***************************************************************************//*!
-* Unit test CVI version
+* Test CVI version
 *******************************************************************************/
-int UnitTest_CVIVersion (tsErrorDataType *ErrInfo)
+int Test_CVIVersion (tsErrorDataType *ErrInfo)
 {
 	UTInit;
 	char msgLog[4096] = {0};
@@ -97,9 +97,9 @@ int UnitTest_CVIVersion (tsErrorDataType *ErrInfo)
 }
 
 /***************************************************************************//*!
-* Unit test TestStand version
+* Test TestStand version
 *******************************************************************************/
-int UnitTest_TestStandVersion (tsErrorDataType *ErrInfo)
+int Test_TestStandVersion (tsErrorDataType *ErrInfo)
 {
 	UTInit;
 	char msgLog[4096] = {0};

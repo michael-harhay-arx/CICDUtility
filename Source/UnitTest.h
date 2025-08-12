@@ -107,9 +107,9 @@
 // Global functions
 
 // General unit tests
-int UnitTest_WindowsVersion (tsErrorDataType *ErrInfo);
-int UnitTest_CVIVersion (tsErrorDataType *ErrInfo);
-int UnitTest_TestStandVersion (tsErrorDataType *ErrInfo);
+int Test_WindowsVersion (tsErrorDataType *ErrInfo);
+int Test_CVIVersion (tsErrorDataType *ErrInfo);
+int Test_TestStandVersion (tsErrorDataType *ErrInfo);
 
 // Project specific unit tests
 int UnitTest_FormMIS (tsErrorDataType *ErrInfo);

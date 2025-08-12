@@ -348,16 +348,18 @@ TextPointSize = 30
 Id = "ID#:kJonWtl28BGjG7jKOqmvpD"
 
 [DEF, SF.Seq[0].Main[1]]
-%NAME = "=============== General Unit Tests ==============="
+%NAME = "================= General Tests ================="
 
 [SF.Seq[0].Main[2].TS]
 Id = "ID#:uINzWcpB7BGdnNz7SDZo3B"
+CustTrueAct = "Next"
+CustTrueActTarget = ""
 
 [DEF, SF.Seq[0].Main[2].TS]
 SData = "TYPE, SeqCallStepAdditions"
 
 [SF.Seq[0].Main[2].TS.SData]
-SeqName = "UnitTest_WindowsVersion"
+SeqName = "Test_WindowsVersion"
 UseCurFile = True
 Trace = "Off"
 
@@ -377,12 +379,14 @@ ParamType = 1
 
 [SF.Seq[0].Main[3].TS]
 Id = "ID#:62uGOep28BGjG7jKOqmvpD"
+CustTrueAct = "Next"
+CustTrueActTarget = ""
 
 [DEF, SF.Seq[0].Main[3].TS]
 SData = "TYPE, SeqCallStepAdditions"
 
 [SF.Seq[0].Main[3].TS.SData]
-SeqName = "UnitTest_CVIVersion"
+SeqName = "Test_CVIVersion"
 UseCurFile = True
 Trace = "Off"
 
@@ -402,12 +406,14 @@ ParamType = 1
 
 [SF.Seq[0].Main[4].TS]
 Id = "ID#:7GuGOep28BGjG7jKOqmvpD"
+CustTrueAct = "Next"
+CustTrueActTarget = ""
 
 [DEF, SF.Seq[0].Main[4].TS]
 SData = "TYPE, SeqCallStepAdditions"
 
 [SF.Seq[0].Main[4].TS.SData]
-SeqName = "UnitTest_TestStandVersion"
+SeqName = "Test_TestStandVersion"
 UseCurFile = True
 Trace = "Off"
 
@@ -433,6 +439,8 @@ Id = "ID#:kZonWtl28BGjG7jKOqmvpD"
 
 [SF.Seq[0].Main[6].TS]
 Id = "ID#:RIuwb4mP7BGdqNz7SDZo3B"
+CustTrueAct = "Next"
+CustTrueActTarget = ""
 
 [DEF, SF.Seq[0].Main[6].TS]
 SData = "TYPE, SeqCallStepAdditions"
@@ -594,7 +602,7 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "UnitTest_WindowsVersion"
+%NAME = "Test_WindowsVersion"
 
 [DEF, SF.Seq[2].Parameters]
 TestInfo = "TYPE, TestStruct"
@@ -640,7 +648,7 @@ SData = "TYPE, FlexCVIStepAdditions"
 
 [SF.Seq[2].Main[0].TS.SData.Call]
 LibPath = "UnitTest.dll"
-Func = "UnitTest_WindowsVersion"
+Func = "Test_WindowsVersion"
 %HI: Parms = [1]
 
 [DEF, SF.Seq[2].Main[0].TS.SData.Call.Parms]
@@ -669,7 +677,7 @@ ModulePrjPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\Unit
 DataSource = "Step.Result.Error.Code==0"
 
 [DEF, SF.Seq[2].Main[0]]
-%NAME = "UnitTest_WindowsVersion"
+%NAME = "Test_WindowsVersion"
 
 [DEF, SF.Seq[2].Setup]
 %[0] = Step
@@ -813,7 +821,7 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "UnitTest_CVIVersion"
+%NAME = "Test_CVIVersion"
 
 [DEF, SF.Seq[3].Parameters]
 TestInfo = "TYPE, TestStruct"
@@ -859,7 +867,7 @@ SData = "TYPE, FlexCVIStepAdditions"
 
 [SF.Seq[3].Main[0].TS.SData.Call]
 LibPath = "UnitTest.dll"
-Func = "UnitTest_CVIVersion"
+Func = "Test_CVIVersion"
 %HI: Parms = [1]
 
 [DEF, SF.Seq[3].Main[0].TS.SData.Call.Parms]
@@ -881,14 +889,14 @@ ArgVal = "Step.Result.Error"
 Flags = 256
 
 [SF.Seq[3].Main[0].TS.SData]
-ModuleSrcPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\UnitTest\\UnitTest.c"
+ModuleSrcPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\UnitTest.c"
 ModulePrjPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\UnitTest\\UnitTest.prj"
 
 [SF.Seq[3].Main[0]]
 DataSource = "Step.Result.Error.Code==0"
 
 [DEF, SF.Seq[3].Main[0]]
-%NAME = "UnitTest_CVIVersion"
+%NAME = "Test_CVIVersion"
 
 [DEF, SF.Seq[3].Setup]
 %[0] = Step
@@ -1032,7 +1040,7 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "UnitTest_TestStandVersion"
+%NAME = "Test_TestStandVersion"
 
 [DEF, SF.Seq[4].Parameters]
 TestInfo = "TYPE, TestStruct"
@@ -1078,7 +1086,7 @@ SData = "TYPE, FlexCVIStepAdditions"
 
 [SF.Seq[4].Main[0].TS.SData.Call]
 LibPath = "UnitTest.dll"
-Func = "UnitTest_TestStandVersion"
+Func = "Test_TestStandVersion"
 %HI: Parms = [1]
 
 [DEF, SF.Seq[4].Main[0].TS.SData.Call.Parms]
@@ -1107,7 +1115,7 @@ ModulePrjPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\UnitTest\\Un
 DataSource = "Step.Result.Error.Code==0"
 
 [DEF, SF.Seq[4].Main[0]]
-%NAME = "UnitTest_TestStandVersion"
+%NAME = "Test_TestStandVersion"
 
 [DEF, SF.Seq[4].Setup]
 %[0] = Step
@@ -2553,6 +2561,7 @@ SequenceFailed = Bool
 [SF.Seq[11].Main[3].TS]
 Id = "ID#:kVV6Nyaa7hGeXgTPSx+6LD"
 PreCond = "Parameters.SequenceFailed"
+Mode = "Skip"
 
 [DEF, SF.Seq[11].Main[3].TS]
 SData = "TYPE, SeqCallStepAdditions"
@@ -2730,6 +2739,7 @@ PostExpr = "Parameters.TestInfo.TestAdditionalNotes += #NoValidation(Locals.Main
 
 [SF.Seq[11].Main[9].TS]
 Id = "ID#:l1V6Nyaa7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [SF.Seq[11].Main[9]]
 ConditionExpr = "Parameters.SequenceFailed"
@@ -2739,6 +2749,7 @@ ConditionExpr = "Parameters.SequenceFailed"
 
 [SF.Seq[11].Main[10].TS]
 Id = "ID#:mFV6Nyaa7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[11].Main[10].TS]
 SData = "TYPE, SeqCallStepAdditions"
@@ -2789,6 +2800,7 @@ AddSpacing = Bool
 
 [SF.Seq[11].Main[11].TS]
 Id = "ID#:mVV6Nyaa7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[11].Main[11].TS]
 SData = "TYPE, SeqCallStepAdditions"
@@ -2839,6 +2851,7 @@ AddSpacing = Bool
 
 [SF.Seq[11].Main[12].TS]
 Id = "ID#:mlV6Nyaa7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[11].Main[12]]
 %NAME = "End"
@@ -2933,6 +2946,7 @@ PostExpr = "Parameters.TestInfo.TestAdditionalNotes += Locals.AdditionalInfo + \
 
 [SF.Seq[11].Main[19].TS]
 Id = "ID#:oVV6Nyaa7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [SF.Seq[11].Main[19]]
 ConditionExpr = "Parameters.SequenceFailed"
@@ -2942,6 +2956,7 @@ ConditionExpr = "Parameters.SequenceFailed"
 
 [SF.Seq[11].Main[20].TS]
 Id = "ID#:olV6Nyaa7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[11].Main[20].TS]
 SData = "TYPE, SeqCallStepAdditions"
@@ -2992,6 +3007,7 @@ AddSpacing = Bool
 
 [SF.Seq[11].Main[21].TS]
 Id = "ID#:o1V6Nyaa7hGeXgTPSx+6LD"
+Mode = "Skip"
 
 [DEF, SF.Seq[11].Main[21]]
 %NAME = "End"

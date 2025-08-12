@@ -1,16 +1,16 @@
-[UnitTest_WindowsVersion]
+[Test_WindowsVersion]
 Class="Function"
-Prototype="int UnitTest_WindowsVersion(struct tsErrorDataType *ErrInfo);"
+Prototype="int Test_WindowsVersion(struct tsErrorDataType *ErrInfo);"
 SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\Source\UnitTest.c:52:1"
 
-[UnitTest_CVIVersion]
+[Test_CVIVersion]
 Class="Function"
-Prototype="int UnitTest_CVIVersion(struct tsErrorDataType *ErrInfo);"
+Prototype="int Test_CVIVersion(struct tsErrorDataType *ErrInfo);"
 SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\Source\UnitTest.c:86:1"
 
-[UnitTest_TestStandVersion]
+[Test_TestStandVersion]
 Class="Function"
-Prototype="int UnitTest_TestStandVersion(struct tsErrorDataType *ErrInfo);"
+Prototype="int Test_TestStandVersion(struct tsErrorDataType *ErrInfo);"
 SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\Source\UnitTest.c:102:1"
 
 [UnitTest_FormMIS]
