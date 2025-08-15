@@ -2695,7 +2695,10 @@ tsDefaultColor:
 						<value>8</value>
 					</MaxMRUFiles>
 					<MostRecentlyUsedList classname='Strs'>
-						<value lbound='[0]' ubound='[]'/>
+						<value lbound='[0]' ubound='[1]'>
+							<value arrayindex='[0]'>C:\Users\Michael_Harhay\Documents\CICDUtility\Sequence\Sequencer\Arxtron Sequencer.seq</value>
+							<value arrayindex='[1]'>C:\Users\Michael_Harhay\Documents\CICDUtility\Sequence\TestSequence.seq</value>
+						</value>
 					</MostRecentlyUsedList>
 					<SequenceListSortSettings classname='Obj'>
 						<subprops>
@@ -2708,10 +2711,14 @@ tsDefaultColor:
 						</subprops>
 					</SequenceListSortSettings>
 					<ReloadArray classname='Strs'>
-						<value lbound='[0]' ubound='[]'/>
+						<value lbound='[0]' ubound='[0]'>
+							<value arrayindex='[0]'>C:\Users\Michael_Harhay\Documents\CICDUtility\Sequence\Sequencer\Arxtron Sequencer.seq</value>
+						</value>
 					</ReloadArray>
 					<SelectedArray classname='Strs'>
-						<value lbound='[0]' ubound='[]'/>
+						<value lbound='[0]' ubound='[0]'>
+							<value arrayindex='[0]'>C:\Users\Michael_Harhay\Documents\CICDUtility\Sequence\Sequencer\Arxtron Sequencer.seq</value>
+						</value>
 					</SelectedArray>
 				</subprops>
 			</TSUIConfig>
@@ -2735,10 +2742,10 @@ tsDefaultColor:
 								<Obj name=''>
 									<subprops>
 										<Height classname='Num'>
-											<value>512</value>
+											<value>965</value>
 										</Height>
 										<Width classname='Num'>
-											<value>138</value>
+											<value>286</value>
 										</Width>
 									</subprops>
 								</Obj>
@@ -2747,10 +2754,10 @@ tsDefaultColor:
 								<Obj name=''>
 									<subprops>
 										<Height classname='Num'>
-											<value>512</value>
+											<value>965</value>
 										</Height>
 										<Width classname='Num'>
-											<value>787</value>
+											<value>1634</value>
 										</Width>
 									</subprops>
 								</Obj>
@@ -2759,10 +2766,10 @@ tsDefaultColor:
 								<Obj name=''>
 									<subprops>
 										<Height classname='Num'>
-											<value>283</value>
+											<value>567</value>
 										</Height>
 										<Width classname='Num'>
-											<value>783</value>
+											<value>1630</value>
 										</Width>
 									</subprops>
 								</Obj>
@@ -2771,10 +2778,10 @@ tsDefaultColor:
 								<Obj name=''>
 									<subprops>
 										<Height classname='Num'>
-											<value>169</value>
+											<value>338</value>
 										</Height>
 										<Width classname='Num'>
-											<value>263</value>
+											<value>547</value>
 										</Width>
 									</subprops>
 								</Obj>
@@ -2783,10 +2790,10 @@ tsDefaultColor:
 								<Obj name=''>
 									<subprops>
 										<Height classname='Num'>
-											<value>169</value>
+											<value>338</value>
 										</Height>
 										<Width classname='Num'>
-											<value>520</value>
+											<value>1083</value>
 										</Width>
 									</subprops>
 								</Obj>
@@ -2795,7 +2802,7 @@ tsDefaultColor:
 								<Obj name=''>
 									<subprops>
 										<Height classname='Num'>
-											<value>452</value>
+											<value>905</value>
 										</Height>
 										<Width classname='Num'>
 											<value>223</value>
@@ -2810,10 +2817,10 @@ tsDefaultColor:
 								<Obj name=''>
 									<subprops>
 										<Height classname='Num'>
-											<value>375</value>
+											<value>751</value>
 										</Height>
 										<Width classname='Num'>
-											<value>783</value>
+											<value>1630</value>
 										</Width>
 									</subprops>
 								</Obj>
@@ -2822,10 +2829,10 @@ tsDefaultColor:
 								<Obj name=''>
 									<subprops>
 										<Height classname='Num'>
-											<value>77</value>
+											<value>154</value>
 										</Height>
 										<Width classname='Num'>
-											<value>232</value>
+											<value>483</value>
 										</Width>
 									</subprops>
 								</Obj>
@@ -2834,10 +2841,10 @@ tsDefaultColor:
 								<Obj name=''>
 									<subprops>
 										<Height classname='Num'>
-											<value>77</value>
+											<value>154</value>
 										</Height>
 										<Width classname='Num'>
-											<value>232</value>
+											<value>483</value>
 										</Width>
 									</subprops>
 								</Obj>
@@ -2846,10 +2853,10 @@ tsDefaultColor:
 								<Obj name=''>
 									<subprops>
 										<Height classname='Num'>
-											<value>77</value>
+											<value>154</value>
 										</Height>
 										<Width classname='Num'>
-											<value>319</value>
+											<value>664</value>
 										</Width>
 									</subprops>
 								</Obj>
@@ -2883,19 +2890,19 @@ tsDefaultColor:
 								<Obj name=''>
 									<subprops>
 										<Top classname='Num'>
-											<value>388</value>
+											<value>288</value>
 										</Top>
 										<Left classname='Num'>
-											<value>449</value>
+											<value>2274</value>
 										</Left>
 										<Height classname='Num'>
-											<value>556</value>
+											<value>595</value>
 										</Height>
 										<Width classname='Num'>
-											<value>925</value>
+											<value>941</value>
 										</Width>
 										<ZoomState classname='Num'>
-											<value>0</value>
+											<value>2</value>
 										</ZoomState>
 									</subprops>
 								</Obj>

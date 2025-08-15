@@ -109,7 +109,7 @@
 // General unit tests
 int Test_WindowsVersion (tsErrorDataType *ErrInfo);
 int Test_CVIVersion (tsErrorDataType *ErrInfo);
-int Test_TestStandVersion (tsErrorDataType *ErrInfo);
+int Test_EStopInjection (CAObjHandle seqContext, tsErrorDataType *ErrInfo);
 
 // Project specific unit tests
 int UnitTest_FormMIS (tsErrorDataType *ErrInfo);

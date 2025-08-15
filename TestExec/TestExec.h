@@ -1,91 +1,84 @@
-/**************************************************************************/
-/* LabWindows/CVI User Interface Resource (UIR) Include File              */
-/* Copyright (c) National Instruments 2017. All Rights Reserved.          */
-/*                                                                        */
-/* WARNING: Do not add to, delete from, or otherwise modify the contents  */
-/*          of this include file.                                         */
-/**************************************************************************/
+/***************************************************************************//*!
+* \file TestExec.h
+* \author 
+* \copyright . All Rights Reserved.
+* \date 2025-08-15 4:28:07 PM
+*******************************************************************************/
 
-#include <userint.h>
+#ifndef __TestExec_H__
+#define __TestExec_H__
 
 #ifdef __cplusplus
     extern "C" {
 #endif
 
-     /* Panels and Controls: */
+//==============================================================================
+// Include files
 
-#define  ABOUTBOX                         1
-#define  ABOUTBOX_OK_BTN                  2       /* control type: command, callback function: AboutBoxOKCallback */
-#define  ABOUTBOX_TEXTMSG_4               3       /* control type: textMsg, callback function: (none) */
-#define  ABOUTBOX_TEXTMSG_5               4       /* control type: textMsg, callback function: (none) */
-#define  ABOUTBOX_VERSION                 5       /* control type: textMsg, callback function: (none) */
-#define  ABOUTBOX_LICENSE                 6       /* control type: textMsg, callback function: (none) */
-#define  ABOUTBOX_ENGINE_VERSION          7       /* control type: textMsg, callback function: (none) */
-#define  ABOUTBOX_PICTURE_2               8       /* control type: picture, callback function: (none) */
-#define  ABOUTBOX_USER_INT_MSG            9       /* control type: textMsg, callback function: (none) */
-#define  ABOUTBOX_VERSION_2               10      /* control type: textMsg, callback function: (none) */
-#define  ABOUTBOX_VERSION_3               11      /* control type: textMsg, callback function: (none) */
+#include "Callbacks.h"
+#include "TestExecUtils.h"
+#include "TestExecPanel.h"
 
-#define  MAINPANEL                        2       /* callback function: MainPanelCallback */
-#define  MAINPANEL_LISTBAR                2       /* control type: activeX, callback function: (none) */
-#define  MAINPANEL_APPLICATIONMGR         3       /* control type: activeX, callback function: (none) */
-#define  MAINPANEL_SEQUENCEFILEVIEWMGR    4       /* control type: activeX, callback function: (none) */
-#define  MAINPANEL_EXECUTIONVIEWMGR       5       /* control type: activeX, callback function: (none) */
-#define  MAINPANEL_STATUSBAR              6       /* control type: activeX, callback function: (none) */
-#define  MAINPANEL_TAB                    7       /* control type: tab, callback function: TabControlCallback */
+//==============================================================================
+// Constants
 
-#define  SPLASH                           3
-#define  SPLASH_PICTURE_2                 2       /* control type: picture, callback function: (none) */
+#define SEQUENCE_FILES_PAGE_INDEX	0		// first list bar page
+#define EXECUTIONS_PAGE_INDEX		1		// second list bar page
 
-     /* tab page panel controls */
-#define  TABPANEL_STEPLISTVIEW            2       /* control type: activeX, callback function: (none) */
-#define  TABPANEL_VARIABLES               3       /* control type: activeX, callback function: (none) */
-#define  TABPANEL_SEQUENCES               4       /* control type: activeX, callback function: (none) */
-#define  TABPANEL_INSERTIONPALETTE        5       /* control type: activeX, callback function: (none) */
-#define  TABPANEL_ENTRYPOINT1BTN          6       /* control type: activeX, callback function: (none) */
-#define  TABPANEL_ENTRYPOINT2BTN          7       /* control type: activeX, callback function: (none) */
-#define  TABPANEL_RUNSEQUENCEBTN          8       /* control type: activeX, callback function: (none) */
-#define  TABPANEL_SEQUENCEFILELABEL       9       /* control type: activeX, callback function: (none) */
+#define TABPAGE_FILE		0
+#define TABPAGE_EXECUTION	1
+#define TABPAGE_REPORT		2		
+		
+//==============================================================================
+// Types
+		
+typedef struct 
+{
+	// panel handles
+	int			panel;								// main window
+	int			fileTab;							// "Sequences" tab. shows information about the selected sequence file
+	int			executionTab;						// "Steps" tab. shows execution information about the selected execution
+	int			reportTab;							// "Report" tab. shows the report for the selected execution
+	int			aboutBox;							// displays version info and logo bitmap
 
-     /* tab page panel controls */
-#define  TABPANEL_2_STEPLISTVIEW          2       /* control type: activeX, callback function: (none) */
-#define  TABPANEL_2_VARIABLES             3       /* control type: activeX, callback function: (none) */
-#define  TABPANEL_2_CALLSTACK             4       /* control type: activeX, callback function: (none) */
-#define  TABPANEL_2_THREADS               5       /* control type: activeX, callback function: (none) */
-#define  TABPANEL_2_BREAKRESUMEBTN        6       /* control type: activeX, callback function: (none) */
-#define  TABPANEL_2_TERMINATERESTARTBTN   7       /* control type: activeX, callback function: (none) */
-#define  TABPANEL_2_EXECUTIONLABEL        8       /* control type: activeX, callback function: (none) */
+	// ActiveX control handles:
+	CAObjHandle applicationMgr;						// invisible control, manages Startup/Shutdown, and other application functions
+	CAObjHandle sequenceFileViewMgr;				// invisible control, manages a SequenceView control that displays loaded sequence files
+	CAObjHandle executionViewMgr;					// invisible control, manages a SequenceView control that displays executing sequences
+	CAObjHandle	listBar;							// vertical icon bar. user can select a sequence file or an execution
+	CAObjHandle fileStepListView;					// displays the steps in the selected sequence file on the "Sequences" tab
+	CAObjHandle executionStepListView;				// displays the steps in the selected execution in the "Steps" tab
+	CAObjHandle reportView;							// displays the report for the selected execution in the "Report" tab
+	CAObjHandle fileSequencesList;					// sequence selector listbox on the "Sequences" tab shown for selected sequence file
+	CAObjHandle fileVariables;						// displays the variables for the selected sequence file
+	CAObjHandle insertionPalette;					// displays a palette for inserting items into sequences
+	CAObjHandle sequenceFileLabel;					// hidden label connected to CaptionSource_CurrentSequenceFile. When the label receives a ConnectionActivity event, we update the application title bar
+	CAObjHandle executionVariables;					// displays the variables for the selected execution
+	CAObjHandle callStack;							// call stack selector listbox on the execution tab
+	CAObjHandle threads;							// thread selector listbox on the execution tab
+	CAObjHandle breakResumeButton;					// break/resume button for selected execution
+	CAObjHandle terminateRestartButton;				// terminate/restart button for selected execution
+	CAObjHandle	entryPoint1Button;					// entryPoint button 1 for selected sequence file
+	CAObjHandle	entryPoint2Button;					// entryPoint button 2 for selected sequence file
+	CAObjHandle	runCurrentSequenceButton;			// run-current-sequence button for selected sequence file
+	CAObjHandle	statusBar;							// status bar at bottom of window
+	CAObjHandle executionLabel;						// hidden label connected to CaptionSource_CurrentExecution. When the label receives a ConnectionActivity event, we update the application title bar
+	
+	int			programmaticallyUpdatingTabPages;	// TRUE while within ShowAppropriateTabs()
+	CAObjHandle	engine;								// TestStand Engine Handle, stored here for convenient availability
+	int			guiThreadId;						// for filtering out CVI events from other threads in the MainCallback
+} ApplicationWindow;
 
-     /* tab page panel controls */
-#define  TABPANEL_3_REPORTVIEW            2       /* control type: activeX, callback function: (none) */
+//==============================================================================
+// External variables
 
+//==============================================================================
+// Global functions
 
-     /* Control Arrays: */
-
-          /* (no control arrays in the resource file) */
-
-
-     /* Menu Bars, Menus, and Menu Items: */
-
-#define  BAR                              1
-#define  BAR_FILE                         2
-#define  BAR_EDIT                         3
-#define  BAR_EXECUTE                      4
-#define  BAR_DEBUG                        5
-#define  BAR_CONFIGURE                    6
-#define  BAR_TOOLS                        7
-#define  BAR_HELP                         8
-#define  BAR_HELP_ABOUT                   9       /* callback function: AboutBoxMenuItemCallback */
-
-
-     /* Callback Prototypes: */
-
-void CVICALLBACK AboutBoxMenuItemCallback(int menubar, int menuItem, void *callbackData, int panel);
-int  CVICALLBACK AboutBoxOKCallback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
-int  CVICALLBACK MainPanelCallback(int panel, int event, void *callbackData, int eventData1, int eventData2);
-int  CVICALLBACK TabControlCallback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
-
+int Declare_Your_Functions_Here (int x);
 
 #ifdef __cplusplus
     }
 #endif
+
+#endif  /* ndef __TestExec_H__ */

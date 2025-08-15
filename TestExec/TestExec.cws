@@ -12,11 +12,11 @@ VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
 Number of Projects = 1
 Active Project = 1
 Project 0001 = "TestExec.prj"
-Drag Bar Left = 283
-Window Top = 228
-Window Left = 962
-Window Bottom = 519
-Window Right = 1688
+Drag Bar Left = 285
+Window Top = 243
+Window Left = 2552
+Window Bottom = 417
+Window Right = 3230
 Maximized = True
 Maximized Children = True
 Max32 Number Of Errors = 20
@@ -30,9 +30,9 @@ Save Changes Before Compiling = "Always"
 Hide Windows = False
 Break At First Statement = False
 Sort Type = "File Name"
-Number of Opened Files = 1
+Number of Opened Files = 8
 Window Confinement Region Enabled = True
-MainColumnWidth = 266
+MainColumnWidth = 268
 FileDateColumnWidth = 70
 FileSizeColumnWidth = 70
 
@@ -52,70 +52,156 @@ Disk Date = 3635418178
 In Projects = "1,"
 
 [File 0002]
-Path = "/c/Program Files (x86)/National Instruments/CVI2019/toolslib/custctrl/easytab.fp"
+Path = "/c/program files (x86)/national instruments/cvi2019/toolslib/custctrl/easytab.fp"
 File Type = "Function Panel"
 Disk Date = 3635428458
 In Projects = "1,"
 
 [File 0003]
-Path Line0001 = "/c/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsapi"
+Path Line0001 = "/C/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsapi"
 Path Line0002 = "cvi.fp"
 File Type = "Function Panel"
 Disk Date = 3593613920
 In Projects = "1,"
 
 [File 0004]
-Path Line0001 = "/c/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsui."
+Path Line0001 = "/C/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsui."
 Path Line0002 = "fp"
 File Type = "Function Panel"
 Disk Date = 3593613920
 In Projects = "1,"
 
 [File 0005]
-Path Line0001 = "/c/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsuis"
+Path Line0001 = "/C/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsuis"
 Path Line0002 = "upp.fp"
 File Type = "Function Panel"
 Disk Date = 3593636026
 In Projects = "1,"
 
 [File 0006]
-Path Line0001 = "/c/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsuti"
+Path Line0001 = "/C/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsuti"
 Path Line0002 = "l.fp"
 File Type = "Function Panel"
 Disk Date = 3593636026
 In Projects = "1,"
 
 [File 0007]
-Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.c"
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/Callbacks.c"
 File Type = "CSource"
-Disk Date = 3837858992
+Disk Date = 3838135456
 In Projects = "1,"
-Source Window State = "1,134,134,134,50,50,50,0,0,0,0,27,0,49,16,0,115,0,134,50,401,630,1,0,"
+Source Window State = "1,392,392,392,1,1,1,0,0,0,0,0,0,0,0,0,340,0,392,1,401,714,1,0,"
 Window Top = 64
-Window Left = 18
-Window Z-Order = 1
+Window Left = 26
 
 [File 0008]
-Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.uir"
-File Type = "User Interface Resource"
-Disk Date = 3593636026
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/Callbacks.h"
+File Type = "Include"
+Disk Date = 3838134351
 In Projects = "1,"
-Window Top = 54
-Window Left = -242
-Window Height = 582
-Window Width = 1475
+Source Window State = "1,18,18,18,0,20,20,0,3,0,0,0,0,0,0,0,0,0,18,0,401,714,1,0,"
+Window Top = 95
+Window Left = 42
 
 [File 0009]
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec_OLD.c"
+File Type = "CSource"
+Disk Date = 3838136738
+In Projects = ""
+Source Window State = "1,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,7,0,16,0,401,714,1,0,"
+Window Top = 95
+Window Left = 42
+Window Z-Order = 5
+
+[File 0010]
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.c"
+File Type = "CSource"
+Disk Date = 3838136512
+In Projects = "1,"
+Source Window State = "1,83,83,83,25,25,25,0,0,0,0,0,0,0,0,0,66,0,83,25,401,714,1,0,"
+Window Top = 33
+Window Left = 10
+Window Z-Order = 1
+
+[File 0011]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.h"
 File Type = "Include"
-Disk Date = 3593636454
+Disk Date = 3838137692
 In Projects = "1,"
-Source Window State = "1,19,19,19,27,28,28,0,0,0,0,0,0,0,0,0,4,0,12,30,349,676,1,0,"
-Window Top = 37
-Window Left = 34
+Source Window State = "1,19,19,19,26,26,26,0,0,0,0,0,0,0,0,0,5,0,19,26,401,714,1,0,"
+Window Top = 64
+Window Left = 26
+Window Z-Order = 3
+
+[File 0012]
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecPanel.h"
+File Type = "Include"
+Disk Date = 3838136322
+In Projects = "1,"
+Source Window State = "1,27,27,27,9,18,9,0,3,0,0,0,0,0,0,0,0,0,27,18,401,630,1,0,"
+Window Top = 219
+Window Left = 106
+Window Z-Order = 4
+
+[File 0013]
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecPanel.uir"
+File Type = "User Interface Resource"
+Disk Date = 3838136322
+In Projects = "1,"
+Window Top = 95
+Window Left = 42
+Window Height = 401
+Window Width = 714
+
+[File 0014]
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecUtils.c"
+File Type = "CSource"
+Disk Date = 3838137275
+In Projects = "1,"
+Source Window State = "1,30,30,30,0,0,0,0,0,0,0,0,0,0,0,0,0,0,30,0,401,714,1,0,"
+Window Top = 436
+Window Left = 218
+Window Z-Order = 7
+
+[File 0015]
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecUtils.h"
+File Type = "Include"
+Disk Date = 3838137529
+In Projects = "1,"
+Source Window State = "1,17,17,17,21,21,21,0,0,0,0,0,0,0,0,0,0,0,17,21,401,714,1,0,"
+Window Top = 467
+Window Left = 234
+Window Z-Order = 8
+
+[File 0016]
+Path = "/c/Program Files (x86)/National Instruments/CVI2019/toolslib/toolbox/toolbox.h"
+File Type = "Include"
+Disk Date = 3635265522
+In Projects = ""
+Source Window State = "1,414,414,414,35,35,35,0,0,0,0,0,0,0,0,0,394,0,414,35,401,714,1,0,"
+Window Top = 33
+Window Left = 10
+Window Z-Order = 6
+
+[File 0017]
+Path = "/c/Arxtron/Libraries/ArxtronToolslib.h"
+File Type = "Include"
+Disk Date = 3830247942
+In Projects = ""
+Source Window State = "1,74,74,74,8,16,8,0,3,0,0,0,0,0,0,0,63,0,74,16,401,714,1,0,"
+Window Top = 64
+Window Left = 26
+Window Z-Order = 2
 
 [Tab Order]
 Tab 0001 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.c"
+Tab 0002 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.h"
+Tab 0003 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecUtils.c"
+Tab 0004 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecUtils.h"
+Tab 0005 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec_OLD.c"
+Tab 0006 = "/c/Program Files (x86)/National Instruments/CVI2019/toolslib/toolbox/toolbox.h"
+Tab 0007 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecPanel.h"
+Tab 0008 = "/c/Arxtron/Libraries/ArxtronToolslib.h"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True

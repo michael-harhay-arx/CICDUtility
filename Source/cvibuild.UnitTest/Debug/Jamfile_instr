@@ -1,4 +1,5 @@
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.dll" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\dllmain.obj" ;
+Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.dll" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\tsapicvi.obj" ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.dll" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.obj" ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.dll" : "c:\\Program Files (x86)\\National Instruments\\CVI2019\\bin\\msvc\\advanlys.lib" ;
 NoCare "c:\\Program Files (x86)\\National Instruments\\CVI2019\\bin\\msvc\\advanlys.lib" ;

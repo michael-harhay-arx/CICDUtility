@@ -97,14 +97,52 @@ int Test_CVIVersion (tsErrorDataType *ErrInfo)
 }
 
 /***************************************************************************//*!
-* Test TestStand version
+* Test EStop
 *******************************************************************************/
-int Test_TestStandVersion (tsErrorDataType *ErrInfo)
+int Test_EStopInjection (CAObjHandle seqContext, tsErrorDataType *ErrInfo) // TODO: Fix
+{
+	UTInit;
+	char msgLog[4096] = {0};
+	ERRORINFO errInfo = {0};
+	
+	// Set EStop to high
+	VBOOL eStopHigh = 0;
+	TS_PropertyGetValBoolean (seqContext, &errInfo, "StationGlobals.GlobalAlarmConditions.EStopHigh", 0, &eStopHigh);
+	if (!eStopHigh)
+	{
+		eStopHigh = -1;
+		TS_PropertySetValBoolean (seqContext, &errInfo, "StationGlobals.GlobalAlarmConditions.EStopHigh", 0, eStopHigh);
+	}
+	
+	// TODO: Check if sequence has stopped
+	int continueFlag = 0;
+	//TS_PropertyGetValNumber (seqContext, &errInfo, "StationGlobals.GlobalAlarmConditions.EStopHigh", 0, continueFlag);
+	ASSERT_EQ_INT (0, continueFlag)
+	
+		
+	strcpy (ErrInfo->msg, msgLog);
+	return (ErrInfo->code = error);
+}
+
+/***************************************************************************//*!
+* Test 
+*******************************************************************************/
+int Test_SequenceFailHandler (CAObjHandle seqContext, tsErrorDataType *ErrInfo)
 {
 	UTInit;
 	char msgLog[4096] = {0};
 	
-	// Check that TestStand version is 2017
+	// Set FAIL_PRESSED to true
+	VBOOL failPressed = 0;
+	TS_PropertyGetValBoolean (seqContext, &errInfo, "Locals.FAIL_PRESSED", 0, &failPressed);
+	if (!failPressed)
+	{
+		failPressed = -1;
+		TS_PropertySetValBoolean (seqContext, &errInfo, "Locals.FAIL_PRESSED", 0, failPressed);
+	}
+	
+	// Check if FAIL_PRESSED worked
+	
 		
 	strcpy (ErrInfo->msg, msgLog);
 	return (ErrInfo->code = error);
@@ -130,14 +168,14 @@ int UnitTest_FormMIS (tsErrorDataType *ErrInfo)
         {"123456", "777777", "123456", "000000000000"}
 	};
 	
-	char mis[32] = {0}; // for now, remove later
-	strcpy (mis, "446777771234");
-		
 	// Run tests
-	int numTests = 2;
+	char mis[32] = {0}; 
+	strcpy (mis, "456777771234"); // remove later
+	
+	int numTests = sizeof (testVals) / sizeof (testVals[0]);
 	for (int testIdx = 0; testIdx < numTests; testIdx++)
 	{
-		//TestStep_FormMIS (0, testVals[testIdx][0], testVals[testIdx][1], testVals[testIdx][2], mis, ReportText, ErrInfo);
+		//TestStep_FormMIS (0, testVals[testIdx][0], testVals[testIdx][1], testVals[testIdx][2], mis, ErrInfo->msg, ErrInfo);
 		ASSERT_EQ_STR (testVals[testIdx][3], mis);
 	}
 	

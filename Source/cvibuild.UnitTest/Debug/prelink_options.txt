@@ -3,6 +3,7 @@
 -inhdef c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\UnitTest.h.hdefs
 -outdef c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\UnitTest.dll.defs
 -indefprot c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\dllmain.obj.cvidefprots
+-indefprot c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\tsapicvi.obj.cvidefprots
 -indefprot c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\UnitTest.obj.cvidefprots
 -dllName UnitTest.dll
 -addNITypeInfo 

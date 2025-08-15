@@ -6,6 +6,7 @@
 -dependenciesMapFile:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\dependencies.lnk.in
 -embedSourceInfo
 -indefprot:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\dllmain.obj.cvidefprots
+-indefprot:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\tsapicvi.obj.cvidefprots
 -indefprot:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\UnitTest.obj.cvidefprots
 -arch:x86
 -timestamp
@@ -22,6 +23,7 @@
 -stackreserve:1048576
 -stackcommit:4096
 -in:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\dllmain.obj
+-in:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\tsapicvi.obj
 -in:c:\Users\Michael_Harhay\Documents\CICDUtility\Source\cvibuild.UnitTest\Debug\UnitTest.obj
 -more:c:\program files (x86)\national instruments\cvi2019\bin\msvc\cvistart.lib
 -more:c:\program files (x86)\national instruments\cvi2019\bin\msvc\cvi.lib

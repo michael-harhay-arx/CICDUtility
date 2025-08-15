@@ -1,8 +1,11 @@
 dllmain.obj
+tsapicvi.obj
 UnitTest.obj
 cvi.lib
+cviauto.lib
 cvistart.lib
 kernel32.lib
+uuid.lib
 user32.lib
 CVI_UP_Product_Dependencies_Private_Object
 CVI_PKG_Product_Dependencies_Private_Object

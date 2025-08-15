@@ -71,7 +71,7 @@ Requirements = Obj
 %NAME = "Data"
 
 [SF]
-%HI: Seq = [13]
+%HI: Seq = [14]
 %FLG: Seq = 4194304
 %FLG: FileGlobalDefaults = 4194304
 %FLG: ModelFile = 4194312
@@ -105,6 +105,7 @@ SFGlobalsScope = 1
 %[11] = Sequence
 %[12] = Sequence
 %[13] = Sequence
+%[14] = Sequence
 
 [DEF, SF.Seq[0]]
 Parameters = Obj
@@ -413,7 +414,7 @@ CustTrueActTarget = ""
 SData = "TYPE, SeqCallStepAdditions"
 
 [SF.Seq[0].Main[4].TS.SData]
-SeqName = "Test_TestStandVersion"
+SeqName = "Test_EStop"
 UseCurFile = True
 Trace = "Off"
 
@@ -429,7 +430,7 @@ Expr = "Parameters.TestInfo[Parameters.TestIndex]"
 ParamType = 1
 
 [DEF, SF.Seq[0].Main[4]]
-%NAME = "UnitTest_TestStandVersion"
+%NAME = "UnitTest_EStop"
 
 [SF.Seq[0].Main[5].TS]
 Id = "ID#:kZonWtl28BGjG7jKOqmvpD"
@@ -1040,7 +1041,7 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "Test_TestStandVersion"
+%NAME = "Test_EStop"
 
 [DEF, SF.Seq[4].Parameters]
 TestInfo = "TYPE, TestStruct"
@@ -1086,12 +1087,13 @@ SData = "TYPE, FlexCVIStepAdditions"
 
 [SF.Seq[4].Main[0].TS.SData.Call]
 LibPath = "UnitTest.dll"
-Func = "Test_TestStandVersion"
-%HI: Parms = [1]
+Func = "Test_EStopInjection"
+%HI: Parms = [2]
 
 [DEF, SF.Seq[4].Main[0].TS.SData.Call.Parms]
 %[0] = "TYPE, FCVIParameter"
 %[1] = "TYPE, FCVIParameter"
+%[2] = "TYPE, FCVIParameter"
 
 [SF.Seq[4].Main[0].TS.SData.Call.Parms[0]]
 Name = "Return Value"
@@ -1100,6 +1102,13 @@ ArgVal = "Parameters.TestInfo.ErrorCode"
 Flags = 266
 
 [SF.Seq[4].Main[0].TS.SData.Call.Parms[1]]
+Name = "seqContext"
+Type = 4
+ObjType = 1
+ArgVal = "ThisContext"
+Flags = 256
+
+[SF.Seq[4].Main[0].TS.SData.Call.Parms[2]]
 Name = "ErrInfo"
 Type = 5
 StructType = "Error"
@@ -1109,13 +1118,13 @@ Flags = 256
 
 [SF.Seq[4].Main[0].TS.SData]
 ModuleSrcPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\UnitTest.c"
-ModulePrjPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\UnitTest\\UnitTest.prj"
+ModulePrjPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\UnitTest.prj"
 
 [SF.Seq[4].Main[0]]
 DataSource = "Step.Result.Error.Code==0"
 
 [DEF, SF.Seq[4].Main[0]]
-%NAME = "Test_TestStandVersion"
+%NAME = "Test_EStop"
 
 [DEF, SF.Seq[4].Setup]
 %[0] = Step
@@ -1259,22 +1268,13 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "UnitTest_FormMIS"
-
-[DEF, SF.Seq[5].Parameters]
-TestInfo = "TYPE, TestStruct"
-
-[SF.Seq[5].Parameters]
-%FLG: TestInfo = 4
+%NAME = "====================Unit Tests====================="
 
 [SF.Seq[5]]
 %FLG: Parameters = 4456448
 %FLG: Locals = 4194304
-%HI: Main = [0]
 %FLG: Main = 4194304
-%HI: Setup = [0]
 %FLG: Setup = 4194304
-%HI: Cleanup = [1]
 %FLG: Cleanup = 4194304
 RecordResults = True
 %FLG: RecordResults = 4194312
@@ -1285,141 +1285,12 @@ FailureAction = 2
 
 [DEF, SF.Seq[5].Locals]
 ResultList = Objs
-AdditionalInfo = Strs
 
 [DEF, SF.Seq[5].Locals.ResultList]
 %EPTYPE = TEResult
 
 [SF.Seq[5].Locals]
 %FLG: ResultList = 4194304
-
-[DEF, SF.Seq[5].Main]
-%[0] = Step
-%TYPE: %[0] = "TestStepPassFailTestGoToCleanup"
-
-[SF.Seq[5].Main[0].TS]
-Id = "ID#:Qq+K/th28BGjG7jKOqmvpD"
-
-[DEF, SF.Seq[5].Main[0].TS]
-SData = "TYPE, FlexCVIStepAdditions"
-
-[SF.Seq[5].Main[0].TS.SData.Call]
-LibPath = "UnitTest.dll"
-Func = "UnitTest_FormMIS"
-%HI: Parms = [1]
-
-[DEF, SF.Seq[5].Main[0].TS.SData.Call.Parms]
-%[0] = "TYPE, FCVIParameter"
-%[1] = "TYPE, FCVIParameter"
-
-[SF.Seq[5].Main[0].TS.SData.Call.Parms[0]]
-Name = "Return Value"
-ResultAct = 4
-ArgVal = "Parameters.TestInfo.ErrorCode"
-Flags = 266
-
-[SF.Seq[5].Main[0].TS.SData.Call.Parms[1]]
-Name = "ErrInfo"
-Type = 5
-StructType = "Error"
-NumPass = 1
-ArgVal = "Step.Result.Error"
-Flags = 256
-
-[SF.Seq[5].Main[0].TS.SData]
-ModuleSrcPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\UnitTest\\UnitTest.c"
-ModulePrjPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\UnitTest\\UnitTest.prj"
-
-[SF.Seq[5].Main[0]]
-DataSource = "Step.Result.Error.Code==0"
-
-[DEF, SF.Seq[5].Main[0]]
-%NAME = "UnitTest_FormMIS"
-
-[DEF, SF.Seq[5].Setup]
-%[0] = Step
-%TYPE: %[0] = "SequenceCall"
-
-[SF.Seq[5].Setup[0].TS]
-Id = "ID#:Qa+K/th28BGjG7jKOqmvpD"
-FailAct = "Goto"
-FailActTarget = "\"<Cleanup>\""
-
-[DEF, SF.Seq[5].Setup[0].TS]
-SData = "TYPE, SeqCallStepAdditions"
-
-[SF.Seq[5].Setup[0].TS.SData]
-SeqName = "TestStepSetup"
-UseCurFile = True
-Trace = "Off"
-
-[DEF, SF.Seq[5].Setup[0].TS.SData]
-ActualArgs = Arguments
-
-[DEF, SF.Seq[5].Setup[0].TS.SData.ActualArgs]
-TraceData = "TYPE, SequenceArgument"
-
-[SF.Seq[5].Setup[0].TS.SData.ActualArgs.TraceData]
-UseDef = False
-Expr = "Parameters.TestInfo"
-ParamType = 1
-
-[DEF, SF.Seq[5].Setup[0]]
-%NAME = "TestStepSetup"
-
-[DEF, SF.Seq[5].Cleanup]
-%[0] = Step
-%TYPE: %[0] = "Statement"
-%[1] = Step
-%TYPE: %[1] = "SequenceCall"
-
-[SF.Seq[5].Cleanup[0].TS]
-Id = "ID#:Q6+K/th28BGjG7jKOqmvpD"
-PostExpr Line0001 = "Locals.AdditionalInfo.SetNumElements(0),\n/*\nLocals.AdditionalInfo[0] = \"\",\nLocals.AdditionalInfo[1] = \"\",\nLocals"
-PostExpr Line0002 = ".AdditionalInfo[2] = \"\",\nLocals.AdditionalInfo[3] = \"\",\nLocals.AdditionalInfo[4] = \"\",\nLocals.AdditionalInfo[5]"
-PostExpr Line0003 = " = \"\",\nLocals.AdditionalInfo[6] = \"\",\nLocals.AdditionalInfo[7] = \"\",\nLocals.AdditionalInfo[8] = \"\",\nLocals.A"
-PostExpr Line0004 = "dditionalInfo[9] = \"\",\n*/"
-
-[DEF, SF.Seq[5].Cleanup[0]]
-%NAME = "Add AdditionalInfo"
-
-[SF.Seq[5].Cleanup[1].TS]
-Id = "ID#:RK+K/th28BGjG7jKOqmvpD"
-
-[DEF, SF.Seq[5].Cleanup[1].TS]
-SData = "TYPE, SeqCallStepAdditions"
-
-[SF.Seq[5].Cleanup[1].TS.SData]
-SeqName = "TestStepCleanup"
-UseCurFile = True
-Trace = "Off"
-
-[DEF, SF.Seq[5].Cleanup[1].TS.SData]
-ActualArgs = Arguments
-
-[DEF, SF.Seq[5].Cleanup[1].TS.SData.ActualArgs]
-TestInfo = "TYPE, SequenceArgument"
-AdditionalInfo = "TYPE, SequenceArgument"
-SequenceFailed = "TYPE, SequenceArgument"
-
-[SF.Seq[5].Cleanup[1].TS.SData.ActualArgs.TestInfo]
-UseDef = False
-Expr = "Parameters.TestInfo"
-ParamType = 1
-
-[SF.Seq[5].Cleanup[1].TS.SData.ActualArgs.AdditionalInfo]
-UseDef = False
-Expr = "Locals.AdditionalInfo"
-ParamType = 256
-Flags = 0
-
-[SF.Seq[5].Cleanup[1].TS.SData.ActualArgs.SequenceFailed]
-UseDef = False
-Expr = "RunState.SequenceFailed"
-ParamType = 16
-
-[DEF, SF.Seq[5].Cleanup[1]]
-%NAME = "TestStepCleanup"
 
 [DEF, SF.Seq[5].RTS]
 Type = Num
@@ -1478,13 +1349,22 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "====================Templates====================="
+%NAME = "UnitTest_FormMIS"
+
+[DEF, SF.Seq[6].Parameters]
+TestInfo = "TYPE, TestStruct"
+
+[SF.Seq[6].Parameters]
+%FLG: TestInfo = 4
 
 [SF.Seq[6]]
 %FLG: Parameters = 4456448
 %FLG: Locals = 4194304
+%HI: Main = [0]
 %FLG: Main = 4194304
+%HI: Setup = [0]
 %FLG: Setup = 4194304
+%HI: Cleanup = [1]
 %FLG: Cleanup = 4194304
 RecordResults = True
 %FLG: RecordResults = 4194312
@@ -1495,12 +1375,141 @@ FailureAction = 2
 
 [DEF, SF.Seq[6].Locals]
 ResultList = Objs
+AdditionalInfo = Strs
 
 [DEF, SF.Seq[6].Locals.ResultList]
 %EPTYPE = TEResult
 
 [SF.Seq[6].Locals]
 %FLG: ResultList = 4194304
+
+[DEF, SF.Seq[6].Main]
+%[0] = Step
+%TYPE: %[0] = "TestStepPassFailTestGoToCleanup"
+
+[SF.Seq[6].Main[0].TS]
+Id = "ID#:Qq+K/th28BGjG7jKOqmvpD"
+
+[DEF, SF.Seq[6].Main[0].TS]
+SData = "TYPE, FlexCVIStepAdditions"
+
+[SF.Seq[6].Main[0].TS.SData.Call]
+LibPath = "UnitTest.dll"
+Func = "UnitTest_FormMIS"
+%HI: Parms = [1]
+
+[DEF, SF.Seq[6].Main[0].TS.SData.Call.Parms]
+%[0] = "TYPE, FCVIParameter"
+%[1] = "TYPE, FCVIParameter"
+
+[SF.Seq[6].Main[0].TS.SData.Call.Parms[0]]
+Name = "Return Value"
+ResultAct = 4
+ArgVal = "Parameters.TestInfo.ErrorCode"
+Flags = 266
+
+[SF.Seq[6].Main[0].TS.SData.Call.Parms[1]]
+Name = "ErrInfo"
+Type = 5
+StructType = "Error"
+NumPass = 1
+ArgVal = "Step.Result.Error"
+Flags = 256
+
+[SF.Seq[6].Main[0].TS.SData]
+ModuleSrcPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\UnitTest\\UnitTest.c"
+ModulePrjPath = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\UnitTest\\UnitTest.prj"
+
+[SF.Seq[6].Main[0]]
+DataSource = "Step.Result.Error.Code==0"
+
+[DEF, SF.Seq[6].Main[0]]
+%NAME = "UnitTest_FormMIS"
+
+[DEF, SF.Seq[6].Setup]
+%[0] = Step
+%TYPE: %[0] = "SequenceCall"
+
+[SF.Seq[6].Setup[0].TS]
+Id = "ID#:Qa+K/th28BGjG7jKOqmvpD"
+FailAct = "Goto"
+FailActTarget = "\"<Cleanup>\""
+
+[DEF, SF.Seq[6].Setup[0].TS]
+SData = "TYPE, SeqCallStepAdditions"
+
+[SF.Seq[6].Setup[0].TS.SData]
+SeqName = "TestStepSetup"
+UseCurFile = True
+Trace = "Off"
+
+[DEF, SF.Seq[6].Setup[0].TS.SData]
+ActualArgs = Arguments
+
+[DEF, SF.Seq[6].Setup[0].TS.SData.ActualArgs]
+TraceData = "TYPE, SequenceArgument"
+
+[SF.Seq[6].Setup[0].TS.SData.ActualArgs.TraceData]
+UseDef = False
+Expr = "Parameters.TestInfo"
+ParamType = 1
+
+[DEF, SF.Seq[6].Setup[0]]
+%NAME = "TestStepSetup"
+
+[DEF, SF.Seq[6].Cleanup]
+%[0] = Step
+%TYPE: %[0] = "Statement"
+%[1] = Step
+%TYPE: %[1] = "SequenceCall"
+
+[SF.Seq[6].Cleanup[0].TS]
+Id = "ID#:Q6+K/th28BGjG7jKOqmvpD"
+PostExpr Line0001 = "Locals.AdditionalInfo.SetNumElements(0),\n/*\nLocals.AdditionalInfo[0] = \"\",\nLocals.AdditionalInfo[1] = \"\",\nLocals"
+PostExpr Line0002 = ".AdditionalInfo[2] = \"\",\nLocals.AdditionalInfo[3] = \"\",\nLocals.AdditionalInfo[4] = \"\",\nLocals.AdditionalInfo[5]"
+PostExpr Line0003 = " = \"\",\nLocals.AdditionalInfo[6] = \"\",\nLocals.AdditionalInfo[7] = \"\",\nLocals.AdditionalInfo[8] = \"\",\nLocals.A"
+PostExpr Line0004 = "dditionalInfo[9] = \"\",\n*/"
+
+[DEF, SF.Seq[6].Cleanup[0]]
+%NAME = "Add AdditionalInfo"
+
+[SF.Seq[6].Cleanup[1].TS]
+Id = "ID#:RK+K/th28BGjG7jKOqmvpD"
+
+[DEF, SF.Seq[6].Cleanup[1].TS]
+SData = "TYPE, SeqCallStepAdditions"
+
+[SF.Seq[6].Cleanup[1].TS.SData]
+SeqName = "TestStepCleanup"
+UseCurFile = True
+Trace = "Off"
+
+[DEF, SF.Seq[6].Cleanup[1].TS.SData]
+ActualArgs = Arguments
+
+[DEF, SF.Seq[6].Cleanup[1].TS.SData.ActualArgs]
+TestInfo = "TYPE, SequenceArgument"
+AdditionalInfo = "TYPE, SequenceArgument"
+SequenceFailed = "TYPE, SequenceArgument"
+
+[SF.Seq[6].Cleanup[1].TS.SData.ActualArgs.TestInfo]
+UseDef = False
+Expr = "Parameters.TestInfo"
+ParamType = 1
+
+[SF.Seq[6].Cleanup[1].TS.SData.ActualArgs.AdditionalInfo]
+UseDef = False
+Expr = "Locals.AdditionalInfo"
+ParamType = 256
+Flags = 0
+
+[SF.Seq[6].Cleanup[1].TS.SData.ActualArgs.SequenceFailed]
+UseDef = False
+Expr = "RunState.SequenceFailed"
+ParamType = 16
+
+[DEF, SF.Seq[6].Cleanup[1]]
+%NAME = "TestStepCleanup"
 
 [DEF, SF.Seq[6].RTS]
 Type = Num
@@ -1559,22 +1568,13 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "Example TestStep"
-
-[DEF, SF.Seq[7].Parameters]
-TestInfo = "TYPE, TestStruct"
-
-[SF.Seq[7].Parameters]
-%FLG: TestInfo = 4
+%NAME = "====================Templates====================="
 
 [SF.Seq[7]]
 %FLG: Parameters = 4456448
 %FLG: Locals = 4194304
-%HI: Main = [0]
 %FLG: Main = 4194304
-%HI: Setup = [0]
 %FLG: Setup = 4194304
-%HI: Cleanup = [1]
 %FLG: Cleanup = 4194304
 RecordResults = True
 %FLG: RecordResults = 4194312
@@ -1585,155 +1585,12 @@ FailureAction = 2
 
 [DEF, SF.Seq[7].Locals]
 ResultList = Objs
-AdditionalInfo = Strs
 
 [DEF, SF.Seq[7].Locals.ResultList]
 %EPTYPE = TEResult
 
 [SF.Seq[7].Locals]
 %FLG: ResultList = 4194304
-
-[DEF, SF.Seq[7].Main]
-%[0] = Step
-%TYPE: %[0] = "TestStepPassFailTestGoToCleanup"
-
-[SF.Seq[7].Main[0].TS]
-Id = "ID#:q99jT3pC7BGdndz7SDZo3B"
-Mode = "Skip"
-
-[DEF, SF.Seq[7].Main[0].TS]
-SData = "TYPE, FlexCVIStepAdditions"
-
-[SF.Seq[7].Main[0].TS.SData.Call]
-LibPath = "TestSteps.dll"
-Func = "TestStep_Example"
-%HI: Parms = [3]
-
-[DEF, SF.Seq[7].Main[0].TS.SData.Call.Parms]
-%[0] = "TYPE, FCVIParameter"
-%[1] = "TYPE, FCVIParameter"
-%[2] = "TYPE, FCVIParameter"
-%[3] = "TYPE, FCVIParameter"
-
-[SF.Seq[7].Main[0].TS.SData.Call.Parms[0]]
-Name = "Return Value"
-ResultAct = 4
-ArgVal = "Parameters.TestInfo.ErrorCode"
-Flags = 266
-
-[SF.Seq[7].Main[0].TS.SData.Call.Parms[1]]
-Name = "NestNum"
-ArgVal = "RunState.TestSockets.MyIndex"
-Flags = 264
-
-[SF.Seq[7].Main[0].TS.SData.Call.Parms[2]]
-Name = "ReportText"
-Type = 2
-StrPass = 2
-ArgVal = "Step.Result.ReportText"
-Flags = 256
-
-[SF.Seq[7].Main[0].TS.SData.Call.Parms[3]]
-Name = "ErrInfo"
-Type = 5
-StructType = "Error"
-NumPass = 1
-ArgVal = "Step.Result.Error"
-Flags = 256
-
-[SF.Seq[7].Main[0].TS.SData]
-ModulePrjPath = "c:\\Users\\biye_chen\\Desktop\\Projects\\PRJ21104- 1001\\PRJ21104_CMAC\\Source\\TestSteps\\TestSteps.prj"
-
-[SF.Seq[7].Main[0]]
-DataSource = "Step.Result.Error.Code==0"
-
-[DEF, SF.Seq[7].Main[0]]
-%NAME = "Example_TestStep"
-
-[DEF, SF.Seq[7].Setup]
-%[0] = Step
-%TYPE: %[0] = "SequenceCall"
-
-[SF.Seq[7].Setup[0].TS]
-Id = "ID#:68nE6nlC7BGdndz7SDZo3B"
-FailAct = "Goto"
-FailActTarget = "\"<Cleanup>\""
-
-[DEF, SF.Seq[7].Setup[0].TS]
-SData = "TYPE, SeqCallStepAdditions"
-
-[SF.Seq[7].Setup[0].TS.SData]
-SeqName = "TestStepSetup"
-UseCurFile = True
-Trace = "Off"
-
-[DEF, SF.Seq[7].Setup[0].TS.SData]
-ActualArgs = Arguments
-
-[DEF, SF.Seq[7].Setup[0].TS.SData.ActualArgs]
-TraceData = "TYPE, SequenceArgument"
-
-[SF.Seq[7].Setup[0].TS.SData.ActualArgs.TraceData]
-UseDef = False
-Expr = "Parameters.TestInfo"
-ParamType = 1
-
-[DEF, SF.Seq[7].Setup[0]]
-%NAME = "TestStepSetup"
-
-[DEF, SF.Seq[7].Cleanup]
-%[0] = Step
-%TYPE: %[0] = "Statement"
-%[1] = Step
-%TYPE: %[1] = "SequenceCall"
-
-[SF.Seq[7].Cleanup[0].TS]
-Id = "ID#:7MnE6nlC7BGdndz7SDZo3B"
-PostExpr Line0001 = "Locals.AdditionalInfo.SetNumElements(0),\n/*\nLocals.AdditionalInfo[0] = \"\",\nLocals.AdditionalInfo[1] = \"\",\nLocals"
-PostExpr Line0002 = ".AdditionalInfo[2] = \"\",\nLocals.AdditionalInfo[3] = \"\",\nLocals.AdditionalInfo[4] = \"\",\nLocals.AdditionalInfo[5]"
-PostExpr Line0003 = " = \"\",\nLocals.AdditionalInfo[6] = \"\",\nLocals.AdditionalInfo[7] = \"\",\nLocals.AdditionalInfo[8] = \"\",\nLocals.A"
-PostExpr Line0004 = "dditionalInfo[9] = \"\",\n*/"
-
-[DEF, SF.Seq[7].Cleanup[0]]
-%NAME = "Add AdditionalInfo"
-
-[SF.Seq[7].Cleanup[1].TS]
-Id = "ID#:7cnE6nlC7BGdndz7SDZo3B"
-
-[DEF, SF.Seq[7].Cleanup[1].TS]
-SData = "TYPE, SeqCallStepAdditions"
-
-[SF.Seq[7].Cleanup[1].TS.SData]
-SeqName = "TestStepCleanup"
-UseCurFile = True
-Trace = "Off"
-
-[DEF, SF.Seq[7].Cleanup[1].TS.SData]
-ActualArgs = Arguments
-
-[DEF, SF.Seq[7].Cleanup[1].TS.SData.ActualArgs]
-TestInfo = "TYPE, SequenceArgument"
-AdditionalInfo = "TYPE, SequenceArgument"
-SequenceFailed = "TYPE, SequenceArgument"
-
-[SF.Seq[7].Cleanup[1].TS.SData.ActualArgs.TestInfo]
-UseDef = False
-Expr = "Parameters.TestInfo"
-ParamType = 1
-
-[SF.Seq[7].Cleanup[1].TS.SData.ActualArgs.AdditionalInfo]
-UseDef = False
-Expr = "Locals.AdditionalInfo"
-ParamType = 256
-Flags = 0
-
-[SF.Seq[7].Cleanup[1].TS.SData.ActualArgs.SequenceFailed]
-UseDef = False
-Expr = "RunState.SequenceFailed"
-ParamType = 16
-
-[DEF, SF.Seq[7].Cleanup[1]]
-%NAME = "TestStepCleanup"
 
 [DEF, SF.Seq[7].RTS]
 Type = Num
@@ -1792,7 +1649,7 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "Example TestStepNumeric"
+%NAME = "Example TestStep"
 
 [DEF, SF.Seq[8].Parameters]
 TestInfo = "TYPE, TestStruct"
@@ -1828,29 +1685,67 @@ AdditionalInfo = Strs
 
 [DEF, SF.Seq[8].Main]
 %[0] = Step
-%TYPE: %[0] = "TestStepNumericLimitTestGoToCleanup"
+%TYPE: %[0] = "TestStepPassFailTestGoToCleanup"
 
 [SF.Seq[8].Main[0].TS]
-Id = "ID#:6bGMUImP7BGdqNz7SDZo3B"
+Id = "ID#:q99jT3pC7BGdndz7SDZo3B"
 Mode = "Skip"
 
-[SF.Seq[8].Main[0].Limits]
-Low = 0
-High = 0
-LowExpr = "Val(Parameters.TestInfo.TestLimMin)"
-HighExpr = "Val(Parameters.TestInfo.TestLimMax)"
-UseLowExpr = True
-UseHighExpr = True
+[DEF, SF.Seq[8].Main[0].TS]
+SData = "TYPE, FlexCVIStepAdditions"
+
+[SF.Seq[8].Main[0].TS.SData.Call]
+LibPath = "TestSteps.dll"
+Func = "TestStep_Example"
+%HI: Parms = [3]
+
+[DEF, SF.Seq[8].Main[0].TS.SData.Call.Parms]
+%[0] = "TYPE, FCVIParameter"
+%[1] = "TYPE, FCVIParameter"
+%[2] = "TYPE, FCVIParameter"
+%[3] = "TYPE, FCVIParameter"
+
+[SF.Seq[8].Main[0].TS.SData.Call.Parms[0]]
+Name = "Return Value"
+ResultAct = 4
+ArgVal = "Parameters.TestInfo.ErrorCode"
+Flags = 266
+
+[SF.Seq[8].Main[0].TS.SData.Call.Parms[1]]
+Name = "NestNum"
+ArgVal = "RunState.TestSockets.MyIndex"
+Flags = 264
+
+[SF.Seq[8].Main[0].TS.SData.Call.Parms[2]]
+Name = "ReportText"
+Type = 2
+StrPass = 2
+ArgVal = "Step.Result.ReportText"
+Flags = 256
+
+[SF.Seq[8].Main[0].TS.SData.Call.Parms[3]]
+Name = "ErrInfo"
+Type = 5
+StructType = "Error"
+NumPass = 1
+ArgVal = "Step.Result.Error"
+Flags = 256
+
+[SF.Seq[8].Main[0].TS.SData]
+ModulePrjPath = "c:\\Users\\biye_chen\\Desktop\\Projects\\PRJ21104- 1001\\PRJ21104_CMAC\\Source\\TestSteps\\TestSteps.prj"
+
+[SF.Seq[8].Main[0]]
+DataSource = "Step.Result.Error.Code==0"
 
 [DEF, SF.Seq[8].Main[0]]
-%NAME = "Example_TestStepNumeric"
+%NAME = "Example_TestStep"
 
 [DEF, SF.Seq[8].Setup]
 %[0] = Step
 %TYPE: %[0] = "SequenceCall"
 
 [SF.Seq[8].Setup[0].TS]
-Id = "ID#:XekEQImP7BGdqNz7SDZo3B"
+Id = "ID#:68nE6nlC7BGdndz7SDZo3B"
 FailAct = "Goto"
 FailActTarget = "\"<Cleanup>\""
 
@@ -1883,7 +1778,7 @@ ParamType = 1
 %TYPE: %[1] = "SequenceCall"
 
 [SF.Seq[8].Cleanup[0].TS]
-Id = "ID#:X+kEQImP7BGdqNz7SDZo3B"
+Id = "ID#:7MnE6nlC7BGdndz7SDZo3B"
 PostExpr Line0001 = "Locals.AdditionalInfo.SetNumElements(0),\n/*\nLocals.AdditionalInfo[0] = \"\",\nLocals.AdditionalInfo[1] = \"\",\nLocals"
 PostExpr Line0002 = ".AdditionalInfo[2] = \"\",\nLocals.AdditionalInfo[3] = \"\",\nLocals.AdditionalInfo[4] = \"\",\nLocals.AdditionalInfo[5]"
 PostExpr Line0003 = " = \"\",\nLocals.AdditionalInfo[6] = \"\",\nLocals.AdditionalInfo[7] = \"\",\nLocals.AdditionalInfo[8] = \"\",\nLocals.A"
@@ -1893,7 +1788,7 @@ PostExpr Line0004 = "dditionalInfo[9] = \"\",\n*/"
 %NAME = "Add AdditionalInfo"
 
 [SF.Seq[8].Cleanup[1].TS]
-Id = "ID#:YOkEQImP7BGdqNz7SDZo3B"
+Id = "ID#:7cnE6nlC7BGdndz7SDZo3B"
 
 [DEF, SF.Seq[8].Cleanup[1].TS]
 SData = "TYPE, SeqCallStepAdditions"
@@ -1987,13 +1882,22 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "=====================Utility======================"
+%NAME = "Example TestStepNumeric"
+
+[DEF, SF.Seq[9].Parameters]
+TestInfo = "TYPE, TestStruct"
+
+[SF.Seq[9].Parameters]
+%FLG: TestInfo = 4
 
 [SF.Seq[9]]
 %FLG: Parameters = 4456448
 %FLG: Locals = 4194304
+%HI: Main = [0]
 %FLG: Main = 4194304
+%HI: Setup = [0]
 %FLG: Setup = 4194304
+%HI: Cleanup = [1]
 %FLG: Cleanup = 4194304
 RecordResults = True
 %FLG: RecordResults = 4194312
@@ -2004,12 +1908,117 @@ FailureAction = 2
 
 [DEF, SF.Seq[9].Locals]
 ResultList = Objs
+AdditionalInfo = Strs
 
 [DEF, SF.Seq[9].Locals.ResultList]
 %EPTYPE = TEResult
 
 [SF.Seq[9].Locals]
 %FLG: ResultList = 4194304
+
+[DEF, SF.Seq[9].Main]
+%[0] = Step
+%TYPE: %[0] = "TestStepNumericLimitTestGoToCleanup"
+
+[SF.Seq[9].Main[0].TS]
+Id = "ID#:6bGMUImP7BGdqNz7SDZo3B"
+Mode = "Skip"
+
+[SF.Seq[9].Main[0].Limits]
+Low = 0
+High = 0
+LowExpr = "Val(Parameters.TestInfo.TestLimMin)"
+HighExpr = "Val(Parameters.TestInfo.TestLimMax)"
+UseLowExpr = True
+UseHighExpr = True
+
+[DEF, SF.Seq[9].Main[0]]
+%NAME = "Example_TestStepNumeric"
+
+[DEF, SF.Seq[9].Setup]
+%[0] = Step
+%TYPE: %[0] = "SequenceCall"
+
+[SF.Seq[9].Setup[0].TS]
+Id = "ID#:XekEQImP7BGdqNz7SDZo3B"
+FailAct = "Goto"
+FailActTarget = "\"<Cleanup>\""
+
+[DEF, SF.Seq[9].Setup[0].TS]
+SData = "TYPE, SeqCallStepAdditions"
+
+[SF.Seq[9].Setup[0].TS.SData]
+SeqName = "TestStepSetup"
+UseCurFile = True
+Trace = "Off"
+
+[DEF, SF.Seq[9].Setup[0].TS.SData]
+ActualArgs = Arguments
+
+[DEF, SF.Seq[9].Setup[0].TS.SData.ActualArgs]
+TraceData = "TYPE, SequenceArgument"
+
+[SF.Seq[9].Setup[0].TS.SData.ActualArgs.TraceData]
+UseDef = False
+Expr = "Parameters.TestInfo"
+ParamType = 1
+
+[DEF, SF.Seq[9].Setup[0]]
+%NAME = "TestStepSetup"
+
+[DEF, SF.Seq[9].Cleanup]
+%[0] = Step
+%TYPE: %[0] = "Statement"
+%[1] = Step
+%TYPE: %[1] = "SequenceCall"
+
+[SF.Seq[9].Cleanup[0].TS]
+Id = "ID#:X+kEQImP7BGdqNz7SDZo3B"
+PostExpr Line0001 = "Locals.AdditionalInfo.SetNumElements(0),\n/*\nLocals.AdditionalInfo[0] = \"\",\nLocals.AdditionalInfo[1] = \"\",\nLocals"
+PostExpr Line0002 = ".AdditionalInfo[2] = \"\",\nLocals.AdditionalInfo[3] = \"\",\nLocals.AdditionalInfo[4] = \"\",\nLocals.AdditionalInfo[5]"
+PostExpr Line0003 = " = \"\",\nLocals.AdditionalInfo[6] = \"\",\nLocals.AdditionalInfo[7] = \"\",\nLocals.AdditionalInfo[8] = \"\",\nLocals.A"
+PostExpr Line0004 = "dditionalInfo[9] = \"\",\n*/"
+
+[DEF, SF.Seq[9].Cleanup[0]]
+%NAME = "Add AdditionalInfo"
+
+[SF.Seq[9].Cleanup[1].TS]
+Id = "ID#:YOkEQImP7BGdqNz7SDZo3B"
+
+[DEF, SF.Seq[9].Cleanup[1].TS]
+SData = "TYPE, SeqCallStepAdditions"
+
+[SF.Seq[9].Cleanup[1].TS.SData]
+SeqName = "TestStepCleanup"
+UseCurFile = True
+Trace = "Off"
+
+[DEF, SF.Seq[9].Cleanup[1].TS.SData]
+ActualArgs = Arguments
+
+[DEF, SF.Seq[9].Cleanup[1].TS.SData.ActualArgs]
+TestInfo = "TYPE, SequenceArgument"
+AdditionalInfo = "TYPE, SequenceArgument"
+SequenceFailed = "TYPE, SequenceArgument"
+
+[SF.Seq[9].Cleanup[1].TS.SData.ActualArgs.TestInfo]
+UseDef = False
+Expr = "Parameters.TestInfo"
+ParamType = 1
+
+[SF.Seq[9].Cleanup[1].TS.SData.ActualArgs.AdditionalInfo]
+UseDef = False
+Expr = "Locals.AdditionalInfo"
+ParamType = 256
+Flags = 0
+
+[SF.Seq[9].Cleanup[1].TS.SData.ActualArgs.SequenceFailed]
+UseDef = False
+Expr = "RunState.SequenceFailed"
+ParamType = 16
+
+[DEF, SF.Seq[9].Cleanup[1]]
+%NAME = "TestStepCleanup"
 
 [DEF, SF.Seq[9].RTS]
 Type = Num
@@ -2068,18 +2077,11 @@ RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "TestStepSetup"
-
-[DEF, SF.Seq[10].Parameters]
-TestInfo = "TYPE, TestStruct"
-
-[SF.Seq[10].Parameters]
-%FLG: TestInfo = 4
+%NAME = "=====================Utility======================"
 
 [SF.Seq[10]]
 %FLG: Parameters = 4456448
 %FLG: Locals = 4194304
-%HI: Main = [3]
 %FLG: Main = 4194304
 %FLG: Setup = 4194304
 %FLG: Cleanup = 4194304
@@ -2098,243 +2100,6 @@ ResultList = Objs
 
 [SF.Seq[10].Locals]
 %FLG: ResultList = 4194304
-
-[DEF, SF.Seq[10].Main]
-%[0] = Step
-%TYPE: %[0] = "SequenceCall"
-%[1] = Step
-%TYPE: %[1] = "SequenceCall"
-%[2] = Step
-%TYPE: %[2] = "Statement"
-%[3] = Step
-%TYPE: %[3] = "Statement"
-
-[SF.Seq[10].Main[0].TS]
-Id = "ID#:ilV6Nyaa7hGeXgTPSx+6LD"
-
-[DEF, SF.Seq[10].Main[0].TS]
-SData = "TYPE, SeqCallStepAdditions"
-
-[SF.Seq[10].Main[0].TS.SData]
-SFPath = "GUIMessage.seq"
-SeqName = "GUI Message UI SET"
-
-[DEF, SF.Seq[10].Main[0].TS.SData]
-ActualArgs = Arguments
-Prototype = Obj
-
-[DEF, SF.Seq[10].Main[0].TS.SData.ActualArgs]
-IsNestUI = "TYPE, SequenceArgument"
-NestNum = "TYPE, SequenceArgument"
-UILEDType = "TYPE, SequenceArgument"
-UICounterType = "TYPE, SequenceArgument"
-UITextType = "TYPE, SequenceArgument"
-UITab = "TYPE, SequenceArgument"
-SetValue = "TYPE, SequenceArgument"
-TextColor = "TYPE, SequenceArgument"
-BGColor = "TYPE, SequenceArgument"
-TextPointSize = "TYPE, SequenceArgument"
-Col = "TYPE, SequenceArgument"
-Row = "TYPE, SequenceArgument"
-
-[SF.Seq[10].Main[0].TS.SData.ActualArgs.IsNestUI]
-UseDef = False
-Expr = "True"
-ParamType = 16
-Flags = 0
-
-[SF.Seq[10].Main[0].TS.SData.ActualArgs.NestNum]
-Expr = "RunState.TestSockets.MyIndex"
-ParamType = 4
-ParamRepresentation = 1
-Flags = 0
-
-[SF.Seq[10].Main[0].TS.SData.ActualArgs.UILEDType]
-ParamType = 8192
-ParamRepresentation = 1
-Flags = 0
-
-[SF.Seq[10].Main[0].TS.SData.ActualArgs.UICounterType]
-ParamType = 8192
-ParamRepresentation = 1
-Flags = 0
-
-[SF.Seq[10].Main[0].TS.SData.ActualArgs.UITextType]
-UseDef = False
-Expr = "Enums.ARX_UI_TEXT.LABEL_STATUS"
-ParamType = 8192
-ParamRepresentation = 1
-Flags = 0
-
-[SF.Seq[10].Main[0].TS.SData.ActualArgs.UITab]
-ParamType = 8192
-ParamRepresentation = 1
-
-[SF.Seq[10].Main[0].TS.SData.ActualArgs.SetValue]
-UseDef = False
-Expr = "Parameters.TestInfo.TestName"
-ParamType = 2
-Flags = 0
-
-[SF.Seq[10].Main[0].TS.SData.ActualArgs.TextColor]
-UseDef = False
-Expr = "Enums.ARX_UI_COLOR.BLACK"
-ParamType = 8192
-ParamRepresentation = 1
-Flags = 0
-
-[SF.Seq[10].Main[0].TS.SData.ActualArgs.BGColor]
-UseDef = False
-Expr = "Enums.ARX_UI_COLOR.YELLOW"
-ParamType = 8192
-ParamRepresentation = 1
-Flags = 0
-
-[SF.Seq[10].Main[0].TS.SData.ActualArgs.TextPointSize]
-ParamType = 4
-ParamRepresentation = 1
-Flags = 0
-
-[SF.Seq[10].Main[0].TS.SData.ActualArgs.Col]
-ParamType = 4
-ParamRepresentation = 1
-Flags = 0
-
-[SF.Seq[10].Main[0].TS.SData.ActualArgs.Row]
-ParamType = 4
-ParamRepresentation = 1
-Flags = 0
-
-[DEF, SF.Seq[10].Main[0].TS.SData.Prototype]
-IsNestUI = Bool
-NestNum = Num
-UILEDType = "TYPE, ARX_UI_LED"
-UICounterType = "TYPE, ARX_UI_COUNTER"
-UITextType = "TYPE, ARX_UI_TEXT"
-UITab = "TYPE, ARX_UI_TAB"
-SetValue = Str
-TextColor = "TYPE, ARX_UI_COLOR"
-BGColor = "TYPE, ARX_UI_COLOR"
-TextPointSize = Num
-Col = Num
-Row = Num
-
-[SF.Seq[10].Main[0].TS.SData.Prototype.NestNum]
-%COMMENT = "Only specify when outside socket thread and not posting to Nest 1"
-
-[SF.Seq[10].Main[0].TS.SData.Prototype]
-UILEDType = 0
-UICounterType = 0
-UITextType = 0
-UITab = 0
-%FLG: UITab = 4
-TextColor = 0
-BGColor = 0
-TextPointSize = 30
-
-[SF.Seq[10].Main[0].TS.SData.Prototype.UILEDType]
-%NAME = "NONE"
-%COMMENT = "Only specify 1 of 4 types of UI elements"
-
-[SF.Seq[10].Main[0].TS.SData.Prototype.UICounterType]
-%NAME = "NONE"
-%COMMENT = "Only specify 1 of 4 types of UI elements"
-
-[SF.Seq[10].Main[0].TS.SData.Prototype.UITextType]
-%NAME = "NONE"
-%COMMENT = "Only specify 1 of 4 types of UI elements"
-
-[SF.Seq[10].Main[0].TS.SData.Prototype.UITab]
-%NAME = "NONE"
-%COMMENT = "Only specify 1 of 4 types of UI elements"
-
-[SF.Seq[10].Main[0].TS.SData.Prototype.TextColor]
-%NAME = "BLACK"
-%COMMENT = "LABEL(_ROT)_STATUS, iTAC LED Color"
-
-[SF.Seq[10].Main[0].TS.SData.Prototype.BGColor]
-%NAME = "BLACK"
-%COMMENT = "LABEL(_ROT)_STATUS only"
-
-[SF.Seq[10].Main[0].TS.SData.Prototype.TextPointSize]
-%COMMENT = "LABEL(_ROT)_STATUS only, default 30"
-
-[SF.Seq[10].Main[0].TS.SData.Prototype.Col]
-%COMMENT = "TESTINFO only"
-
-[SF.Seq[10].Main[0].TS.SData.Prototype.Row]
-%COMMENT = "TESTINFO only"
-
-[DEF, SF.Seq[10].Main[0]]
-%NAME = "Post Label Status"
-
-[SF.Seq[10].Main[1].TS]
-Id = "ID#:i1V6Nyaa7hGeXgTPSx+6LD"
-
-[DEF, SF.Seq[10].Main[1].TS]
-SData = "TYPE, SeqCallStepAdditions"
-
-[SF.Seq[10].Main[1].TS.SData]
-SFPath = "GUIMessage.seq"
-SeqName = "GUI Message TEST INFO"
-
-[DEF, SF.Seq[10].Main[1].TS.SData]
-ActualArgs = Arguments
-Prototype = Obj
-
-[DEF, SF.Seq[10].Main[1].TS.SData.ActualArgs]
-NestNum = "TYPE, SequenceArgument"
-Msg = "TYPE, SequenceArgument"
-AddSpacing = "TYPE, SequenceArgument"
-
-[SF.Seq[10].Main[1].TS.SData.ActualArgs.NestNum]
-Expr = "RunState.TestSockets.MyIndex"
-ParamType = 4
-ParamRepresentation = 1
-Flags = 0
-
-[SF.Seq[10].Main[1].TS.SData.ActualArgs.Msg]
-UseDef = False
-Expr = "Parameters.TestInfo.TestName"
-ParamType = 2
-Flags = 0
-
-[SF.Seq[10].Main[1].TS.SData.ActualArgs.AddSpacing]
-UseDef = False
-Expr = "False"
-ParamType = 16
-
-[DEF, SF.Seq[10].Main[1].TS.SData.Prototype]
-NestNum = Num
-Msg = Str
-AddSpacing = Bool
-
-[SF.Seq[10].Main[1].TS.SData.Prototype.NestNum]
-%COMMENT = "Only specify when outside socket thread and not posting to Nest 1"
-
-[SF.Seq[10].Main[1].TS.SData.Prototype]
-%FLG: AddSpacing = 4
-
-[DEF, SF.Seq[10].Main[1]]
-%NAME = "Post to Test Info box"
-
-[SF.Seq[10].Main[2].TS]
-Id = "ID#:jFV6Nyaa7hGeXgTPSx+6LD"
-PostExpr = "Caller.AsPropertyObject.SetValNumber(\"Locals.StartTimer\",PropOption_InsertIfMissing,Seconds())"
-
-[DEF, SF.Seq[10].Main[2]]
-%NAME = "Set StartTimer"
-
-[SF.Seq[10].Main[3].TS]
-Id = "ID#:jVV6Nyaa7hGeXgTPSx+6LD"
-PreCond = "StationGlobals.GlobalAlarmConditions.EStopHigh"
-FailAct = "Goto"
-FailActTarget = "\"<Cleanup>\""
-PostExpr Line0001 = "Step.Result.Error.Msg = Parameters.TestInfo.TestVal = \"Alarm Triggered\",\nParameters.TestInfo.ErrorCode = -1000,\nStep"
-PostExpr Line0002 = ".Result.Status = \"Failed\""
-
-[DEF, SF.Seq[10].Main[3]]
-%NAME = "Set Trace Data Fail"
 
 [DEF, SF.Seq[10].RTS]
 Type = Num
@@ -2383,11 +2148,336 @@ Links = Strs
 [SF.Seq[10].Requirements]
 %FLG: Links = 71303168
 
-[SF.Seq]
-%FLG: %[10] = 71303168
-%FLG: %[11] = 71303168
-
 [DEF, SF.Seq[11]]
+Parameters = Obj
+Locals = Obj
+Main = Objs
+Setup = Objs
+Cleanup = Objs
+RecordResults = Bool
+RTS = Obj
+Requirements = Obj
+FailureAction = Num
+%NAME = "TestStepSetup"
+
+[DEF, SF.Seq[11].Parameters]
+TestInfo = "TYPE, TestStruct"
+
+[SF.Seq[11].Parameters]
+%FLG: TestInfo = 4
+
+[SF.Seq[11]]
+%FLG: Parameters = 4456448
+%FLG: Locals = 4194304
+%HI: Main = [3]
+%FLG: Main = 4194304
+%FLG: Setup = 4194304
+%FLG: Cleanup = 4194304
+RecordResults = True
+%FLG: RecordResults = 4194312
+%FLG: RTS = 4456456
+%FLG: Requirements = 4456456
+FailureAction = 2
+%FLG: FailureAction = 4194312
+
+[DEF, SF.Seq[11].Locals]
+ResultList = Objs
+
+[DEF, SF.Seq[11].Locals.ResultList]
+%EPTYPE = TEResult
+
+[SF.Seq[11].Locals]
+%FLG: ResultList = 4194304
+
+[DEF, SF.Seq[11].Main]
+%[0] = Step
+%TYPE: %[0] = "SequenceCall"
+%[1] = Step
+%TYPE: %[1] = "SequenceCall"
+%[2] = Step
+%TYPE: %[2] = "Statement"
+%[3] = Step
+%TYPE: %[3] = "Statement"
+
+[SF.Seq[11].Main[0].TS]
+Id = "ID#:ilV6Nyaa7hGeXgTPSx+6LD"
+
+[DEF, SF.Seq[11].Main[0].TS]
+SData = "TYPE, SeqCallStepAdditions"
+
+[SF.Seq[11].Main[0].TS.SData]
+SFPath = "GUIMessage.seq"
+SeqName = "GUI Message UI SET"
+
+[DEF, SF.Seq[11].Main[0].TS.SData]
+ActualArgs = Arguments
+Prototype = Obj
+
+[DEF, SF.Seq[11].Main[0].TS.SData.ActualArgs]
+IsNestUI = "TYPE, SequenceArgument"
+NestNum = "TYPE, SequenceArgument"
+UILEDType = "TYPE, SequenceArgument"
+UICounterType = "TYPE, SequenceArgument"
+UITextType = "TYPE, SequenceArgument"
+UITab = "TYPE, SequenceArgument"
+SetValue = "TYPE, SequenceArgument"
+TextColor = "TYPE, SequenceArgument"
+BGColor = "TYPE, SequenceArgument"
+TextPointSize = "TYPE, SequenceArgument"
+Col = "TYPE, SequenceArgument"
+Row = "TYPE, SequenceArgument"
+
+[SF.Seq[11].Main[0].TS.SData.ActualArgs.IsNestUI]
+UseDef = False
+Expr = "True"
+ParamType = 16
+Flags = 0
+
+[SF.Seq[11].Main[0].TS.SData.ActualArgs.NestNum]
+Expr = "RunState.TestSockets.MyIndex"
+ParamType = 4
+ParamRepresentation = 1
+Flags = 0
+
+[SF.Seq[11].Main[0].TS.SData.ActualArgs.UILEDType]
+ParamType = 8192
+ParamRepresentation = 1
+Flags = 0
+
+[SF.Seq[11].Main[0].TS.SData.ActualArgs.UICounterType]
+ParamType = 8192
+ParamRepresentation = 1
+Flags = 0
+
+[SF.Seq[11].Main[0].TS.SData.ActualArgs.UITextType]
+UseDef = False
+Expr = "Enums.ARX_UI_TEXT.LABEL_STATUS"
+ParamType = 8192
+ParamRepresentation = 1
+Flags = 0
+
+[SF.Seq[11].Main[0].TS.SData.ActualArgs.UITab]
+ParamType = 8192
+ParamRepresentation = 1
+
+[SF.Seq[11].Main[0].TS.SData.ActualArgs.SetValue]
+UseDef = False
+Expr = "Parameters.TestInfo.TestName"
+ParamType = 2
+Flags = 0
+
+[SF.Seq[11].Main[0].TS.SData.ActualArgs.TextColor]
+UseDef = False
+Expr = "Enums.ARX_UI_COLOR.BLACK"
+ParamType = 8192
+ParamRepresentation = 1
+Flags = 0
+
+[SF.Seq[11].Main[0].TS.SData.ActualArgs.BGColor]
+UseDef = False
+Expr = "Enums.ARX_UI_COLOR.YELLOW"
+ParamType = 8192
+ParamRepresentation = 1
+Flags = 0
+
+[SF.Seq[11].Main[0].TS.SData.ActualArgs.TextPointSize]
+ParamType = 4
+ParamRepresentation = 1
+Flags = 0
+
+[SF.Seq[11].Main[0].TS.SData.ActualArgs.Col]
+ParamType = 4
+ParamRepresentation = 1
+Flags = 0
+
+[SF.Seq[11].Main[0].TS.SData.ActualArgs.Row]
+ParamType = 4
+ParamRepresentation = 1
+Flags = 0
+
+[DEF, SF.Seq[11].Main[0].TS.SData.Prototype]
+IsNestUI = Bool
+NestNum = Num
+UILEDType = "TYPE, ARX_UI_LED"
+UICounterType = "TYPE, ARX_UI_COUNTER"
+UITextType = "TYPE, ARX_UI_TEXT"
+UITab = "TYPE, ARX_UI_TAB"
+SetValue = Str
+TextColor = "TYPE, ARX_UI_COLOR"
+BGColor = "TYPE, ARX_UI_COLOR"
+TextPointSize = Num
+Col = Num
+Row = Num
+
+[SF.Seq[11].Main[0].TS.SData.Prototype.NestNum]
+%COMMENT = "Only specify when outside socket thread and not posting to Nest 1"
+
+[SF.Seq[11].Main[0].TS.SData.Prototype]
+UILEDType = 0
+UICounterType = 0
+UITextType = 0
+UITab = 0
+%FLG: UITab = 4
+TextColor = 0
+BGColor = 0
+TextPointSize = 30
+
+[SF.Seq[11].Main[0].TS.SData.Prototype.UILEDType]
+%NAME = "NONE"
+%COMMENT = "Only specify 1 of 4 types of UI elements"
+
+[SF.Seq[11].Main[0].TS.SData.Prototype.UICounterType]
+%NAME = "NONE"
+%COMMENT = "Only specify 1 of 4 types of UI elements"
+
+[SF.Seq[11].Main[0].TS.SData.Prototype.UITextType]
+%NAME = "NONE"
+%COMMENT = "Only specify 1 of 4 types of UI elements"
+
+[SF.Seq[11].Main[0].TS.SData.Prototype.UITab]
+%NAME = "NONE"
+%COMMENT = "Only specify 1 of 4 types of UI elements"
+
+[SF.Seq[11].Main[0].TS.SData.Prototype.TextColor]
+%NAME = "BLACK"
+%COMMENT = "LABEL(_ROT)_STATUS, iTAC LED Color"
+
+[SF.Seq[11].Main[0].TS.SData.Prototype.BGColor]
+%NAME = "BLACK"
+%COMMENT = "LABEL(_ROT)_STATUS only"
+
+[SF.Seq[11].Main[0].TS.SData.Prototype.TextPointSize]
+%COMMENT = "LABEL(_ROT)_STATUS only, default 30"
+
+[SF.Seq[11].Main[0].TS.SData.Prototype.Col]
+%COMMENT = "TESTINFO only"
+
+[SF.Seq[11].Main[0].TS.SData.Prototype.Row]
+%COMMENT = "TESTINFO only"
+
+[DEF, SF.Seq[11].Main[0]]
+%NAME = "Post Label Status"
+
+[SF.Seq[11].Main[1].TS]
+Id = "ID#:i1V6Nyaa7hGeXgTPSx+6LD"
+
+[DEF, SF.Seq[11].Main[1].TS]
+SData = "TYPE, SeqCallStepAdditions"
+
+[SF.Seq[11].Main[1].TS.SData]
+SFPath = "GUIMessage.seq"
+SeqName = "GUI Message TEST INFO"
+
+[DEF, SF.Seq[11].Main[1].TS.SData]
+ActualArgs = Arguments
+Prototype = Obj
+
+[DEF, SF.Seq[11].Main[1].TS.SData.ActualArgs]
+NestNum = "TYPE, SequenceArgument"
+Msg = "TYPE, SequenceArgument"
+AddSpacing = "TYPE, SequenceArgument"
+
+[SF.Seq[11].Main[1].TS.SData.ActualArgs.NestNum]
+Expr = "RunState.TestSockets.MyIndex"
+ParamType = 4
+ParamRepresentation = 1
+Flags = 0
+
+[SF.Seq[11].Main[1].TS.SData.ActualArgs.Msg]
+UseDef = False
+Expr = "Parameters.TestInfo.TestName"
+ParamType = 2
+Flags = 0
+
+[SF.Seq[11].Main[1].TS.SData.ActualArgs.AddSpacing]
+UseDef = False
+Expr = "False"
+ParamType = 16
+
+[DEF, SF.Seq[11].Main[1].TS.SData.Prototype]
+NestNum = Num
+Msg = Str
+AddSpacing = Bool
+
+[SF.Seq[11].Main[1].TS.SData.Prototype.NestNum]
+%COMMENT = "Only specify when outside socket thread and not posting to Nest 1"
+
+[SF.Seq[11].Main[1].TS.SData.Prototype]
+%FLG: AddSpacing = 4
+
+[DEF, SF.Seq[11].Main[1]]
+%NAME = "Post to Test Info box"
+
+[SF.Seq[11].Main[2].TS]
+Id = "ID#:jFV6Nyaa7hGeXgTPSx+6LD"
+PostExpr = "Caller.AsPropertyObject.SetValNumber(\"Locals.StartTimer\",PropOption_InsertIfMissing,Seconds())"
+
+[DEF, SF.Seq[11].Main[2]]
+%NAME = "Set StartTimer"
+
+[SF.Seq[11].Main[3].TS]
+Id = "ID#:jVV6Nyaa7hGeXgTPSx+6LD"
+PreCond = "StationGlobals.GlobalAlarmConditions.EStopHigh"
+FailAct = "Goto"
+FailActTarget = "\"<Cleanup>\""
+PostExpr Line0001 = "Step.Result.Error.Msg = Parameters.TestInfo.TestVal = \"Alarm Triggered\",\nParameters.TestInfo.ErrorCode = -1000,\nStep"
+PostExpr Line0002 = ".Result.Status = \"Failed\""
+
+[DEF, SF.Seq[11].Main[3]]
+%NAME = "Set Trace Data Fail"
+
+[DEF, SF.Seq[11].RTS]
+Type = Num
+OptimizeNonReentrantCalls = Bool
+EPNameExpr = Str
+EPEnabledExpr = Str
+EPMenuHint = Str
+EPIgnoreClient = Bool
+EPInitiallyHidden = Bool
+EPCheckToSaveTitledFile = Bool
+ShowEPAlways = Bool
+ShowEPForFileWin = Bool
+ShowEPForExeWin = Bool
+ShowEPForEditorOnly = Bool
+AllowIntExeOfEP = Bool
+CopyStepsOnOverriding = Bool
+Priority = Num
+
+[SF.Seq[11].RTS]
+%FLG: Type = 4194304
+OptimizeNonReentrantCalls = True
+%FLG: OptimizeNonReentrantCalls = 4194304
+EPNameExpr = "\"Unnamed Entry Point\""
+%FLG: EPNameExpr = 4194304
+EPEnabledExpr = "True"
+%FLG: EPEnabledExpr = 4194304
+%FLG: EPMenuHint = 4194304
+%FLG: EPIgnoreClient = 4194304
+%FLG: EPInitiallyHidden = 4194304
+EPCheckToSaveTitledFile = True
+%FLG: EPCheckToSaveTitledFile = 4194304
+%FLG: ShowEPAlways = 4194304
+ShowEPForFileWin = True
+%FLG: ShowEPForFileWin = 4194304
+%FLG: ShowEPForExeWin = 4194304
+%FLG: ShowEPForEditorOnly = 4194304
+%FLG: AllowIntExeOfEP = 4194304
+CopyStepsOnOverriding = True
+%FLG: CopyStepsOnOverriding = 4194304
+Priority = 2953567917
+%FLG: Priority = 4194304
+
+[DEF, SF.Seq[11].Requirements]
+Links = Strs
+
+[SF.Seq[11].Requirements]
+%FLG: Links = 71303168
+
+[SF.Seq]
+%FLG: %[11] = 71303168
+%FLG: %[12] = 71303168
+
+[DEF, SF.Seq[12]]
 Parameters = Obj
 Locals = Obj
 Main = Objs
@@ -2399,16 +2489,16 @@ Requirements = Obj
 FailureAction = Num
 %NAME = "TestStepCleanup"
 
-[DEF, SF.Seq[11].Parameters]
+[DEF, SF.Seq[12].Parameters]
 TestInfo = "TYPE, TestStruct"
 AdditionalInfo = Strs
 SequenceFailed = Bool
 
-[SF.Seq[11].Parameters]
+[SF.Seq[12].Parameters]
 %FLG: TestInfo = 4
 %FLG: SequenceFailed = 4
 
-[SF.Seq[11]]
+[SF.Seq[12]]
 %FLG: Parameters = 4456448
 %FLG: Locals = 4194304
 %HI: Main = [23]
@@ -2422,18 +2512,18 @@ RecordResults = True
 FailureAction = 2
 %FLG: FailureAction = 4194312
 
-[DEF, SF.Seq[11].Locals]
+[DEF, SF.Seq[12].Locals]
 ResultList = Objs
 AdditionalInfo = Str
 MainCall = Ref
 
-[DEF, SF.Seq[11].Locals.ResultList]
+[DEF, SF.Seq[12].Locals.ResultList]
 %EPTYPE = TEResult
 
-[SF.Seq[11].Locals]
+[SF.Seq[12].Locals]
 %FLG: ResultList = 4194304
 
-[DEF, SF.Seq[11].Main]
+[DEF, SF.Seq[12].Main]
 %[0] = Step
 %TYPE: %[0] = "Statement"
 %[1] = Step
@@ -2483,548 +2573,548 @@ MainCall = Ref
 %[23] = Step
 %TYPE: %[23] = "NI_Flow_End"
 
-[SF.Seq[11].Main[0].TS]
+[SF.Seq[12].Main[0].TS]
 Id = "ID#:jlV6Nyaa7hGeXgTPSx+6LD"
 PostExpr = "Parameters.TestInfo.TestTime = Seconds()-#NoValidation(RunState.Caller.Locals.StartTimer)"
 
-[DEF, SF.Seq[11].Main[0]]
+[DEF, SF.Seq[12].Main[0]]
 %NAME = "Set Test Time"
 
-[SF.Seq[11].Main[1].TS]
+[SF.Seq[12].Main[1].TS]
 Id = "ID#:j1V6Nyaa7hGeXgTPSx+6LD"
 PreCond = "Len(Parameters.TestInfo.TestVal)==0"
 PostExpr = "Parameters.TestInfo.TestVal = Parameters.SequenceFailed?\"FAIL\":\"PASS\""
 
-[DEF, SF.Seq[11].Main[1]]
+[DEF, SF.Seq[12].Main[1]]
 %NAME = "Set Default Val"
 
-[SF.Seq[11].Main[2].TS]
+[SF.Seq[12].Main[2].TS]
 Id = "ID#:kFV6Nyaa7hGeXgTPSx+6LD"
 PreExpr = "Parameters.TestInfo.TestPass = Parameters.SequenceFailed?0:1"
 
-[DEF, SF.Seq[11].Main[2].TS]
+[DEF, SF.Seq[12].Main[2].TS]
 SData = "TYPE, SeqCallStepAdditions"
 
-[SF.Seq[11].Main[2].TS.SData]
+[SF.Seq[12].Main[2].TS.SData]
 SFPath = "GUIMessage.seq"
 SeqName = "GUI Message TEST RESULT"
 
-[DEF, SF.Seq[11].Main[2].TS.SData]
+[DEF, SF.Seq[12].Main[2].TS.SData]
 ActualArgs = Arguments
 Prototype = Obj
 
-[DEF, SF.Seq[11].Main[2].TS.SData.ActualArgs]
+[DEF, SF.Seq[12].Main[2].TS.SData.ActualArgs]
 NestNum = "TYPE, SequenceArgument"
 TestInfo = "TYPE, SequenceArgument"
 TestTime = "TYPE, SequenceArgument"
 SequenceFailed = "TYPE, SequenceArgument"
 
-[SF.Seq[11].Main[2].TS.SData.ActualArgs.NestNum]
+[SF.Seq[12].Main[2].TS.SData.ActualArgs.NestNum]
 Expr = "RunState.TestSockets.MyIndex"
 ParamType = 4
 ParamRepresentation = 1
 Flags = 0
 
-[SF.Seq[11].Main[2].TS.SData.ActualArgs.TestInfo]
+[SF.Seq[12].Main[2].TS.SData.ActualArgs.TestInfo]
 UseDef = False
 Expr = "Parameters.TestInfo"
 ParamType = 1
 Flags = 0
 
-[SF.Seq[11].Main[2].TS.SData.ActualArgs.TestTime]
+[SF.Seq[12].Main[2].TS.SData.ActualArgs.TestTime]
 UseDef = False
 Expr = "Parameters.TestInfo.TestTime"
 ParamType = 4
 ParamRepresentation = 1
 
-[SF.Seq[11].Main[2].TS.SData.ActualArgs.SequenceFailed]
+[SF.Seq[12].Main[2].TS.SData.ActualArgs.SequenceFailed]
 UseDef = False
 Expr = "Parameters.SequenceFailed"
 ParamType = 16
 
-[DEF, SF.Seq[11].Main[2].TS.SData.Prototype]
+[DEF, SF.Seq[12].Main[2].TS.SData.Prototype]
 NestNum = Num
 TestInfo = "TYPE, TestStruct"
 TestTime = Num
 SequenceFailed = Bool
 
-[SF.Seq[11].Main[2].TS.SData.Prototype.NestNum]
+[SF.Seq[12].Main[2].TS.SData.Prototype.NestNum]
 %COMMENT = "Only specify when outside socket thread and not posting to Nest 1"
 
-[SF.Seq[11].Main[2].TS.SData.Prototype]
+[SF.Seq[12].Main[2].TS.SData.Prototype]
 %FLG: TestTime = 4
 %FLG: SequenceFailed = 4
 
-[DEF, SF.Seq[11].Main[2]]
+[DEF, SF.Seq[12].Main[2]]
 %NAME = "Post Test Results"
 
-[SF.Seq[11].Main[3].TS]
+[SF.Seq[12].Main[3].TS]
 Id = "ID#:kVV6Nyaa7hGeXgTPSx+6LD"
 PreCond = "Parameters.SequenceFailed"
 Mode = "Skip"
 
-[DEF, SF.Seq[11].Main[3].TS]
+[DEF, SF.Seq[12].Main[3].TS]
 SData = "TYPE, SeqCallStepAdditions"
 
-[SF.Seq[11].Main[3].TS.SData]
+[SF.Seq[12].Main[3].TS.SData]
 SFPath = "GUIMessage.seq"
 SeqName = "GUI Message TEST FAIL"
 
-[DEF, SF.Seq[11].Main[3].TS.SData]
+[DEF, SF.Seq[12].Main[3].TS.SData]
 ActualArgs = Arguments
 Prototype = Obj
 
-[DEF, SF.Seq[11].Main[3].TS.SData.ActualArgs]
+[DEF, SF.Seq[12].Main[3].TS.SData.ActualArgs]
 NestNum = "TYPE, SequenceArgument"
 Msg = "TYPE, SequenceArgument"
 AddSpacing = "TYPE, SequenceArgument"
 
-[SF.Seq[11].Main[3].TS.SData.ActualArgs.NestNum]
+[SF.Seq[12].Main[3].TS.SData.ActualArgs.NestNum]
 Expr = "RunState.TestSockets.MyIndex"
 ParamType = 4
 ParamRepresentation = 1
 Flags = 0
 
-[SF.Seq[11].Main[3].TS.SData.ActualArgs.Msg]
+[SF.Seq[12].Main[3].TS.SData.ActualArgs.Msg]
 UseDef = False
 Expr = "Parameters.TestInfo.TestName"
 ParamType = 2
 Flags = 0
 
-[SF.Seq[11].Main[3].TS.SData.ActualArgs.AddSpacing]
+[SF.Seq[12].Main[3].TS.SData.ActualArgs.AddSpacing]
 UseDef = False
 Expr = "False"
 ParamType = 16
 
-[DEF, SF.Seq[11].Main[3].TS.SData.Prototype]
+[DEF, SF.Seq[12].Main[3].TS.SData.Prototype]
 NestNum = Num
 Msg = Str
 AddSpacing = Bool
 
-[SF.Seq[11].Main[3].TS.SData.Prototype.NestNum]
+[SF.Seq[12].Main[3].TS.SData.Prototype.NestNum]
 %COMMENT = "Only specify when outside socket thread and not posting to Nest 1"
 
-[SF.Seq[11].Main[3].TS.SData.Prototype]
+[SF.Seq[12].Main[3].TS.SData.Prototype]
 %FLG: AddSpacing = 4
 
-[DEF, SF.Seq[11].Main[3]]
+[DEF, SF.Seq[12].Main[3]]
 %NAME = "Post SeqName to FailOnly"
 
-[SF.Seq[11].Main[4].TS]
+[SF.Seq[12].Main[4].TS]
 Id = "ID#:klV6Nyaa7hGeXgTPSx+6LD"
 
-[SF.Seq[11].Main[4]]
+[SF.Seq[12].Main[4]]
 ArrayExpr = "#NoValidation(RunState.Caller.Sequence.Main)"
 ArrayElementExpr = "Locals.MainCall"
 
-[DEF, SF.Seq[11].Main[4]]
+[DEF, SF.Seq[12].Main[4]]
 %NAME = "For Each"
 
-[SF.Seq[11].Main[5].TS]
+[SF.Seq[12].Main[5].TS]
 Id = "ID#:k1V6Nyaa7hGeXgTPSx+6LD"
 
-[SF.Seq[11].Main[5]]
+[SF.Seq[12].Main[5]]
 ConditionExpr Line0001 = "Len(#NoValidation(Locals.MainCall.Result.ReportText))!=0\n&& #NoValidation(Left(Locals.MainCall.AsPropertyObject.Type.Ty"
 ConditionExpr Line0002 = "peName,3)!=\"NI_\")"
 
-[DEF, SF.Seq[11].Main[5]]
+[DEF, SF.Seq[12].Main[5]]
 %NAME = "If"
 
-[SF.Seq[11].Main[6].TS]
+[SF.Seq[12].Main[6].TS]
 Id = "ID#:lFV6Nyaa7hGeXgTPSx+6LD"
 
-[DEF, SF.Seq[11].Main[6].TS]
+[DEF, SF.Seq[12].Main[6].TS]
 SData = "TYPE, SeqCallStepAdditions"
 
-[SF.Seq[11].Main[6].TS.SData]
+[SF.Seq[12].Main[6].TS.SData]
 SFPath = "GUIMessage.seq"
 SeqName = "GUI Message TEST INFO"
 
-[DEF, SF.Seq[11].Main[6].TS.SData]
+[DEF, SF.Seq[12].Main[6].TS.SData]
 ActualArgs = Arguments
 Prototype = Obj
 
-[DEF, SF.Seq[11].Main[6].TS.SData.ActualArgs]
+[DEF, SF.Seq[12].Main[6].TS.SData.ActualArgs]
 NestNum = "TYPE, SequenceArgument"
 Msg = "TYPE, SequenceArgument"
 AddSpacing = "TYPE, SequenceArgument"
 
-[SF.Seq[11].Main[6].TS.SData.ActualArgs.NestNum]
+[SF.Seq[12].Main[6].TS.SData.ActualArgs.NestNum]
 Expr = "RunState.TestSockets.MyIndex"
 ParamType = 4
 ParamRepresentation = 1
 Flags = 0
 
-[SF.Seq[11].Main[6].TS.SData.ActualArgs.Msg]
+[SF.Seq[12].Main[6].TS.SData.ActualArgs.Msg]
 UseDef = False
 Expr = "#NoValidation(Locals.MainCall.Name)"
 ParamType = 2
 Flags = 0
 
-[SF.Seq[11].Main[6].TS.SData.ActualArgs.AddSpacing]
+[SF.Seq[12].Main[6].TS.SData.ActualArgs.AddSpacing]
 UseDef = False
 Expr = "True"
 ParamType = 16
 
-[DEF, SF.Seq[11].Main[6].TS.SData.Prototype]
+[DEF, SF.Seq[12].Main[6].TS.SData.Prototype]
 NestNum = Num
 Msg = Str
 AddSpacing = Bool
 
-[SF.Seq[11].Main[6].TS.SData.Prototype.NestNum]
+[SF.Seq[12].Main[6].TS.SData.Prototype.NestNum]
 %COMMENT = "Only specify when outside socket thread and not posting to Nest 1"
 
-[SF.Seq[11].Main[6].TS.SData.Prototype]
+[SF.Seq[12].Main[6].TS.SData.Prototype]
 %FLG: AddSpacing = 4
 
-[DEF, SF.Seq[11].Main[6]]
+[DEF, SF.Seq[12].Main[6]]
 %NAME = "Post FnName"
 
-[SF.Seq[11].Main[7].TS]
+[SF.Seq[12].Main[7].TS]
 Id = "ID#:lVV6Nyaa7hGeXgTPSx+6LD"
 
-[DEF, SF.Seq[11].Main[7].TS]
+[DEF, SF.Seq[12].Main[7].TS]
 SData = "TYPE, SeqCallStepAdditions"
 
-[SF.Seq[11].Main[7].TS.SData]
+[SF.Seq[12].Main[7].TS.SData]
 SFPath = "GUIMessage.seq"
 SeqName = "GUI Message TEST INFO"
 
-[DEF, SF.Seq[11].Main[7].TS.SData]
+[DEF, SF.Seq[12].Main[7].TS.SData]
 ActualArgs = Arguments
 Prototype = Obj
 
-[DEF, SF.Seq[11].Main[7].TS.SData.ActualArgs]
+[DEF, SF.Seq[12].Main[7].TS.SData.ActualArgs]
 NestNum = "TYPE, SequenceArgument"
 Msg = "TYPE, SequenceArgument"
 AddSpacing = "TYPE, SequenceArgument"
 
-[SF.Seq[11].Main[7].TS.SData.ActualArgs.NestNum]
+[SF.Seq[12].Main[7].TS.SData.ActualArgs.NestNum]
 Expr = "RunState.TestSockets.MyIndex"
 ParamType = 4
 ParamRepresentation = 1
 Flags = 0
 
-[SF.Seq[11].Main[7].TS.SData.ActualArgs.Msg]
+[SF.Seq[12].Main[7].TS.SData.ActualArgs.Msg]
 UseDef = False
 Expr = "#NoValidation(Locals.MainCall.Result.ReportText)"
 ParamType = 2
 Flags = 0
 
-[SF.Seq[11].Main[7].TS.SData.ActualArgs.AddSpacing]
+[SF.Seq[12].Main[7].TS.SData.ActualArgs.AddSpacing]
 UseDef = False
 Expr = "True"
 ParamType = 16
 
-[DEF, SF.Seq[11].Main[7].TS.SData.Prototype]
+[DEF, SF.Seq[12].Main[7].TS.SData.Prototype]
 NestNum = Num
 Msg = Str
 AddSpacing = Bool
 
-[SF.Seq[11].Main[7].TS.SData.Prototype.NestNum]
+[SF.Seq[12].Main[7].TS.SData.Prototype.NestNum]
 %COMMENT = "Only specify when outside socket thread and not posting to Nest 1"
 
-[SF.Seq[11].Main[7].TS.SData.Prototype]
+[SF.Seq[12].Main[7].TS.SData.Prototype]
 %FLG: AddSpacing = 4
 
-[DEF, SF.Seq[11].Main[7]]
+[DEF, SF.Seq[12].Main[7]]
 %NAME = "Post ReportText"
 
-[SF.Seq[11].Main[8].TS]
+[SF.Seq[12].Main[8].TS]
 Id = "ID#:llV6Nyaa7hGeXgTPSx+6LD"
 PostExpr = "Parameters.TestInfo.TestAdditionalNotes += #NoValidation(Locals.MainCall.Result.ReportText) + \";\""
 
-[DEF, SF.Seq[11].Main[8]]
+[DEF, SF.Seq[12].Main[8]]
 %NAME = "Add to AdditionalNotes"
 
-[SF.Seq[11].Main[9].TS]
+[SF.Seq[12].Main[9].TS]
 Id = "ID#:l1V6Nyaa7hGeXgTPSx+6LD"
 Mode = "Skip"
 
-[SF.Seq[11].Main[9]]
+[SF.Seq[12].Main[9]]
 ConditionExpr = "Parameters.SequenceFailed"
 
-[DEF, SF.Seq[11].Main[9]]
+[DEF, SF.Seq[12].Main[9]]
 %NAME = "If"
 
-[SF.Seq[11].Main[10].TS]
+[SF.Seq[12].Main[10].TS]
 Id = "ID#:mFV6Nyaa7hGeXgTPSx+6LD"
 Mode = "Skip"
 
-[DEF, SF.Seq[11].Main[10].TS]
+[DEF, SF.Seq[12].Main[10].TS]
 SData = "TYPE, SeqCallStepAdditions"
 
-[SF.Seq[11].Main[10].TS.SData]
+[SF.Seq[12].Main[10].TS.SData]
 SFPath = "GUIMessage.seq"
 SeqName = "GUI Message TEST FAIL"
 
-[DEF, SF.Seq[11].Main[10].TS.SData]
+[DEF, SF.Seq[12].Main[10].TS.SData]
 ActualArgs = Arguments
 Prototype = Obj
 
-[DEF, SF.Seq[11].Main[10].TS.SData.ActualArgs]
+[DEF, SF.Seq[12].Main[10].TS.SData.ActualArgs]
 NestNum = "TYPE, SequenceArgument"
 Msg = "TYPE, SequenceArgument"
 AddSpacing = "TYPE, SequenceArgument"
 
-[SF.Seq[11].Main[10].TS.SData.ActualArgs.NestNum]
+[SF.Seq[12].Main[10].TS.SData.ActualArgs.NestNum]
 Expr = "RunState.TestSockets.MyIndex"
 ParamType = 4
 ParamRepresentation = 1
 Flags = 0
 
-[SF.Seq[11].Main[10].TS.SData.ActualArgs.Msg]
+[SF.Seq[12].Main[10].TS.SData.ActualArgs.Msg]
 UseDef = False
 Expr = "#NoValidation(Locals.MainCall.Name)"
 ParamType = 2
 Flags = 0
 
-[SF.Seq[11].Main[10].TS.SData.ActualArgs.AddSpacing]
+[SF.Seq[12].Main[10].TS.SData.ActualArgs.AddSpacing]
 UseDef = False
 Expr = "True"
 ParamType = 16
 
-[DEF, SF.Seq[11].Main[10].TS.SData.Prototype]
+[DEF, SF.Seq[12].Main[10].TS.SData.Prototype]
 NestNum = Num
 Msg = Str
 AddSpacing = Bool
 
-[SF.Seq[11].Main[10].TS.SData.Prototype.NestNum]
+[SF.Seq[12].Main[10].TS.SData.Prototype.NestNum]
 %COMMENT = "Only specify when outside socket thread and not posting to Nest 1"
 
-[SF.Seq[11].Main[10].TS.SData.Prototype]
+[SF.Seq[12].Main[10].TS.SData.Prototype]
 %FLG: AddSpacing = 4
 
-[DEF, SF.Seq[11].Main[10]]
+[DEF, SF.Seq[12].Main[10]]
 %NAME = "Post FnName"
 
-[SF.Seq[11].Main[11].TS]
+[SF.Seq[12].Main[11].TS]
 Id = "ID#:mVV6Nyaa7hGeXgTPSx+6LD"
 Mode = "Skip"
 
-[DEF, SF.Seq[11].Main[11].TS]
+[DEF, SF.Seq[12].Main[11].TS]
 SData = "TYPE, SeqCallStepAdditions"
 
-[SF.Seq[11].Main[11].TS.SData]
+[SF.Seq[12].Main[11].TS.SData]
 SFPath = "GUIMessage.seq"
 SeqName = "GUI Message TEST FAIL"
 
-[DEF, SF.Seq[11].Main[11].TS.SData]
+[DEF, SF.Seq[12].Main[11].TS.SData]
 ActualArgs = Arguments
 Prototype = Obj
 
-[DEF, SF.Seq[11].Main[11].TS.SData.ActualArgs]
+[DEF, SF.Seq[12].Main[11].TS.SData.ActualArgs]
 NestNum = "TYPE, SequenceArgument"
 Msg = "TYPE, SequenceArgument"
 AddSpacing = "TYPE, SequenceArgument"
 
-[SF.Seq[11].Main[11].TS.SData.ActualArgs.NestNum]
+[SF.Seq[12].Main[11].TS.SData.ActualArgs.NestNum]
 Expr = "RunState.TestSockets.MyIndex"
 ParamType = 4
 ParamRepresentation = 1
 Flags = 0
 
-[SF.Seq[11].Main[11].TS.SData.ActualArgs.Msg]
+[SF.Seq[12].Main[11].TS.SData.ActualArgs.Msg]
 UseDef = False
 Expr = "#NoValidation(Locals.MainCall.Result.ReportText)"
 ParamType = 2
 Flags = 0
 
-[SF.Seq[11].Main[11].TS.SData.ActualArgs.AddSpacing]
+[SF.Seq[12].Main[11].TS.SData.ActualArgs.AddSpacing]
 UseDef = False
 Expr = "True"
 ParamType = 16
 
-[DEF, SF.Seq[11].Main[11].TS.SData.Prototype]
+[DEF, SF.Seq[12].Main[11].TS.SData.Prototype]
 NestNum = Num
 Msg = Str
 AddSpacing = Bool
 
-[SF.Seq[11].Main[11].TS.SData.Prototype.NestNum]
+[SF.Seq[12].Main[11].TS.SData.Prototype.NestNum]
 %COMMENT = "Only specify when outside socket thread and not posting to Nest 1"
 
-[SF.Seq[11].Main[11].TS.SData.Prototype]
+[SF.Seq[12].Main[11].TS.SData.Prototype]
 %FLG: AddSpacing = 4
 
-[DEF, SF.Seq[11].Main[11]]
+[DEF, SF.Seq[12].Main[11]]
 %NAME = "Post ReportText"
 
-[SF.Seq[11].Main[12].TS]
+[SF.Seq[12].Main[12].TS]
 Id = "ID#:mlV6Nyaa7hGeXgTPSx+6LD"
 Mode = "Skip"
 
-[DEF, SF.Seq[11].Main[12]]
+[DEF, SF.Seq[12].Main[12]]
 %NAME = "End"
 
-[SF.Seq[11].Main[13].TS]
+[SF.Seq[12].Main[13].TS]
 Id = "ID#:m1V6Nyaa7hGeXgTPSx+6LD"
 
-[DEF, SF.Seq[11].Main[13]]
+[DEF, SF.Seq[12].Main[13]]
 %NAME = "End"
 
-[SF.Seq[11].Main[14].TS]
+[SF.Seq[12].Main[14].TS]
 Id = "ID#:nFV6Nyaa7hGeXgTPSx+6LD"
 
-[DEF, SF.Seq[11].Main[14]]
+[DEF, SF.Seq[12].Main[14]]
 %NAME = "End"
 
-[SF.Seq[11].Main[15].TS]
+[SF.Seq[12].Main[15].TS]
 Id = "ID#:nVV6Nyaa7hGeXgTPSx+6LD"
 
-[SF.Seq[11].Main[15]]
+[SF.Seq[12].Main[15]]
 ArrayExpr = "Parameters.AdditionalInfo"
 ArrayElementExpr = "Locals.AdditionalInfo"
 
-[DEF, SF.Seq[11].Main[15]]
+[DEF, SF.Seq[12].Main[15]]
 %NAME = "For Each"
 
-[SF.Seq[11].Main[16].TS]
+[SF.Seq[12].Main[16].TS]
 Id = "ID#:nlV6Nyaa7hGeXgTPSx+6LD"
 
-[SF.Seq[11].Main[16]]
+[SF.Seq[12].Main[16]]
 ConditionExpr = "Len(Locals.AdditionalInfo)!=0"
 
-[DEF, SF.Seq[11].Main[16]]
+[DEF, SF.Seq[12].Main[16]]
 %NAME = "If"
 
-[SF.Seq[11].Main[17].TS]
+[SF.Seq[12].Main[17].TS]
 Id = "ID#:n1V6Nyaa7hGeXgTPSx+6LD"
 
-[DEF, SF.Seq[11].Main[17].TS]
+[DEF, SF.Seq[12].Main[17].TS]
 SData = "TYPE, SeqCallStepAdditions"
 
-[SF.Seq[11].Main[17].TS.SData]
+[SF.Seq[12].Main[17].TS.SData]
 SFPath = "GUIMessage.seq"
 SeqName = "GUI Message TEST INFO"
 
-[DEF, SF.Seq[11].Main[17].TS.SData]
+[DEF, SF.Seq[12].Main[17].TS.SData]
 ActualArgs = Arguments
 Prototype = Obj
 
-[DEF, SF.Seq[11].Main[17].TS.SData.ActualArgs]
+[DEF, SF.Seq[12].Main[17].TS.SData.ActualArgs]
 NestNum = "TYPE, SequenceArgument"
 Msg = "TYPE, SequenceArgument"
 AddSpacing = "TYPE, SequenceArgument"
 
-[SF.Seq[11].Main[17].TS.SData.ActualArgs.NestNum]
+[SF.Seq[12].Main[17].TS.SData.ActualArgs.NestNum]
 Expr = "RunState.TestSockets.MyIndex"
 ParamType = 4
 ParamRepresentation = 1
 Flags = 0
 
-[SF.Seq[11].Main[17].TS.SData.ActualArgs.Msg]
+[SF.Seq[12].Main[17].TS.SData.ActualArgs.Msg]
 UseDef = False
 Expr = "Locals.AdditionalInfo"
 ParamType = 2
 Flags = 0
 
-[SF.Seq[11].Main[17].TS.SData.ActualArgs.AddSpacing]
+[SF.Seq[12].Main[17].TS.SData.ActualArgs.AddSpacing]
 UseDef = False
 Expr = "True"
 ParamType = 16
 
-[DEF, SF.Seq[11].Main[17].TS.SData.Prototype]
+[DEF, SF.Seq[12].Main[17].TS.SData.Prototype]
 NestNum = Num
 Msg = Str
 AddSpacing = Bool
 
-[SF.Seq[11].Main[17].TS.SData.Prototype.NestNum]
+[SF.Seq[12].Main[17].TS.SData.Prototype.NestNum]
 %COMMENT = "Only specify when outside socket thread and not posting to Nest 1"
 
-[SF.Seq[11].Main[17].TS.SData.Prototype]
+[SF.Seq[12].Main[17].TS.SData.Prototype]
 %FLG: AddSpacing = 4
 
-[DEF, SF.Seq[11].Main[17]]
+[DEF, SF.Seq[12].Main[17]]
 %NAME = "Post Additional Info"
 
-[SF.Seq[11].Main[18].TS]
+[SF.Seq[12].Main[18].TS]
 Id = "ID#:oFV6Nyaa7hGeXgTPSx+6LD"
 PostExpr = "Parameters.TestInfo.TestAdditionalNotes += Locals.AdditionalInfo + \";\""
 
-[DEF, SF.Seq[11].Main[18]]
+[DEF, SF.Seq[12].Main[18]]
 %NAME = "Add to AdditionalNotes"
 
-[SF.Seq[11].Main[19].TS]
+[SF.Seq[12].Main[19].TS]
 Id = "ID#:oVV6Nyaa7hGeXgTPSx+6LD"
 Mode = "Skip"
 
-[SF.Seq[11].Main[19]]
+[SF.Seq[12].Main[19]]
 ConditionExpr = "Parameters.SequenceFailed"
 
-[DEF, SF.Seq[11].Main[19]]
+[DEF, SF.Seq[12].Main[19]]
 %NAME = "If"
 
-[SF.Seq[11].Main[20].TS]
+[SF.Seq[12].Main[20].TS]
 Id = "ID#:olV6Nyaa7hGeXgTPSx+6LD"
 Mode = "Skip"
 
-[DEF, SF.Seq[11].Main[20].TS]
+[DEF, SF.Seq[12].Main[20].TS]
 SData = "TYPE, SeqCallStepAdditions"
 
-[SF.Seq[11].Main[20].TS.SData]
+[SF.Seq[12].Main[20].TS.SData]
 SFPath = "GUIMessage.seq"
 SeqName = "GUI Message TEST FAIL"
 
-[DEF, SF.Seq[11].Main[20].TS.SData]
+[DEF, SF.Seq[12].Main[20].TS.SData]
 ActualArgs = Arguments
 Prototype = Obj
 
-[DEF, SF.Seq[11].Main[20].TS.SData.ActualArgs]
+[DEF, SF.Seq[12].Main[20].TS.SData.ActualArgs]
 NestNum = "TYPE, SequenceArgument"
 Msg = "TYPE, SequenceArgument"
 AddSpacing = "TYPE, SequenceArgument"
 
-[SF.Seq[11].Main[20].TS.SData.ActualArgs.NestNum]
+[SF.Seq[12].Main[20].TS.SData.ActualArgs.NestNum]
 Expr = "RunState.TestSockets.MyIndex"
 ParamType = 4
 ParamRepresentation = 1
 Flags = 0
 
-[SF.Seq[11].Main[20].TS.SData.ActualArgs.Msg]
+[SF.Seq[12].Main[20].TS.SData.ActualArgs.Msg]
 UseDef = False
 Expr = "Locals.AdditionalInfo"
 ParamType = 2
 Flags = 0
 
-[SF.Seq[11].Main[20].TS.SData.ActualArgs.AddSpacing]
+[SF.Seq[12].Main[20].TS.SData.ActualArgs.AddSpacing]
 UseDef = False
 Expr = "True"
 ParamType = 16
 
-[DEF, SF.Seq[11].Main[20].TS.SData.Prototype]
+[DEF, SF.Seq[12].Main[20].TS.SData.Prototype]
 NestNum = Num
 Msg = Str
 AddSpacing = Bool
 
-[SF.Seq[11].Main[20].TS.SData.Prototype.NestNum]
+[SF.Seq[12].Main[20].TS.SData.Prototype.NestNum]
 %COMMENT = "Only specify when outside socket thread and not posting to Nest 1"
 
-[SF.Seq[11].Main[20].TS.SData.Prototype]
+[SF.Seq[12].Main[20].TS.SData.Prototype]
 %FLG: AddSpacing = 4
 
-[DEF, SF.Seq[11].Main[20]]
+[DEF, SF.Seq[12].Main[20]]
 %NAME = "Post Additional Info"
 
-[SF.Seq[11].Main[21].TS]
+[SF.Seq[12].Main[21].TS]
 Id = "ID#:o1V6Nyaa7hGeXgTPSx+6LD"
 Mode = "Skip"
 
-[DEF, SF.Seq[11].Main[21]]
+[DEF, SF.Seq[12].Main[21]]
 %NAME = "End"
 
-[SF.Seq[11].Main[22].TS]
+[SF.Seq[12].Main[22].TS]
 Id = "ID#:pFV6Nyaa7hGeXgTPSx+6LD"
 
-[DEF, SF.Seq[11].Main[22]]
+[DEF, SF.Seq[12].Main[22]]
 %NAME = "End"
 
-[SF.Seq[11].Main[23].TS]
+[SF.Seq[12].Main[23].TS]
 Id = "ID#:pVV6Nyaa7hGeXgTPSx+6LD"
 
-[DEF, SF.Seq[11].Main[23]]
+[DEF, SF.Seq[12].Main[23]]
 %NAME = "End"
 
-[DEF, SF.Seq[11].RTS]
+[DEF, SF.Seq[12].RTS]
 Type = Num
 OptimizeNonReentrantCalls = Bool
 EPNameExpr = Str
@@ -3041,7 +3131,7 @@ AllowIntExeOfEP = Bool
 CopyStepsOnOverriding = Bool
 Priority = Num
 
-[SF.Seq[11].RTS]
+[SF.Seq[12].RTS]
 %FLG: Type = 4194304
 OptimizeNonReentrantCalls = True
 %FLG: OptimizeNonReentrantCalls = 4194304
@@ -3065,162 +3155,6 @@ CopyStepsOnOverriding = True
 Priority = 2953567917
 %FLG: Priority = 4194304
 
-[DEF, SF.Seq[11].Requirements]
-Links = Strs
-
-[SF.Seq[11].Requirements]
-%FLG: Links = 71303168
-
-[DEF, SF.Seq[12]]
-Parameters = Obj
-Locals = Obj
-Main = Objs
-Setup = Objs
-Cleanup = Objs
-StoreResults = Bool
-RecordResults = Bool
-RTS = Obj
-Requirements = Obj
-FailureAction = Num
-%NAME = "SequenceFilePostStep"
-
-[DEF, SF.Seq[12].Parameters]
-Step = Obj
-Result = Obj
-
-[SF.Seq[12].Parameters]
-%FLG: Step = 132
-%FLG: Result = 132
-
-[SF.Seq[12]]
-%FLG: Parameters = 4456448
-%FLG: Locals = 4194304
-%HI: Main = [5]
-%FLG: Main = 4194304
-%FLG: Setup = 4194304
-%FLG: Cleanup = 4194304
-StoreResults = True
-RecordResults = True
-%FLG: RecordResults = 4194312
-%FLG: RTS = 4456456
-%FLG: Requirements = 4456456
-FailureAction = 2
-%FLG: FailureAction = 4194312
-
-[DEF, SF.Seq[12].Locals]
-ResultList = Objs
-
-[DEF, SF.Seq[12].Locals.ResultList]
-%EPTYPE = TEResult
-
-[DEF, SF.Seq[12].Main]
-%[0] = Step
-%TYPE: %[0] = "NI_Flow_If"
-%[1] = Step
-%TYPE: %[1] = "NI_Flow_While"
-%[2] = Step
-%TYPE: %[2] = "NI_Flow_Break_Custom"
-%[3] = Step
-%TYPE: %[3] = "NI_Wait"
-%[4] = Step
-%TYPE: %[4] = "NI_Flow_End"
-%[5] = Step
-%TYPE: %[5] = "NI_Flow_End"
-
-[SF.Seq[12].Main[0].TS]
-Id = "ID#:f9Sztyaa7hGeXgTPSx+6LD"
-
-[SF.Seq[12].Main[0]]
-ConditionExpr = "Parameters.Step.StepType.Name==\"TestStepSequenceCall\""
-
-[DEF, SF.Seq[12].Main[0]]
-%NAME = "If"
-
-[SF.Seq[12].Main[1].TS]
-Id = "ID#:gNSztyaa7hGeXgTPSx+6LD"
-
-[SF.Seq[12].Main[1]]
-ConditionExpr = "StationGlobals.DebugPanelActive"
-
-[DEF, SF.Seq[12].Main[1]]
-%NAME = "While"
-
-[SF.Seq[12].Main[2].TS]
-Id = "ID#:gdSztyaa7hGeXgTPSx+6LD"
-
-[DEF, SF.Seq[12].Main[2]]
-%NAME = "Break On Terminate"
-
-[SF.Seq[12].Main[3].TS]
-Id = "ID#:gtSztyaa7hGeXgTPSx+6LD"
-%HI: AdditionalResultsHints = [0]
-
-[DEF, SF.Seq[12].Main[3].TS.AdditionalResultsHints]
-%[0] = "TYPE, NI_CustomResult"
-
-[SF.Seq[12].Main[3].TS.AdditionalResultsHints[0]]
-Name = "ResStr(\"NI_WAIT_STEP_TYPE\", \"TIME_TO_WAIT\")"
-ValueToLog = "Evaluate(Step.TimeExpr)"
-
-[SF.Seq[12].Main[3]]
-SeqCallName = "End"
-TimeExpr = "0.01"
-
-[DEF, SF.Seq[12].Main[3]]
-%NAME = "Wait"
-
-[SF.Seq[12].Main[4].TS]
-Id = "ID#:g9Sztyaa7hGeXgTPSx+6LD"
-
-[DEF, SF.Seq[12].Main[4]]
-%NAME = "End"
-
-[SF.Seq[12].Main[5].TS]
-Id = "ID#:hNSztyaa7hGeXgTPSx+6LD"
-
-[DEF, SF.Seq[12].Main[5]]
-%NAME = "End"
-
-[DEF, SF.Seq[12].RTS]
-Type = Num
-EPNameExpr = Str
-EPEnabledExpr = Str
-EPMenuHint = Str
-EPIgnoreClient = Bool
-EPInitiallyHidden = Bool
-EPCheckToSaveTitledFile = Bool
-ShowEPForFileWin = Bool
-ShowEPForExeWin = Bool
-CopyStepsOnOverriding = Bool
-OptimizeNonReentrantCalls = Bool
-Priority = Num
-ShowEPAlways = Bool
-ShowEPForEditorOnly = Bool
-AllowIntExeOfEP = Bool
-
-[SF.Seq[12].RTS]
-%FLG: Type = 4194304
-%FLG: EPNameExpr = 4194304
-EPEnabledExpr = "True"
-%FLG: EPEnabledExpr = 4194304
-%FLG: EPMenuHint = 4194304
-%FLG: EPIgnoreClient = 4194304
-%FLG: EPInitiallyHidden = 4194304
-EPCheckToSaveTitledFile = True
-%FLG: EPCheckToSaveTitledFile = 4194304
-ShowEPForFileWin = True
-%FLG: ShowEPForFileWin = 4194304
-%FLG: ShowEPForExeWin = 4194304
-CopyStepsOnOverriding = True
-%FLG: CopyStepsOnOverriding = 4194304
-OptimizeNonReentrantCalls = True
-%FLG: OptimizeNonReentrantCalls = 4194304
-Priority = 2953567917
-%FLG: Priority = 4194304
-%FLG: ShowEPAlways = 4194304
-%FLG: ShowEPForEditorOnly = 4194304
-%FLG: AllowIntExeOfEP = 4194304
-
 [DEF, SF.Seq[12].Requirements]
 Links = Strs
 
@@ -3233,11 +3167,12 @@ Locals = Obj
 Main = Objs
 Setup = Objs
 Cleanup = Objs
+StoreResults = Bool
 RecordResults = Bool
 RTS = Obj
 Requirements = Obj
 FailureAction = Num
-%NAME = "SequenceFilePostStepRuntimeError"
+%NAME = "SequenceFilePostStep"
 
 [DEF, SF.Seq[13].Parameters]
 Step = Obj
@@ -3250,10 +3185,11 @@ Result = Obj
 [SF.Seq[13]]
 %FLG: Parameters = 4456448
 %FLG: Locals = 4194304
-%HI: Main = [2]
+%HI: Main = [5]
 %FLG: Main = 4194304
 %FLG: Setup = 4194304
 %FLG: Cleanup = 4194304
+StoreResults = True
 RecordResults = True
 %FLG: RecordResults = 4194312
 %FLG: RTS = 4456456
@@ -3271,34 +3207,188 @@ ResultList = Objs
 %[0] = Step
 %TYPE: %[0] = "NI_Flow_If"
 %[1] = Step
-%TYPE: %[1] = "Statement"
+%TYPE: %[1] = "NI_Flow_While"
 %[2] = Step
-%TYPE: %[2] = "NI_Flow_End"
+%TYPE: %[2] = "NI_Flow_Break_Custom"
+%[3] = Step
+%TYPE: %[3] = "NI_Wait"
+%[4] = Step
+%TYPE: %[4] = "NI_Flow_End"
+%[5] = Step
+%TYPE: %[5] = "NI_Flow_End"
 
 [SF.Seq[13].Main[0].TS]
-Id = "ID#:M6A/Eyaa7hGeXgTPSx+6LD"
+Id = "ID#:f9Sztyaa7hGeXgTPSx+6LD"
 
 [SF.Seq[13].Main[0]]
-ConditionExpr = "Parameters.Step.Result.Error.Code==-17300  /*enum out of range*/\n&& Parameters.Step.Name==\"Set Relay Configs\""
+ConditionExpr = "Parameters.Step.StepType.Name==\"TestStepSequenceCall\""
 
 [DEF, SF.Seq[13].Main[0]]
 %NAME = "If"
 
 [SF.Seq[13].Main[1].TS]
+Id = "ID#:gNSztyaa7hGeXgTPSx+6LD"
+
+[SF.Seq[13].Main[1]]
+ConditionExpr = "StationGlobals.DebugPanelActive"
+
+[DEF, SF.Seq[13].Main[1]]
+%NAME = "While"
+
+[SF.Seq[13].Main[2].TS]
+Id = "ID#:gdSztyaa7hGeXgTPSx+6LD"
+
+[DEF, SF.Seq[13].Main[2]]
+%NAME = "Break On Terminate"
+
+[SF.Seq[13].Main[3].TS]
+Id = "ID#:gtSztyaa7hGeXgTPSx+6LD"
+%HI: AdditionalResultsHints = [0]
+
+[DEF, SF.Seq[13].Main[3].TS.AdditionalResultsHints]
+%[0] = "TYPE, NI_CustomResult"
+
+[SF.Seq[13].Main[3].TS.AdditionalResultsHints[0]]
+Name = "ResStr(\"NI_WAIT_STEP_TYPE\", \"TIME_TO_WAIT\")"
+ValueToLog = "Evaluate(Step.TimeExpr)"
+
+[SF.Seq[13].Main[3]]
+SeqCallName = "End"
+TimeExpr = "0.01"
+
+[DEF, SF.Seq[13].Main[3]]
+%NAME = "Wait"
+
+[SF.Seq[13].Main[4].TS]
+Id = "ID#:g9Sztyaa7hGeXgTPSx+6LD"
+
+[DEF, SF.Seq[13].Main[4]]
+%NAME = "End"
+
+[SF.Seq[13].Main[5].TS]
+Id = "ID#:hNSztyaa7hGeXgTPSx+6LD"
+
+[DEF, SF.Seq[13].Main[5]]
+%NAME = "End"
+
+[DEF, SF.Seq[13].RTS]
+Type = Num
+EPNameExpr = Str
+EPEnabledExpr = Str
+EPMenuHint = Str
+EPIgnoreClient = Bool
+EPInitiallyHidden = Bool
+EPCheckToSaveTitledFile = Bool
+ShowEPForFileWin = Bool
+ShowEPForExeWin = Bool
+CopyStepsOnOverriding = Bool
+OptimizeNonReentrantCalls = Bool
+Priority = Num
+ShowEPAlways = Bool
+ShowEPForEditorOnly = Bool
+AllowIntExeOfEP = Bool
+
+[SF.Seq[13].RTS]
+%FLG: Type = 4194304
+%FLG: EPNameExpr = 4194304
+EPEnabledExpr = "True"
+%FLG: EPEnabledExpr = 4194304
+%FLG: EPMenuHint = 4194304
+%FLG: EPIgnoreClient = 4194304
+%FLG: EPInitiallyHidden = 4194304
+EPCheckToSaveTitledFile = True
+%FLG: EPCheckToSaveTitledFile = 4194304
+ShowEPForFileWin = True
+%FLG: ShowEPForFileWin = 4194304
+%FLG: ShowEPForExeWin = 4194304
+CopyStepsOnOverriding = True
+%FLG: CopyStepsOnOverriding = 4194304
+OptimizeNonReentrantCalls = True
+%FLG: OptimizeNonReentrantCalls = 4194304
+Priority = 2953567917
+%FLG: Priority = 4194304
+%FLG: ShowEPAlways = 4194304
+%FLG: ShowEPForEditorOnly = 4194304
+%FLG: AllowIntExeOfEP = 4194304
+
+[DEF, SF.Seq[13].Requirements]
+Links = Strs
+
+[SF.Seq[13].Requirements]
+%FLG: Links = 71303168
+
+[DEF, SF.Seq[14]]
+Parameters = Obj
+Locals = Obj
+Main = Objs
+Setup = Objs
+Cleanup = Objs
+RecordResults = Bool
+RTS = Obj
+Requirements = Obj
+FailureAction = Num
+%NAME = "SequenceFilePostStepRuntimeError"
+
+[DEF, SF.Seq[14].Parameters]
+Step = Obj
+Result = Obj
+
+[SF.Seq[14].Parameters]
+%FLG: Step = 132
+%FLG: Result = 132
+
+[SF.Seq[14]]
+%FLG: Parameters = 4456448
+%FLG: Locals = 4194304
+%HI: Main = [2]
+%FLG: Main = 4194304
+%FLG: Setup = 4194304
+%FLG: Cleanup = 4194304
+RecordResults = True
+%FLG: RecordResults = 4194312
+%FLG: RTS = 4456456
+%FLG: Requirements = 4456456
+FailureAction = 2
+%FLG: FailureAction = 4194312
+
+[DEF, SF.Seq[14].Locals]
+ResultList = Objs
+
+[DEF, SF.Seq[14].Locals.ResultList]
+%EPTYPE = TEResult
+
+[DEF, SF.Seq[14].Main]
+%[0] = Step
+%TYPE: %[0] = "NI_Flow_If"
+%[1] = Step
+%TYPE: %[1] = "Statement"
+%[2] = Step
+%TYPE: %[2] = "NI_Flow_End"
+
+[SF.Seq[14].Main[0].TS]
+Id = "ID#:M6A/Eyaa7hGeXgTPSx+6LD"
+
+[SF.Seq[14].Main[0]]
+ConditionExpr = "Parameters.Step.Result.Error.Code==-17300  /*enum out of range*/\n&& Parameters.Step.Name==\"Set Relay Configs\""
+
+[DEF, SF.Seq[14].Main[0]]
+%NAME = "If"
+
+[SF.Seq[14].Main[1].TS]
 Id = "ID#:NKA/Eyaa7hGeXgTPSx+6LD"
 PostExpr Line0001 = "Parameters.Step.Result.Error.Code=0,\nParameters.Step.Result.Error.Msg=\"\",\nParameters.Step.Result.Error.Occurred=Fals"
 PostExpr Line0002 = "e,\nParameters.Step.Result.Status=\"Passed\""
 
-[DEF, SF.Seq[13].Main[1]]
+[DEF, SF.Seq[14].Main[1]]
 %NAME = "Ignore"
 
-[SF.Seq[13].Main[2].TS]
+[SF.Seq[14].Main[2].TS]
 Id = "ID#:NaA/Eyaa7hGeXgTPSx+6LD"
 
-[DEF, SF.Seq[13].Main[2]]
+[DEF, SF.Seq[14].Main[2]]
 %NAME = "End"
 
-[DEF, SF.Seq[13].RTS]
+[DEF, SF.Seq[14].RTS]
 Type = Num
 OptimizeNonReentrantCalls = Bool
 EPNameExpr = Str
@@ -3315,7 +3405,7 @@ CopyStepsOnOverriding = Bool
 Priority = Num
 AllowIntExeOfEP = Bool
 
-[SF.Seq[13].RTS]
+[SF.Seq[14].RTS]
 %FLG: Type = 4194304
 OptimizeNonReentrantCalls = True
 %FLG: OptimizeNonReentrantCalls = 4194304
@@ -3339,10 +3429,10 @@ Priority = 2953567917
 %FLG: Priority = 4194304
 %FLG: AllowIntExeOfEP = 4194304
 
-[DEF, SF.Seq[13].Requirements]
+[DEF, SF.Seq[14].Requirements]
 Links = Strs
 
-[SF.Seq[13].Requirements]
+[SF.Seq[14].Requirements]
 %FLG: Links = 71303168
 
 [DEF, SF.FileGlobalDefaults]

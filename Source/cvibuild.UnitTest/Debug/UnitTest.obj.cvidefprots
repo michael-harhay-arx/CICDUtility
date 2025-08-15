@@ -8,13 +8,13 @@ Class="Function"
 Prototype="int Test_CVIVersion(struct tsErrorDataType *ErrInfo);"
 SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\Source\UnitTest.c:86:1"
 
-[Test_TestStandVersion]
+[Test_EStopInjection]
 Class="Function"
-Prototype="int Test_TestStandVersion(struct tsErrorDataType *ErrInfo);"
+Prototype="int Test_EStopInjection(CAObjHandle seqContext, struct tsErrorDataType *ErrInfo);"
 SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\Source\UnitTest.c:102:1"
 
 [UnitTest_FormMIS]
 Class="Function"
 Prototype="int UnitTest_FormMIS(struct tsErrorDataType *ErrInfo);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\Source\UnitTest.c:120:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\Source\UnitTest.c:131:1"
 

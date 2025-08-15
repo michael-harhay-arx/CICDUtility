@@ -1,7 +1,7 @@
 CCFLAGS = -g ;
 HDRS = 	"C:\\Users\\Public\\Documents\\National Instruments\\TestStand 2017 (32-bit)\\AdapterSupport\\CVI"
-	"C:\\Program Files (x86)\\National Instruments\\TestStand 2017\\API\\VC"
 	"C:\\Program Files (x86)\\National Instruments\\TestStand 2017\\API\\DLLInterfaces"
+	"C:\\Program Files (x86)\\National Instruments\\TestStand 2017\\API\\VC"
 	"C:\\Arxtron\\Libraries"
 	"C:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\instr\\TestStand\\API"
 	"c:\\program files (x86)\\national instruments\\cvi2019\\toolslib\\activex\\word"
@@ -34,6 +34,7 @@ HDRS = 	"C:\\Users\\Public\\Documents\\National Instruments\\TestStand 2017 (32-
 	;
 include Jamfile_instr ;
 LOCATE on "dllmain.c" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source" ;
+LOCATE on "tsapicvi.c" = "c:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\instr\\TestStand\\API" ;
 LOCATE on "UnitTest.c" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source" ;
 LOCATE on "UnitTest.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source" ;
 Object "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\dllmain.obj" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\dllmain.c" ;
@@ -41,13 +42,18 @@ FILENUM on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.
 DEFPROTS on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\dllmain.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\dllmain.obj.cvidefprots" ;
 OUTFILE on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\dllmain.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\dllmain.obj.out" ;
 PrjObjects += "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\dllmain.obj" ;
+Object "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\tsapicvi.obj" : "c:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\instr\\TestStand\\API\\tsapicvi.c" ;
+FILENUM on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\tsapicvi.obj" = 2 ;
+DEFPROTS on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\tsapicvi.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\tsapicvi.obj.cvidefprots" ;
+OUTFILE on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\tsapicvi.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\tsapicvi.obj.out" ;
+PrjObjects += "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\tsapicvi.obj" ;
 Object "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.obj" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\UnitTest.c" ;
-FILENUM on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.obj" = 2 ;
+FILENUM on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.obj" = 3 ;
 DEFPROTS on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.obj.cvidefprots" ;
 OUTFILE on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.obj.out" ;
 PrjObjects += "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.obj" ;
 Object "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.h.hdefs" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\UnitTest.h" ;
-FILENUM on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.h.hdefs" = 3 ;
+FILENUM on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.h.hdefs" = 4 ;
 OUTFILE on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.h.hdefs" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\UnitTest.h.hdefs.out" ;
 PreLinkInputs += "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Source\\cvibuild.UnitTest\\Debug\\resources.in.rc" ;
 PreLinkInputs += $(PrjObjects) $(InstrObjects) ;

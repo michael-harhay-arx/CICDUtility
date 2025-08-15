@@ -9,9 +9,9 @@ Prototype="int Test_WindowsVersion(struct tsErrorDataType *ErrInfo);"
 Class="Function"
 Prototype="int Test_CVIVersion(struct tsErrorDataType *ErrInfo);"
 
-[Test_TestStandVersion]
+[Test_EStopInjection]
 Class="Function"
-Prototype="int Test_TestStandVersion(struct tsErrorDataType *ErrInfo);"
+Prototype="int Test_EStopInjection(CAObjHandle seqContext, struct tsErrorDataType *ErrInfo);"
 
 [UnitTest_FormMIS]
 Class="Function"

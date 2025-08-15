@@ -13925,7 +13925,6 @@ TableName = "SWLLog"
 [SF.Seq[38].Main[4].TS]
 Id = "ID#:kT1thiKa7hGeXgTPSx+6LD"
 PreCond = "!Locals.TestPassed && !FileGlobals.CapabilityMode"
-Mode = "Skip"
 
 [DEF, SF.Seq[38].Main[4].TS]
 SData = "TYPE, SeqCallStepAdditions"

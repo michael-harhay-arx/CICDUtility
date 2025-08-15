@@ -13,9 +13,9 @@ Number of Projects = 1
 Active Project = 1
 Project 0001 = "UnitTest.prj"
 Drag Bar Left = 283
-Window Top = 138
+Window Top = 31
 Window Left = 962
-Window Bottom = 429
+Window Bottom = 322
 Window Right = 1688
 Maximized = True
 Maximized Children = True
@@ -30,7 +30,7 @@ Save Changes Before Compiling = "Always"
 Hide Windows = False
 Break At First Statement = False
 Sort Type = "File Name"
-Number of Opened Files = 3
+Number of Opened Files = 6
 Window Confinement Region Enabled = True
 MainColumnWidth = 266
 FileDateColumnWidth = 70
@@ -48,9 +48,9 @@ Batch Build Debug = False
 [File 0001]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/Source/UnitTest.c"
 File Type = "CSource"
-Disk Date = 3837789285
+Disk Date = 3838129663
 In Projects = "1,"
-Source Window State = "1,137,137,137,56,56,56,0,0,0,0,0,0,0,0,0,97,0,137,56,401,714,1,0,"
+Source Window State = "1,135,135,135,26,26,26,0,0,0,0,0,0,0,0,0,95,0,135,26,221,490,1,0,"
 Window Top = 33
 Window Left = 10
 Window Z-Order = 1
@@ -58,12 +58,12 @@ Window Z-Order = 1
 [File 0002]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/Source/UnitTest.h"
 File Type = "Include"
-Disk Date = 3837789295
+Disk Date = 3838115606
 In Projects = "1,"
-Source Window State = "1,111,111,111,53,53,53,0,0,0,0,0,0,0,0,0,69,0,111,53,401,714,1,0,"
+Source Window State = "1,19,19,19,0,0,0,0,0,0,0,0,0,0,0,0,15,0,19,0,401,714,1,0,"
 Window Top = 64
 Window Left = 26
-Window Z-Order = 2
+Window Z-Order = 5
 
 [File 0003]
 Path = "/c/Arxtron/Libraries/ArxtronToolslib.h"
@@ -73,7 +73,7 @@ In Projects = ""
 Source Window State = "1,118,118,118,80,80,80,0,0,0,0,0,0,0,0,0,66,0,118,80,401,714,1,0,"
 Window Top = 126
 Window Left = 58
-Window Z-Order = 3
+Window Z-Order = 6
 
 [File 0004]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/Source/dllmain.c"
@@ -88,10 +88,53 @@ File Type = "Library"
 Disk Date = 3837763251
 In Projects = "1,"
 
+[File 0006]
+Path Line0001 = "/c/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsapi"
+Path Line0002 = "cvi.c"
+File Type = "CSource"
+Disk Date = 3593636356
+In Projects = "1,"
+Source Window State = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"
+
+[File 0007]
+Path = "/c/Program Files (x86)/National Instruments/CVI2019/include/cviauto.h"
+File Type = "Include"
+Disk Date = 3636556840
+In Projects = ""
+Source Window State = "1,46,46,46,11,11,11,0,0,0,0,0,0,0,0,0,8,0,46,11,401,714,1,0,"
+Window Top = 95
+Window Left = 42
+Window Z-Order = 2
+
+[File 0008]
+Path Line0001 = "/c/Program Files (x86)/National Instruments/Shared/MSDTRedistributables/SDKHeade"
+Path Line0002 = "rFiles/8.1/wtypes.h"
+File Type = "Include"
+Disk Date = 3636467346
+In Projects = ""
+Source Window State = "1,734,734,734,0,0,0,0,0,0,0,0,0,0,0,0,707,0,734,0,401,714,1,0,"
+Window Top = 126
+Window Left = 58
+Window Z-Order = 4
+
+[File 0009]
+Path = "/c/Program Files (x86)/National Instruments/CVI2019/include/cvidef.h"
+File Type = "Include"
+Disk Date = 3635336323
+In Projects = ""
+Source Window State = "1,282,282,282,31,31,31,0,0,0,0,0,0,0,0,0,256,0,282,31,401,714,1,0,"
+Window Top = 157
+Window Left = 74
+Window Z-Order = 3
+
 [Tab Order]
 Tab 0001 = "/c/Users/Michael_Harhay/Documents/CICDUtility/Source/UnitTest.c"
 Tab 0002 = "/c/Users/Michael_Harhay/Documents/CICDUtility/Source/UnitTest.h"
 Tab 0003 = "/c/Arxtron/Libraries/ArxtronToolslib.h"
+Tab 0004 = "/c/Program Files (x86)/National Instruments/CVI2019/include/cviauto.h"
+Tab 0005 Line0001 = "/c/Program Files (x86)/National Instruments/Shared/MSDTRedistributables/SDKHeade"
+Tab 0005 Line0002 = "rFiles/8.1/wtypes.h"
+Tab 0006 = "/c/Program Files (x86)/National Instruments/CVI2019/include/cvidef.h"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True
