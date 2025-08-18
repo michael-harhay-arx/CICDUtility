@@ -109,8 +109,9 @@ int main(int argc, char *argv[])
 	if (!appWillExitOnStart)
 	{
 		// show a splash screen while starting up
-		errChk( splashPanel = LoadPanelEx(0, "TestExecPanel.uir", SPLASH, __CVIUserHInst));
+		errChk( splashPanel = LoadPanelEx(0, "SplashPanel.uir", ARXSPLASH, __CVIUserHInst));
 		errChk( InstallPopup(splashPanel));
+		Delay (3.0); // Arbitrary delay
 	}
 
 	// setup event callbacks for the TestStand User Interface Components

@@ -17,7 +17,9 @@
 
 #include "Callbacks.h"
 #include "TestExecUtils.h"
+		
 #include "TestExecPanel.h"
+#include "SplashPanel.h"
 
 //==============================================================================
 // Constants

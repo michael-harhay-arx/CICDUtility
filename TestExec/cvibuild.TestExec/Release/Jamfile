@@ -35,9 +35,10 @@ HDRS = 	"c:\\Users\\Michael_Harhay\\Documents\\CICDUtility"
 include Jamfile_instr ;
 LOCATE on "Callbacks.c" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
 LOCATE on "Callbacks.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
+LOCATE on "SplashPanel.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\User Interface Files" ;
 LOCATE on "TestExec.c" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
 LOCATE on "TestExec.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
-LOCATE on "TestExecPanel.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
+LOCATE on "TestExecPanel.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\User Interface Files" ;
 LOCATE on "TestExecUtils.c" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
 LOCATE on "TestExecUtils.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
 Object "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\Callbacks.obj" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\Callbacks.c" ;
@@ -60,5 +61,6 @@ Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.T
 MainFromObjects "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : $(PrjObjects) $(InstrObjects) ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\link_options.txt" ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\resources.res" ;
-Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\resources.res" :  "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\TestExecPanel.uir" ;
+Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\resources.res" :  "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\User Interface Files\\SplashPanel.uir" ;
+Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\resources.res" :  "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\User Interface Files\\TestExecPanel.uir" ;
 Depends all : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" ;
