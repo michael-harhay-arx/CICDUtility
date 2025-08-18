@@ -1,0 +1,10 @@
+[main]
+Class="Function"
+Prototype="int main(int argc, char *argv[]);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExec.c:79:1"
+
+[ExitApplication]
+Class="Function"
+Prototype="int ExitApplication();"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExec.c:214:1"
+

@@ -626,6 +626,12 @@ Image Base Address x64 = 4194304
 [Compiler Defines]
 Compiler Defines = "/DWIN32_LEAN_AND_MEAN"
 
+[Include Paths]
+Include Path 1 Is Rel = True
+Include Path 1 Rel To = "Project"
+Include Path 1 Rel Path = ".."
+Include Path 1 = "/c/Users/Michael_Harhay/Documents/CICDUtility"
+
 [Create Executable]
 Executable File_Debug Is Rel = False
 Executable File_Debug = "win32/TestExec.exe"

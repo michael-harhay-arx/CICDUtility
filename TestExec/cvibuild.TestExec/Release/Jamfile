@@ -1,4 +1,5 @@
-HDRS = 	"C:\\Users\\Public\\Documents\\National Instruments\\TestStand 2017 (32-bit)\\AdapterSupport\\CVI"
+HDRS = 	"c:\\Users\\Michael_Harhay\\Documents\\CICDUtility"
+	"C:\\Users\\Public\\Documents\\National Instruments\\TestStand 2017 (32-bit)\\AdapterSupport\\CVI"
 	"C:\\Program Files (x86)\\National Instruments\\TestStand 2017\\API\\DLLInterfaces"
 	"C:\\Program Files (x86)\\National Instruments\\TestStand 2017\\API\\VC"
 	"C:\\Arxtron\\Libraries"
@@ -31,6 +32,7 @@ HDRS = 	"C:\\Users\\Public\\Documents\\National Instruments\\TestStand 2017 (32-
 	"c:\\Program Files (x86)\\National Instruments\\CVI2019\\bin"
 	"c:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\Bin"
 	;
+include Jamfile_instr ;
 LOCATE on "Callbacks.c" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
 LOCATE on "Callbacks.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
 LOCATE on "TestExec.c" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
@@ -38,10 +40,25 @@ LOCATE on "TestExec.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\Tes
 LOCATE on "TestExecPanel.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
 LOCATE on "TestExecUtils.c" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
 LOCATE on "TestExecUtils.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
+Object "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\Callbacks.obj" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\Callbacks.c" ;
+FILENUM on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\Callbacks.obj" = 1 ;
+DEFPROTS on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\Callbacks.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\Callbacks.obj.cvidefprots" ;
+OUTFILE on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\Callbacks.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\Callbacks.obj.out" ;
+PrjObjects += "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\Callbacks.obj" ;
 Object "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.obj" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\TestExec.c" ;
-FILENUM on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.obj" = 1 ;
+FILENUM on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.obj" = 2 ;
 DEFPROTS on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.obj.cvidefprots" ;
 OUTFILE on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.obj.out" ;
 PrjObjects += "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.obj" ;
-Always $(PrjObjects) ;
-Depends all : $(PrjObjects) ;
+Object "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExecUtils.obj" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\TestExecUtils.c" ;
+FILENUM on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExecUtils.obj" = 3 ;
+DEFPROTS on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExecUtils.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExecUtils.obj.cvidefprots" ;
+OUTFILE on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExecUtils.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExecUtils.obj.out" ;
+PrjObjects += "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExecUtils.obj" ;
+Object "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\resources.res" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\resources.in.rc" ;
+Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\resources.res" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\manifest.xml" ;
+MainFromObjects "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : $(PrjObjects) $(InstrObjects) ;
+Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\link_options.txt" ;
+Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\resources.res" ;
+Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\resources.res" :  "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\TestExecPanel.uir" ;
+Depends all : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" ;

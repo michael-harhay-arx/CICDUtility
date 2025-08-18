@@ -75,7 +75,7 @@ typedef struct
 //==============================================================================
 // Global functions
 
-int Declare_Your_Functions_Here (int x);
+int ExitApplication(void);
 
 #ifdef __cplusplus
     }

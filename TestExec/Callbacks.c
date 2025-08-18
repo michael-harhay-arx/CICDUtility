@@ -36,18 +36,22 @@
 // Types
 
 //==============================================================================
-// Static global variables
+// global variables
 
 /***************************************************************************//*!
 * \brief Stores the log level used for SYSLOG macro
 *******************************************************************************/
-static int glbSysLogLevel = 0;
+int glbSysLogLevel = 0;
 
 //==============================================================================
-// Static functions
+// functions
 
 //==============================================================================
 // Global variables
+
+extern ApplicationWindow gMainWindow;
+extern ERRORINFO errorInfo;
+extern ErrMsg errMsg;
 
 //==============================================================================
 // Global functions
@@ -86,15 +90,15 @@ int CVICALLBACK TabControlCallback (int panel, int control, int event, void *cal
 		case EVENT_ACTIVE_TAB_CHANGE:
 			if (!gMainWindow.programmaticallyUpdatingTabPages)	// filter out programmatically triggered activation events that might be due only to hidden tabs being made visible again
 			{
-				tsErrChk( TSUI_ListBarGetCurrentPage(gMainWindow.listBar, &errorInfo, &pageIndex));
+				errChk( TSUI_ListBarGetCurrentPage(gMainWindow.listBar, &errorInfo, &pageIndex));
 
 				// remember which tab is active so when execution is revisited in the future, we can activate the same tab
 				if (EXECUTIONS_PAGE_INDEX == pageIndex) // is the new tab an execution tab?
 				{
 					// store the activated tab in a custom property added to the execution
-					tsErrChk( TSUI_ExecutionViewMgrGetExecution(gMainWindow.executionViewMgr, &errorInfo, &execution));
+					errChk( TSUI_ExecutionViewMgrGetExecution(gMainWindow.executionViewMgr, &errorInfo, &execution));
 					if (execution)
-						tsErrChk( TS_PropertySetValNumber(execution, &errorInfo, "NIUI.LastActiveTab", TS_PropOption_InsertIfMissing, eventData2));
+						errChk( TS_PropertySetValNumber(execution, &errorInfo, "NIUI.LastActiveTab", TS_PropOption_InsertIfMissing, eventData2));
 				}				
 			}
 				
@@ -186,9 +190,9 @@ HRESULT CVICALLBACK ApplicationMgr_OnDisplayExecution(CAObjHandle caServerObjHan
 		errChk( SetActivePanel(gMainWindow.panel));
 
 	// show this execution
-	tsErrChk( TSUI_ExecutionViewMgrSetByRefExecution(gMainWindow.executionViewMgr, &errorInfo, execution));
+	errChk( TSUI_ExecutionViewMgrSetByRefExecution(gMainWindow.executionViewMgr, &errorInfo, execution));
 	// show the executions page in the list bar
-	tsErrChk( TSUI_ListBarSetCurrentPage(gMainWindow.listBar, &errorInfo, EXECUTIONS_PAGE_INDEX));
+	errChk( TSUI_ListBarSetCurrentPage(gMainWindow.listBar, &errorInfo, EXECUTIONS_PAGE_INDEX));
 	// in case we are already showing the executions page, ensure we switch to steps or report tab as appropriate
 	errChk( ShowAppropriateTabs());  
 	
@@ -230,16 +234,16 @@ HRESULT CVICALLBACK ApplicationMgr_OnPostCommandExecute(CAObjHandle caServerObjH
 	CAObjHandle					executions = 0;
 	long 						numberOfExecutions;
 
-	tsErrChk( TSUI_CommandGetKind (command, &errorInfo, &kind));
+	errChk( TSUI_CommandGetKind (command, &errorInfo, &kind));
 
 	if (kind == TSUIConst_CommandKind_CloseCompletedExecutions)
 	{
-		tsErrChk( TSUI_ApplicationMgrGetExecutions(gMainWindow.applicationMgr, &errorInfo, &executions));
-		tsErrChk( TSUI_ExecutionsGetCount(executions, &errorInfo, &numberOfExecutions));
+		errChk( TSUI_ApplicationMgrGetExecutions(gMainWindow.applicationMgr, &errorInfo, &executions));
+		errChk( TSUI_ExecutionsGetCount(executions, &errorInfo, &numberOfExecutions));
 		
 		// if we closed all the executions, switch to the files page instead of showing an empty executions page
 		if (numberOfExecutions == 0)
-			tsErrChk( TSUI_ListBarSetCurrentPage(gMainWindow.listBar, &errorInfo, SEQUENCE_FILES_PAGE_INDEX));
+			errChk( TSUI_ListBarSetCurrentPage(gMainWindow.listBar, &errorInfo, SEQUENCE_FILES_PAGE_INDEX));
 	}
 		
 Error:
@@ -257,9 +261,9 @@ HRESULT CVICALLBACK ApplicationMgr_OnDisplaySequenceFile(CAObjHandle caServerObj
 	int	error = 0;
 
 	// show this sequence file
-	tsErrChk( TSUI_SequenceFileViewMgrSetByRefSequenceFile(gMainWindow.sequenceFileViewMgr, &errorInfo, file));
+	errChk( TSUI_SequenceFileViewMgrSetByRefSequenceFile(gMainWindow.sequenceFileViewMgr, &errorInfo, file));
 	// show the sequence files page in the list bar
-	tsErrChk( TSUI_ListBarSetCurrentPage(gMainWindow.listBar, &errorInfo, SEQUENCE_FILES_PAGE_INDEX));
+	errChk( TSUI_ListBarSetCurrentPage(gMainWindow.listBar, &errorInfo, SEQUENCE_FILES_PAGE_INDEX));
 
 Error:
 	DisplayError(error);
@@ -288,7 +292,7 @@ HRESULT CVICALLBACK ApplicationMgr_OnStartExecution(CAObjHandle caServerObjHandl
 	int	error = 0;
 
 	// add a custom property to the execution to store which tab we are displaying for this execution. Initially show the execution tab
-	tsErrChk( TS_PropertySetValNumber(execution, &errorInfo, "NIUI.LastActiveTab", TS_PropOption_InsertIfMissing, TABPAGE_EXECUTION));
+	errChk( TS_PropertySetValNumber(execution, &errorInfo, "NIUI.LastActiveTab", TS_PropOption_InsertIfMissing, TABPAGE_EXECUTION));
 
 Error:
 	DisplayError(error);
@@ -353,12 +357,12 @@ HRESULT CVICALLBACK ListBar_OnCreateContextMenu(CAObjHandle caServerObjHandle, v
 	// determine which view manager menu commands apply to
 	errChk( GetActiveViewManager(&viewMgr));
 
-	tsErrChk( TSUI_ApplicationMgrNewCommands(gMainWindow.applicationMgr, &errorInfo, &cmds));
+	errChk( TSUI_ApplicationMgrNewCommands(gMainWindow.applicationMgr, &errorInfo, &cmds));
 
 	// insert items for default listbar context menu in the context menu
-	tsErrChk( TSUI_CommandsInsertKind(cmds, &errorInfo, TSUIConst_CommandKind_DefaultListBarContextMenu_Set, viewMgr, -1, "", "", NULL));
+	errChk( TSUI_CommandsInsertKind(cmds, &errorInfo, TSUIConst_CommandKind_DefaultListBarContextMenu_Set, viewMgr, -1, "", "", NULL));
 	errChk( TS_RemoveInvalidShortcutKeys(cmds, errMsg));	
-	tsErrChk( TSUI_CommandsInsertIntoWin32Menu(cmds, &errorInfo, menuHandle, -1, VTRUE, VTRUE)); // we are using the context menu that the control provides because it requires fewer lines of code. We could have built a CVI context menu instead and displayed it with RunPopupMenu(). If you display a CVI context menu, remember to convert the activeX-control-right-mouse click coordinates from control coordinates to panel coordinates by adding the top and left of the control to the click position.
+	errChk( TSUI_CommandsInsertIntoWin32Menu(cmds, &errorInfo, menuHandle, -1, VTRUE, VTRUE)); // we are using the context menu that the control provides because it requires fewer lines of code. We could have built a CVI context menu instead and displayed it with RunPopupMenu(). If you display a CVI context menu, remember to convert the activeX-control-right-mouse click coordinates from control coordinates to panel coordinates by adding the top and left of the control to the click position.
 	
 Error:
 	CA_DiscardObjHandle(cmds);
@@ -379,12 +383,12 @@ HRESULT CVICALLBACK SequencesList_OnCreateContextMenu(CAObjHandle caServerObjHan
 	// determine which view manager menu commands apply to
 	errChk( GetActiveViewManager(&viewMgr));
 
-	tsErrChk( TSUI_ApplicationMgrNewCommands(gMainWindow.applicationMgr, &errorInfo, &cmds));
+	errChk( TSUI_ApplicationMgrNewCommands(gMainWindow.applicationMgr, &errorInfo, &cmds));
 
 	// insert items for a default sequence list context menu
-	tsErrChk( TSUI_CommandsInsertKind(cmds, &errorInfo, TSUIConst_CommandKind_DefaultSequenceListContextMenu_Set, viewMgr, -1, "", "", NULL));
+	errChk( TSUI_CommandsInsertKind(cmds, &errorInfo, TSUIConst_CommandKind_DefaultSequenceListContextMenu_Set, viewMgr, -1, "", "", NULL));
 	errChk( TS_RemoveInvalidShortcutKeys(cmds, errMsg));	
-	tsErrChk( TSUI_CommandsInsertIntoWin32Menu(cmds, &errorInfo, menuHandle, -1, VTRUE, VTRUE)); // we are using the context menu that the control provides because it requires fewer lines of code. We could have built a CVI context menu instead and displayed it with RunPopupMenu(). If you display a CVI context menu, remember to convert the activeX-control-right-mouse click coordinates from control coordinates to panel coordinates by adding the top and left of the control to the click position.
+	errChk( TSUI_CommandsInsertIntoWin32Menu(cmds, &errorInfo, menuHandle, -1, VTRUE, VTRUE)); // we are using the context menu that the control provides because it requires fewer lines of code. We could have built a CVI context menu instead and displayed it with RunPopupMenu(). If you display a CVI context menu, remember to convert the activeX-control-right-mouse click coordinates from control coordinates to panel coordinates by adding the top and left of the control to the click position.
 	
 Error:
 	CA_DiscardObjHandle(cmds);
@@ -457,7 +461,7 @@ void CVICALLBACK AboutBoxMenuItemCallback(int menuBar, int menuItem, void *callb
 	free(string);
 	string = NULL;
 		
-	tsErrChk( TS_EngineGetVersionString(gMainWindow.engine, &errorInfo, &engineVersionString));		
+	errChk( TS_EngineGetVersionString(gMainWindow.engine, &errorInfo, &engineVersionString));		
 	errChk( TS_AllocResourceString(gMainWindow.engine, "TSUI_OI_ABOUT_BOX", "ENGINE_VERSION_MSG", "Missing Resource String", &string));
 	errChk( AppendString(&string, " ", -1));
 	errChk( AppendString(&string, engineVersionString, -1));
@@ -466,7 +470,7 @@ void CVICALLBACK AboutBoxMenuItemCallback(int menuBar, int menuItem, void *callb
 	string = NULL;
 	
 	// set the license description
-	tsErrChk( TS_EngineGetLicenseDescription(gMainWindow.engine, &errorInfo, 0, &licenseDescriptionString));
+	errChk( TS_EngineGetLicenseDescription(gMainWindow.engine, &errorInfo, 0, &licenseDescriptionString));
 	errChk( TS_AllocResourceString(gMainWindow.engine, "TSUI_OI_ABOUT_BOX", "LICENSE_MSG", "Missing Resource String", &string));
 	errChk( AppendString(&string, licenseDescriptionString, -1));
 	errChk( SetCtrlVal(gMainWindow.aboutBox, ABOUTBOX_LICENSE, string));
@@ -507,7 +511,7 @@ int CVICALLBACK AboutBoxOKCallback(int panel, int control, int event, void *call
 * \brief User dragged the vertical bar on the listbar that separates it 
 *		 from the tab control
 *******************************************************************************/
-static HRESULT CVICALLBACK ListBar_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long  bordersChanged, 
+HRESULT CVICALLBACK ListBar_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long  bordersChanged, 
 											TSUIType_OLE_XPOS_PIXELS  newX, TSUIType_OLE_YPOS_PIXELS  newY,
                               				TSUIType_OLE_XPOS_PIXELS newWidth, TSUIType_OLE_YPOS_PIXELS newHeight, VBOOL  finalResize)
 {
@@ -524,7 +528,7 @@ Error:
 * \brief User dragged the horizontal bar that separates the step list 
 *		 from the sequence list and file variables
 *******************************************************************************/
-static HRESULT CVICALLBACK SequenceFilesView_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long  bordersChanged, TSUIType_OLE_XPOS_PIXELS  newX, TSUIType_OLE_YPOS_PIXELS  newY,
+HRESULT CVICALLBACK SequenceFilesView_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long  bordersChanged, TSUIType_OLE_XPOS_PIXELS  newX, TSUIType_OLE_YPOS_PIXELS  newY,
                               TSUIType_OLE_XPOS_PIXELS newWidth, TSUIType_OLE_YPOS_PIXELS newHeight, VBOOL finalResize)
 {
 	int	error = 0;
@@ -540,7 +544,7 @@ Error:
 * \brief User dragged vertical bar that separates the file variables 
 *		 from the sequences list 
 *******************************************************************************/
-static HRESULT CVICALLBACK FileVariables_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long  bordersChanged, TSUIType_OLE_XPOS_PIXELS  newX, TSUIType_OLE_YPOS_PIXELS  newY,
+HRESULT CVICALLBACK FileVariables_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long  bordersChanged, TSUIType_OLE_XPOS_PIXELS  newX, TSUIType_OLE_YPOS_PIXELS  newY,
                               TSUIType_OLE_XPOS_PIXELS newWidth, TSUIType_OLE_YPOS_PIXELS newHeight, VBOOL finalResize)
 {
 	int	error = 0;
@@ -556,7 +560,7 @@ Error:
 * \brief User dragged the vertical bar that separates the insertion 
 *		 palette from the file step list and the file variables
 *******************************************************************************/
-static HRESULT CVICALLBACK InsertionPalette_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long  bordersChanged, TSUIType_OLE_XPOS_PIXELS  newX, TSUIType_OLE_YPOS_PIXELS  newY,
+HRESULT CVICALLBACK InsertionPalette_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long  bordersChanged, TSUIType_OLE_XPOS_PIXELS  newX, TSUIType_OLE_YPOS_PIXELS  newY,
                               TSUIType_OLE_XPOS_PIXELS newWidth, TSUIType_OLE_YPOS_PIXELS newHeight, VBOOL finalResize)
 {
 	int	error = 0;
@@ -572,7 +576,7 @@ Error:
 * \brief User dragged the horizontal bar that separates the execution step 
 *		 list from the call stack, thread list, and execution variables
 *******************************************************************************/
-static HRESULT CVICALLBACK ExecutionView_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long  bordersChanged, TSUIType_OLE_XPOS_PIXELS  newX, TSUIType_OLE_YPOS_PIXELS  newY,
+HRESULT CVICALLBACK ExecutionView_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long  bordersChanged, TSUIType_OLE_XPOS_PIXELS  newX, TSUIType_OLE_YPOS_PIXELS  newY,
                               TSUIType_OLE_XPOS_PIXELS newWidth, TSUIType_OLE_YPOS_PIXELS newHeight, VBOOL finalResize)
 {
 	int	error = 0;
@@ -588,7 +592,7 @@ Error:
 * \brief User dragged the vertical bar that separates the execution 
 *		 variables from the callstack
 *******************************************************************************/
-static HRESULT CVICALLBACK ExecutionVariables_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long  bordersChanged, TSUIType_OLE_XPOS_PIXELS  newX, TSUIType_OLE_YPOS_PIXELS  newY,
+HRESULT CVICALLBACK ExecutionVariables_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long  bordersChanged, TSUIType_OLE_XPOS_PIXELS  newX, TSUIType_OLE_YPOS_PIXELS  newY,
                               TSUIType_OLE_XPOS_PIXELS newWidth, TSUIType_OLE_YPOS_PIXELS newHeight, VBOOL finalResize)
 {
 	int	error = 0;
@@ -604,7 +608,7 @@ Error:
 * \brief User dragged the vertical bar that separates the callstack 
 *		 from the threads
 *******************************************************************************/
-static HRESULT CVICALLBACK CallStack_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long  bordersChanged, TSUIType_OLE_XPOS_PIXELS  newX, TSUIType_OLE_YPOS_PIXELS  newY,
+HRESULT CVICALLBACK CallStack_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long  bordersChanged, TSUIType_OLE_XPOS_PIXELS  newX, TSUIType_OLE_YPOS_PIXELS  newY,
                               TSUIType_OLE_XPOS_PIXELS newWidth, TSUIType_OLE_YPOS_PIXELS newHeight, VBOOL finalResize)
 {
 	int	error = 0;
@@ -620,7 +624,7 @@ Error:
 * \brief One of the hidden labels connected to display the current file 
 *		 and current execution has changed
 *******************************************************************************/
-static HRESULT CVICALLBACK Label_OnConnectionActivity(CAObjHandle caServerObjHandle, void *caCallbackData, enum TSUIEnum_ConnectionActivityTypes  activity)
+HRESULT CVICALLBACK Label_OnConnectionActivity(CAObjHandle caServerObjHandle, void *caCallbackData, enum TSUIEnum_ConnectionActivityTypes  activity)
 {
 	int	error = 0;
 	

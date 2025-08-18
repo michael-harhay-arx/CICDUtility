@@ -54,12 +54,12 @@ static int glbSysLogLevel = 0;
 /***************************************************************************//*!
 * \brief This application only has one window
 *******************************************************************************/
-static ApplicationWindow gMainWindow;
+ApplicationWindow gMainWindow;
 
 /***************************************************************************//*!
-* \brief The presence of these two variables is expected by the tsErrChk 
+* \brief The presence of these two variables is expected by the errChk 
 *		 macro from tsutil.h.  Usually you declare these variables as locals 
-*		 in each function that uses tsErrChk. However, since all the code in 
+*		 in each function that uses errChk. However, since all the code in 
 *		 this file runs in a single thread, they can be globals for convenience
 *******************************************************************************/
 ERRORINFO	errorInfo = {0, 0, "", "", "", 0, 0};
@@ -78,7 +78,9 @@ ErrMsg		errMsg = "";
 *******************************************************************************/
 int main(int argc, char *argv[])
 {
-	int		error = 0;
+	char errmsg[ERRLEN] = {0};
+	fnInit;
+	
 	int		splashPanel = 0;
 	VBOOL	appWillExitOnStart = VFALSE;
 	long	exitCode = 0;
@@ -86,7 +88,7 @@ int main(int argc, char *argv[])
 	nullChk( InitCVIRTE(0, argv, 0));	// initialize CVI runtime engine
 	
 	// load the panels for the main window from the .UIR file
-	errChk( gMainWindow.panel = 		LoadPanelEx(0, "TestExec.uir", MAINPANEL, __CVIUserHInst));
+	errChk( gMainWindow.panel = 		LoadPanelEx(0, "TestExecPanel.uir", MAINPANEL, __CVIUserHInst));
 	errChk( GetPanelHandleFromTabPage (gMainWindow.panel, MAINPANEL_TAB, TABPAGE_FILE,      &gMainWindow.fileTab));
 	errChk( GetPanelHandleFromTabPage (gMainWindow.panel, MAINPANEL_TAB, TABPAGE_EXECUTION, &gMainWindow.executionTab));	
 	errChk( GetPanelHandleFromTabPage (gMainWindow.panel, MAINPANEL_TAB, TABPAGE_REPORT,    &gMainWindow.reportTab));
@@ -102,12 +104,12 @@ int main(int argc, char *argv[])
 	// prepare to use the TestStand ActiveX controls
 	errChk( GetActiveXControlHandles());
 
-	tsErrChk( TSUI_ApplicationMgrGetApplicationWillExitOnStart(gMainWindow.applicationMgr, &errorInfo, &appWillExitOnStart));
+	errChk( TSUI_ApplicationMgrGetApplicationWillExitOnStart(gMainWindow.applicationMgr, &errorInfo, &appWillExitOnStart));
 	
 	if (!appWillExitOnStart)
 	{
 		// show a splash screen while starting up
-		errChk( splashPanel = LoadPanelEx(0, "TestExec.uir", SPLASH, __CVIUserHInst));
+		errChk( splashPanel = LoadPanelEx(0, "TestExecPanel.uir", SPLASH, __CVIUserHInst));
 		errChk( InstallPopup(splashPanel));
 	}
 
@@ -118,22 +120,22 @@ int main(int argc, char *argv[])
 	gMainWindow.guiThreadId = CmtGetCurrentThreadID();  // for filtering out CVI events from other threads in the MainCallback
 
 	// make engine conveniently accessible
-	tsErrChk( TSUI_ApplicationMgrGetEngine(gMainWindow.applicationMgr, &errorInfo, &gMainWindow.engine));	
+	errChk( TSUI_ApplicationMgrGetEngine(gMainWindow.applicationMgr, &errorInfo, &gMainWindow.engine));	
 	
 	// setup connections for the TestStand User Interface Components   	
 	errChk( ConnectTestStandControls());  
 	
 	// this application allows setting of breakpoints on sequences files, so let them persist
-	tsErrChk( TS_EngineSetPersistBreakpoints(gMainWindow.engine, &errorInfo, VARIANT_TRUE));
+	errChk( TS_EngineSetPersistBreakpoints(gMainWindow.engine, &errorInfo, VARIANT_TRUE));
 	
 	// Start up the TestStand User Interface Components.
-	tsErrChk( TSUI_ApplicationMgrStart(gMainWindow.applicationMgr, &errorInfo));
+	errChk( TSUI_ApplicationMgrStart(gMainWindow.applicationMgr, &errorInfo));
 
 	// localize strings in CVI controls and menus
 	errChk( TS_LoadPanelResourceStrings(0, gMainWindow.engine, gMainWindow.panel, "TSUI_OI_MAIN_PANEL")); 	
 	errChk( TS_LoadMenuBarResourceStrings(gMainWindow.engine, GetPanelMenuBar(gMainWindow.panel), 0, "TSUI_OI_MAIN_PANEL", errMsg));
 	// localize strings in the TestStand ActiveX controls
-	tsErrChk( TSUI_ApplicationMgrLocalizeAllControls(gMainWindow.applicationMgr, &errorInfo, "TSUI_OI_MAIN_PANEL"));
+	errChk( TSUI_ApplicationMgrLocalizeAllControls(gMainWindow.applicationMgr, &errorInfo, "TSUI_OI_MAIN_PANEL"));
 	
 	// initialize the state of the tabs
 	errChk( ShowAppropriateTabs());
@@ -147,7 +149,7 @@ int main(int argc, char *argv[])
 	splashPanel = 0;
 
 	// remember window and control positions from last time
-	tsErrChk( TS_LayoutPersister_LoadSizes(gMainWindow.applicationMgr,  &errorInfo, NULL, 0, 10,
+	errChk( TS_LayoutPersister_LoadSizes(gMainWindow.applicationMgr,  &errorInfo, NULL, 0, 10,
 									gMainWindow.panel, MAINPANEL_LISTBAR, 
 									gMainWindow.panel, MAINPANEL_TAB, 
 									gMainWindow.fileTab, TABPANEL_STEPLISTVIEW, 
@@ -158,7 +160,7 @@ int main(int argc, char *argv[])
 									gMainWindow.executionTab, TABPANEL_2_CALLSTACK, 
 									gMainWindow.executionTab, TABPANEL_2_THREADS, 
 									gMainWindow.executionTab, TABPANEL_2_VARIABLES));
-	tsErrChk( TS_LayoutPersister_LoadBounds(gMainWindow.applicationMgr, &errorInfo, NULL, TRUE, 0, 1,  
+	errChk( TS_LayoutPersister_LoadBounds(gMainWindow.applicationMgr, &errorInfo, NULL, TRUE, 0, 1,  
 									gMainWindow.panel, 0));
 
 	errChk( ArrangeControls(FALSE));  // make any adjustments needed due to font sizes, etc. (pass FALSE to processEvents to ensure that the StartExecution event for the login execution isn't processed until the splash screen is gone and the main window is displayed. This makes sure the login dialog is modal to correct window (the main window)
@@ -209,12 +211,12 @@ Error:
 /***************************************************************************//*!
 * \brief Call this function to exit the program 
 *******************************************************************************/
-static int ExitApplication(void)
+int ExitApplication(void)
 {
 	int		error = 0; 
 	VBOOL	canExitNow;
 	
-	tsErrChk( TSUI_ApplicationMgrShutdown(gMainWindow.applicationMgr, &errorInfo, &canExitNow));
+	errChk( TSUI_ApplicationMgrShutdown(gMainWindow.applicationMgr, &errorInfo, &canExitNow));
 	if (canExitNow)
 		QuitUserInterface(0);
 	

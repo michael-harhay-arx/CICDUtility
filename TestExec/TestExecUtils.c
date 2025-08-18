@@ -34,22 +34,31 @@
 //==============================================================================
 // Constants
 
+/***************************************************************************//*!
+* \brief The Edit menu is rebuild both by RebuildMenuBar and RebuildEditMenu, 
+*		 so this array is at file scope so they can both access it
+*******************************************************************************/
+enum TSUIEnum_CommandKinds sEditMenuCommands[] = 
+{
+	TSUIConst_CommandKind_DefaultEditMenu_Set,			// add all the usual commands in an Edit menu
+	TSUIConst_CommandKind_NotACommand					// list terminator
+};
+
 //==============================================================================
 // Types
 
 //==============================================================================
 // Static global variables
 
-/***************************************************************************//*!
-* \brief Stores the log level used for SYSLOG macro
-*******************************************************************************/
-static int glbSysLogLevel = 0;
-
 //==============================================================================
 // Static functions
 
 //==============================================================================
 // Global variables
+
+extern ApplicationWindow gMainWindow;
+extern ERRORINFO errorInfo;
+extern ErrMsg errMsg;
 
 //==============================================================================
 // Global functions
@@ -64,16 +73,16 @@ static int glbSysLogLevel = 0;
 *		 immediately if the execution is visible, or, whenever the 
 *		 execution is viewed next
 *******************************************************************************/
-static int ShowReport(CAObjHandle execution)
+int ShowReport(CAObjHandle execution)
 {
 	int			error = 0;
 	int			isTheSelectedExecution;
 	CAObjHandle	selectedExecution = 0;
 
 	// switch to report view when this execution is next viewed
-	tsErrChk( TS_PropertySetValNumber(execution, &errorInfo, "NIUI.LastActiveTab", TS_PropOption_InsertIfMissing, TABPAGE_REPORT)); // activate the reportTab when the user views this execution
+	errChk( TS_PropertySetValNumber(execution, &errorInfo, "NIUI.LastActiveTab", TS_PropOption_InsertIfMissing, TABPAGE_REPORT)); // activate the reportTab when the user views this execution
 
-	tsErrChk( TSUI_ExecutionViewMgrGetExecution(gMainWindow.executionViewMgr, &errorInfo, &selectedExecution));
+	errChk( TSUI_ExecutionViewMgrGetExecution(gMainWindow.executionViewMgr, &errorInfo, &selectedExecution));
 	errChk(TS_ActiveXHandlesReferToSameObject(execution, selectedExecution, &isTheSelectedExecution));
 
 	if (isTheSelectedExecution) 
@@ -87,7 +96,7 @@ Error:
 /***************************************************************************//*!
 * \brief Main callback
 *******************************************************************************/
-static int MainCallback(int panelOrMenuBarHandle, int controlOrMenuItemID, int event, void *callbackData, int eventData1, int eventData2)
+int MainCallback(int panelOrMenuBarHandle, int controlOrMenuItemID, int event, void *callbackData, int eventData1, int eventData2)
 {
 	int error = 0;
 	
@@ -114,7 +123,7 @@ Error:
 * \brief User clicked on menubar, make sure all menus have correct items 
 *		 with the correct enabled states
 *******************************************************************************/
-static void	MenuDimmerCallback(int menuBarHandle, int panelHandle)
+void	MenuDimmerCallback(int menuBarHandle, int panelHandle)
 {
 	int	error = 0;
 	
@@ -127,7 +136,7 @@ Error:
 /***************************************************************************//*!
 * \brief
 *******************************************************************************/
-static int UpdateWindowTitle()
+int UpdateWindowTitle()
 {
 	int 	error = 0;
 	char	title[1024];
@@ -136,12 +145,12 @@ static int UpdateWindowTitle()
 	
 	errChk( TS_GetResourceString(gMainWindow.engine, "TSUI_OI_MAIN_PANEL", "TESTSTAND_USER_INTERFACE", "", sizeof(title), title));
 
-	tsErrChk( TSUI_ListBarGetCurrentPage(gMainWindow.listBar, &errorInfo, &pageIndex));
+	errChk( TSUI_ListBarGetCurrentPage(gMainWindow.listBar, &errorInfo, &pageIndex));
 
 	if (pageIndex == SEQUENCE_FILES_PAGE_INDEX)	// sequence files are visible
-		tsErrChk( TSUI_SequenceFileViewMgrGetCaptionText(gMainWindow.sequenceFileViewMgr, &errorInfo, TSUIConst_CaptionSource_CurrentSequenceFile, VFALSE, "", &documentDescription));
+		errChk( TSUI_SequenceFileViewMgrGetCaptionText(gMainWindow.sequenceFileViewMgr, &errorInfo, TSUIConst_CaptionSource_CurrentSequenceFile, VFALSE, "", &documentDescription));
 	else	// executions are visible
-		tsErrChk( TSUI_ExecutionViewMgrGetCaptionText(gMainWindow.executionViewMgr, &errorInfo, TSUIConst_CaptionSource_CurrentExecution, VFALSE, "", &documentDescription));
+		errChk( TSUI_ExecutionViewMgrGetCaptionText(gMainWindow.executionViewMgr, &errorInfo, TSUIConst_CaptionSource_CurrentExecution, VFALSE, "", &documentDescription));
 	
 	if (*documentDescription)
 		strcat(strcat(title, " - "), documentDescription);
@@ -157,7 +166,7 @@ Error:
 * \brief Build a context menu for a sequence view control that has 
 *		 been right-clicked
 *******************************************************************************/
-static int BuildSequenceViewContextMenu(int menuHandle)
+int BuildSequenceViewContextMenu(int menuHandle)
 {
 	int			error = 0;
 	CAObjHandle	cmds = 0;
@@ -166,12 +175,12 @@ static int BuildSequenceViewContextMenu(int menuHandle)
 	// determine which view manager menu commands apply to
 	errChk( GetActiveViewManager(&viewMgr));
 	
-	tsErrChk( TSUI_ApplicationMgrNewCommands(gMainWindow.applicationMgr, &errorInfo, &cmds));
+	errChk( TSUI_ApplicationMgrNewCommands(gMainWindow.applicationMgr, &errorInfo, &cmds));
 
 	// insert items for default sequence view context menu in the context menu
-	tsErrChk( TSUI_CommandsInsertKind(cmds, &errorInfo, TSUIConst_CommandKind_DefaultSequenceViewContextMenu_Set, viewMgr, -1, "", "", NULL));
+	errChk( TSUI_CommandsInsertKind(cmds, &errorInfo, TSUIConst_CommandKind_DefaultSequenceViewContextMenu_Set, viewMgr, -1, "", "", NULL));
 	errChk( TS_RemoveInvalidShortcutKeys(cmds, errMsg));	
-	tsErrChk( TSUI_CommandsInsertIntoWin32Menu (cmds, &errorInfo, menuHandle, -1, VTRUE, VTRUE)); // we are using the context menu that the SequenceView control provides because it requires fewer lines of code. We could have built a CVI context menu instead and displayed it with RunPopupMenu(). If you display a CVI context menu, remember to convert the activeX-control-right-mouse click coordinates from control coordinates to panel coordinates by adding the top and left of the control to the click position.
+	errChk( TSUI_CommandsInsertIntoWin32Menu (cmds, &errorInfo, menuHandle, -1, VTRUE, VTRUE)); // we are using the context menu that the SequenceView control provides because it requires fewer lines of code. We could have built a CVI context menu instead and displayed it with RunPopupMenu(). If you display a CVI context menu, remember to convert the activeX-control-right-mouse click coordinates from control coordinates to panel coordinates by adding the top and left of the control to the click position.
 	
 Error:
 	CA_DiscardObjHandle(cmds);
@@ -182,7 +191,7 @@ Error:
 * \brief Based on the current listbar page, show and hide the tabs that 
 *		 appear in the space to the right of the listbar
 *******************************************************************************/
-static int ShowAppropriateTabs(void)
+int ShowAppropriateTabs(void)
 {
 	int			error = 0;
 	long		pageIndex;
@@ -196,7 +205,7 @@ static int ShowAppropriateTabs(void)
 	// Note: Store the current Active control as EasyTab can change the active panel and control
 	curActiveCtrlInfo = SaveActiveCtrl(0,0);
 
-	tsErrChk( TSUI_ListBarGetCurrentPage(gMainWindow.listBar, &errorInfo, &pageIndex));
+	errChk( TSUI_ListBarGetCurrentPage(gMainWindow.listBar, &errorInfo, &pageIndex));
 	
 	// Note: EasyTab does not allow the last visible tab to be made invisible. Thus, when hiding and showing tabs, you must make sure there is at least one other tab visible before
 	// hiding a tab.  The easiest way to ensure this is to first show all tabs. Then, at least one tab is visible that will remain visible and all other tabs can be hidden succesfully.
@@ -215,9 +224,9 @@ static int ShowAppropriateTabs(void)
 	if (pageIndex == EXECUTIONS_PAGE_INDEX)
 	{
 		// determine which tab page we last displayed for this execution
-		tsErrChk( TSUI_ExecutionViewMgrGetExecution(gMainWindow.executionViewMgr, &errorInfo, &execution));
+		errChk( TSUI_ExecutionViewMgrGetExecution(gMainWindow.executionViewMgr, &errorInfo, &execution));
 		if (execution)
-			tsErrChk( TS_PropertyGetValNumber(execution, &errorInfo, "NIUI.LastActiveTab", TS_PropOption_InsertIfMissing, &lastActiveExecutionTab));
+			errChk( TS_PropertyGetValNumber(execution, &errorInfo, "NIUI.LastActiveTab", TS_PropOption_InsertIfMissing, &lastActiveExecutionTab));
 
 		// re-activate previously active tab for the execution
 		errChk( SetActiveTabPage (gMainWindow.panel, MAINPANEL_TAB, (int)lastActiveExecutionTab)); // Cast OK.  We were storing an integer in a TS number.
@@ -237,7 +246,7 @@ Error:
 * \brief Show the appropriate group of status bar panes, depending on 
 *		 whether we are viewing a file, execution steps, or a report
 *******************************************************************************/
-static int ShowAppropriateStatusBarPanes(void)
+int ShowAppropriateStatusBarPanes(void)
 {
 	int	error = 0;
 	int	activeTab;
@@ -245,11 +254,11 @@ static int ShowAppropriateStatusBarPanes(void)
 	errChk( GetActiveTabPage(gMainWindow.panel, MAINPANEL_TAB, &activeTab));		
 
 	if (activeTab == gMainWindow.fileTab)	
-		tsErrChk( TSUI_StatusBarShowPanes(gMainWindow.statusBar, &errorInfo, "User, EngineEnvironment, FileModel, FileSelectedSteps, FileNumberOfSteps"));
+		errChk( TSUI_StatusBarShowPanes(gMainWindow.statusBar, &errorInfo, "User, EngineEnvironment, FileModel, FileSelectedSteps, FileNumberOfSteps"));
 	else if (activeTab == gMainWindow.executionTab)
-		tsErrChk( TSUI_StatusBarShowPanes(gMainWindow.statusBar, &errorInfo, "User, EngineEnvironment, ExecutionModel, ExecutionSelectedSteps, ExecutionNumberOfSteps, ProgressText, ProgressPercent"));
+		errChk( TSUI_StatusBarShowPanes(gMainWindow.statusBar, &errorInfo, "User, EngineEnvironment, ExecutionModel, ExecutionSelectedSteps, ExecutionNumberOfSteps, ProgressText, ProgressPercent"));
 	else
-		tsErrChk( TSUI_StatusBarShowPanes(gMainWindow.statusBar, &errorInfo, "User, EngineEnvironment, ExecutionModel, ReportLocation, ProgressText, ProgressPercent"));
+		errChk( TSUI_StatusBarShowPanes(gMainWindow.statusBar, &errorInfo, "User, EngineEnvironment, ExecutionModel, ReportLocation, ProgressText, ProgressPercent"));
 		
 Error:
 	return error;
@@ -259,7 +268,7 @@ Error:
 * \brief Call this function after you handle an error, unless you handle 
 *		 the error by calling DisplayError, which also calls this function
 *******************************************************************************/
-static void ClearErrorMessage(void)
+void ClearErrorMessage(void)
 {
 	// clear out error message globals so that a future error that lacks an error description does not
 	// unintentionally use the error description from a prior error.
@@ -272,7 +281,7 @@ static void ClearErrorMessage(void)
 *		 associated with the code, and any error description details 
 *		 does nothing if errorCode is not negative
 *******************************************************************************/
-static void DisplayError(int errorCode)
+void DisplayError(int errorCode)
 {
 	if (errorCode < 0)
 	{
@@ -287,12 +296,12 @@ static void DisplayError(int errorCode)
 *		 executions the returned viewManager is a weak reference (ie. do not 
 *		 call CA_DiscardObjHandle on it).
 *******************************************************************************/
-static int GetActiveViewManager(CAObjHandle *viewManager)
+int GetActiveViewManager(CAObjHandle *viewManager)
 {
 	int	error = 0;
 	int	page;
 	
-	tsErrChk( TSUI_ListBarGetCurrentPage(gMainWindow.listBar, &errorInfo, &page));
+	errChk( TSUI_ListBarGetCurrentPage(gMainWindow.listBar, &errorInfo, &page));
 	if (page == SEQUENCE_FILES_PAGE_INDEX)	// sequence files are visible, sequence file menu commands apply
 		*viewManager = gMainWindow.sequenceFileViewMgr;
 	else
@@ -304,24 +313,14 @@ Error:
 }
 
 /***************************************************************************//*!
-* \brief The Edit menu is rebuild both by RebuildMenuBar and RebuildEditMenu, 
-*		 so this array is at file scope so they can both access it
-*******************************************************************************/
-static enum TSUIEnum_CommandKinds	sEditMenuCommands[] = 
-{
-	TSUIConst_CommandKind_DefaultEditMenu_Set,			// add all the usual commands in an Edit menu
-	TSUIConst_CommandKind_NotACommand					// list terminator
-};
-
-/***************************************************************************//*!
 * \brief Make sure all menus have appropriate items with the correct enabled states
 *******************************************************************************/
-static int RebuildMenuBar(int menuBar)
+int RebuildMenuBar(int menuBar)
 {
 	VBOOL isEditor = 0;
 	int									error = 0;
 	CAObjHandle							viewMgr = 0;
-	static enum TSUIEnum_CommandKinds	fileMenuCommands[] = 
+	enum TSUIEnum_CommandKinds	fileMenuCommands[] = 
 	{
 		TSUIConst_CommandKind_DefaultFileMenu_Set,			// add all the usual commands in a File menu
 		TSUIConst_CommandKind_NotACommand					// list terminator
@@ -329,33 +328,33 @@ static int RebuildMenuBar(int menuBar)
 	
 	// Edit menu commands defined in sEditMenuCommands, above this function
 	
-	static enum TSUIEnum_CommandKinds	executeMenuCommands[] = 
+	enum TSUIEnum_CommandKinds	executeMenuCommands[] = 
 	{
 		TSUIConst_CommandKind_DefaultExecuteMenu_Set,		// add all the usual commands in a Execute menu
 		TSUIConst_CommandKind_NotACommand					// list terminator
 	};
-	static enum TSUIEnum_CommandKinds	debugMenuCommands[] = 
+	enum TSUIEnum_CommandKinds	debugMenuCommands[] = 
 	{
 		TSUIConst_CommandKind_DefaultDebugMenu_Set,			// add all the usual commands in a Debug menu
 		TSUIConst_CommandKind_NotACommand					// list terminator
 	};
-	static enum TSUIEnum_CommandKinds	configureMenuCommands[] = 
+	enum TSUIEnum_CommandKinds	configureMenuCommands[] = 
 	{
 		TSUIConst_CommandKind_DefaultConfigureMenu_Set,		// add all the usual commands in a Configure menu
 		TSUIConst_CommandKind_NotACommand					// list terminator
 	};
-	static enum TSUIEnum_CommandKinds	configureMenuCommands_EditMode[] = 
+	enum TSUIEnum_CommandKinds	configureMenuCommands_EditMode[] = 
 	{
 		TSUIConst_CommandKind_ConfigureEngineEnvironment,		// add all the usual commands in a Configure menu
 		TSUIConst_CommandKind_NotACommand					// list terminator
 	};
 	
-	static enum TSUIEnum_CommandKinds	toolsMenuCommands[] = 
+	enum TSUIEnum_CommandKinds	toolsMenuCommands[] = 
 	{
 		TSUIConst_CommandKind_DefaultToolsMenu_Set,			// add all the usual commands in a Tools menu
 		TSUIConst_CommandKind_NotACommand					// list terminator
 	};
-	static enum TSUIEnum_CommandKinds	helpMenuCommands[] = 
+	enum TSUIEnum_CommandKinds	helpMenuCommands[] = 
 	{
 		TSUIConst_CommandKind_Separator,					// separates the existing About... item
 		TSUIConst_CommandKind_DefaultHelpMenu_Set,			// add all the usual commands in a Help menu. Note that most help items appear only when in Edit mode.
@@ -412,7 +411,7 @@ Error:
 *		 menu bar by calling RebuildMenuBar, but depending on the machine, that might 
 *		 noticably reduce the speed at which you can tab between controls.
 *******************************************************************************/
-static int RebuildEditMenu()
+int RebuildEditMenu()
 {
 	int			error = 0;
 	CAObjHandle	viewMgr = 0;
@@ -439,7 +438,7 @@ Error:
 /***************************************************************************//*!
 * \brief Get handles to ActiveX controls in order to call their particular API's
 *******************************************************************************/
-static int GetActiveXControlHandles(void)
+int GetActiveXControlHandles(void)
 {
 	int	error = 0;
 	
@@ -508,7 +507,7 @@ Error:
 /***************************************************************************//*!
 * \brief
 *******************************************************************************/
-static int RegisterActiveXEventCallbacks(void)
+int RegisterActiveXEventCallbacks(void)
 {
 	int	error = 0;
 	
@@ -564,7 +563,7 @@ Error:
 /***************************************************************************//*!
 * \brief
 *******************************************************************************/
-static int ConnectTestStandControls()
+int ConnectTestStandControls()
 {
 	int			error = 0;
 	CAObjHandle	pages = 0;
@@ -576,72 +575,72 @@ static int ConnectTestStandControls()
 	// connect controls on the Sequence File tab
 	
 	// connect fileStepListView to SequenceFileViewMgr
-	tsErrChk( TSUI_SequenceFileViewMgrConnectSequenceView(gMainWindow.sequenceFileViewMgr, &errorInfo, gMainWindow.fileStepListView, NULL));
+	errChk( TSUI_SequenceFileViewMgrConnectSequenceView(gMainWindow.sequenceFileViewMgr, &errorInfo, gMainWindow.fileStepListView, NULL));
 
 	// connect first entry point button 
-	tsErrChk( TSUI_SequenceFileViewMgrConnectCommand(gMainWindow.sequenceFileViewMgr, &errorInfo, gMainWindow.entryPoint1Button, TSUIConst_CommandKind_ExecutionEntryPoints_Set, 0, TSUIConst_CommandConnection_NoOptions, NULL));
+	errChk( TSUI_SequenceFileViewMgrConnectCommand(gMainWindow.sequenceFileViewMgr, &errorInfo, gMainWindow.entryPoint1Button, TSUIConst_CommandKind_ExecutionEntryPoints_Set, 0, TSUIConst_CommandConnection_NoOptions, NULL));
 	
 	// connect second entry point button 
-	tsErrChk( TSUI_SequenceFileViewMgrConnectCommand(gMainWindow.sequenceFileViewMgr, &errorInfo, gMainWindow.entryPoint2Button, TSUIConst_CommandKind_ExecutionEntryPoints_Set, 1, TSUIConst_CommandConnection_NoOptions, NULL));
+	errChk( TSUI_SequenceFileViewMgrConnectCommand(gMainWindow.sequenceFileViewMgr, &errorInfo, gMainWindow.entryPoint2Button, TSUIConst_CommandKind_ExecutionEntryPoints_Set, 1, TSUIConst_CommandConnection_NoOptions, NULL));
 
 	// connect run-current-sequence button 
-	tsErrChk( TSUI_SequenceFileViewMgrConnectCommand(gMainWindow.sequenceFileViewMgr, &errorInfo, gMainWindow.runCurrentSequenceButton, TSUIConst_CommandKind_RunCurrentSequence, 0, TSUIConst_CommandConnection_NoOptions, NULL));
+	errChk( TSUI_SequenceFileViewMgrConnectCommand(gMainWindow.sequenceFileViewMgr, &errorInfo, gMainWindow.runCurrentSequenceButton, TSUIConst_CommandKind_RunCurrentSequence, 0, TSUIConst_CommandConnection_NoOptions, NULL));
 	
 	// connect the hidden sequence file label
-	tsErrChk( TSUI_SequenceFileViewMgrConnectCaption(gMainWindow.sequenceFileViewMgr, &errorInfo, gMainWindow.sequenceFileLabel, TSUIConst_CaptionSource_CurrentSequenceFile, VFALSE, NULL));
+	errChk( TSUI_SequenceFileViewMgrConnectCaption(gMainWindow.sequenceFileViewMgr, &errorInfo, gMainWindow.sequenceFileLabel, TSUIConst_CaptionSource_CurrentSequenceFile, VFALSE, NULL));
 	
 	// connect fileSequences listbox to SequenceList
-	tsErrChk( TSUI_SequenceFileViewMgrConnectSequenceList(gMainWindow.sequenceFileViewMgr, &errorInfo, gMainWindow.fileSequencesList, &sequenceListConnection));
-	tsErrChk( TSUISUPP_SequenceListConnectionSetColumnVisible(sequenceListConnection, &errorInfo, TSUISUPPConst_SeqListConnectionColumn_Comments, VTRUE));
+	errChk( TSUI_SequenceFileViewMgrConnectSequenceList(gMainWindow.sequenceFileViewMgr, &errorInfo, gMainWindow.fileSequencesList, &sequenceListConnection));
+	errChk( TSUISUPP_SequenceListConnectionSetColumnVisible(sequenceListConnection, &errorInfo, TSUISUPPConst_SeqListConnectionColumn_Comments, VTRUE));
 	
 	// connect fileVariables to SequenceFileViewMgr
-	tsErrChk( TSUI_SequenceFileViewMgrConnectVariables(gMainWindow.sequenceFileViewMgr, &errorInfo, gMainWindow.fileVariables, NULL));
+	errChk( TSUI_SequenceFileViewMgrConnectVariables(gMainWindow.sequenceFileViewMgr, &errorInfo, gMainWindow.fileVariables, NULL));
 
 	// connect insertionPalette to SequenceFileViewMgr
-	tsErrChk( TSUI_SequenceFileViewMgrConnectInsertionPalette(gMainWindow.sequenceFileViewMgr, &errorInfo, gMainWindow.insertionPalette, NULL));
+	errChk( TSUI_SequenceFileViewMgrConnectInsertionPalette(gMainWindow.sequenceFileViewMgr, &errorInfo, gMainWindow.insertionPalette, NULL));
 	
 	
 	// connect controls on the Execution tab
 
 	// connect executionStepListView to ExecutionViewMgr
-	tsErrChk( TSUI_ExecutionViewMgrConnectExecutionView(gMainWindow.executionViewMgr, &errorInfo, gMainWindow.executionStepListView, TSUIConst_ExecutionViewConnection_NoOptions, NULL));
+	errChk( TSUI_ExecutionViewMgrConnectExecutionView(gMainWindow.executionViewMgr, &errorInfo, gMainWindow.executionStepListView, TSUIConst_ExecutionViewConnection_NoOptions, NULL));
 
 	// connect reportView to ExecutionViewMgr
-	tsErrChk( TSUI_ExecutionViewMgrConnectReportView(gMainWindow.executionViewMgr, &errorInfo, gMainWindow.reportView, NULL));
+	errChk( TSUI_ExecutionViewMgrConnectReportView(gMainWindow.executionViewMgr, &errorInfo, gMainWindow.reportView, NULL));
 
 	// connect execution variables to ExecutionViewMgr
-	tsErrChk( TSUI_ExecutionViewMgrConnectVariables(gMainWindow.executionViewMgr, &errorInfo, gMainWindow.executionVariables, NULL));
+	errChk( TSUI_ExecutionViewMgrConnectVariables(gMainWindow.executionViewMgr, &errorInfo, gMainWindow.executionVariables, NULL));
 	
 	// connect callStack listbox to ExecutionViewMgr
-	tsErrChk( TSUI_ExecutionViewMgrConnectCallStack(gMainWindow.executionViewMgr, &errorInfo, gMainWindow.callStack, NULL));
+	errChk( TSUI_ExecutionViewMgrConnectCallStack(gMainWindow.executionViewMgr, &errorInfo, gMainWindow.callStack, NULL));
 
 	// connect thread listbox to ExecutionViewMgr
-	tsErrChk( TSUI_ExecutionViewMgrConnectThreadList(gMainWindow.executionViewMgr, &errorInfo, gMainWindow.threads, NULL));
+	errChk( TSUI_ExecutionViewMgrConnectThreadList(gMainWindow.executionViewMgr, &errorInfo, gMainWindow.threads, NULL));
 	
 	// connect break/resume button
-	tsErrChk( TSUI_ExecutionViewMgrConnectCommand(gMainWindow.executionViewMgr, &errorInfo, gMainWindow.breakResumeButton, TSUIConst_CommandKind_BreakResume, 0, TSUIConst_CommandConnection_NoOptions, NULL));
+	errChk( TSUI_ExecutionViewMgrConnectCommand(gMainWindow.executionViewMgr, &errorInfo, gMainWindow.breakResumeButton, TSUIConst_CommandKind_BreakResume, 0, TSUIConst_CommandConnection_NoOptions, NULL));
 
 	// connect terminate/restart button
-	tsErrChk( TSUI_ExecutionViewMgrConnectCommand(gMainWindow.executionViewMgr, &errorInfo, gMainWindow.terminateRestartButton, TSUIConst_CommandKind_TerminateRestart, 0, TSUIConst_CommandConnection_NoOptions, NULL));
+	errChk( TSUI_ExecutionViewMgrConnectCommand(gMainWindow.executionViewMgr, &errorInfo, gMainWindow.terminateRestartButton, TSUIConst_CommandKind_TerminateRestart, 0, TSUIConst_CommandConnection_NoOptions, NULL));
 
 	// connect the hidden execution label
-	tsErrChk( TSUI_ExecutionViewMgrConnectCaption(gMainWindow.executionViewMgr, &errorInfo, gMainWindow.executionLabel, TSUIConst_CaptionSource_CurrentExecution, VFALSE, NULL));
+	errChk( TSUI_ExecutionViewMgrConnectCaption(gMainWindow.executionViewMgr, &errorInfo, gMainWindow.executionLabel, TSUIConst_CaptionSource_CurrentExecution, VFALSE, NULL));
 
 		
 	// connect listbar pages
 	
-	tsErrChk( TSUI_ListBarGetPages(gMainWindow.listBar, &errorInfo, &pages));
+	errChk( TSUI_ListBarGetPages(gMainWindow.listBar, &errorInfo, &pages));
 
 	// connect listbar page 0 to SequenceFileList
-	tsErrChk( TSUI_ListBarPagesGetItem(pages, &errorInfo, CA_VariantLong(SEQUENCE_FILES_PAGE_INDEX), &page));
-	tsErrChk( TSUI_SequenceFileViewMgrConnectSequenceFileList(gMainWindow.sequenceFileViewMgr, &errorInfo, page, VFALSE, NULL));	
+	errChk( TSUI_ListBarPagesGetItem(pages, &errorInfo, CA_VariantLong(SEQUENCE_FILES_PAGE_INDEX), &page));
+	errChk( TSUI_SequenceFileViewMgrConnectSequenceFileList(gMainWindow.sequenceFileViewMgr, &errorInfo, page, VFALSE, NULL));	
 	CA_DiscardObjHandle(page);
 	
 	// connect listbar page 1 to ExecutionList
-	tsErrChk( TSUI_ListBarPagesGetItem(pages, &errorInfo, CA_VariantLong(EXECUTIONS_PAGE_INDEX), &page));
-	tsErrChk( TSUI_ExecutionViewMgrConnectExecutionList(gMainWindow.executionViewMgr, &errorInfo, page, &executionListConnection));	
+	errChk( TSUI_ListBarPagesGetItem(pages, &errorInfo, CA_VariantLong(EXECUTIONS_PAGE_INDEX), &page));
+	errChk( TSUI_ExecutionViewMgrConnectExecutionList(gMainWindow.executionViewMgr, &errorInfo, page, &executionListConnection));	
 	// display the execution name on the first line, the serial number (if any) on the next line, the socket index (if any) on the next line, and the model execution state on the last line (the expression string looks complicated here because we have to escape the quotes and backslashes for the C compiler.)
-	tsErrChk( TSUISUPP_ExecutionListConnectionSetDisplayExpression(executionListConnection, &errorInfo, "\"%CurrentExecution%\\n\" + (\"%UUTSerialNumber%\" == \"\" ? \"\" : (ResStr(\"TSUI_OI_MAIN_PANEL\",\"SERIAL_NUMBER\") + \" %UUTSerialNumber%\\n\")) + (\"%TestSocketIndex%\" == \"\" ? \"\" : ResStr(\"TSUI_OI_MAIN_PANEL\",\"SOCKET_NUMBER\") + \" %TestSocketIndex%\\n\") + \"%ModelState%\""));
+	errChk( TSUISUPP_ExecutionListConnectionSetDisplayExpression(executionListConnection, &errorInfo, "\"%CurrentExecution%\\n\" + (\"%UUTSerialNumber%\" == \"\" ? \"\" : (ResStr(\"TSUI_OI_MAIN_PANEL\",\"SERIAL_NUMBER\") + \" %UUTSerialNumber%\\n\")) + (\"%TestSocketIndex%\" == \"\" ? \"\" : ResStr(\"TSUI_OI_MAIN_PANEL\",\"SOCKET_NUMBER\") + \" %TestSocketIndex%\\n\") + \"%ModelState%\""));
 	CA_DiscardObjHandle(page);
 
 	errChk( ConnectStatusBarPanes());
@@ -657,7 +656,7 @@ Error:
 /***************************************************************************//*!
 * \brief
 *******************************************************************************/
-static int ConnectStatusBarPanes(void)
+int ConnectStatusBarPanes(void)
 {
 	
 	int			error = 0;
@@ -679,47 +678,47 @@ static int ConnectStatusBarPanes(void)
 	CAObjHandle	executionModelCaptionConnection = 0;
 
 	// get the status bar panes so we can connect them to various captions
-	tsErrChk( TSUI_StatusBarGetPanes(gMainWindow.statusBar, &errorInfo, &panes));
+	errChk( TSUI_StatusBarGetPanes(gMainWindow.statusBar, &errorInfo, &panes));
 	
 	// IMPORTANT: the order of these calls must match the order of the panes as configured in the status bar 
-	tsErrChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneUser));
-	tsErrChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneEngineEnvironment));    
-	tsErrChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneFileModel));
-	tsErrChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneExecutionModel));
-	tsErrChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneFileSelectedSteps));
-	tsErrChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneFileNumberOfSteps));
-	tsErrChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneExecutionSelectedSteps));
-	tsErrChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneExecutionNumberOfSteps));
-	tsErrChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneReportLocation));
-	tsErrChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneProgressText));
-	tsErrChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneProgressPercent));
+	errChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneUser));
+	errChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneEngineEnvironment));    
+	errChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneFileModel));
+	errChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneExecutionModel));
+	errChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneFileSelectedSteps));
+	errChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneFileNumberOfSteps));
+	errChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneExecutionSelectedSteps));
+	errChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneExecutionNumberOfSteps));
+	errChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneReportLocation));
+	errChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneProgressText));
+	errChk( TSUI_StatusBarPanesGetItem(panes, &errorInfo, CA_VariantLong(paneIndex++), &paneProgressPercent));
 
 	// User 
-	tsErrChk( TSUI_ApplicationMgrConnectCaption(gMainWindow.applicationMgr, &errorInfo, paneUser, TSUIConst_CaptionSource_UserName, VFALSE, NULL));
+	errChk( TSUI_ApplicationMgrConnectCaption(gMainWindow.applicationMgr, &errorInfo, paneUser, TSUIConst_CaptionSource_UserName, VFALSE, NULL));
 	// Engine Environment 
-	tsErrChk( TSUI_ApplicationMgrConnectCaption(gMainWindow.applicationMgr, &errorInfo, paneEngineEnvironment, TSUIConst_CaptionSource_EngineEnvironment, VFALSE, NULL))	
+	errChk( TSUI_ApplicationMgrConnectCaption(gMainWindow.applicationMgr, &errorInfo, paneEngineEnvironment, TSUIConst_CaptionSource_EngineEnvironment, VFALSE, NULL))	
 	// File Process Model
-	tsErrChk( TSUI_SequenceFileViewMgrConnectCaption(gMainWindow.sequenceFileViewMgr, &errorInfo, paneFileModel, TSUIConst_CaptionSource_CurrentProcessModelFile, VTRUE, &fileModelCaptionConnection));
-	tsErrChk( TSUISUPP_CaptionConnectionSetLongName(fileModelCaptionConnection, &errorInfo, VFALSE)); // just show the base file name
+	errChk( TSUI_SequenceFileViewMgrConnectCaption(gMainWindow.sequenceFileViewMgr, &errorInfo, paneFileModel, TSUIConst_CaptionSource_CurrentProcessModelFile, VTRUE, &fileModelCaptionConnection));
+	errChk( TSUISUPP_CaptionConnectionSetLongName(fileModelCaptionConnection, &errorInfo, VFALSE)); // just show the base file name
 	// Execution Process Model
-	tsErrChk( TSUI_ExecutionViewMgrConnectCaption(gMainWindow.executionViewMgr, &errorInfo, paneExecutionModel, TSUIConst_CaptionSource_CurrentProcessModelFile, VTRUE, &executionModelCaptionConnection));
-	tsErrChk( TSUISUPP_CaptionConnectionSetLongName(executionModelCaptionConnection, &errorInfo, VFALSE));	// just show the base file name
+	errChk( TSUI_ExecutionViewMgrConnectCaption(gMainWindow.executionViewMgr, &errorInfo, paneExecutionModel, TSUIConst_CaptionSource_CurrentProcessModelFile, VTRUE, &executionModelCaptionConnection));
+	errChk( TSUISUPP_CaptionConnectionSetLongName(executionModelCaptionConnection, &errorInfo, VFALSE));	// just show the base file name
 	// File Selected Steps
-	tsErrChk( TSUI_SequenceFileViewMgrConnectCaption(gMainWindow.sequenceFileViewMgr, &errorInfo, paneFileSelectedSteps, TSUIConst_CaptionSource_SelectedSteps_ZeroBased, VFALSE, NULL));
+	errChk( TSUI_SequenceFileViewMgrConnectCaption(gMainWindow.sequenceFileViewMgr, &errorInfo, paneFileSelectedSteps, TSUIConst_CaptionSource_SelectedSteps_ZeroBased, VFALSE, NULL));
 	// File Number of Steps
-	tsErrChk( TSUI_SequenceFileViewMgrConnectCaption(gMainWindow.sequenceFileViewMgr, &errorInfo, paneFileNumberOfSteps, TSUIConst_CaptionSource_NumberOfSteps, VTRUE, NULL));
+	errChk( TSUI_SequenceFileViewMgrConnectCaption(gMainWindow.sequenceFileViewMgr, &errorInfo, paneFileNumberOfSteps, TSUIConst_CaptionSource_NumberOfSteps, VTRUE, NULL));
 	// Execution Selected Steps
-	tsErrChk( TSUI_ExecutionViewMgrConnectCaption(gMainWindow.executionViewMgr, &errorInfo, paneExecutionSelectedSteps, TSUIConst_CaptionSource_SelectedSteps_ZeroBased, VFALSE, NULL));
+	errChk( TSUI_ExecutionViewMgrConnectCaption(gMainWindow.executionViewMgr, &errorInfo, paneExecutionSelectedSteps, TSUIConst_CaptionSource_SelectedSteps_ZeroBased, VFALSE, NULL));
 	// Execution Number of Steps
-	tsErrChk( TSUI_ExecutionViewMgrConnectCaption(gMainWindow.executionViewMgr, &errorInfo, paneExecutionNumberOfSteps, TSUIConst_CaptionSource_NumberOfSteps, VTRUE, NULL));
+	errChk( TSUI_ExecutionViewMgrConnectCaption(gMainWindow.executionViewMgr, &errorInfo, paneExecutionNumberOfSteps, TSUIConst_CaptionSource_NumberOfSteps, VTRUE, NULL));
 	// Report Location
-	tsErrChk( TSUI_ExecutionViewMgrConnectCaption(gMainWindow.executionViewMgr, &errorInfo, paneReportLocation, TSUIConst_CaptionSource_ReportLocation, VTRUE, NULL));
+	errChk( TSUI_ExecutionViewMgrConnectCaption(gMainWindow.executionViewMgr, &errorInfo, paneReportLocation, TSUIConst_CaptionSource_ReportLocation, VTRUE, NULL));
 	// Progress Text
-	tsErrChk( TSUI_ExecutionViewMgrConnectCaption(gMainWindow.executionViewMgr, &errorInfo, paneProgressText, TSUIConst_CaptionSource_ProgressText, VFALSE, NULL));
+	errChk( TSUI_ExecutionViewMgrConnectCaption(gMainWindow.executionViewMgr, &errorInfo, paneProgressText, TSUIConst_CaptionSource_ProgressText, VFALSE, NULL));
 	// Progress Percent Text
-	tsErrChk( TSUI_ExecutionViewMgrConnectCaption(gMainWindow.executionViewMgr, &errorInfo, paneProgressPercent, TSUIConst_CaptionSource_ProgressPercent, VFALSE, NULL));
+	errChk( TSUI_ExecutionViewMgrConnectCaption(gMainWindow.executionViewMgr, &errorInfo, paneProgressPercent, TSUIConst_CaptionSource_ProgressPercent, VFALSE, NULL));
 	// Progress Percent Bar
-	tsErrChk( TSUI_ExecutionViewMgrConnectNumeric(gMainWindow.executionViewMgr, &errorInfo, paneProgressPercent, TSUIConst_NumericSource_ProgressPercent, NULL));
+	errChk( TSUI_ExecutionViewMgrConnectNumeric(gMainWindow.executionViewMgr, &errorInfo, paneProgressPercent, TSUIConst_NumericSource_ProgressPercent, NULL));
 
 Error:
 	CA_DiscardObjHandle(paneUser);
@@ -743,7 +742,7 @@ Error:
 /***************************************************************************//*!
 * \brief Adjust controls to fit within current window size
 *******************************************************************************/
-static int ArrangeControls(int processEvents)
+int ArrangeControls(int processEvents)
 {
 	int			error = 0;
 	const int	buttonVerticalMargin = 6;
@@ -804,7 +803,7 @@ static int ArrangeControls(int processEvents)
 	errChk( PositionCtrlRelativeToCtrl(gMainWindow.fileTab, TABPANEL_ENTRYPOINT2BTN, 0, TABPANEL_RUNSEQUENCEBTN, 0, buttonHorizontalSpacing, kPositionCtrlCenterRight, kPositionCtrlCenterJustification));
 
     // hide editor-only controls if not an editor
-	tsErrChk( TSUI_ApplicationMgrGetIsEditor(gMainWindow.applicationMgr, &errorInfo, &isEditor));
+	errChk( TSUI_ApplicationMgrGetIsEditor(gMainWindow.applicationMgr, &errorInfo, &isEditor));
 	errChk( SetCtrlAttribute(gMainWindow.fileTab, TABPANEL_INSERTIONPALETTE, ATTR_VISIBLE, isEditor));
 
     // there is a horizontal drag bar between FileSteps and SequenceList/FileVariables
