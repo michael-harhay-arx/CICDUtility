@@ -1,0 +1,95 @@
+[ArxUtil_LoadPanelsInMemory]
+Class="Function"
+Prototype="int ArxUtil_LoadPanelsInMemory();"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:84:1"
+
+[ArxUtil_InitExecPanel]
+Class="Function"
+Prototype="int ArxUtil_InitExecPanel();"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:104:1"
+
+[ShowReport]
+Class="Function"
+Prototype="int ShowReport(CAObjHandle execution);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:168:1"
+
+[MainCallback]
+Class="Function"
+Prototype="int MainCallback(int panelOrMenuBarHandle, int controlOrMenuItemID, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:191:1"
+
+[MenuDimmerCallback]
+Class="Function"
+Prototype="void MenuDimmerCallback(int menuBarHandle, int panelHandle);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:218:1"
+
+[UpdateWindowTitle]
+Class="Function"
+Prototype="int UpdateWindowTitle();"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:231:1"
+
+[BuildSequenceViewContextMenu]
+Class="Function"
+Prototype="int BuildSequenceViewContextMenu(int menuHandle);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:261:1"
+
+[ShowAppropriateTabs]
+Class="Function"
+Prototype="int ShowAppropriateTabs();"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:286:1"
+
+[ShowAppropriateStatusBarPanes]
+Class="Function"
+Prototype="int ShowAppropriateStatusBarPanes();"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:341:1"
+
+[ClearErrorMessage]
+Class="Function"
+Prototype="void ClearErrorMessage();"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:363:1"
+
+[DisplayError]
+Class="Function"
+Prototype="void DisplayError(int errorCode);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:376:1"
+
+[GetActiveViewManager]
+Class="Function"
+Prototype="int GetActiveViewManager(CAObjHandle *viewManager);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:391:1"
+
+[RebuildMenuBar]
+Class="Function"
+Prototype="int RebuildMenuBar(int menuBar);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:410:1"
+
+[RebuildEditMenu]
+Class="Function"
+Prototype="int RebuildEditMenu();"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:506:1"
+
+[GetActiveXControlHandles]
+Class="Function"
+Prototype="int GetActiveXControlHandles();"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:533:1"
+
+[RegisterActiveXEventCallbacks]
+Class="Function"
+Prototype="int RegisterActiveXEventCallbacks();"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:602:1"
+
+[ConnectTestStandControls]
+Class="Function"
+Prototype="int ConnectTestStandControls();"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:658:1"
+
+[ConnectStatusBarPanes]
+Class="Function"
+Prototype="int ConnectStatusBarPanes();"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:751:1"
+
+[ArrangeControls]
+Class="Function"
+Prototype="int ArrangeControls(int processEvents);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestExecUtils.c:837:1"
+

@@ -60,9 +60,101 @@ extern ApplicationWindow gMainWindow;
 extern ERRORINFO errorInfo;
 extern ErrMsg errMsg;
 
+IniText glbSequencerConfigHandle = 0;
+double glbNumSockets = 0;
+int glbPanelHeight = 0;
+int glbPanelWidth = 0;
+int glbPanelTop = 0;
+int glbPanelLeft = 0;
+
+char glbRootPath[MAX_PATHNAME_LEN] = {0};
+
 //==============================================================================
 // Global functions
 
+//! \cond
+/// REGION END
+
+
+/// REGION START Arxtron Functions
+//! \endcond
+/***************************************************************************//*!
+* \brief Loads uir panels into memory
+*******************************************************************************/
+int ArxUtil_LoadPanelsInMemory (void)
+{
+	int error = 0;
+	
+	errChk( gMainWindow.panel = 		LoadPanelEx(0, "TestExecPanel.uir", MAINPANEL, __CVIUserHInst));
+	errChk( GetPanelHandleFromTabPage (gMainWindow.panel, MAINPANEL_TAB, TABPAGE_FILE,      &gMainWindow.fileTab));
+	errChk( GetPanelHandleFromTabPage (gMainWindow.panel, MAINPANEL_TAB, TABPAGE_EXECUTION, &gMainWindow.executionTab));	
+	errChk( GetPanelHandleFromTabPage (gMainWindow.panel, MAINPANEL_TAB, TABPAGE_REPORT,    &gMainWindow.reportTab));
+	
+	errChk( gMainWindow.execpanel = 	LoadPanelEx(gMainWindow.panel, "TestExecExecute.uir", EXEC_PANEL, __CVIUserHInst));
+	//errChk( GetPanelHandleFromTabPage (gMainWindow.panel, EXEC, TABPAGE_REPORT,    &gMainWindow.reportTab));
+
+	
+Error:
+	return error;
+}
+
+/***************************************************************************//*!
+* \brief Groups all the initialization together for exec panel
+*******************************************************************************/
+int ArxUtil_InitExecPanel (void)
+{
+	int error = 0;
+	
+	IniText stationConfigHandle = NULL;
+	// Implement certain features that's normally initialized in ArxUtil_InitTSPanel()
+	
+	errChk( SetPanelAttribute(gMainWindow.panel, ATTR_TITLE, "Arxtron CVI Sequencer"));
+	
+	errChk( GetDir(glbRootPath));
+	strcat (glbRootPath, "\\..\\..");	// the exec is expected to be stored in [Root]\GUI\win32
+	
+	// Get NumNests
+	char configPath[MAX_PATHNAME_LEN] = {0};
+	sprintf (configPath, "%s\\Configuration\\Sequencer.ini", glbRootPath);
+	glbSequencerConfigHandle = Ini_New (0);
+	errChk (Ini_ReadFromFile(glbSequencerConfigHandle, configPath));
+	
+	char *val[8] = {0};
+	errChk (0>Ini_GetPointerToRawString (glbSequencerConfigHandle, "GUI Options", "NumNests", val));
+	glbNumSockets = atof(*val);
+	errChk (0>Ini_GetPointerToRawString (glbSequencerConfigHandle, "GUI Options", "UIHeight", val));
+	glbPanelHeight = atoi(*val);
+	errChk (0>Ini_GetPointerToRawString (glbSequencerConfigHandle, "GUI Options", "UIWidth", val));
+	glbPanelWidth = atoi(*val);
+	errChk (0>Ini_GetPointerToRawString (glbSequencerConfigHandle, "GUI Options", "UITop", val));
+	glbPanelTop = atoi(*val);
+	errChk (0>Ini_GetPointerToRawString (glbSequencerConfigHandle, "GUI Options", "UILeft", val));
+	glbPanelLeft = atoi(*val);
+	
+	// Install panel callback
+	errChk( InstallMainCallback(MainCallback, 0, 0));	// handle the EVENT_END_TASK event, etc.
+	
+	/* 20250526Tim: Initialize UserManagement (With project number from Station config) */
+	//sprintf (configPath, "%s\\Configuration\\StationConfig.ini", glbRootPath);
+	//stationConfigHandle = Ini_New (0);
+	//errChk (Ini_ReadFromFile (stationConfigHandle, configPath));
+	//char *prjNumberStr = 0;
+	//errChk (0>Ini_GetPointerToRawString (stationConfigHandle, "Station Config", "PrjNumber", &prjNumberStr));
+	//int prjNumber = atoi (prjNumberStr);*/
+	//
+	//char errmsg[1024] = {0};
+	//sprintf (configPath, "%s\\Configuration\\UserFile.txt", glbRootPath);
+	//errChk (Initialize_UserManagement_LIB (prjNumber, configPath, errmsg))
+	//
+	//errChk( (glbNumSockets>(CVIUI_TOTAL_POSSIBLE_NESTS)?ARXERR_GRID_CONFIG_WRONG:0));
+
+	//errChk( ArxUtil_GetExecPanelHandles());
+	//errChk( ArxUtil_CloneNests());
+	
+Error:
+	if (stationConfigHandle) Ini_Dispose (stationConfigHandle);
+	return error;
+}
 //! \cond
 /// REGION END
 

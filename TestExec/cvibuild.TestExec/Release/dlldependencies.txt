@@ -1,5 +1,7 @@
 cvi.lib
 cvirte.dll
+ProjectSpecificGUI_LIB.lib
+ProjectSpecificGUI_LIB.dll
 advapi32.lib
 ADVAPI32.dll
 gdi32.lib

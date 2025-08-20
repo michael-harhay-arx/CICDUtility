@@ -1,6 +1,7 @@
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\Callbacks.obj" ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.obj" ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExecUtils.obj" ;
+Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestThreads.obj" ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "c:\\Program Files (x86)\\National Instruments\\CVI2019\\bin\\msvc\\advanlys.lib" ;
 NoCare "c:\\Program Files (x86)\\National Instruments\\CVI2019\\bin\\msvc\\advanlys.lib" ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "C:\\Program Files (x86)\\Windows Kits\\8.1\\Lib\\winv6.3\\um\\x86\\advapi32.lib" ;
@@ -27,6 +28,8 @@ Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.T
 NoCare "C:\\Program Files (x86)\\Windows Kits\\8.1\\Lib\\winv6.3\\um\\x86\\gdi32.lib" ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "c:\\Program Files (x86)\\National Instruments\\CVI2019\\bin\\msvc\\gpib.lib" ;
 NoCare "c:\\Program Files (x86)\\National Instruments\\CVI2019\\bin\\msvc\\gpib.lib" ;
+Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "c:\\Program Files (x86)\\National Instruments\\CVI2019\\toolslib\\toolbox\\msvc\\inifile.obj" ;
+NoCare "c:\\Program Files (x86)\\National Instruments\\CVI2019\\toolslib\\toolbox\\msvc\\inifile.obj" ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "C:\\Program Files (x86)\\Windows Kits\\8.1\\Lib\\winv6.3\\um\\x86\\kernel32.lib" ;
 NoCare "C:\\Program Files (x86)\\Windows Kits\\8.1\\Lib\\winv6.3\\um\\x86\\kernel32.lib" ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "c:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\Bin\\msvc\\NIDAQmx.lib" ;
@@ -39,6 +42,8 @@ Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.T
 NoCare "c:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\Bin\\msvc\\nixnet.lib" ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "c:\\Program Files (x86)\\National Instruments\\CVI2019\\bin\\msvc\\omp.lib" ;
 NoCare "c:\\Program Files (x86)\\National Instruments\\CVI2019\\bin\\msvc\\omp.lib" ;
+Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "c:\\Arxtron\\Libraries\\ProjectSpecificGUI_LIB.lib" ;
+NoCare "c:\\Arxtron\\Libraries\\ProjectSpecificGUI_LIB.lib" ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "c:\\Program Files (x86)\\National Instruments\\CVI2019\\toolslib\\toolbox\\msvc\\toolbox.obj" ;
 NoCare "c:\\Program Files (x86)\\National Instruments\\CVI2019\\toolslib\\toolbox\\msvc\\toolbox.obj" ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Release\\TestExec.exe" : "c:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\instr\\TestStand\\API\\msvc\\tsapicvi.obj" ;

@@ -17,9 +17,13 @@
 
 #include "Callbacks.h"
 #include "TestExecUtils.h"
+#include "TestThreads.h"
 		
 #include "TestExecPanel.h"
 #include "SplashPanel.h"
+#include "TestExecExecute.h"
+		
+#include "ProjectSpecificGUI_LIB.h"
 
 //==============================================================================
 // Constants
@@ -38,6 +42,7 @@ typedef struct
 {
 	// panel handles
 	int			panel;								// main window
+	int			execpanel;							// execution window
 	int			fileTab;							// "Sequences" tab. shows information about the selected sequence file
 	int			executionTab;						// "Steps" tab. shows execution information about the selected execution
 	int			reportTab;							// "Report" tab. shows the report for the selected execution

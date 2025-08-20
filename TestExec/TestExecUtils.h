@@ -16,6 +16,7 @@
 // Include files
 		
 #include "tsui.h"
+#include "inifile.h"
 
 #include "TestExec.h"
 
@@ -30,10 +31,15 @@
 
 //==============================================================================
 // Global functions
+		
+// Arxtron functions
+int ArxUtil_LoadPanelsInMemory (void);
+int ArxUtil_InitExecPanel (void);
 
+// Template functions
 int ShowReport(CAObjHandle execution);
 int MainCallback(int panelOrMenuBarHandle, int controlOrMenuItemID, int event, void *callbackData, int eventData1, int eventData2);
-void	MenuDimmerCallback(int menuBarHandle, int panelHandle);
+void MenuDimmerCallback(int menuBarHandle, int panelHandle);
 int UpdateWindowTitle();
 int BuildSequenceViewContextMenu(int menuHandle);
 int ShowAppropriateTabs(void);

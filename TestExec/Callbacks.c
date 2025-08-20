@@ -39,6 +39,12 @@
 // global variables
 
 /***************************************************************************//*!
+* \brief Variable used for tracking idle time
+*******************************************************************************/
+int glbGetNewEventTime = 0;
+double glbNewEventTime = 0.0;
+
+/***************************************************************************//*!
 * \brief Stores the log level used for SYSLOG macro
 *******************************************************************************/
 int glbSysLogLevel = 0;
@@ -56,6 +62,36 @@ extern ErrMsg errMsg;
 //==============================================================================
 // Global functions
 
+//! \cond
+/// REGION END
+
+/// REGION START Arxtron Callbacks
+//! \endcond
+/***************************************************************************//*!
+* \brief Callback for updating the idle timer
+* 
+* The idle timer control is enabled/disabled via TSMsg_UI_SET()
+*******************************************************************************/
+int CVICALLBACK ArxCB_IdleTimer (int panel, int control, int event, void *callbackData, int eventData1, int eventData2)
+{
+	double eventTime = 0.0, timeSinceLastCallback = 0.0;
+	char time[16] = {0};
+	
+	switch (event)
+	{
+		case EVENT_TIMER_TICK:
+			GetTimerTickData (&eventTime, &timeSinceLastCallback);
+			if (glbGetNewEventTime)
+			{
+				glbNewEventTime = eventTime;
+				glbGetNewEventTime = 0;
+			}
+			sprintf (time, "%0.0f", eventTime-glbNewEventTime);
+			SetCtrlVal (panel, EXEC_PANEL_IDLE_TIME, time);
+			break;
+	}
+	return 0;
+}
 //! \cond
 /// REGION END
 

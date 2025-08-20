@@ -1,9 +1,12 @@
 Callbacks.obj
 TestExec.obj
 TestExecUtils.obj
+TestThreads.obj
 cvistart.lib
 cvi.lib
 cviauto.lib
+inifile.obj
+ProjectSpecificGUI_LIB.lib
 toolbox.obj
 tsapicvi.obj
 tsui.obj
