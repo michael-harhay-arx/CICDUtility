@@ -190,6 +190,10 @@ int main(int argc, char *argv[])
 	errChk( SetActiveCtrl(gMainWindow.fileTab, TABPANEL_STEPLISTVIEW));
 	errChk( SetActivePanel(gMainWindow.fileTab));
 	
+	// Start threads
+	errChk( StartThreads ());
+
+	
 	// display window and process user input until application exits
 	errChk( DisplayPanel(gMainWindow.panel));
 	errChk( DisplayPanel(gMainWindow.execpanel));
@@ -197,7 +201,6 @@ int main(int argc, char *argv[])
 		errChk( DisplayPanel(gMainWindow.nests[i]));
 	
 	errChk( RunUserInterface());
-
 	errChk( TSUI_ApplicationMgrGetExitCode(gMainWindow.applicationMgr, &errorInfo, &exitCode));
 
 Error:

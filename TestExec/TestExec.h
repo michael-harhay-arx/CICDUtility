@@ -15,15 +15,16 @@
 //==============================================================================
 // Include files
 
+// Project file includes
 #include "Callbacks.h"
 #include "TestExecUtils.h"
 #include "TestThreads.h"
 #include "UIDefinitions.h"
-		
+
+// GUI includes		
 #include "TestExecPanel.h"
 #include "SplashPanel.h"
 #include "TestExecExecute.h"
-		
 #include "ProjectSpecificGUI_LIB.h"
 
 //==============================================================================

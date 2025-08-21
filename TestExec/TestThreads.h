@@ -15,7 +15,7 @@
 //==============================================================================
 // Include files
 
-#include "cvidef.h"
+#include <userint.h>
 
 //==============================================================================
 // Constants
@@ -29,7 +29,11 @@
 //==============================================================================
 // Global functions
 
-int Declare_Your_Functions_Here (int x);
+// Start threads function
+int StartThreads (void);
+
+// Thread functions
+DWORD WINAPI Thread_Test (LPVOID lpParam);
 
 #ifdef __cplusplus
     }
