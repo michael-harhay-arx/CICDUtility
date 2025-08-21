@@ -15,13 +15,26 @@
 //==============================================================================
 // Include files
 
+#include "Windows.h"
 #include "cvidef.h"
+#include <utility.h>
+#include <ansi_c.h>
 
 //==============================================================================
 // Constants
 
 //==============================================================================
 // Types
+		
+typedef struct
+{
+	LPSECURITY_ATTRIBUTES security;		// security options
+	SIZE_T stackSize;					// initial stack size in bytes
+	LPTHREAD_START_ROUTINE func;		// function to call when starting thread
+	LPVOID param;						// param to pass into called function
+	DWORD creationFlags;				// flags controlling creation of thread
+	LPDWORD threadID;
+} ThreadConfig;
 
 //==============================================================================
 // External variables
@@ -34,6 +47,7 @@ int StartThreads (void);
 
 // Thread functions
 DWORD WINAPI Thread_Test (LPVOID lpParam);
+DWORD WINAPI Thread_Test_2 (LPVOID lpParam);
 
 #ifdef __cplusplus
     }

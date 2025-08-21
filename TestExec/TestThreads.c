@@ -14,10 +14,6 @@
 //==============================================================================
 // Include files
 
-#include "Windows.h"
-#include <utility.h>
-#include <ansi_c.h>
-
 #include "TestThreads.h"
 
 //==============================================================================
@@ -48,29 +44,47 @@
 *******************************************************************************/
 int StartThreads (void)
 {
-	int error = 0;
+	DWORD tID;
+	int testParam = 67;
+	int testParam2 = 123;
 	
-	HANDLE tHandle;
-	DWORD tId = 0;
-	int param = 67;
-	
+	// Initialize list of threads to be created
+	ThreadConfig threadList[2] = {{NULL, 0, Thread_Test, &testParam, 0, &tID},
+								  {NULL, 0, Thread_Test_2, &testParam2, 0, &tID}};
+								  
+	// Initialize list of thread handles
+	int numThreads = sizeof (threadList) / sizeof (threadList[0]);
+	HANDLE threadHandles[numThreads];
+	memset (threadHandles, 0, sizeof (threadHandles));
+								  
 	// Create threads
-    tHandle = CreateThread (NULL, 0, Thread_Test, &param, 0, &tId);
+	for (int t = 0; t < numThreads; t++)
+	{
+		threadHandles[t] = CreateThread (threadList[t].security,
+									   threadList[t].stackSize,
+									   threadList[t].func, 
+									   threadList[t].param,
+									   threadList[t].creationFlags, 
+									   threadList[t].threadID);
 
-    if (tHandle == NULL) {
-        fprintf (stderr, "Error creating thread: %lu\n", GetLastError ());
-        return 1;
-    }
+	    if (threadHandles[t] == NULL) {
+	        fprintf (stderr, "Error creating thread: %lu\n", GetLastError ());
+	       	return 1;
+	    }
 
-    printf("Main thread created new thread with ID: %lu\nNow waiting for thread to finish...\n", tId);
+	    printf("Main thread created new thread with ID: %lu\n", threadList[t].threadID);
+	}
 	
-	// Wait for thread to finish
-	WaitForSingleObject (tHandle, INFINITE);
-    CloseHandle (tHandle);
-	printf ("Thread completed.\n");
+	// Wait for threads to finish	
+	WaitForMultipleObjects (numThreads, threadHandles, TRUE, INFINITE);
 	
-Error:
-	return error;
+    for (int h = 0; h < numThreads; h++)
+	{
+		CloseHandle (threadHandles[h]);
+		printf ("Thread handle %d completed and closed.\n", threadHandles[h]);
+	}
+	
+	return 0;
 }
 
 /***************************************************************************//*!
@@ -81,9 +95,9 @@ DWORD WINAPI Thread_Test (LPVOID lpParam) // 20250821Michael: TODO implement fun
 	DWORD exitCode = 0;
 	int paramVal = *(int *) lpParam;
 	
-	printf("Entered Thread_Test.\nParameter received: %d\nNow waiting 3 secs...\n", paramVal);
+	printf("\tEntered Thread_Test.\n\tParameter received: %d\n\tNow waiting 3 secs...\n", paramVal);
 	Delay (3.0);
-	printf("Exited Thread_Test.\n");
+	printf("\tExited Thread_Test.\n");
 	
 	// Close thread
     return exitCode;
@@ -108,6 +122,22 @@ DWORD WINAPI Thread_Test (LPVOID lpParam) // 20250821Michael: TODO implement fun
 	
 Error:
 	return error;*/
+}
+
+/***************************************************************************//*!
+* \brief Test thread function
+*******************************************************************************/
+DWORD WINAPI Thread_Test_2 (LPVOID lpParam) // 20250821Michael: TODO implement function properly
+{
+	DWORD exitCode = 0;
+	int paramVal = *(int *) lpParam;
+	
+	printf("\tEntered Thread_Test.\n\tParameter received: %d\n\tNow waiting 5 secs...\n", paramVal);
+	Delay (5.0);
+	printf("\tExited Thread_Test.\n");
+	
+	// Close thread
+    return exitCode;
 }
 //! \cond
 /// REGION END
