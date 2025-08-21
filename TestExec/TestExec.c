@@ -65,6 +65,7 @@ ApplicationWindow gMainWindow;
 ERRORINFO	errorInfo = {0, 0, "", "", "", 0, 0};
 ErrMsg		errMsg = "";
 
+extern int glbNumSockets;
 extern int glbPanelHeight;
 extern int glbPanelWidth;
 extern int glbPanelTop;
@@ -97,7 +98,8 @@ int main(int argc, char *argv[])
 	
 	nullChk( InitCVIRTE(0, argv, 0));	// initialize CVI runtime engine
 	
-	// load the panels into memory
+	// Load UI panels to memory
+	SetSystemAttribute (ATTR_RESOLUTION_ADJUSTMENT, 0);		// Nest panels will resize to resolution settings otherwise
 	errChk( ArxUtil_LoadPanelsInMemory());
 	
 	// Set ATTR_ACTIVATE_WHEN_CLICKED_ON to FALSE to prevent main panel
@@ -179,6 +181,8 @@ int main(int argc, char *argv[])
 	// Set window size based on config
 	SetPanelSize (gMainWindow.panel, glbPanelHeight, glbPanelWidth);
 	SetPanelPos (gMainWindow.panel, glbPanelTop, glbPanelLeft);
+	SetPanelSize (gMainWindow.execpanel, glbPanelHeight, glbPanelWidth);
+	SetPanelPos (gMainWindow.execpanel, glbPanelTop, glbPanelLeft);
 
 	errChk( ArrangeControls(FALSE));  // make any adjustments needed due to font sizes, etc. (pass FALSE to processEvents to ensure that the StartExecution event for the login execution isn't processed until the splash screen is gone and the main window is displayed. This makes sure the login dialog is modal to correct window (the main window)
 
@@ -187,8 +191,11 @@ int main(int argc, char *argv[])
 	errChk( SetActivePanel(gMainWindow.fileTab));
 	
 	// display window and process user input until application exits
+	errChk( DisplayPanel(gMainWindow.panel));
 	errChk( DisplayPanel(gMainWindow.execpanel));
-
+	for (int i=0;i<glbNumSockets;++i)
+		errChk( DisplayPanel(gMainWindow.nests[i]));
+	
 	errChk( RunUserInterface());
 
 	errChk( TSUI_ApplicationMgrGetExitCode(gMainWindow.applicationMgr, &errorInfo, &exitCode));
@@ -197,8 +204,8 @@ Error:
 	if (gMainWindow.panel > 0)
 		DiscardPanel(gMainWindow.panel);
 	
-	if (gMainWindow.execpanel > 0)
-		DiscardPanel(gMainWindow.execpanel);
+	/*if (gMainWindow.execpanel > 0)
+		DiscardPanel(gMainWindow.execpanel);*/
 
 	if (splashPanel > 0)
 		DiscardPanel(splashPanel);

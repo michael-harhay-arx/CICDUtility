@@ -18,6 +18,7 @@
 #include "Callbacks.h"
 #include "TestExecUtils.h"
 #include "TestThreads.h"
+#include "UIDefinitions.h"
 		
 #include "TestExecPanel.h"
 #include "SplashPanel.h"
@@ -42,7 +43,7 @@ typedef struct
 {
 	// panel handles
 	int			panel;								// main window
-	int			execpanel;							// execution window
+	int			tspanel;							// TestStand window
 	int			fileTab;							// "Sequences" tab. shows information about the selected sequence file
 	int			executionTab;						// "Steps" tab. shows execution information about the selected execution
 	int			reportTab;							// "Report" tab. shows the report for the selected execution
@@ -71,9 +72,26 @@ typedef struct
 	CAObjHandle	statusBar;							// status bar at bottom of window
 	CAObjHandle executionLabel;						// hidden label connected to CaptionSource_CurrentExecution. When the label receives a ConnectionActivity event, we update the application title bar
 	
-	int			programmaticallyUpdatingTabPages;	// TRUE while within ShowAppropriateTabs()
 	CAObjHandle	engine;								// TestStand Engine Handle, stored here for convenient availability
+	
+	int			programmaticallyUpdatingTabPages;	// TRUE while within ShowAppropriateTabs()
 	int			guiThreadId;						// for filtering out CVI events from other threads in the MainCallback
+	
+	/*******************************************************************************
+	* Execute Panel (CVI)
+	*******************************************************************************/
+	int			execpanel;							//!< Execution window (CVI)
+	int			tabpanels[CVIUI_NUM_NEST_TABS];		//!< Tabbed Nest pages
+	
+	int			grpCounters;						//!< Control array for counters (resize purpose only)
+	int			grpCountersST;						//!< Control array for short term counters
+	int			grpCountersLT;						//!< Control array for long term counters
+	int			grpLogoLEDs;						//!< Control array for Logos and LEDs (resize purpose only)
+	int			grpLEDs;							//!< Control array for LEDs
+	int			grpLogos;							//!< Control array for Logos
+	
+	int			nests[CVIUI_TOTAL_POSSIBLE_NESTS];					//!< Handles for each nest panel
+	
 } ApplicationWindow;
 
 //==============================================================================

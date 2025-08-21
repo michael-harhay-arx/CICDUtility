@@ -46,6 +46,7 @@ LOCATE on "TestExecUtils.c" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility
 LOCATE on "TestExecUtils.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
 LOCATE on "TestThreads.c" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
 LOCATE on "TestThreads.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
+LOCATE on "UIDefinitions.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
 Object "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\Callbacks.obj" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\Callbacks.c" ;
 FILENUM on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\Callbacks.obj" = 1 ;
 DEFPROTS on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\Callbacks.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\Callbacks.obj.cvidefprots" ;

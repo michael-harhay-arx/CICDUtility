@@ -69,6 +69,18 @@ int glbPanelLeft = 0;
 
 char glbRootPath[MAX_PATHNAME_LEN] = {0};
 
+/***************************************************************************//*!
+* \brief UI size variables
+*******************************************************************************/
+int glbWindowHeight = 0;
+int glbWindowWidth = 0;
+
+/***************************************************************************//*!
+* \brief Used for expanding the test detail windows
+*******************************************************************************/
+int glbNestOrigWidth = 0;
+int glbNestOrigLeft[CVIUI_TOTAL_POSSIBLE_NESTS] = {0};
+
 //==============================================================================
 // Global functions
 
@@ -91,8 +103,12 @@ int ArxUtil_LoadPanelsInMemory (void)
 	errChk( GetPanelHandleFromTabPage (gMainWindow.panel, MAINPANEL_TAB, TABPAGE_REPORT,    &gMainWindow.reportTab));
 	
 	errChk( gMainWindow.execpanel = 	LoadPanelEx(gMainWindow.panel, "TestExecExecute.uir", EXEC_PANEL, __CVIUserHInst));
-	//errChk( GetPanelHandleFromTabPage (gMainWindow.panel, EXEC, TABPAGE_REPORT,    &gMainWindow.reportTab));
+	
+	// Nests
+	for (int i=0; i<CVIUI_NUM_NEST_TABS; ++i)
+		errChk ( GetPanelHandleFromTabPage (gMainWindow.execpanel, EXEC_PANEL_TAB_NESTS, i, &(gMainWindow.tabpanels[i])));
 
+	errChk( gMainWindow.nests[0] = 		LoadPanelEx(gMainWindow.execpanel, "TestExecExecute.uir", NEST_PANEL, __CVIUserHInst));
 	
 Error:
 	return error;

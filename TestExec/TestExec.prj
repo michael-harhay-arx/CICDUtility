@@ -9,7 +9,7 @@ IVI Standard Root Dir = "/C/Program Files (x86)/IVI Foundation/IVI"
 VXIplug&play Framework Dir = "/C/Program Files (x86)/IVI Foundation/VISA/winnt"
 IVI Standard Root 64-bit Dir = "/C/Program Files/IVI Foundation/IVI"
 VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
-Number of Files = 22
+Number of Files = 23
 Target Type = "Executable"
 Flags = 2064
 Copied From Locked InstrDrv Directory = False
@@ -214,8 +214,20 @@ Folder = "Include Files"
 Folder Id = 2
 
 [File 0015]
-File Type = "User Interface Resource"
+File Type = "Include"
 Res Id = 15
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "UIDefinitions.h"
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/UIDefinitions.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+Folder Id = 2
+
+[File 0016]
+File Type = "User Interface Resource"
+Res Id = 16
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "User Interface Files/SplashPanel.uir"
@@ -226,9 +238,9 @@ Project Flags = 0
 Folder = "User Interface Files"
 Folder Id = 3
 
-[File 0016]
+[File 0017]
 File Type = "User Interface Resource"
-Res Id = 16
+Res Id = 17
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "User Interface Files/TestExecExecute.uir"
@@ -239,9 +251,9 @@ Project Flags = 0
 Folder = "User Interface Files"
 Folder Id = 3
 
-[File 0017]
+[File 0018]
 File Type = "User Interface Resource"
-Res Id = 17
+Res Id = 18
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "User Interface Files/TestExecPanel.uir"
@@ -252,9 +264,9 @@ Project Flags = 0
 Folder = "User Interface Files"
 Folder Id = 3
 
-[File 0018]
+[File 0019]
 File Type = "Include"
-Res Id = 18
+Res Id = 19
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "User Interface Files/SplashPanel.h"
@@ -265,9 +277,9 @@ Project Flags = 0
 Folder = "User Interface Include Files"
 Folder Id = 4
 
-[File 0019]
+[File 0020]
 File Type = "Include"
-Res Id = 19
+Res Id = 20
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "User Interface Files/TestExecExecute.h"
@@ -278,9 +290,9 @@ Project Flags = 0
 Folder = "User Interface Include Files"
 Folder Id = 4
 
-[File 0020]
+[File 0021]
 File Type = "Include"
-Res Id = 20
+Res Id = 21
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "User Interface Files/TestExecPanel.h"
@@ -291,9 +303,9 @@ Project Flags = 0
 Folder = "User Interface Include Files"
 Folder Id = 4
 
-[File 0021]
+[File 0022]
 File Type = "Include"
-Res Id = 21
+Res Id = 22
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "../../../../../Arxtron/Libraries/ProjectSpecificGUI_LIB.h"
@@ -303,9 +315,9 @@ Project Flags = 0
 Folder = "Project Specific"
 Folder Id = 5
 
-[File 0022]
+[File 0023]
 File Type = "Library"
-Res Id = 22
+Res Id = 23
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "../../../../../Arxtron/Libraries/ProjectSpecificGUI_LIB.lib"
@@ -387,12 +399,18 @@ Comments = ""
 Comments Ex = ""
 Company Name = "[YourCompanyHere]"
 Company Name Ex = "[YourCompanyHere]"
+File Description = "Test Executive (Debug x86)"
+File Description Ex = "%application (%rel_dbg %arch)"
 File Version = "5.0.0.13"
 File Version Ex = "5.0.0.13"
+Internal Name = "TestExec"
+Internal Name Ex = "%basename"
 Legal Copyright = "[YourCopyrightHere]"
 Legal Copyright Ex = "[YourCopyrightHere]"
 Legal Trademarks = ""
 Legal Trademarks Ex = ""
+Original Filename = "TestExec.exe"
+Original Filename Ex = "%filename"
 Private Build = ""
 Private Build Ex = ""
 Product Name = "[YourProductNameHere]"

@@ -55,9 +55,21 @@ int glbSysLogLevel = 0;
 //==============================================================================
 // Global variables
 
+/***************************************************************************//*!
+* \brief Keeps track of whether a nest result box has been expanded from ArxCB_ExpandTestInfo
+*******************************************************************************/
+int glbNestExpanded[CVIUI_TOTAL_POSSIBLE_NESTS] = {0};
+
 extern ApplicationWindow gMainWindow;
 extern ERRORINFO errorInfo;
 extern ErrMsg errMsg;
+
+extern int glbNumSockets;
+
+extern int glbWindowHeight;
+extern int glbWindowWidth;
+extern int glbNestOrigWidth;
+extern int glbNestOrigLeft[CVIUI_TOTAL_POSSIBLE_NESTS];
 
 //==============================================================================
 // Global functions
@@ -90,6 +102,59 @@ int CVICALLBACK ArxCB_IdleTimer (int panel, int control, int event, void *callba
 			SetCtrlVal (panel, EXEC_PANEL_IDLE_TIME, time);
 			break;
 	}
+	return 0;
+}
+
+/***************************************************************************//*!
+* \brief Expand the test info and additional info list for viewing additional
+* 	information if the default nest size is too small
+*******************************************************************************/
+int CVICALLBACK ArxCB_ExpandTestInfo (int panel, int control, int event, void *callbackData, int eventData1, int eventData2)
+{
+	int nestNum = 0;
+	int panelLeft = 0;
+	int testInfoWidthWithSpacer = CVIUI_TEST_INFO_WIDTH+2*CVIUI_SPACER;
+	int moveLeft = 0;
+	
+	switch (event)
+	{
+		case EVENT_LEFT_DOUBLE_CLICK:
+			// Check if size already big enough to display info
+			if (glbNestOrigWidth>testInfoWidthWithSpacer)
+				break;
+			
+			// Find the nest that was clicked
+			for (nestNum; nestNum<glbNumSockets; ++nestNum)
+			{
+				if (panel==gMainWindow.nests[nestNum])
+					break;
+			}
+			
+			GetPanelAttribute (panel, ATTR_LEFT, &panelLeft);
+			
+			if (glbNestExpanded[nestNum]==1)
+			{
+				SetPanelAttribute (panel, ATTR_WIDTH, glbNestOrigWidth);
+				SetCtrlAttribute (panel, control, ATTR_WIDTH, glbNestOrigWidth-2*CVIUI_SPACER);
+				SetPanelAttribute (panel, ATTR_LEFT, glbNestOrigLeft[nestNum]);
+				glbNestExpanded[nestNum] = 0;
+			}
+			else
+			{
+				SetPanelAttribute (panel, ATTR_WIDTH, testInfoWidthWithSpacer);
+				SetCtrlAttribute (panel, control, ATTR_WIDTH, CVIUI_TEST_INFO_WIDTH);
+				// If the nest being expanded will go past the right edge of the sequencer
+				if (panelLeft>(glbWindowWidth-testInfoWidthWithSpacer))
+				{
+					moveLeft = CVIUI_TEST_INFO_WIDTH-glbNestOrigWidth;
+					SetPanelAttribute (panel, ATTR_LEFT, glbNestOrigLeft[nestNum]-moveLeft);
+				}
+				glbNestExpanded[nestNum] = 1;
+			}
+			SetCtrlAttribute (panel, control, ATTR_LEFT, CVIUI_SPACER);
+			break;
+	}
+
 	return 0;
 }
 //! \cond

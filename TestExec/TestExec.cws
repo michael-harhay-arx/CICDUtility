@@ -30,7 +30,7 @@ Save Changes Before Compiling = "Always"
 Hide Windows = False
 Break At First Statement = False
 Sort Type = "File Name"
-Number of Opened Files = 6
+Number of Opened Files = 9
 Window Confinement Region Enabled = True
 MainColumnWidth = 268
 FileDateColumnWidth = 70
@@ -88,13 +88,9 @@ In Projects = "1,"
 [File 0007]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.c"
 File Type = "CSource"
-Disk Date = 3838566099
+Disk Date = 3838628284
 In Projects = "1,"
-Source Window State = "1,125,125,125,4,4,4,0,0,0,0,0,0,0,0,0,110,0,125,4,401,714,1,0,"
-Breakpoint 0001 = "84,0,enabled,"
-Tracepoint 0001 = "0,0,85,1,"
-Breakpoint 0002 = "112,0,enabled,"
-Tracepoint 0002 = "0,0,113,1,"
+Source Window State = "1,235,235,235,4,4,4,0,0,0,0,0,0,0,0,0,195,0,235,4,401,714,1,0,"
 Window Top = 33
 Window Left = 10
 Window Z-Order = 1
@@ -102,29 +98,29 @@ Window Z-Order = 1
 [File 0008]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.h"
 File Type = "Include"
-Disk Date = 3838463714
+Disk Date = 3838569431
 In Projects = "1,"
-Source Window State = "1,19,19,19,24,24,24,0,0,0,0,0,0,0,0,0,16,0,19,24,401,714,1,0,"
+Source Window State = "1,44,44,44,16,21,16,0,3,0,0,0,0,0,0,0,24,0,44,21,401,714,1,0,"
 Window Top = 64
 Window Left = 26
-Window Z-Order = 3
+Window Z-Order = 2
 
 [File 0009]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecUtils.c"
 File Type = "CSource"
-Disk Date = 3838568076
+Disk Date = 3838569828
 In Projects = "1,"
-Source Window State = "1,137,151,151,6,36,36,0,3,0,0,0,0,0,0,0,121,0,137,6,401,714,1,0,"
+Source Window State = "1,301,301,301,4,23,4,0,3,0,0,0,0,0,0,0,275,0,301,23,401,714,1,0,"
 Window Top = 436
 Window Left = 218
-Window Z-Order = 2
+Window Z-Order = 4
 
 [File 0010]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecUtils.h"
 File Type = "Include"
 Disk Date = 3838564498
 In Projects = "1,"
-Source Window State = "1,20,20,20,0,0,0,0,0,0,0,0,0,0,0,0,1,0,20,0,401,714,1,0,"
+Source Window State = "1,20,20,20,0,0,0,0,0,0,0,0,0,0,0,0,23,0,20,0,401,714,1,0,"
 Window Top = 467
 Window Left = 234
 Window Z-Order = 5
@@ -132,22 +128,22 @@ Window Z-Order = 5
 [File 0011]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/Callbacks.c"
 File Type = "CSource"
-Disk Date = 3838378099
+Disk Date = 3838570279
 In Projects = "1,"
-Source Window State = "1,62,62,62,19,19,19,0,0,0,0,0,0,0,0,0,36,0,62,19,401,714,1,0,"
+Source Window State = "1,154,154,154,18,18,18,0,0,0,0,0,0,0,0,0,123,0,154,18,401,714,1,0,"
 Window Top = 64
 Window Left = 26
-Window Z-Order = 4
+Window Z-Order = 3
 
 [File 0012]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/Callbacks.h"
 File Type = "Include"
 Disk Date = 3838370783
 In Projects = "1,"
-Source Window State = "1,76,76,76,89,89,89,0,0,0,0,0,0,0,0,0,2,0,76,89,401,714,1,0,"
+Source Window State = "1,76,76,76,89,89,89,0,0,0,0,0,0,0,0,0,16,0,76,89,401,714,1,0,"
 Window Top = 95
 Window Left = 42
-Window Z-Order = 6
+Window Z-Order = 9
 
 [File 0013]
 Path Line0001 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/User Interface Files/Test"
@@ -159,6 +155,7 @@ Window Top = 281
 Window Left = 138
 Window Height = 401
 Window Width = 630
+Window Z-Order = 7
 
 [File 0014]
 Path Line0001 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/User Interface Files/Test"
@@ -209,12 +206,13 @@ Window Left = 138
 Path Line0001 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/User Interface Files/Test"
 Path Line0002 = "ExecExecute.uir"
 File Type = "User Interface Resource"
-Disk Date = 3837524045
+Disk Date = 3838627425
 In Projects = "1,"
 Window Top = 33
 Window Left = 10
 Window Height = 401
 Window Width = 714
+Window Z-Order = 6
 
 [File 0020]
 Path Line0001 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/User Interface Files/Test"
@@ -239,6 +237,16 @@ Disk Date = 3837524048
 In Projects = "1,"
 Source Window State = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"
 
+[File 0023]
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/UIDefinitions.h"
+File Type = "Include"
+Disk Date = 3838569614
+In Projects = "1,"
+Source Window State = "1,47,47,47,112,112,112,0,0,0,0,0,0,0,0,0,17,0,47,112,401,714,1,0,"
+Window Top = 64
+Window Left = 26
+Window Z-Order = 8
+
 [Tab Order]
 Tab 0001 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/Callbacks.c"
 Tab 0002 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/Callbacks.h"
@@ -246,6 +254,11 @@ Tab 0003 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.c"
 Tab 0004 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.h"
 Tab 0005 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecUtils.c"
 Tab 0006 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecUtils.h"
+Tab 0007 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/UIDefinitions.h"
+Tab 0008 Line0001 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/User Interface Files/Test"
+Tab 0008 Line0002 = "ExecExecute.uir"
+Tab 0009 Line0001 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/User Interface Files/Test"
+Tab 0009 Line0002 = "ExecPanel.uir"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True
