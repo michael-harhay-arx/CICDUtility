@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
 		// show a splash screen while starting up
 		errChk( splashPanel = LoadPanelEx(0, "SplashPanel.uir", ARXSPLASH, __CVIUserHInst));
 		errChk( InstallPopup(splashPanel));
-		Delay (3.0); // Arbitrary delay
+		Delay (1.0); // Arbitrary delay
 	}
 
 	// setup event callbacks for the TestStand User Interface Components
@@ -185,9 +185,8 @@ int main(int argc, char *argv[])
 	errChk( SetActivePanel(gMainWindow.fileTab));
 	
 	// Start threads
-	errChk( StartThreads ());
+	errChk( StartThreads (errmsg));
 
-	
 	// display window and process user input until application exits
 	errChk( DisplayPanel(gMainWindow.panel));
 	errChk( DisplayPanel(gMainWindow.execpanel));

@@ -43,11 +43,10 @@ typedef struct
 // Global functions
 
 // Start threads function
-int StartThreads (void);
+int StartTestThreads (char errmsg[ERRLEN]);
 
 // Thread functions
-DWORD WINAPI Thread_Test (LPVOID lpParam);
-DWORD WINAPI Thread_Test_2 (LPVOID lpParam);
+int CVICALLBACK Thread_EStop (void *functionData)
 
 #ifdef __cplusplus
     }
