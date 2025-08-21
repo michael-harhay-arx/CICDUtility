@@ -1,9 +1,9 @@
 /***************************************************************************//*!
 * \file Callbacks.c
-* \author 
+* \author Michael Harhay
 * \copyright . All Rights Reserved.
 * \date 2025-08-15 4:12:48 PM
-* \brief A short description.
+* \brief TestExec callbacks
 * 
 * A longer description.
 *******************************************************************************/
@@ -14,18 +14,15 @@
 //==============================================================================
 // Include files
 
-/***************************************************************************//*!
-* \brief Disables system logging completely.  Needs to be defined before including
-* 	ArxtronToolslib.h.  By default, it is defined in each source file to allow
-* 	for source file level control for disabling.
-*******************************************************************************/
-//#define SYSLOGDISABLE
-/***************************************************************************//*!
-* \brief Overrides config log level.  Needs to be defined before including
-* 	ArxtronToolslib.h.  By default, it is defined in each source file to allow
-* 	for source file level control for overrides.
-*******************************************************************************/
-//#define SYSLOGOVERRIDE 3
+#include "tsuisupp.h"		// support API for the TestStand ActiveX controls
+#include "easytab.h"		// for the tab control
+#include <utility.h>
+
+#include "TestExec.h"
+#include "TestExecUtils.h"
+#include "UIDefinitions.h"
+#include "TestExecExecute.h"
+#include "TestExecPanel.h"
 
 #include "Callbacks.h"
 
@@ -43,11 +40,6 @@
 *******************************************************************************/
 int glbGetNewEventTime = 0;
 double glbNewEventTime = 0.0;
-
-/***************************************************************************//*!
-* \brief Stores the log level used for SYSLOG macro
-*******************************************************************************/
-int glbSysLogLevel = 0;
 
 //==============================================================================
 // functions

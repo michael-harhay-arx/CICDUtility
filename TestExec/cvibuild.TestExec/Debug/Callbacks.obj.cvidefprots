@@ -1,155 +1,155 @@
 [ArxCB_IdleTimer]
 Class="Function"
 Prototype="int ArxCB_IdleTimer(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:87:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:80:1"
 
 [ArxCB_ExpandTestInfo]
 Class="Function"
 Prototype="int ArxCB_ExpandTestInfo(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:112:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:105:1"
 
 [MainPanelCallback]
 Class="Function"
 Prototype="int MainPanelCallback(int panel, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:168:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:161:1"
 
 [TabControlCallback]
 Class="Function"
 Prototype="int TabControlCallback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:183:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:176:1"
 
 [ApplicationMgr_OnQueryShutdown]
 Class="Function"
 Prototype="long ApplicationMgr_OnQueryShutdown(CAObjHandle caServerObjHandle, void *caCallbackData, enum TSUIEnum_QueryShutdownOptions *opt);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:219:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:212:1"
 
 [ApplicationMgr_OnExitApplication]
 Class="Function"
 Prototype="long ApplicationMgr_OnExitApplication(CAObjHandle caServerObjHandle, void *caCallbackData);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:243:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:236:1"
 
 [ApplicationMgr_OnWait]
 Class="Function"
 Prototype="long ApplicationMgr_OnWait(CAObjHandle caServerObjHandle, void *caCallbackData, short bShowWait);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:260:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:253:1"
 
 [ApplicationMgr_OnDisplayReport]
 Class="Function"
 Prototype="long ApplicationMgr_OnDisplayReport(CAObjHandle caServerObjHandle, void *caCallbackData, CAObjHandle execution);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:270:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:263:1"
 
 [ApplicationMgr_OnDisplayExecution]
 Class="Function"
 Prototype="long ApplicationMgr_OnDisplayExecution(CAObjHandle caServerObjHandle, void *caCallbackData, CAObjHandle execution, enum TSUIEnum_ExecutionDisplayReasons reason);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:285:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:278:1"
 
 [ApplicationMgr_OnEditModeChanged]
 Class="Function"
 Prototype="long ApplicationMgr_OnEditModeChanged(CAObjHandle caServerObjHandle, void *caCallbackData);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:313:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:306:1"
 
 [ApplicationMgr_OnPostCommandExecute]
 Class="Function"
 Prototype="long ApplicationMgr_OnPostCommandExecute(CAObjHandle caServerObjHandle, void *caCallbackData, CAObjHandle command);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:331:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:324:1"
 
 [ApplicationMgr_OnDisplaySequenceFile]
 Class="Function"
 Prototype="long ApplicationMgr_OnDisplaySequenceFile(CAObjHandle caServerObjHandle, void *caCallbackData, CAObjHandle file, enum TSUIEnum_SequenceFileDisplayReasons reason);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:360:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:353:1"
 
 [ApplicationMgr_OnReportError]
 Class="Function"
 Prototype="long ApplicationMgr_OnReportError(CAObjHandle caServerObjHandle, void *caCallbackData, long errorCode, char *errorMessage);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:381:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:374:1"
 
 [ApplicationMgr_OnStartExecution]
 Class="Function"
 Prototype="long ApplicationMgr_OnStartExecution(CAObjHandle caServerObjHandle, void *caCallBackData, CAObjHandle execution, CAObjHandle thread, short initiallyHidden);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:391:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:384:1"
 
 [ExecutionViewMgr_OnExecutionChanged]
 Class="Function"
 Prototype="long ExecutionViewMgr_OnExecutionChanged(CAObjHandle caServerObjHandle, void *caCallbackData, CAObjHandle execution);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:406:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:399:1"
 
 [SequenceFilesView_OnCreateContextMenu]
 Class="Function"
 Prototype="long SequenceFilesView_OnCreateContextMenu(CAObjHandle caServerObjHandle, void *caCallbackData, long menuHandle, long x, long y);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:421:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:414:1"
 
 [ExecutionView_OnCreateContextMenu]
 Class="Function"
 Prototype="long ExecutionView_OnCreateContextMenu(CAObjHandle caServerObjHandle, void *caCallbackData, long menuHandle, long x, long y);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:436:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:429:1"
 
 [ListBar_OnCreateContextMenu]
 Class="Function"
 Prototype="long ListBar_OnCreateContextMenu(CAObjHandle caServerObjHandle, void *caCallbackData, long menuHandle, long x, long y);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:451:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:444:1"
 
 [SequencesList_OnCreateContextMenu]
 Class="Function"
 Prototype="long SequencesList_OnCreateContextMenu(CAObjHandle caServerObjHandle, void *caCallbackData, long menuHandle, long x, long y);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:477:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:470:1"
 
 [ListBar_OnCurPageChanged]
 Class="Function"
 Prototype="long ListBar_OnCurPageChanged(CAObjHandle caServerObjHandle, void *caCallbackData, long currentPage);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:503:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:496:1"
 
 [StatusBar_OnResized]
 Class="Function"
 Prototype="long StatusBar_OnResized(CAObjHandle caServerObjHandle, void *caCallbackData, short newWidth, short newHeight);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:518:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:511:1"
 
 [AboutBoxMenuItemCallback]
 Class="Function"
 Prototype="void AboutBoxMenuItemCallback(int menuBar, int menuItem, void *callbackData, int panel);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:536:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:529:1"
 
 [AboutBoxOKCallback]
 Class="Function"
 Prototype="int AboutBoxOKCallback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:599:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:592:1"
 
 [ListBar_OnBorderDragged]
 Class="Function"
 Prototype="long ListBar_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long bordersChanged, long newX, long newY, long newWidth, long newHeight, short finalResize);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:615:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:608:1"
 
 [SequenceFilesView_OnBorderDragged]
 Class="Function"
 Prototype="long SequenceFilesView_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long bordersChanged, long newX, long newY, long newWidth, long newHeight, short finalResize);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:632:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:625:1"
 
 [FileVariables_OnBorderDragged]
 Class="Function"
 Prototype="long FileVariables_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long bordersChanged, long newX, long newY, long newWidth, long newHeight, short finalResize);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:648:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:641:1"
 
 [InsertionPalette_OnBorderDragged]
 Class="Function"
 Prototype="long InsertionPalette_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long bordersChanged, long newX, long newY, long newWidth, long newHeight, short finalResize);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:664:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:657:1"
 
 [ExecutionView_OnBorderDragged]
 Class="Function"
 Prototype="long ExecutionView_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long bordersChanged, long newX, long newY, long newWidth, long newHeight, short finalResize);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:680:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:673:1"
 
 [ExecutionVariables_OnBorderDragged]
 Class="Function"
 Prototype="long ExecutionVariables_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long bordersChanged, long newX, long newY, long newWidth, long newHeight, short finalResize);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:696:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:689:1"
 
 [CallStack_OnBorderDragged]
 Class="Function"
 Prototype="long CallStack_OnBorderDragged(CAObjHandle caServerObjHandle, void *caCallbackData, long bordersChanged, long newX, long newY, long newWidth, long newHeight, short finalResize);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:712:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:705:1"
 
 [Label_OnConnectionActivity]
 Class="Function"
 Prototype="long Label_OnConnectionActivity(CAObjHandle caServerObjHandle, void *caCallbackData, enum TSUIEnum_ConnectionActivityTypes activity);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:728:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\Callbacks.c:721:1"
 

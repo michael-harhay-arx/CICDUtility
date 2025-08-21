@@ -1,6 +1,6 @@
 /***************************************************************************//*!
 * \file Callbacks.h
-* \author 
+* \author Michael Harhay
 * \copyright . All Rights Reserved.
 * \date 2025-08-15 4:12:48 PM
 *******************************************************************************/
@@ -15,18 +15,7 @@
 //==============================================================================
 // Include files
 
-#include <cvirte.h>		
-#include <userint.h>
-#include "TestExec.h"		// UIR header
-#include "tsapicvi.h"   	// TestStand API
-#include "tsui.h"			// API's for the TestStand ActiveX controls
-#include "tsuisupp.h"		// support API for the TestStand ActiveX controls
-#include <utility.h>
 #include "tsutil.h"			// helpful functions for using TestStand APIs in CVI
-#include "easytab.h"		// for the tab control
-#include "toolbox.h"   		// Max, ...
-
-#include "TestExec.h"
 
 //==============================================================================
 // Constants

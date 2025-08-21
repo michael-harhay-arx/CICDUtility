@@ -1,9 +1,9 @@
 /***************************************************************************//*!
 * \file TestExec.c
-* \author 
+* \author Michael Harhay
 * \copyright . All Rights Reserved.
 * \date 2025-08-15 4:28:07 PM
-* \brief A short description.
+* \brief Main entry/exit point for the project test TestExec
 * 
 * A longer description.
 *******************************************************************************/
@@ -14,22 +14,18 @@
 //==============================================================================
 // Include files
 
-/***************************************************************************//*!
-* \brief Disables system logging completely.  Needs to be defined before including
-* 	ArxtronToolslib.h.  By default, it is defined in each source file to allow
-* 	for source file level control for disabling.
-*******************************************************************************/
-//#define SYSLOGDISABLE
-/***************************************************************************//*!
-* \brief Overrides config log level.  Needs to be defined before including
-* 	ArxtronToolslib.h.  By default, it is defined in each source file to allow
-* 	for source file level control for overrides.
-*******************************************************************************/
-//#define SYSLOGOVERRIDE 3
+#include "Callbacks.h"
+#include "TestExecUtils.h"
+#include "TestThreads.h"
+
+#include "ArxtronToolslib.h"
+
+#include "SplashPanel.h"
+#include "TestExecExecute.h"
+#include "TestExecPanel.h"
+#include "ProjectSpecificGUI_LIB.h"
 
 #include "TestExec.h"
-
-#include "SystemLog_LIB.h"
 
 //==============================================================================
 // Constants
@@ -39,11 +35,6 @@
 
 //==============================================================================
 // Static global variables
-
-/***************************************************************************//*!
-* \brief Stores the log level used for SYSLOG macro
-*******************************************************************************/
-static int glbSysLogLevel = 0;
 
 //==============================================================================
 // Static functions
@@ -65,6 +56,9 @@ ApplicationWindow gMainWindow;
 ERRORINFO	errorInfo = {0, 0, "", "", "", 0, 0};
 ErrMsg		errMsg = "";
 
+/***************************************************************************//*!
+* \brief External global variables used for GUI setup
+*******************************************************************************/
 extern int glbNumSockets;
 extern int glbPanelHeight;
 extern int glbPanelWidth;

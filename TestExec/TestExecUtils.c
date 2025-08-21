@@ -1,6 +1,6 @@
 /***************************************************************************//*!
 * \file TestExecUtils.c
-* \author 
+* \author Michael Harhay
 * \copyright . All Rights Reserved.
 * \date 2025-08-15 5:04:32 PM
 * \brief A short description.
@@ -14,22 +14,22 @@
 //==============================================================================
 // Include files
 
-/***************************************************************************//*!
-* \brief Disables system logging completely.  Needs to be defined before including
-* 	ArxtronToolslib.h.  By default, it is defined in each source file to allow
-* 	for source file level control for disabling.
-*******************************************************************************/
-//#define SYSLOGDISABLE
-/***************************************************************************//*!
-* \brief Overrides config log level.  Needs to be defined before including
-* 	ArxtronToolslib.h.  By default, it is defined in each source file to allow
-* 	for source file level control for overrides.
-*******************************************************************************/
-//#define SYSLOGOVERRIDE 3
+#include "tsui.h"
+#include "inifile.h"
+#include "cvidef.h"
+#include "tsapicvi.h"
+#include "tsutil.h"
+#include "tsuisupp.h"
+#include "ArxtronToolslib.h"
+
+#include "UIDefinitions.h"
+#include "TestExecPanel.h"
+#include "TestExecExecute.h"
+
+#include "Callbacks.h"
+#include "TestExec.h"
 
 #include "TestExecUtils.h"
-
-#include "SystemLog_LIB.h"
 
 //==============================================================================
 // Constants
