@@ -1,15 +1,20 @@
-[StartThreads]
+[GetStandardErrMsg]
 Class="Function"
-Prototype="int StartThreads();"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThreads.c:45:1"
+Prototype="void GetStandardErrMsg(int error, char errmsg[1024]);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThreads.c:66:1"
 
-[Thread_Test]
+[StartTestThreads]
 Class="Function"
-Prototype="unsigned long Thread_Test(void *lpParam);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThreads.c:93:1"
+Prototype="int StartTestThreads(char errmsg[1024]);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThreads.c:86:1"
 
-[Thread_Test_2]
+[ThreadTemplate]
 Class="Function"
-Prototype="unsigned long Thread_Test_2(void *lpParam);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThreads.c:130:1"
+Prototype="int ThreadTemplate(void *functionData);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThreads.c:105:1"
+
+[Thread_EStop]
+Class="Function"
+Prototype="int Thread_EStop(void *functionData);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThreads.c:126:1"
 

@@ -33,7 +33,6 @@ HDRS = 	"c:\\Users\\Michael_Harhay\\Documents\\CICDUtility"
 	"c:\\Program Files (x86)\\National Instruments\\CVI2019\\bin"
 	"c:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\Bin"
 	;
-include Jamfile_instr ;
 LOCATE on "Callbacks.c" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
 LOCATE on "Callbacks.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
 LOCATE on "ProjectSpecificGUI_LIB.h" = "c:\\Arxtron\\Libraries" ;
@@ -47,32 +46,10 @@ LOCATE on "TestExecUtils.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility
 LOCATE on "TestThreads.c" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
 LOCATE on "TestThreads.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
 LOCATE on "UIDefinitions.h" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec" ;
-Object "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\Callbacks.obj" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\Callbacks.c" ;
-FILENUM on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\Callbacks.obj" = 1 ;
-DEFPROTS on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\Callbacks.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\Callbacks.obj.cvidefprots" ;
-OUTFILE on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\Callbacks.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\Callbacks.obj.out" ;
-PrjObjects += "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\Callbacks.obj" ;
-Object "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.obj" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\TestExec.c" ;
-FILENUM on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.obj" = 2 ;
-DEFPROTS on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.obj.cvidefprots" ;
-OUTFILE on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.obj.out" ;
-PrjObjects += "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.obj" ;
-Object "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExecUtils.obj" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\TestExecUtils.c" ;
-FILENUM on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExecUtils.obj" = 3 ;
-DEFPROTS on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExecUtils.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExecUtils.obj.cvidefprots" ;
-OUTFILE on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExecUtils.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExecUtils.obj.out" ;
-PrjObjects += "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExecUtils.obj" ;
 Object "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestThreads.obj" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\TestThreads.c" ;
-FILENUM on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestThreads.obj" = 4 ;
+FILENUM on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestThreads.obj" = 1 ;
 DEFPROTS on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestThreads.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestThreads.obj.cvidefprots" ;
 OUTFILE on "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestThreads.obj" = "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestThreads.obj.out" ;
 PrjObjects += "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestThreads.obj" ;
-Object "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\resources.res" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\resources.in.rc" ;
-Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\resources.res" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\manifest.xml" ;
-MainFromObjects "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.exe" : $(PrjObjects) $(InstrObjects) ;
-Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.exe" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\link_options.txt" ;
-Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.exe" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\resources.res" ;
-Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\resources.res" :  "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\User Interface Files\\SplashPanel.uir" ;
-Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\resources.res" :  "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\User Interface Files\\TestExecExecute.uir" ;
-Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\resources.res" :  "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\User Interface Files\\TestExecPanel.uir" ;
-Depends all : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.exe" ;
+Always $(PrjObjects) ;
+Depends all : $(PrjObjects) ;

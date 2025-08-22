@@ -15,7 +15,6 @@
 //==============================================================================
 // Include files
 
-#include "Windows.h"
 #include "cvidef.h"
 #include <utility.h>
 #include <ansi_c.h>
@@ -46,7 +45,7 @@ typedef struct
 int StartTestThreads (char errmsg[ERRLEN]);
 
 // Thread functions
-int CVICALLBACK Thread_EStop (void *functionData)
+int CVICALLBACK Thread_EStop (void *functionData);
 
 #ifdef __cplusplus
     }
