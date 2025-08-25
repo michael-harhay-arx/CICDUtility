@@ -112,9 +112,7 @@ Error:
 								can be passed to allow for more params.
 *******************************************************************************/
 int CVICALLBACK ThreadTemplate (void *functionData)
-{
-	printf ("Entered Thread_EStop\n");
-	
+{	
 	char errmsg[ERRLEN] = {0};
 	
 	ApplicationWindow gMainWindow = *(ApplicationWindow *) functionData;
@@ -146,7 +144,7 @@ int CVICALLBACK ThreadTemplate (void *functionData)
 			// While sequence file is running, execute logic
             while (runState == 1)
             { 
-				/* Thread logic goes here */
+				// Thread logic goes here
                 
 				TS_ExecutionGetStates (execHandle, &errInfo, &runState, &terminationState);
             }

@@ -16,11 +16,15 @@
 
 #include "tsuisupp.h"		// support API for the TestStand ActiveX controls
 #include "easytab.h"		// for the tab control
+#include <formatio.h>
 #include <utility.h>
 
 #include "TestExec.h"
 #include "TestExecUtils.h"
 #include "UIDefinitions.h"
+#include "TSMessaging.h"
+#include "UIUtility.h"
+#include "ProjectSpecificGUI_LIB.h"
 #include "TestExecExecute.h"
 #include "TestExecPanel.h"
 
@@ -62,6 +66,11 @@ extern int glbWindowHeight;
 extern int glbWindowWidth;
 extern int glbNestOrigWidth;
 extern int glbNestOrigLeft[CVIUI_TOTAL_POSSIBLE_NESTS];
+
+extern TSSeqVar glbWatchVars[100];
+extern int glbNumWatching;
+extern TSSeqVar glbSetVars[100];
+extern int glbNumSetting;
 
 //==============================================================================
 // Global functions
@@ -148,6 +157,48 @@ int CVICALLBACK ArxCB_ExpandTestInfo (int panel, int control, int event, void *c
 	}
 
 	return 0;
+}
+
+/***************************************************************************//*!
+* \brief Generic callback for project specific menus, actual logic should come from
+* 	the ProjectSpecificGUI_LIB.
+* 
+* For TestStand implementation, this callback should only set flags in TestStand,
+* 	which then invoke the logic in the project lib.
+* 
+* For CVI implementation, call the functions directly from the project lib.
+*******************************************************************************/
+void CVICALLBACK ArxCB_SendProjectSpecificMenuStatus (int menuBar, int menuItem, void *callbackData, int panel)
+{
+	//switch case
+	
+	char *lookupString = (char *) callbackData;
+	int hasLock = 0;
+	//strtok is not thread safe, current alternative
+	char tok[3][40] = {0}; //Format of callbackData: TestStandVariableName;VarType;VarValue
+	int delimIndex = 0;
+	int tokArrIndex = 0;
+	
+	for(int i = 0; i <= strlen(lookupString); ++i)
+	{
+		if((lookupString[i] == ';'||lookupString[i] == 0 /*NUL*/))
+		{
+			CopyString(tok[tokArrIndex], 0, lookupString, delimIndex, (i-delimIndex));
+			delimIndex = i+1;
+			tokArrIndex++;
+		}
+	}
+	
+	CmtGetLockEx (glbSetVarLock, 1, CMT_WAIT_FOREVER, &hasLock);
+	if (hasLock)
+	{
+		strcpy(glbSetVars[glbNumSetting].seqName, ARX_UI_CAPABILITY_SEQNAME);
+		strcpy(glbSetVars[glbNumSetting].lookupString, tok[0]);
+		glbSetVars[glbNumSetting].varType = atoi(tok[1]);
+		strcpy(glbSetVars[glbNumSetting].varVal, tok[2]);
+		glbNumSetting++;
+		CmtReleaseLock (glbSetVarLock);
+	}
 }
 //! \cond
 /// REGION END

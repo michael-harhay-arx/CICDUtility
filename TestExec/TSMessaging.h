@@ -52,6 +52,8 @@ CmtThreadLockHandle glbSetVarLock;
 // Global functions
 
 void Deinit_TSMsgCB (MsgStruct* MStruct);
+void TSMsg_VAR_GET (IN int NestNum, IN char Params[16][512]);
+void TSMsg_VAR_SET (IN int NestNum, IN char Params[16][512]);
 
 #ifdef __cplusplus
     }
