@@ -38,17 +38,26 @@ typedef struct
 	LPDWORD threadID;
 } ThreadConfig;
 
+typedef void (*TS_ThreadLogicFn) (CAObjHandle execHandle, CAObjHandle seqFileHandle);
+
+typedef struct 
+{
+    ApplicationWindow mainWindow;
+    TS_ThreadLogicFn logicFn;
+} ThreadParams;
+
 //==============================================================================
 // External variables
 
 //==============================================================================
 // Global functions
 
-// Start threads function
+// General thread functions
 int StartTestThreads (ApplicationWindow GMainWindow, char errmsg[ERRLEN]);
+int CVICALLBACK GenericTestThread (void *functionData);
 
-// Thread functions
-int CVICALLBACK Thread_EStop (void *functionData);
+// Thread-specific functions
+void ThreadLogic_ESTOP (CAObjHandle execHandle, CAObjHandle seqFileHandle);
 
 #ifdef __cplusplus
     }
