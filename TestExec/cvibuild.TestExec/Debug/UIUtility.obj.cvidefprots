@@ -1,0 +1,10 @@
+[UIUtil_UpdateYield]
+Class="Function"
+Prototype="void UIUtil_UpdateYield(int PanelHandle, int CtrlHandle);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\UIUtility.c:58:1"
+
+[UIUtil_GetYield]
+Class="Function"
+Prototype="void UIUtil_GetYield(int PanelHandle, int NumPass, int NumFail, int Ctrl);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\UIUtility.c:93:1"
+

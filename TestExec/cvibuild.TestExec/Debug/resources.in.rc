@@ -38,6 +38,7 @@ BEGIN
     END
 END
 
+MessagePopup.uir UIRFileType "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\User Interface Files\\MessagePopup.uir"
 SplashPanel.uir UIRFileType "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\User Interface Files\\SplashPanel.uir"
 TestExecExecute.uir UIRFileType "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\User Interface Files\\TestExecExecute.uir"
 TestExecPanel.uir UIRFileType "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\User Interface Files\\TestExecPanel.uir"

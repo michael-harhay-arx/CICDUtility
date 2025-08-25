@@ -17,6 +17,8 @@
 -in:c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\cvibuild.TestExec\Debug\TestExec.obj
 -in:c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\cvibuild.TestExec\Debug\TestExecUtils.obj
 -in:c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\cvibuild.TestExec\Debug\TestThreads.obj
+-in:c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\cvibuild.TestExec\Debug\TSMessaging.obj
+-in:c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\cvibuild.TestExec\Debug\UIUtility.obj
 -more:c:\program files (x86)\national instruments\cvi2019\bin\msvc\cvistart.lib
 -more:c:\program files (x86)\national instruments\cvi2019\bin\msvc\cvi.lib
 -more:c:\Program Files (x86)\National Instruments\CVI2019\bin\msvc\advanlys.lib

@@ -9649,7 +9649,7 @@ FailureAction = Num
 [SF.Seq[25]]
 %FLG: Parameters = 4456448
 %FLG: Locals = 4194304
-%HI: Main = [4]
+%HI: Main = [5]
 %FLG: Main = 4194304
 %FLG: Setup = 4194304
 %FLG: Cleanup = 4194304
@@ -9680,6 +9680,8 @@ ResultList = Objs
 %TYPE: %[3] = "NI_Wait"
 %[4] = Step
 %TYPE: %[4] = "NI_Flow_End"
+%[5] = Step
+%TYPE: %[5] = "Statement"
 
 [SF.Seq[25].Main[0].TS]
 Id = "ID#:eKWlwxpl7BGdpdz7SDZo3B"
@@ -9732,6 +9734,13 @@ Id = "ID#:f6Wlwxpl7BGdpdz7SDZo3B"
 
 [DEF, SF.Seq[25].Main[4]]
 %NAME = "End"
+
+[SF.Seq[25].Main[5].TS]
+Id = "ID#:rkw3NMt+8BGjHbjKOqmvpD"
+PostExpr = "\"StationGlobals.GlobalAlarmConditions.EStopHigh\""
+
+[DEF, SF.Seq[25].Main[5]]
+%NAME = "Statement"
 
 [DEF, SF.Seq[25].RTS]
 Type = Num

@@ -18,6 +18,9 @@
 #include "cvidef.h"
 #include <utility.h>
 #include <ansi_c.h>
+#include "ArxtronToolslib.h"
+		
+#include "TestExec.h"
 
 //==============================================================================
 // Constants
@@ -42,7 +45,7 @@ typedef struct
 // Global functions
 
 // Start threads function
-int StartTestThreads (char errmsg[ERRLEN]);
+int StartTestThreads (ApplicationWindow GMainWindow, char errmsg[ERRLEN]);
 
 // Thread functions
 int CVICALLBACK Thread_EStop (void *functionData);

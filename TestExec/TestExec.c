@@ -169,15 +169,15 @@ int main(int argc, char *argv[])
 									gMainWindow.executionTab, TABPANEL_2_THREADS, 
 									gMainWindow.executionTab, TABPANEL_2_VARIABLES));
 	errChk( TS_LayoutPersister_LoadBounds(gMainWindow.applicationMgr, &errorInfo, NULL, TRUE, 0, 2,  
-										  gMainWindow.panel, 0,
-										  gMainWindow.execpanel, 0));
+										  gMainWindow.panel, 0/*,
+										  gMainWindow.execpanel, 0*/));
 	
 	// Set window size based on config
 	SetPanelSize (gMainWindow.panel, glbPanelHeight, glbPanelWidth);
 	SetPanelPos (gMainWindow.panel, glbPanelTop, glbPanelLeft);
-	SetPanelSize (gMainWindow.execpanel, glbPanelHeight, glbPanelWidth);
+	/*SetPanelSize (gMainWindow.execpanel, glbPanelHeight, glbPanelWidth);
 	SetPanelPos (gMainWindow.execpanel, glbPanelTop, glbPanelLeft);
-
+*/
 	errChk( ArrangeControls(FALSE));  // make any adjustments needed due to font sizes, etc. (pass FALSE to processEvents to ensure that the StartExecution event for the login execution isn't processed until the splash screen is gone and the main window is displayed. This makes sure the login dialog is modal to correct window (the main window)
 
 	// give initial control focus to the step list control
@@ -185,13 +185,13 @@ int main(int argc, char *argv[])
 	errChk( SetActivePanel(gMainWindow.fileTab));
 	
 	// Start threads
-	errChk( StartThreads (errmsg));
+	errChk( StartTestThreads (gMainWindow, errmsg));
 
 	// display window and process user input until application exits
 	errChk( DisplayPanel(gMainWindow.panel));
-	errChk( DisplayPanel(gMainWindow.execpanel));
+	/*errChk( DisplayPanel(gMainWindow.execpanel));
 	for (int i=0;i<glbNumSockets;++i)
-		errChk( DisplayPanel(gMainWindow.nests[i]));
+		errChk( DisplayPanel(gMainWindow.nests[i]));*/
 	
 	errChk( RunUserInterface());
 	errChk( TSUI_ApplicationMgrGetExitCode(gMainWindow.applicationMgr, &errorInfo, &exitCode));

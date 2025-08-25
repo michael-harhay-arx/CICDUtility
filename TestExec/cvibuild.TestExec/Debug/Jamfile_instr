@@ -2,6 +2,8 @@ Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.T
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.exe" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.obj" ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.exe" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExecUtils.obj" ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.exe" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestThreads.obj" ;
+Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.exe" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TSMessaging.obj" ;
+Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.exe" : "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\UIUtility.obj" ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.exe" : "c:\\Program Files (x86)\\National Instruments\\CVI2019\\bin\\msvc\\advanlys.lib" ;
 NoCare "c:\\Program Files (x86)\\National Instruments\\CVI2019\\bin\\msvc\\advanlys.lib" ;
 Depends "c:\\Users\\Michael_Harhay\\Documents\\CICDUtility\\TestExec\\cvibuild.TestExec\\Debug\\TestExec.exe" : "C:\\Program Files (x86)\\Windows Kits\\8.1\\Lib\\winv6.3\\um\\x86\\advapi32.lib" ;

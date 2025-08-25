@@ -9,7 +9,7 @@ IVI Standard Root Dir = "/C/Program Files (x86)/IVI Foundation/IVI"
 VXIplug&play Framework Dir = "/C/Program Files (x86)/IVI Foundation/VISA/winnt"
 IVI Standard Root 64-bit Dir = "/C/Program Files/IVI Foundation/IVI"
 VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
-Number of Files = 23
+Number of Files = 34
 Target Type = "Executable"
 Flags = 2064
 Copied From Locked InstrDrv Directory = False
@@ -50,8 +50,8 @@ Res Id = 2
 Path Is Rel = True
 Path Rel To = "CVI"
 Path Rel To Override = "CVI"
-Path Rel Path = "toolslib/toolbox/toolbox.fp"
-Path = "/c/Program Files (x86)/National Instruments/CVI2019/toolslib/toolbox/toolbox.fp"
+Path Rel Path = "toolslib/toolbox/inifile.fp"
+Path = "/c/Program Files (x86)/National Instruments/CVI2019/toolslib/toolbox/inifile.fp"
 Exclude = False
 Project Flags = 0
 Folder = "Instrument Files"
@@ -62,10 +62,9 @@ File Type = "Function Panel"
 Res Id = 3
 Path Is Rel = True
 Path Rel To = "CVI"
-Path Rel To Override = "CVI Shared"
-Path Rel Path = "instr/TestStand/API/tsapicvi.fp"
-Path Line0001 = "/C/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsapi"
-Path Line0002 = "cvi.fp"
+Path Rel To Override = "CVI"
+Path Rel Path = "toolslib/toolbox/toolbox.fp"
+Path = "/c/Program Files (x86)/National Instruments/CVI2019/toolslib/toolbox/toolbox.fp"
 Exclude = False
 Project Flags = 0
 Folder = "Instrument Files"
@@ -77,9 +76,9 @@ Res Id = 4
 Path Is Rel = True
 Path Rel To = "CVI"
 Path Rel To Override = "CVI Shared"
-Path Rel Path = "instr/TestStand/API/tsui.fp"
-Path Line0001 = "/C/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsui."
-Path Line0002 = "fp"
+Path Rel Path = "instr/TestStand/API/tsapicvi.fp"
+Path Line0001 = "/C/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsapi"
+Path Line0002 = "cvi.fp"
 Exclude = False
 Project Flags = 0
 Folder = "Instrument Files"
@@ -91,9 +90,9 @@ Res Id = 5
 Path Is Rel = True
 Path Rel To = "CVI"
 Path Rel To Override = "CVI Shared"
-Path Rel Path = "instr/TestStand/API/tsuisupp.fp"
-Path Line0001 = "/C/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsuis"
-Path Line0002 = "upp.fp"
+Path Rel Path = "instr/TestStand/API/tsui.fp"
+Path Line0001 = "/C/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsui."
+Path Line0002 = "fp"
 Exclude = False
 Project Flags = 0
 Folder = "Instrument Files"
@@ -105,6 +104,20 @@ Res Id = 6
 Path Is Rel = True
 Path Rel To = "CVI"
 Path Rel To Override = "CVI Shared"
+Path Rel Path = "instr/TestStand/API/tsuisupp.fp"
+Path Line0001 = "/C/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsuis"
+Path Line0002 = "upp.fp"
+Exclude = False
+Project Flags = 0
+Folder = "Instrument Files"
+Folder Id = 0
+
+[File 0007]
+File Type = "Function Panel"
+Res Id = 7
+Path Is Rel = True
+Path Rel To = "CVI"
+Path Rel To Override = "CVI Shared"
 Path Rel Path = "instr/TestStand/API/tsutil.fp"
 Path Line0001 = "/C/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsuti"
 Path Line0002 = "l.fp"
@@ -113,26 +126,13 @@ Project Flags = 0
 Folder = "Instrument Files"
 Folder Id = 0
 
-[File 0007]
-File Type = "CSource"
-Res Id = 7
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "Callbacks.c"
-Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/Callbacks.c"
-Exclude = False
-Compile Into Object File = False
-Project Flags = 0
-Folder = "Source Files"
-Folder Id = 1
-
 [File 0008]
 File Type = "CSource"
 Res Id = 8
 Path Is Rel = True
 Path Rel To = "Project"
-Path Rel Path = "TestExec.c"
-Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.c"
+Path Rel Path = "Callbacks.c"
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/Callbacks.c"
 Exclude = False
 Compile Into Object File = False
 Project Flags = 0
@@ -144,8 +144,8 @@ File Type = "CSource"
 Res Id = 9
 Path Is Rel = True
 Path Rel To = "Project"
-Path Rel Path = "TestExecUtils.c"
-Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecUtils.c"
+Path Rel Path = "TestExec.c"
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.c"
 Exclude = False
 Compile Into Object File = False
 Project Flags = 0
@@ -157,6 +157,19 @@ File Type = "CSource"
 Res Id = 10
 Path Is Rel = True
 Path Rel To = "Project"
+Path Rel Path = "TestExecUtils.c"
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecUtils.c"
+Exclude = False
+Compile Into Object File = False
+Project Flags = 0
+Folder = "Source Files"
+Folder Id = 1
+
+[File 0011]
+File Type = "CSource"
+Res Id = 11
+Path Is Rel = True
+Path Rel To = "Project"
 Path Rel Path = "TestThreads.c"
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestThreads.c"
 Exclude = False
@@ -165,49 +178,39 @@ Project Flags = 0
 Folder = "Source Files"
 Folder Id = 1
 
-[File 0011]
-File Type = "Include"
-Res Id = 11
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "Callbacks.h"
-Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/Callbacks.h"
-Exclude = False
-Project Flags = 0
-Folder = "Include Files"
-Folder Id = 2
-
 [File 0012]
-File Type = "Include"
+File Type = "CSource"
 Res Id = 12
 Path Is Rel = True
 Path Rel To = "Project"
-Path Rel Path = "TestExec.h"
-Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.h"
+Path Rel Path = "TSMessaging.c"
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TSMessaging.c"
 Exclude = False
+Compile Into Object File = False
 Project Flags = 0
-Folder = "Include Files"
-Folder Id = 2
+Folder = "Source Files"
+Folder Id = 1
 
 [File 0013]
-File Type = "Include"
+File Type = "CSource"
 Res Id = 13
 Path Is Rel = True
 Path Rel To = "Project"
-Path Rel Path = "TestExecUtils.h"
-Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecUtils.h"
+Path Rel Path = "UIUtility.c"
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/UIUtility.c"
 Exclude = False
+Compile Into Object File = False
 Project Flags = 0
-Folder = "Include Files"
-Folder Id = 2
+Folder = "Source Files"
+Folder Id = 1
 
 [File 0014]
 File Type = "Include"
 Res Id = 14
 Path Is Rel = True
 Path Rel To = "Project"
-Path Rel Path = "TestThreads.h"
-Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestThreads.h"
+Path Rel Path = "Callbacks.h"
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/Callbacks.h"
 Exclude = False
 Project Flags = 0
 Folder = "Include Files"
@@ -218,6 +221,102 @@ File Type = "Include"
 Res Id = 15
 Path Is Rel = True
 Path Rel To = "Project"
+Path Rel Path = "CommonTSIncludes.h"
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/CommonTSIncludes.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+Folder Id = 2
+
+[File 0016]
+File Type = "Include"
+Res Id = 16
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "TestExec.h"
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+Folder Id = 2
+
+[File 0017]
+File Type = "Include"
+Res Id = 17
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "TestExecExecute_DEF.h"
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecExecute_DEF.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+Folder Id = 2
+
+[File 0018]
+File Type = "Include"
+Res Id = 18
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "TestExecTS_DEF.h"
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecTS_DEF.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+Folder Id = 2
+
+[File 0019]
+File Type = "Include"
+Res Id = 19
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "TestExecUtils.h"
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecUtils.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+Folder Id = 2
+
+[File 0020]
+File Type = "Include"
+Res Id = 20
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "TestThreads.h"
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestThreads.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+Folder Id = 2
+
+[File 0021]
+File Type = "Include"
+Res Id = 21
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "TSMessaging.h"
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TSMessaging.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+Folder Id = 2
+
+[File 0022]
+File Type = "Include"
+Res Id = 22
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "TSTypeInsertMacros.h"
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TSTypeInsertMacros.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+Folder Id = 2
+
+[File 0023]
+File Type = "Include"
+Res Id = 23
+Path Is Rel = True
+Path Rel To = "Project"
 Path Rel Path = "UIDefinitions.h"
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/UIDefinitions.h"
 Exclude = False
@@ -225,9 +324,34 @@ Project Flags = 0
 Folder = "Include Files"
 Folder Id = 2
 
-[File 0016]
+[File 0024]
+File Type = "Include"
+Res Id = 24
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "UIUtility.h"
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/UIUtility.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+Folder Id = 2
+
+[File 0025]
 File Type = "User Interface Resource"
-Res Id = 16
+Res Id = 25
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "User Interface Files/MessagePopup.uir"
+Path Line0001 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/User Interface Files/Mess"
+Path Line0002 = "agePopup.uir"
+Exclude = False
+Project Flags = 0
+Folder = "User Interface Files"
+Folder Id = 3
+
+[File 0026]
+File Type = "User Interface Resource"
+Res Id = 26
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "User Interface Files/SplashPanel.uir"
@@ -238,9 +362,9 @@ Project Flags = 0
 Folder = "User Interface Files"
 Folder Id = 3
 
-[File 0017]
+[File 0027]
 File Type = "User Interface Resource"
-Res Id = 17
+Res Id = 27
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "User Interface Files/TestExecExecute.uir"
@@ -251,9 +375,9 @@ Project Flags = 0
 Folder = "User Interface Files"
 Folder Id = 3
 
-[File 0018]
+[File 0028]
 File Type = "User Interface Resource"
-Res Id = 18
+Res Id = 28
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "User Interface Files/TestExecPanel.uir"
@@ -264,9 +388,22 @@ Project Flags = 0
 Folder = "User Interface Files"
 Folder Id = 3
 
-[File 0019]
+[File 0029]
 File Type = "Include"
-Res Id = 19
+Res Id = 29
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "User Interface Files/MessagePopup.h"
+Path Line0001 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/User Interface Files/Mess"
+Path Line0002 = "agePopup.h"
+Exclude = False
+Project Flags = 0
+Folder = "User Interface Include Files"
+Folder Id = 4
+
+[File 0030]
+File Type = "Include"
+Res Id = 30
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "User Interface Files/SplashPanel.h"
@@ -277,9 +414,9 @@ Project Flags = 0
 Folder = "User Interface Include Files"
 Folder Id = 4
 
-[File 0020]
+[File 0031]
 File Type = "Include"
-Res Id = 20
+Res Id = 31
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "User Interface Files/TestExecExecute.h"
@@ -290,9 +427,9 @@ Project Flags = 0
 Folder = "User Interface Include Files"
 Folder Id = 4
 
-[File 0021]
+[File 0032]
 File Type = "Include"
-Res Id = 21
+Res Id = 32
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "User Interface Files/TestExecPanel.h"
@@ -303,9 +440,9 @@ Project Flags = 0
 Folder = "User Interface Include Files"
 Folder Id = 4
 
-[File 0022]
+[File 0033]
 File Type = "Include"
-Res Id = 22
+Res Id = 33
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "../../../../../Arxtron/Libraries/ProjectSpecificGUI_LIB.h"
@@ -315,9 +452,9 @@ Project Flags = 0
 Folder = "Project Specific"
 Folder Id = 5
 
-[File 0023]
+[File 0034]
 File Type = "Library"
-Res Id = 23
+Res Id = 34
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "../../../../../Arxtron/Libraries/ProjectSpecificGUI_LIB.lib"

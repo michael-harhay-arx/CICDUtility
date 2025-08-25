@@ -2,11 +2,12 @@ Callbacks.obj
 TestExec.obj
 TestExecUtils.obj
 TestThreads.obj
+TSMessaging.obj
+UIUtility.obj
 cvi.lib
 cviauto.lib
 cvistart.lib
 inifile.obj
-kernel32.lib
 ProjectSpecificGUI_LIB.lib
 toolbox.obj
 tsapicvi.obj
@@ -16,6 +17,7 @@ tsutil.obj
 advapi32.lib
 easytab.obj
 gdi32.lib
+kernel32.lib
 user32.lib
 uuid.lib
 EXE Symbol Module

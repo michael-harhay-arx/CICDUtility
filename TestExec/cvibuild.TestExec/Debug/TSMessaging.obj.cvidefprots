@@ -1,0 +1,75 @@
+[Initialize_TSMsgCB]
+Class="Function"
+Prototype="void Initialize_TSMsgCB();"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TSMessaging.c:124:1"
+
+[Deinit_TSMsgCB]
+Class="Function"
+Prototype="void Deinit_TSMsgCB(struct msgstruct *MStruct);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TSMessaging.c:151:1"
+
+[RunMsgFn]
+Class="Function"
+Prototype="void RunMsgFn(int NestNum, int UIMsgEvent, char *UIMsgStringData, CAObjHandle CallerSeq, char *SeqName);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TSMessaging.c:169:1"
+
+[TSMsg_ApplicationMgr_OnUserMessage]
+Class="Function"
+Prototype="long TSMsg_ApplicationMgr_OnUserMessage(CAObjHandle caServerObjHandle, void *caCallbackData, CAObjHandle uiMsg);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TSMessaging.c:249:1"
+
+[TSMsg_UI_SET]
+Class="Function"
+Prototype="void TSMsg_UI_SET(int NestNum, char Params[16][512]);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TSMessaging.c:329:1"
+
+[TSMsg_TEST_INFO]
+Class="Function"
+Prototype="void TSMsg_TEST_INFO(int NestNum, char Params[16][512]);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TSMessaging.c:397:1"
+
+[TSMsg_TEST_RESU]
+Class="Function"
+Prototype="void TSMsg_TEST_RESU(int NestNum, char Params[16][512]);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TSMessaging.c:416:1"
+
+[TSMsg_TEST_CLEA]
+Class="Function"
+Prototype="void TSMsg_TEST_CLEA(int NestNum, char Params[16][512]);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TSMessaging.c:448:1"
+
+[TSMsg_DISP]
+Class="Function"
+Prototype="void TSMsg_DISP(int NestNum, char Params[16][512]);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TSMessaging.c:463:1"
+
+[TSMsg_VAR_GET]
+Class="Function"
+Prototype="void TSMsg_VAR_GET(int NestNum, char Params[16][512]);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TSMessaging.c:514:1"
+
+[TSMsg_VAR_SET]
+Class="Function"
+Prototype="void TSMsg_VAR_SET(int NestNum, char Params[16][512]);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TSMessaging.c:570:1"
+
+[TSMsg_UI]
+Class="Function"
+Prototype="void TSMsg_UI(int NestNum, char Params[16][512]);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TSMessaging.c:633:1"
+
+[TSMsg_TEST]
+Class="Function"
+Prototype="void TSMsg_TEST(int NestNum, char Params[16][512]);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TSMessaging.c:638:1"
+
+[TSMsg_DISP_NIL]
+Class="Function"
+Prototype="void TSMsg_DISP_NIL(int NestNum, char Params[16][512]);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TSMessaging.c:643:1"
+
+[TSMsg_VAR]
+Class="Function"
+Prototype="void TSMsg_VAR(int NestNum, char Params[16][512]);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TSMessaging.c:648:1"
+

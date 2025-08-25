@@ -15,6 +15,7 @@
 // Include files
 
 #include "tsapicvi.h"
+#include "tsui.h"
 #include "toolbox.h"
 #include "ArxtronToolslib.h"
 
@@ -40,8 +41,6 @@
 
 //==============================================================================
 // Static global variables
-
-static int libInitialized = 0;
 
 static CmtThreadPoolHandle glbBackgroundThreads = 0;
 static CmtThreadFunctionID glbBackgroundThreadIDs[MAX_BACKGROUND_THREADS] = {0};
@@ -74,7 +73,6 @@ void GetStandardErrMsg (int error, char errmsg[ERRLEN])
 			break;
 	}
 }
-
 //! \cond
 /// REGION END
 
@@ -82,103 +80,147 @@ void GetStandardErrMsg (int error, char errmsg[ERRLEN])
 //! \endcond
 /***************************************************************************//*!
 * \brief Start all background test threads
+*
+* \param [in] GMainWindow		Reference to the main application window
 *******************************************************************************/
-int StartTestThreads (char errmsg[ERRLEN])
+int StartTestThreads (ApplicationWindow GMainWindow, char errmsg[ERRLEN])
 {
-	libInit;
-	
+	fnInit;
+
+	// Start threads
 	int threadIndex = 0;
-	CmtErrChk (CmtNewThreadPool(MAX_BACKGROUND_THREADS, &glbBackgroundThreads));
-	CmtErrChk (CmtScheduleThreadPoolFunction(glbBackgroundThreads, Thread_EStop		, 0, glbBackgroundThreadIDs+threadIndex++));
-	//CmtErrChk (CmtScheduleThreadPoolFunction(glbBackgroundThreads, Thread_EStop		, 0, glbBackgroundThreadIDs+threadIndex++));
-	
-	// Custom prj menus
-	//CmtErrChk (CmtScheduleThreadPoolFunction(glbBackgroundThreads, Thread_MonitorPrjMenus			, 0, glbBackgroundThreadIDs+threadIndex++));
+	CmtErrChk (CmtNewThreadPool (MAX_BACKGROUND_THREADS, &glbBackgroundThreads));
+	CmtErrChk (CmtScheduleThreadPoolFunction (glbBackgroundThreads, Thread_EStop, &GMainWindow, glbBackgroundThreadIDs+threadIndex++));
 	
 Error:
 	return error;
 }
 
 /***************************************************************************//*!
-* \brief 
+* \brief Default thread template function
+*
+* \param [in] functionData		By default, this parameter takes a pointer to 
+								GMainWindow from the StartTestThreads() function. 
+								This can be changed; a pointer to any struct 
+								can be passed to allow for more params.
 *******************************************************************************/
 int CVICALLBACK ThreadTemplate (void *functionData)
 {
+	char errmsg[ERRLEN] = {0};
+	
+	ApplicationWindow gMainWindow = *(ApplicationWindow *) functionData;
+	ERRORINFO errInfo = {0};
+	TSUIObj_Executions executions = 0;
+	long count = 0;
+
+	TSUIObj_Execution uiExec = 0;
+	CAObjHandle execHandle = 0;
+	CAObjHandle seqFile = 0;
+	
+	// Continuously poll for execution
 	while (1)
 	{
+		// Get number of executions
+        TSUI_ApplicationMgrGetExecutions (gMainWindow.applicationMgr, &errInfo, &executions);
+        TSUI_ExecutionsGetCount (executions, &errInfo, &count);
 		
+        if (count > 0)
+        {
+            // Get first execution handle
+            TSUI_ExecutionsGetItem (executions, &errInfo, 0, &uiExec);
+            execHandle = uiExec;
+
+            // Get sequence file
+            TS_ExecutionGetSequenceFile (execHandle, &errInfo, &seqFile);
+            if (seqFile != 0)
+            {                
+				// 20250821Michael TODO: ESTOP logic goes here
+				printf( "\tThread logic here\n");
+				
+                CA_DiscardObjHandle(seqFile);
+            }
+
+            CA_DiscardObjHandle(uiExec);
+        }
 		
+		CA_DiscardObjHandle(executions);
+		
+		// If terminate enabled, exit thread
 		if (glbTerminate)
 		{
 			CmtExitThreadPoolThread (0);
 			break;
 		}
 		
-		DelayWithEventProcessing (0.001);
+		DelayWithEventProcessing (0.1);
 	}
 	
 	return 0;
 }
 
 /***************************************************************************//*!
-* \brief Estop injection thread function
+* \brief EStop error injection thread
+*
+* \param [in] functionData		A void pointer to GMainWindow
 *******************************************************************************/
 int CVICALLBACK Thread_EStop (void *functionData)
 {
-	char errmsg[ERRLEN] = {0};
-	int estop = 0;
+	printf ("Entered Thread_EStop\n");
 	
+	char errmsg[ERRLEN] = {0};
+	
+	ApplicationWindow gMainWindow = *(ApplicationWindow *) functionData;
+	ERRORINFO errInfo = {0};
+	TSUIObj_Executions executions = 0;
+	long count = 0;
+
+	TSUIObj_Execution uiExec = 0;
+	CAObjHandle execHandle = 0;
+	CAObjHandle seqFile = 0;
+	
+	//int estop = 0;
+	
+	// Continuously poll for execution
 	while (1)
 	{
-		// 20250821Michael TODO: Get ESTOP with GUI Var Get function
-		if (estop && 0==strlen(glbErrorMsgs[E_ESTOP]))
-		{
-			strcpy (glbErrorMsgs[E_ESTOP], "ESTOP ACTIVE");
-		}
-		else if (0==estop && strlen(glbErrorMsgs[E_ESTOP]))
-		{
-			glbErrorMsgs[E_ESTOP][0] = 0;
-		}
+		// Get number of executions
+        TSUI_ApplicationMgrGetExecutions (gMainWindow.applicationMgr, &errInfo, &executions);
+        TSUI_ExecutionsGetCount (executions, &errInfo, &count);
 		
+        if (count > 0)
+        {
+            // Get first execution handle
+            TSUI_ExecutionsGetItem (executions, &errInfo, 0, &uiExec);
+            execHandle = uiExec;
+
+            // Get sequence file
+            TS_ExecutionGetSequenceFile (execHandle, &errInfo, &seqFile);
+            if (seqFile != 0)
+            {                
+				// 20250821Michael TODO: ESTOP logic goes here
+				printf( "\tESTOP Logic!\n");
+				
+                CA_DiscardObjHandle(seqFile);
+            }
+
+            CA_DiscardObjHandle(uiExec);
+        }
+		
+		CA_DiscardObjHandle(executions);
+		
+		// If terminate enabled, exit thread
 		if (glbTerminate)
 		{
 			CmtExitThreadPoolThread (0);
 			break;
 		}
 		
-		DelayWithEventProcessing (0.001);
+		DelayWithEventProcessing (0.1);
 	}
 	
+	printf ("Exited Thread_EStop\n");
 	return 0;
 }
-
-///***************************************************************************//*!
-//* \brief OLD
-//*******************************************************************************/
-//DWORD WINAPI Thread_EStop_OLD (LPVOID lpParam)
-//{
-//	DWORD exitCode = 0;
-//	
-//	int paramVal = *(int *) lpParam;
-//	VBOOL eStopHigh = 0;
-//	int continueFlag = 0;
-//	
-//	// Inject EStop midway into the sequence
-//	//TS_ThreadGetSequenceContext (
-//	TS_PropertyGetValBoolean (seqContext, &errInfo, "StationGlobals.GlobalAlarmConditions.EStopHigh", 0, &eStopHigh);
-//	if (!eStopHigh)
-//	{
-//		eStopHigh = -1;
-//		TS_PropertySetValBoolean (seqContext, &errInfo, "StationGlobals.GlobalAlarmConditions.EStopHigh", 0, eStopHigh);
-//	}
-//	
-//	// TODO: Check if sequence has stopped
-//	//TS_PropertyGetValNumber (seqContext, &errInfo, "StationGlobals.GlobalAlarmConditions.EStopHigh", 0, continueFlag);
-//	//ASSERT_EQ_INT (0, continueFlag)
-//	
-//	// Close thread
-//    return exitCode;
-//}
 //! \cond
 /// REGION END
 //! \endcond
