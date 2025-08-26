@@ -11,10 +11,15 @@ SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThrea
 [GenericTestThread]
 Class="Function"
 Prototype="int GenericTestThread(void *functionData);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThreads.c:115:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThreads.c:121:1"
 
 [ThreadLogic_ESTOP]
 Class="Function"
 Prototype="void ThreadLogic_ESTOP(CAObjHandle execHandle, CAObjHandle seqFileHandle);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThreads.c:173:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThreads.c:183:1"
+
+[ThreadLogic_FailChuteFull]
+Class="Function"
+Prototype="void ThreadLogic_FailChuteFull(CAObjHandle execHandle, CAObjHandle seqFileHandle);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThreads.c:225:1"
 

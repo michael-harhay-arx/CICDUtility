@@ -105,6 +105,12 @@ int StartTestThreads (ApplicationWindow GMainWindow, char errmsg[ERRLEN])
     paramsESTOP->logicFn = ThreadLogic_ESTOP;
 	CmtErrChk (CmtScheduleThreadPoolFunction (glbBackgroundThreads, GenericTestThread, paramsESTOP, glbBackgroundThreadIDs+threadIndex++));
 	
+	// Call FailChuteFull thread
+	/*ThreadParams *paramsFailChute = malloc (sizeof (ThreadParams));
+    paramsFailChute->mainWindow = GMainWindow;
+    paramsFailChute->logicFn = ThreadLogic_FailChuteFull;
+	CmtErrChk (CmtScheduleThreadPoolFunction (glbBackgroundThreads, GenericTestThread, paramsFailChute, glbBackgroundThreadIDs+threadIndex++));*/
+	
 Error:
 	return error;
 }
@@ -127,16 +133,17 @@ int CVICALLBACK GenericTestThread (void *functionData)
 	CAObjHandle execHandle = 0;
 	CAObjHandle seqFileHandle = 0;
 	
-	// Continuously poll for execution
-	while (!glbTerminate)
-	{
-        TSUI_ApplicationMgrGetExecutions (gMainWindow.applicationMgr, &errInfo, &executions);
+
+	// If glbTerminate is off and runstate is 1 for 1st index, execute logic
+	while (1)
+	{	
+		TSUI_ApplicationMgrGetExecutions (gMainWindow.applicationMgr, &errInfo, &executions);
         TSUI_ExecutionsGetCount (executions, &errInfo, &count);
 		
-        if (count > 0)
-        {
-            // Get first execution and sequence file handles
-            TSUI_ExecutionsGetItem (executions, &errInfo, 0, &uiExec);
+		if (!glbTerminate && count > 1)
+		{
+			// Get first execution and sequence file handles
+            TSUI_ExecutionsGetItem (executions, &errInfo, 1, &uiExec);
             execHandle = uiExec;
             TS_ExecutionGetSequenceFile (execHandle, &errInfo, &seqFileHandle);
 			
@@ -146,22 +153,25 @@ int CVICALLBACK GenericTestThread (void *functionData)
 			TS_ExecutionGetStates (execHandle, &errInfo, &runState, &terminationState);
 			
 			// While sequence file is running, execute logic
-            while (runState == 1)
+            if (runState == 1)
             { 
 				logicFn (execHandle, seqFileHandle); // calls thread-specific logic
                 
 				TS_ExecutionGetStates (execHandle, &errInfo, &runState, &terminationState);
-				DelayWithEventProcessing(0.1);
+				DelayWithEventProcessing(0.001);
             }
 			
 			CA_DiscardObjHandle (seqFileHandle);
             CA_DiscardObjHandle (uiExec);
-        }
+			
+			break;
+		}
 		
 		CA_DiscardObjHandle (executions);
-		DelayWithEventProcessing (0.1);
-	}
+		DelayWithEventProcessing (0.001);
+	}	
 	
+	CA_DiscardObjHandle (executions);	
 	free (functionData);
 	CmtExitThreadPoolThread (0);
 	return 0; // suppress errors
@@ -178,11 +188,62 @@ void ThreadLogic_ESTOP (CAObjHandle execHandle, CAObjHandle seqFileHandle)
     char seqFileHandleStr[512] = {0};
     sprintf (seqFileHandleStr, "%d", seqFileHandle);
 	
+	// Get ESTOP values
+	glbNumWatching++;
+    strcpy (TSMsgParams[0], seqFileHandleStr);
+    strcpy (TSMsgParams[1], "MainSequence");
+	strcpy (glbWatchVars[0].seqName, "MainSequence");
+	strcpy (glbWatchVars[0].lookupString, "StationGlobals.GlobalAlarmConditions.EStopHigh");
+	glbWatchVars[0].varType = VARTYPE_BOOL;
+    TSMsg_VAR_GET (0, TSMsgParams);
+	
+	// Wait 0.5 seconds, activate ESTOP
+	DelayWithEventProcessing (0.5);
+	
+	// If not yet set, set ESTOP to high
+	if (strcmp (glbWatchVars[0].varVal, "False") == 0)
+	{
+		glbNumSetting++;
+		strcpy (glbSetVars[0].seqName, "MainSequence");
+		strcpy (glbSetVars[0].lookupString, "StationGlobals.GlobalAlarmConditions.EStopHigh");
+		glbSetVars[0].varType = VARTYPE_BOOL;
+		strcpy (glbSetVars[0].varVal, "True");
+		TSMsg_VAR_SET (0, TSMsgParams);
+		printf("\t\tESTOP set high");
+	}
+	
+	// Check if ESTOP correctly activated
+	DelayWithEventProcessing (0.001);
+		
+	
+    printf("\tESTOP Logic End\n");
+}
+
+/***************************************************************************//*!
+* \brief Fail chute full injection thread
+*******************************************************************************/
+void ThreadLogic_FailChuteFull (CAObjHandle execHandle, CAObjHandle seqFileHandle)
+{
+    printf("\tFailChuteFull Logic Start\n");
+
+    char TSMsgParams[16][512] = {0};
+    char seqFileHandleStr[512] = {0};
+    sprintf (seqFileHandleStr, "%d", seqFileHandle);
+	
     strcpy (TSMsgParams[0], seqFileHandleStr);
     strcpy (TSMsgParams[1], "MainSequence");
     TSMsg_VAR_GET (0, TSMsgParams);
+	
+	// Wait 2 seconds, activate FailChuteFull
+	DelayWithEventProcessing (2.0);
+	
+	// If not yet set, set FailChuteFull to high
+	if (strcmp (glbWatchVars[0].varVal, "False") == 0)
+	{
+		TSMsg_VAR_SET (0, TSMsgParams);
+	}
 
-    printf("\tESTOP Logic End\n");
+    printf("\tFailChuteFull Logic End\n");
 }
 //! \cond
 /// REGION END

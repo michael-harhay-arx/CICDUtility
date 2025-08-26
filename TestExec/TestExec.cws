@@ -13,10 +13,10 @@ Number of Projects = 1
 Active Project = 1
 Project 0001 = "TestExec.prj"
 Drag Bar Left = 285
-Window Top = 27
-Window Left = 566
-Window Bottom = 240
-Window Right = 1260
+Window Top = 186
+Window Left = 784
+Window Bottom = 360
+Window Right = 1462
 Maximized = True
 Maximized Children = True
 Max32 Number Of Errors = 20
@@ -30,7 +30,7 @@ Save Changes Before Compiling = "Always"
 Hide Windows = False
 Break At First Statement = False
 Sort Type = "File Name"
-Number of Opened Files = 13
+Number of Opened Files = 7
 Window Confinement Region Enabled = True
 MainColumnWidth = 268
 FileDateColumnWidth = 70
@@ -96,81 +96,71 @@ Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.c"
 File Type = "CSource"
 Disk Date = 3838737675
 In Projects = "1,"
-Source Window State = "1,190,190,190,4,4,4,0,0,0,0,0,0,0,0,0,0,0,190,4,401,714,1,0,"
+Source Window State = "1,195,195,195,4,4,4,0,0,0,0,0,0,0,0,0,181,0,195,4,401,714,1,0,"
 Window Top = 33
 Window Left = 10
-Window Z-Order = 5
+Window Z-Order = 2
 
 [File 0009]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.h"
 File Type = "Include"
 Disk Date = 3838635550
 In Projects = "1,"
-Source Window State = "1,85,85,85,13,13,13,0,0,0,0,0,0,0,0,0,0,0,85,13,401,714,1,0,"
+Source Window State = "1,85,85,85,13,13,13,0,0,0,0,0,0,0,0,0,33,0,85,13,401,714,1,0,"
 Window Top = 64
 Window Left = 26
-Window Z-Order = 10
+Window Z-Order = 7
 
 [File 0010]
-Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/Callbacks.c"
-File Type = "CSource"
-Disk Date = 3838992905
-In Projects = "1,"
-Source Window State = "1,16,16,16,0,21,21,0,3,0,0,0,0,0,0,0,0,0,16,0,401,714,1,0,"
-Window Top = 64
-Window Left = 26
-Window Z-Order = 6
-
-[File 0011]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestThreads.c"
 File Type = "CSource"
-Disk Date = 3838997879
+Disk Date = 3839077023
 In Projects = "1,"
-Source Window State = "1,162,162,162,5,5,5,0,0,0,0,0,0,0,0,0,122,0,162,5,401,714,1,0,"
+Source Window State = "1,175,175,175,32,32,32,0,0,0,0,0,0,0,0,0,126,0,175,32,401,714,1,0,"
 Window Top = 250
 Window Left = 122
 Window Z-Order = 1
 
-[File 0012]
+[File 0011]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestThreads.h"
 File Type = "Include"
-Disk Date = 3838997417
+Disk Date = 3839000174
 In Projects = "1,"
-Source Window State = "1,56,56,56,55,55,55,0,0,0,0,0,0,0,0,0,26,0,56,55,401,714,1,0,"
+Source Window State = "1,57,57,57,0,0,0,0,0,0,0,0,0,0,0,0,14,0,57,0,401,714,1,0,"
 Window Top = 281
 Window Left = 138
-Window Z-Order = 3
+Window Z-Order = 5
 
-[File 0013]
+[File 0012]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TSMessaging.c"
 File Type = "CSource"
 Disk Date = 3838725252
 In Projects = "1,"
-Source Window State = "1,0,0,0,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,9,401,714,1,0,"
+Source Window State = "1,582,582,582,81,81,81,0,0,0,0,0,0,0,0,0,554,0,582,81,401,714,1,0,"
 Window Top = 312
 Window Left = 154
-Window Z-Order = 9
+Window Z-Order = 6
 
-[File 0014]
-Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TSMessaging.h"
-File Type = "Include"
-Disk Date = 3838981934
+[File 0013]
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/Callbacks.c"
+File Type = "CSource"
+Disk Date = 3838992905
 In Projects = "1,"
-Source Window State = "1,47,47,47,80,80,80,0,0,0,0,0,0,0,0,0,21,0,47,80,401,714,1,0,"
-Window Top = 343
-Window Left = 170
-Window Z-Order = 12
-
-[File 0015]
-Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecTS_DEF.h"
-File Type = "Include"
-Disk Date = 3838715852
-In Projects = "1,"
-Source Window State = "1,77,77,77,4,4,4,0,0,0,0,0,0,0,0,0,66,0,77,4,401,714,1,0,"
+Source Window State = "1,71,71,71,14,14,14,0,0,0,0,0,0,0,0,0,43,0,71,14,401,714,1,0,"
 Window Top = 64
 Window Left = 26
+Window Z-Order = 3
 
-[File 0016]
+[File 0014]
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/UIUtility.h"
+File Type = "Include"
+Disk Date = 3838725198
+In Projects = "1,"
+Source Window State = "1,46,46,46,2,10,2,0,3,0,0,0,0,0,0,0,0,0,46,10,400,600,1,0,"
+Window Top = 31
+Window Z-Order = 4
+
+[File 0015]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecUtils.c"
 File Type = "CSource"
 Disk Date = 3838635393
@@ -179,16 +169,15 @@ Source Window State = "1,34,34,34,12,12,12,0,0,0,0,0,0,0,0,0,34,0,34,12,401,714,
 Window Top = 436
 Window Left = 218
 
-[File 0017]
+[File 0016]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/UIUtility.c"
 File Type = "CSource"
 Disk Date = 3838725186
 In Projects = "1,"
 Source Window State = "1,35,35,35,80,80,80,0,0,0,0,0,0,0,0,0,0,0,35,80,400,600,1,0,"
 Window Top = 31
-Window Z-Order = 8
 
-[File 0018]
+[File 0017]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/Callbacks.h"
 File Type = "Include"
 Disk Date = 3838634857
@@ -196,9 +185,8 @@ In Projects = "1,"
 Source Window State = "1,17,17,17,0,0,0,0,0,0,0,0,0,0,0,0,20,0,17,0,401,714,1,0,"
 Window Top = 95
 Window Left = 42
-Window Z-Order = 13
 
-[File 0019]
+[File 0018]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/CommonTSIncludes.h"
 File Type = "Include"
 Disk Date = 3838716262
@@ -207,12 +195,21 @@ Source Window State = "1,45,45,45,0,0,0,0,0,0,0,0,0,0,0,0,30,0,45,0,401,714,1,0,
 Window Top = 374
 Window Left = 186
 
-[File 0020]
+[File 0019]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecExecute_DEF.h"
 File Type = "Include"
 Disk Date = 3838715788
 In Projects = "1,"
 Source Window State = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"
+
+[File 0020]
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecTS_DEF.h"
+File Type = "Include"
+Disk Date = 3838715852
+In Projects = "1,"
+Source Window State = "1,77,77,77,4,4,4,0,0,0,0,0,0,0,0,0,66,0,77,4,401,714,1,0,"
+Window Top = 64
+Window Left = 26
 
 [File 0021]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExecUtils.h"
@@ -224,6 +221,15 @@ Window Top = 467
 Window Left = 234
 
 [File 0022]
+Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TSMessaging.h"
+File Type = "Include"
+Disk Date = 3838981934
+In Projects = "1,"
+Source Window State = "1,47,47,47,80,80,80,0,0,0,0,0,0,0,0,0,21,0,47,80,401,714,1,0,"
+Window Top = 343
+Window Left = 170
+
+[File 0023]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TSTypeInsertMacros.h"
 File Type = "Include"
 Disk Date = 3838714491
@@ -232,7 +238,7 @@ Source Window State = "1,14,14,14,6,6,6,0,0,0,0,0,0,0,0,0,0,0,14,6,401,714,1,0,"
 Window Top = 405
 Window Left = 202
 
-[File 0023]
+[File 0024]
 Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/UIDefinitions.h"
 File Type = "Include"
 Disk Date = 3838569614
@@ -240,15 +246,6 @@ In Projects = "1,"
 Source Window State = "1,35,35,35,80,80,80,0,0,0,0,0,0,0,0,0,13,0,35,80,401,714,1,0,"
 Window Top = 64
 Window Left = 26
-
-[File 0024]
-Path = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/UIUtility.h"
-File Type = "Include"
-Disk Date = 3838725198
-In Projects = "1,"
-Source Window State = "1,62,62,62,0,0,0,0,0,0,0,0,0,0,0,0,0,0,62,0,400,600,1,0,"
-Window Top = 31
-Window Z-Order = 7
 
 [File 0025]
 Path Line0001 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/User Interface Files/Mess"
@@ -336,7 +333,6 @@ In Projects = "1,"
 Source Window State = "1,29,29,29,29,29,29,0,0,0,0,0,0,0,0,0,0,0,29,29,401,714,1,0,"
 Window Top = 281
 Window Left = 138
-Window Z-Order = 11
 
 [File 0034]
 Path = "/c/Arxtron/Libraries/ProjectSpecificGUI_LIB.lib"
@@ -344,42 +340,14 @@ File Type = "Library"
 Disk Date = 3837524048
 In Projects = "1,"
 
-[File 0035]
-Path Line0001 = "/c/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsapi"
-Path Line0002 = "cvi.h"
-File Type = "Include"
-Disk Date = 3593636356
-In Projects = ""
-Source Window State = "1,1174,1174,1174,5,30,5,0,3,0,0,0,0,0,0,0,1161,0,1174,30,401,714,1,0,"
-Window Top = 219
-Window Left = 106
-Window Z-Order = 4
-
-[File 0036]
-Path = "/c/Program Files (x86)/National Instruments/CVI2019/include/utility.h"
-File Type = "Include"
-Disk Date = 3635336323
-In Projects = ""
-Source Window State = "1,708,708,708,16,39,16,0,3,0,0,0,0,0,0,0,688,0,708,39,401,714,1,0,"
-Window Top = 33
-Window Left = 10
-Window Z-Order = 2
-
 [Tab Order]
 Tab 0001 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.c"
 Tab 0002 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestExec.h"
 Tab 0003 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestThreads.c"
 Tab 0004 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TestThreads.h"
 Tab 0005 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TSMessaging.c"
-Tab 0006 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/TSMessaging.h"
+Tab 0006 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/Callbacks.c"
 Tab 0007 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/UIUtility.h"
-Tab 0008 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/UIUtility.c"
-Tab 0009 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/Callbacks.c"
-Tab 0010 = "/c/Users/Michael_Harhay/Documents/CICDUtility/TestExec/Callbacks.h"
-Tab 0011 = "/c/Arxtron/Libraries/ProjectSpecificGUI_LIB.h"
-Tab 0012 Line0001 = "/c/Program Files (x86)/National Instruments/Shared/CVI/instr/TestStand/API/tsapi"
-Tab 0012 Line0002 = "cvi.h"
-Tab 0013 = "/c/Program Files (x86)/National Instruments/CVI2019/include/utility.h"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True
