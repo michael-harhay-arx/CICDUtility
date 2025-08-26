@@ -15,11 +15,11 @@ SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThrea
 
 [ThreadLogic_ESTOP]
 Class="Function"
-Prototype="void ThreadLogic_ESTOP(CAObjHandle execHandle, CAObjHandle seqFileHandle);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThreads.c:183:1"
+Prototype="void ThreadLogic_ESTOP(CAObjHandle execHandle, CAObjHandle seqHandle);"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThreads.c:190:1"
 
 [ThreadLogic_FailChuteFull]
 Class="Function"
 Prototype="void ThreadLogic_FailChuteFull(CAObjHandle execHandle, CAObjHandle seqFileHandle);"
-SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThreads.c:225:1"
+SourceLocation="c:\Users\Michael_Harhay\Documents\CICDUtility\TestExec\TestThreads.c:232:1"
 

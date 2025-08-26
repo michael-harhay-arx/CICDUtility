@@ -131,21 +131,26 @@ int CVICALLBACK GenericTestThread (void *functionData)
 	long count = 0;
 	TSUIObj_Execution uiExec = 0;
 	CAObjHandle execHandle = 0;
-	CAObjHandle seqFileHandle = 0;
-	
-
-	// If glbTerminate is off and runstate is 1 for 1st index, execute logic
+	CAObjHandle threadHandle = 0;
+	CAObjHandle seqContext = 0;
+	CAObjHandle seqHandle = 0;
+	char *seqName = NULL;
+			
+	// Loop and get current executions
 	while (1)
 	{	
 		TSUI_ApplicationMgrGetExecutions (gMainWindow.applicationMgr, &errInfo, &executions);
         TSUI_ExecutionsGetCount (executions, &errInfo, &count);
 		
+		// If executing, get relevant handles and call thread-specific logic when applicable
 		if (!glbTerminate && count > 1)
 		{
-			// Get first execution and sequence file handles
             TSUI_ExecutionsGetItem (executions, &errInfo, 1, &uiExec);
             execHandle = uiExec;
-            TS_ExecutionGetSequenceFile (execHandle, &errInfo, &seqFileHandle);
+			TS_ExecutionGetThread (execHandle, &errInfo, 0, &threadHandle);
+			TS_ThreadGetSequenceContext (threadHandle, &errInfo, 0, 0, &seqContext);
+			TS_SeqContextGetSequence (seqContext, &errInfo, &seqHandle);
+			TS_SequenceGetName (seqHandle, &errInfo, &seqName);
 			
 			// Get run state
 			enum TSEnum_ExecutionRunStates runState = 0;
@@ -153,18 +158,20 @@ int CVICALLBACK GenericTestThread (void *functionData)
 			TS_ExecutionGetStates (execHandle, &errInfo, &runState, &terminationState);
 			
 			// While sequence file is running, execute logic
-            if (runState == 1)
+            if (runState == 1 && strcmp (seqName, "MainSequence") == 0)
             { 
-				logicFn (execHandle, seqFileHandle); // calls thread-specific logic
+				printf ("Currently running sequence: %s\n", seqName);
+				logicFn (execHandle, seqHandle); // calls thread-specific logic
                 
 				TS_ExecutionGetStates (execHandle, &errInfo, &runState, &terminationState);
 				DelayWithEventProcessing(0.001);
+				break;
             }
 			
-			CA_DiscardObjHandle (seqFileHandle);
-            CA_DiscardObjHandle (uiExec);
-			
-			break;
+			CA_DiscardObjHandle (uiExec);
+			CA_DiscardObjHandle (threadHandle);
+			CA_DiscardObjHandle (seqContext);
+			CA_DiscardObjHandle (seqHandle);
 		}
 		
 		CA_DiscardObjHandle (executions);
@@ -180,13 +187,13 @@ int CVICALLBACK GenericTestThread (void *functionData)
 /***************************************************************************//*!
 * \brief EStop error injection thread
 *******************************************************************************/
-void ThreadLogic_ESTOP (CAObjHandle execHandle, CAObjHandle seqFileHandle)
+void ThreadLogic_ESTOP (CAObjHandle execHandle, CAObjHandle seqHandle)
 {
     printf("\tESTOP Logic Start\n");
 
     char TSMsgParams[16][512] = {0};
     char seqFileHandleStr[512] = {0};
-    sprintf (seqFileHandleStr, "%d", seqFileHandle);
+    sprintf (seqFileHandleStr, "%d", seqHandle);
 	
 	// Get ESTOP values
 	glbNumWatching++;
@@ -196,6 +203,7 @@ void ThreadLogic_ESTOP (CAObjHandle execHandle, CAObjHandle seqFileHandle)
 	strcpy (glbWatchVars[0].lookupString, "StationGlobals.GlobalAlarmConditions.EStopHigh");
 	glbWatchVars[0].varType = VARTYPE_BOOL;
     TSMsg_VAR_GET (0, TSMsgParams);
+	printf("\t\tESTOP: %s\n", glbWatchVars[0].varVal);
 	
 	// Wait 0.5 seconds, activate ESTOP
 	DelayWithEventProcessing (0.5);
@@ -214,7 +222,6 @@ void ThreadLogic_ESTOP (CAObjHandle execHandle, CAObjHandle seqFileHandle)
 	
 	// Check if ESTOP correctly activated
 	DelayWithEventProcessing (0.001);
-		
 	
     printf("\tESTOP Logic End\n");
 }

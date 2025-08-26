@@ -57,7 +57,7 @@ int StartTestThreads (ApplicationWindow GMainWindow, char errmsg[ERRLEN]);
 int CVICALLBACK GenericTestThread (void *functionData);
 
 // Thread-specific functions
-void ThreadLogic_ESTOP (CAObjHandle execHandle, CAObjHandle seqFileHandle);
+void ThreadLogic_ESTOP (CAObjHandle execHandle, CAObjHandle seqHandle);
 void ThreadLogic_FailChuteFull (CAObjHandle execHandle, CAObjHandle seqFileHandle);
 
 #ifdef __cplusplus
