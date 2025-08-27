@@ -139,7 +139,7 @@ TestIndex = 1
 [SF.Seq[0]]
 %FLG: Parameters = 4456448
 %FLG: Locals = 4194304
-%HI: Main = [6]
+%HI: Main = [9]
 %FLG: Main = 4194304
 %FLG: Setup = 4194304
 %FLG: Cleanup = 4194304
@@ -184,9 +184,15 @@ TestValUnit = "NA"
 %[4] = Step
 %TYPE: %[4] = "TestStepSequenceCall"
 %[5] = Step
-%TYPE: %[5] = "Label"
+%TYPE: %[5] = "NI_Flow_While"
 %[6] = Step
-%TYPE: %[6] = "TestStepSequenceCall"
+%TYPE: %[6] = "Statement"
+%[7] = Step
+%TYPE: %[7] = "NI_Flow_End"
+%[8] = Step
+%TYPE: %[8] = "Label"
+%[9] = Step
+%TYPE: %[9] = "TestStepSequenceCall"
 
 [SF.Seq[0].Main[0].TS]
 Id = "ID#:TBEfFnrM7hGedQTPSx+6LD"
@@ -433,36 +439,57 @@ ParamType = 1
 %NAME = "UnitTest_EStop"
 
 [SF.Seq[0].Main[5].TS]
-Id = "ID#:kZonWtl28BGjG7jKOqmvpD"
+Id = "ID#:3qWzRMaC8BGjH7jKOqmvpD"
+
+[SF.Seq[0].Main[5]]
+ConditionExpr = "True"
 
 [DEF, SF.Seq[0].Main[5]]
-%NAME = "============ Project Specific Unit Tests ============"
+%NAME = "While"
 
 [SF.Seq[0].Main[6].TS]
+Id = "ID#:q4o2JsaC8BGjH7jKOqmvpD"
+
+[DEF, SF.Seq[0].Main[6]]
+%NAME = "test"
+
+[SF.Seq[0].Main[7].TS]
+Id = "ID#:4KWzRMaC8BGjH7jKOqmvpD"
+
+[DEF, SF.Seq[0].Main[7]]
+%NAME = "End"
+
+[SF.Seq[0].Main[8].TS]
+Id = "ID#:kZonWtl28BGjG7jKOqmvpD"
+
+[DEF, SF.Seq[0].Main[8]]
+%NAME = "============ Project Specific Unit Tests ============"
+
+[SF.Seq[0].Main[9].TS]
 Id = "ID#:RIuwb4mP7BGdqNz7SDZo3B"
 CustTrueAct = "Next"
 CustTrueActTarget = ""
 
-[DEF, SF.Seq[0].Main[6].TS]
+[DEF, SF.Seq[0].Main[9].TS]
 SData = "TYPE, SeqCallStepAdditions"
 
-[SF.Seq[0].Main[6].TS.SData]
+[SF.Seq[0].Main[9].TS.SData]
 SeqName = "UnitTest_FormMIS"
 UseCurFile = True
 Trace = "Off"
 
-[DEF, SF.Seq[0].Main[6].TS.SData]
+[DEF, SF.Seq[0].Main[9].TS.SData]
 ActualArgs = Arguments
 
-[DEF, SF.Seq[0].Main[6].TS.SData.ActualArgs]
+[DEF, SF.Seq[0].Main[9].TS.SData.ActualArgs]
 TestInfo = "TYPE, SequenceArgument"
 
-[SF.Seq[0].Main[6].TS.SData.ActualArgs.TestInfo]
+[SF.Seq[0].Main[9].TS.SData.ActualArgs.TestInfo]
 UseDef = False
 Expr = "Parameters.TestInfo[Parameters.TestIndex]"
 ParamType = 1
 
-[DEF, SF.Seq[0].Main[6]]
+[DEF, SF.Seq[0].Main[9]]
 %NAME = "UnitTest_FormMIS"
 
 [DEF, SF.Seq[0].RTS]

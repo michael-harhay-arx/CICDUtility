@@ -20,23 +20,12 @@
 #include "ArxtronToolslib.h"
 
 #include "UIUtility.h"
+#include "TestExecExecute_DEF.h"
 #include "TSMessaging.h"
 #include "TestThreads.h"
 
 //==============================================================================
 // Constants
-
-#define MAX_BACKGROUND_THREADS	(20)
-#define MAX_POPUP_MSGS			(100)
-
-#define E_ESTOP					(99)
-
-#define CmtErrChk(fncall)\
-	if ((error = fncall))\
-	{\
-		CmtGetErrorMessage(error, errmsg);\
-		tsErrChk (error, errmsg);\
-	}
 
 //==============================================================================
 // Types
@@ -190,35 +179,28 @@ int CVICALLBACK GenericTestThread (void *functionData)
 void ThreadLogic_ESTOP (CAObjHandle execHandle, CAObjHandle seqHandle)
 {
     printf("\tESTOP Logic Start\n");
-
-    char TSMsgParams[16][512] = {0};
-    char seqFileHandleStr[512] = {0};
-    sprintf (seqFileHandleStr, "%d", seqHandle);
 	
-	// Get ESTOP values
-	glbNumWatching++;
-    strcpy (TSMsgParams[0], seqFileHandleStr);
-    strcpy (TSMsgParams[1], "MainSequence");
-	strcpy (glbWatchVars[0].seqName, "MainSequence");
-	strcpy (glbWatchVars[0].lookupString, "StationGlobals.GlobalAlarmConditions.EStopHigh");
-	glbWatchVars[0].varType = VARTYPE_BOOL;
-    TSMsg_VAR_GET (0, TSMsgParams);
-	printf("\t\tESTOP: %s\n", glbWatchVars[0].varVal);
+	TSSeqVar tmpSeqVar;
+	memset(&tmpSeqVar, 0, sizeof(tmpSeqVar));
+	int hasLock = 0;
 	
-	// Wait 0.5 seconds, activate ESTOP
+	// Timing logic
 	DelayWithEventProcessing (0.5);
 	
-	// If not yet set, set ESTOP to high
-	if (strcmp (glbWatchVars[0].varVal, "False") == 0)
+	// Set tmpSeqVar, then lock thread before actually applying change to ESTOP value
+	SetTSSeqVarStruct (tmpSeqVar, ARX_UI_CAPABILITY_SEQNAME, "StationGlobals.GlobalAlarmConditions.EStopHigh", VARTYPE_BOOL, VTRUE);
+	
+	CmtGetLockEx (glbSetVarLock, 1, CMT_WAIT_FOREVER, &hasLock);
+	if (hasLock)
 	{
+		strcpy (glbSetVars[glbNumSetting].lookupString, tmpSeqVar.lookupString);
+		strcpy (glbSetVars[glbNumSetting].seqName, tmpSeqVar.seqName);
+		glbSetVars[glbNumSetting].varType = tmpSeqVar.varType;
+		strcpy (glbSetVars[glbNumSetting].varVal, tmpSeqVar.varVal);
 		glbNumSetting++;
-		strcpy (glbSetVars[0].seqName, "MainSequence");
-		strcpy (glbSetVars[0].lookupString, "StationGlobals.GlobalAlarmConditions.EStopHigh");
-		glbSetVars[0].varType = VARTYPE_BOOL;
-		strcpy (glbSetVars[0].varVal, "True");
-		TSMsg_VAR_SET (0, TSMsgParams);
-		printf("\t\tESTOP set high");
+		CmtReleaseLock (glbSetVarLock);
 	}
+	printf("\t\tESTOP set to: True\n");
 	
 	// Check if ESTOP correctly activated
 	DelayWithEventProcessing (0.001);

@@ -24,6 +24,26 @@
 
 //==============================================================================
 // Constants
+		
+#define MAX_BACKGROUND_THREADS		(20)
+#define MAX_POPUP_MSGS				(100)
+
+#define E_ESTOP						(99)
+
+#define ARX_UI_CAPABILITY_SEQNAME	"Arxtron Sequencer"
+
+#define CmtErrChk(fncall)\
+	if ((error = fncall))\
+	{\
+		CmtGetErrorMessage(error, errmsg);\
+		tsErrChk (error, errmsg);\
+	}
+
+#define SetTSSeqVarStruct(tsseqvar, seqname, lookupstring, vartype, varval)\
+	sprintf(tsseqvar##.lookupString, "%s", #lookupstring);\
+	strcpy(tsseqvar##.seqName, seqname);\
+	tsseqvar##.varType = vartype;\
+	sprintf(tsseqvar##.varVal, "%d", varval);
 
 //==============================================================================
 // Types
